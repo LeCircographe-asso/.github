@@ -16,24 +16,86 @@
 - En tant qu'utilisateur, je veux pouvoir réinitialiser mon mot de passe si je l'ai oublié
 - En tant qu'utilisateur, je veux recevoir un email de confirmation lors de la création de mon compte
 
-## 👥 Gestion des Adhésions
-
+## 🎪 Adhésions et Cotisations
 ### Must Have
-- En tant qu'utilisateur, je veux pouvoir souscrire à une adhésion de base afin d'être membre de l'association
-- En tant qu'utilisateur, je veux pouvoir voir la date de fin de mon adhésion afin de savoir quand la renouveler
-- En tant que bénévole, je veux pouvoir vérifier si un utilisateur a une adhésion valide
-- En tant qu'admin, je veux pouvoir gérer les adhésions des membres (création, modification, annulation)
+- En tant que membre, je veux pouvoir :
+  * M'inscrire avec une adhésion Basic ou Cirque
+  * Renouveler mon adhésion avant expiration
+  * Voir mes séances restantes
+  * Consulter l'historique de mes présences
+  * Recevoir des alertes d'expiration
 
 ### Should Have
-- En tant qu'utilisateur, je veux pouvoir demander un tarif réduit avec justificatif
-- En tant qu'utilisateur, je veux recevoir une notification avant l'expiration de mon adhésion
-- En tant que bénévole, je veux pouvoir voir l'historique des adhésions d'un membre
-- En tant qu'admin, je veux pouvoir définir différents types d'adhésions avec leurs tarifs
+- En tant que membre, je veux pouvoir :
+  * Télécharger mes reçus de paiement
+  * Suspendre temporairement mon abonnement
+  * Voir les créneaux disponibles
+  * Mettre à jour mes informations
 
-### Could Have
-- En tant qu'utilisateur, je veux pouvoir télécharger ma carte de membre
-- En tant qu'utilisateur, je veux pouvoir renouveler automatiquement mon adhésion
-- En tant qu'admin, je veux pouvoir générer des rapports sur les adhésions
+## 📋 Gestion des Présences
+### Must Have
+- En tant que bénévole, je veux pouvoir :
+  * Vérifier les adhésions
+  * Enregistrer les présences
+  * Voir les quotas de présence
+  * Gérer les événements spéciaux
+
+### Should Have
+- En tant que bénévole, je veux pouvoir :
+  * Noter les incidents
+  * Voir l'historique des présences
+
+## 💰 Paiements et Comptabilité
+### Must Have
+- En tant qu'admin, je veux pouvoir :
+  * Enregistrer les paiements (CB, chèque, espèces)
+  * Émettre des reçus
+  * Suivre les paiements
+  * Gérer les tarifs réduits
+
+### Should Have
+- En tant qu'admin, je veux pouvoir :
+  * Générer des rapports financiers
+  * Gérer les remboursements
+  * Suivre les impayés
+  * Exporter les données comptables
+
+## 🔐 Rôles et Permissions
+### Bénévole
+- Vérifier les adhésions des membres
+- Enregistrer les présences quotidiennes
+- Consulter les statistiques du jour
+- Gérer les événements
+- Voir les alertes de capacité
+
+### Administrateur
+- Gérer les adhésions et abonnements
+- Traiter les paiements
+- Accéder aux rapports complets
+- Gérer les bénévoles
+- Configurer les paramètres
+
+### Super Admin
+- Accès complet au système
+- Gestion des rôles
+- Configuration avancée
+- Audit système
+- Correction des données
+
+## 📊 Traçabilité
+### Audit
+- Voir l'historique des modifications
+- Suivre les corrections automatiques
+- Consulter les logs de sécurité
+- Analyser les tendances
+- Exporter les données
+
+### Sécurité
+- Validation des accès
+- Protection des données
+- Détection des anomalies
+- Alertes de sécurité
+- Journal des incidents
 
 ## 🎪 Gestion des Entraînements
 
@@ -53,38 +115,6 @@
 - En tant qu'utilisateur, je veux pouvoir noter mes progrès par discipline
 - En tant qu'utilisateur, je veux pouvoir échanger mon créneau avec un autre membre
 - En tant que bénévole, je veux pouvoir ajouter des notes sur les séances
-
-## 💰 Gestion des Paiements
-
-### Must Have
-- En tant qu'utilisateur, je veux pouvoir payer mon adhésion en ligne
-- En tant qu'utilisateur, je veux recevoir une confirmation de paiement
-- En tant que bénévole, je veux pouvoir enregistrer un paiement en espèces
-- En tant qu'admin, je veux pouvoir suivre tous les paiements
-
-### Should Have
-- En tant qu'utilisateur, je veux pouvoir voir l'historique de mes paiements
-- En tant qu'utilisateur, je veux pouvoir choisir mon mode de paiement
-- En tant que bénévole, je veux pouvoir générer une facture
-- En tant qu'admin, je veux pouvoir gérer les remboursements
-
-### Could Have
-- En tant qu'utilisateur, je veux pouvoir configurer un paiement récurrent
-- En tant d'admin, je veux pouvoir générer des rapports financiers
-- En tant que bénévole, je veux pouvoir appliquer des réductions exceptionnelles
-
-## 👮 Gestion des Rôles
-
-### Must Have
-- En tant qu'admin, je veux pouvoir assigner des rôles aux utilisateurs
-- En tant qu'admin, je veux pouvoir définir les permissions par rôle
-- En tant que bénévole, je veux accéder aux fonctionnalités de gestion basique
-- En tant qu'utilisateur, je veux voir uniquement les actions autorisées pour mon rôle
-
-### Should Have
-- En tant qu'admin, je veux pouvoir créer des rôles personnalisés
-- En tant qu'admin, je veux pouvoir voir l'historique des modifications de rôles
-- En tant que bénévole, je veux pouvoir demander des permissions supplémentaires
 
 ## 📱 Progressive Web App
 
@@ -126,29 +156,6 @@
 - En tant qu'utilisateur, je veux pouvoir filtrer mes notifications par type
 - En tant qu'utilisateur, je veux pouvoir archiver mes anciennes notifications
 - En tant qu'administrateur, je veux pouvoir tester les notifications avant envoi
-
-## 🔐 Rôles et Permissions
-
-### Bénévole
-- Vérifier les adhésions des membres
-- Enregistrer les présences quotidiennes
-- Consulter les statistiques du jour
-- Gérer la liste d'attente
-- Voir les alertes de capacité
-
-### Administrateur
-- Gérer les adhésions et abonnements
-- Traiter les paiements
-- Accéder aux rapports complets
-- Gérer les bénévoles
-- Configurer les paramètres
-
-### Super Admin
-- Accès complet au système
-- Gestion des rôles
-- Configuration avancée
-- Audit système
-- Correction des données
 
 ## 📊 Traçabilité
 
