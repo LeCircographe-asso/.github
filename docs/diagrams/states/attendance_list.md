@@ -6,9 +6,13 @@ stateDiagram-v2
     state Active {
         [*] --> Empty
         Empty --> HasAttendees: Premier check-in
-        HasAttendees --> Full: Capacité atteinte
-        Full --> HasAttendees: Départ
         HasAttendees --> Empty: Dernier départ
     }
     
-    Closed --> [*] 
+    Closed --> [*]
+
+    note right of Active
+        Une liste peut avoir
+        un nombre illimité
+        de participants
+    end note 
