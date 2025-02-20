@@ -1,0 +1,50 @@
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-6">Horaires d'entraînement</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <% Schedule::DAYS_OF_WEEK.each do |day| %>
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-4"><%= day.capitalize %></h2>
+        
+        <% @schedules.for_day(day).each do |schedule| %>
+          <div class="mb-4 p-4 border rounded">
+            <div class="flex justify-between items-center">
+              <span class="font-medium">
+                <%= schedule.start_time.strftime("%H:%M") %> - 
+                <%= schedule.end_time.strftime("%H:%M") %>
+              </span>
+              <span class="text-sm text-gray-600">
+                <%= schedule.capacity %> places
+              </span>
+            </div>
+            
+            <% if schedule.description.present? %>
+              <p class="text-sm text-gray-600 mt-2">
+                <%= schedule.description %>
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @exceptions.any? %>
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4">Exceptions & Fermetures</h2>
+      
+      <div class="space-y-4">
+        <% @exceptions.each do |exception| %>
+          <div class="bg-yellow-50 border border-yellow-200 rounded p-4">
+            <div class="font-medium">
+              <%= l exception.date, format: :long %>
+            </div>
+            <p class="text-sm text-gray-600">
+              <%= exception.description %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div> 

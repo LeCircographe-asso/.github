@@ -5,11 +5,44 @@
 ```ruby
 # config/routes.rb
 Rails.application.routes.draw do
+  # Pages publiques
+  root "pages#home"
+  resources :schedules, only: [:index]  # Horaires publics
+  resources :events, only: [:index, :show]  # Événements publics
+  
   # Authentification
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
-  }
+  devise_for :users
+  
+  # Espaces par rôle
+  namespace :member do
+    resources :attendances, only: [:index, :show]
+    resources :events, only: [:index, :show] do
+      member do
+        post :mark_interested
+      end
+    end
+  end
+  
+  namespace :volunteer do
+    resources :dashboard, only: [:index]
+    resources :attendances
+    resources :payments
+    resources :memberships, only: [:new, :create]
+  end
+  
+  namespace :admin do
+    resources :dashboard, only: [:index]
+    resources :users
+    resources :roles
+    resources :memberships
+    resources :reports
+  end
+  
+  namespace :super_admin do
+    resources :system_settings
+    resources :logs
+    resources :backups
+  end
 
   # Interface Membre
   resources :memberships, except: [:destroy] do
@@ -70,9 +103,6 @@ Rails.application.routes.draw do
       resources :attendances, only: [:create]
     end
   end
-
-  # Root Route
-  root "pages#home"
 end
 ```
 

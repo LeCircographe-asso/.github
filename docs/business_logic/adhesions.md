@@ -1,12 +1,12 @@
 # Système d'Adhésion et Rôles
 
 ## Rôles Système
-### Backend (code)
-- Utilisateur : compte sans adhésion
-- Membre : statut de base pour tout adhérent
-- Bénévole : membre avec accès admin basique
-- Admin : accès complet
-- Super Admin : accès total (godmode)
+### Backend
+- Utilisateur (défaut) : compte sans adhésion
+- Membre : utilisateur avec adhésion active
+- Bénévole : membre avec accès gestion basique
+- Administrateur : accès complet à la gestion
+- Super Admin : accès total (configuration système)
 
 ### Frontend (affichage)
 - Utilisateur : compte sans adhésion
@@ -44,55 +44,60 @@
 
 ## Permissions par Rôle
 
-### Utilisateur (par défaut)
-- Gestion du profil basique :
-  * Modification email/mot de passe uniquement
-  * Modification nom/prénom
-- Newsletter :
-  * Inscription/désinscription
-- Consultation uniquement :
-  * Voir les types d'adhésion disponibles
-  * Voir les événements publics
-  * Voir les informations de l'association
-- Pas d'accès aux fonctionnalités de souscription en ligne
-  * L'adhésion se fait uniquement sur place
-  * Pas de paiement en ligne
+1. **Utilisateur**
+   - Gestion de son profil :
+     * Modification email/mot de passe
+     * Modification nom/prénom
+   - Newsletter :
+     * Inscription/désinscription
+   - Consultation uniquement :
+     * Voir les types d'adhésion disponibles
+     * Voir les événements publics
+     * Voir les informations de l'association
+   - Pas d'accès aux fonctionnalités de souscription en ligne
+     * L'adhésion se fait uniquement sur place
+     * Pas de paiement en ligne
 
-### Adhérent (Basic ou Cirque)
-- Toutes les permissions Utilisateur +
-- Gestion du profil complet :
-  * Voir son abonnement actif
-  * Voir sa date d'adhésion
-  * Voir son rôle actuel
-- Événements :
-  * Marquer son intérêt (bouton "intéressé")
-  * Voir tous les événements (publics et membres)
+2. **Membre** (nécessite une adhésion active)
+   - Tout ce qu'un Utilisateur peut faire
+   - Gestion du profil complet :
+     * Voir son abonnement actif
+     * Voir sa date d'adhésion
+     * Voir son historique
+   - Événements :
+     * Marquer son intérêt (bouton "intéressé")
+     * Voir tous les événements (publics et membres)
+     * Inscription aux événements membres
+   - Accès aux entraînements selon son type d'adhésion
 
-### Bénévole
-- Toutes les permissions Adhérent +
-- Accès dashboard admin (vue basique) :
-  * Gestion des présences aux entraînements
-  * Ouverture/fermeture de la salle
-  * Enregistrement des paiements sur place
-  * Validation des présences
+3. **Bénévole**
+   - Tout ce qu'un Membre peut faire
+   - Accès dashboard admin (vue basique) :
+     * Gestion des présences aux entraînements
+     * Ouverture/fermeture de la salle
+     * Enregistrement des paiements sur place
+     * Création d'adhésions
+     * Consultation des statistiques basiques
+     * Validation des présences
 
-### Admin
-- Accès complet au système
-- Dashboard admin complet :
-  * Gestion des utilisateurs
-  * Gestion des rôles
-  * Configuration du système
-  * Vue détaillée des fiches adhérents
-  * Rapports et statistiques
+4. **Administrateur**
+   - Tout ce qu'un Bénévole peut faire
+   - Dashboard admin complet :
+     * Gestion complète des membres
+     * Gestion des rôles Bénévole
+     * Configuration des adhésions et tarifs
+     * Vue détaillée des fiches adhérents
+     * Accès aux statistiques avancées
+     * Rapports financiers
 
-### Super Admin
-- Toutes les permissions Admin +
-- Accès aux logs système
-- Gestion des administrateurs
-- Configuration système avancée
-- Opérations de maintenance
-- Accès base de données
-- Gestion des sauvegardes
+5. **Super Admin**
+   - Tout ce qu'un Administrateur peut faire
+   - Gestion des rôles Administrateur
+   - Configuration système avancée
+   - Gestion des sauvegardes
+   - Accès aux logs système
+   - Opérations de maintenance
+   - Accès base de données
 
 ## Règles Générales
 - Une seule adhésion active par type

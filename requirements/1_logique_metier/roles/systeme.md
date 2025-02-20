@@ -3,7 +3,7 @@
 ## Principes de Base
 - Les rôles système et les types d'adhésion sont indépendants
 - Un utilisateur peut avoir :
-  * Un ou plusieurs rôles système (Bénévole, Admin, Super Admin)
+  * Un ou plusieurs rôles système
   * Une adhésion active (Basic ou Cirque)
 
 ## Rôles Système
@@ -12,27 +12,30 @@
 - Accès à son profil
 - Modification de ses informations personnelles
 - Consultation des types d'adhésion
-- Consultation des événements publics
 
-### 2. Bénévole (rôle additionnel)
-- Accès au tableau de bord simplifié
+### 2. Membre
+- Nécessite une adhésion active
+- Accès aux entraînements selon son type d'adhésion
+- Consultation de son historique
+- Inscription aux événements
+
+### 3. Bénévole
 - Gestion des présences
-- Enregistrement des adhésions
-- Validation des entrées
 - Enregistrement des paiements
+- Création d'adhésions
+- Consultation des statistiques basiques
 
-### 3. Administrateur (rôle additionnel)
+### 4. Administrateur
 - Gestion complète des membres
-- Configuration du système
-- Gestion des rôles bénévoles
-- Accès aux statistiques
-- Rapports financiers
+- Gestion des rôles Bénévole
+- Configuration des adhésions et tarifs
+- Accès aux statistiques avancées
 
-### 4. Super Admin (rôle unique)
-- Gestion des administrateurs
-- Configuration système avancée
+### 5. Super Admin
+- Gestion des rôles Administrateur
+- Configuration système
+- Gestion des sauvegardes
 - Accès aux logs système
-- Opérations de maintenance
 
 ## Types d'Adhésion
 

@@ -3,11 +3,9 @@
 ## User
 ```ruby
 class User < ApplicationRecord
-  # Attributs validés
-  validates :email, presence: true, uniqueness: true
-  validates :first_name, :last_name, presence: true
-  validates :member_number, uniqueness: true, format: { with: /\A\d{4}[A-Z]\d{4}\z/ }
-
+  # Rôles
+  ROLES = %w[user member volunteer admin super_admin].freeze
+  
   # Relations
   has_many :user_roles
   has_many :roles, through: :user_roles
@@ -17,24 +15,45 @@ class User < ApplicationRecord
   has_many :attendances
   has_many :recorded_payments, class_name: 'Payment', foreign_key: :recorded_by_id
   has_many :recorded_attendances, class_name: 'Attendance', foreign_key: :recorded_by_id
-
-  # Callbacks
-  before_validation :generate_member_number, on: :create
+  
+  # Validations
+  validates :email, presence: true, uniqueness: true
+  validates :name, presence: true
+  
+  # Scopes
+  scope :members, -> { joins(:roles).where(roles: { name: 'member' }) }
+  scope :volunteers, -> { joins(:roles).where(roles: { name: 'volunteer' }) }
+  scope :admins, -> { joins(:roles).where(roles: { name: 'admin' }) }
+  
+  # Méthodes de rôle
+  def member?
+    roles.exists?(name: 'member')
+  end
+  
+  def volunteer?
+    roles.exists?(name: 'volunteer')
+  end
+  
+  def admin?
+    roles.exists?(name: 'admin')
+  end
+  
+  def super_admin?
+    roles.exists?(name: 'super_admin')
+  end
 end
 ```
 
 ## Role
 ```ruby
 class Role < ApplicationRecord
-  # Enum
-  enum name: { member: 0, volunteer: 1, admin: 2, super_admin: 3 }
-
   # Relations
-  has_many :user_roles, dependent: :destroy
+  has_many :user_roles
   has_many :users, through: :user_roles
-
+  
   # Validations
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, 
+                  inclusion: { in: User::ROLES }
 end
 ```
 
@@ -44,9 +63,25 @@ class UserRole < ApplicationRecord
   # Relations
   belongs_to :user
   belongs_to :role
-
+  
   # Validations
   validates :user_id, uniqueness: { scope: :role_id }
+  
+  # Callbacks
+  after_create :grant_member_permissions
+  after_destroy :revoke_member_permissions
+  
+  private
+  
+  def grant_member_permissions
+    return unless role.name == 'member'
+    # Logique d'attribution des permissions
+  end
+  
+  def revoke_member_permissions
+    return unless role.name == 'member'
+    # Logique de révocation des permissions
+  end
 end
 ```
 

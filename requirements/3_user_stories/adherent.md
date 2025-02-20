@@ -6,8 +6,21 @@ En tant qu'utilisateur, je veux...
 - Modifier mes informations de base (email, mot de passe, nom, prénom)
 - M'inscrire/me désinscrire de la newsletter
 - Voir les types d'adhésion disponibles
-- Voir les événements publics
-- Voir les informations de l'association
+
+En tant que membre avec adhésion active, je veux...
+- Voir mon type d'adhésion actuel
+- Voir ma date d'adhésion et d'expiration
+- Consulter mon historique de présences
+- Voir mes paiements effectués
+- M'inscrire aux événements membres
+- Marquer mon intérêt pour les événements
+
+## Accès aux Entraînements
+En tant que membre avec adhésion cirque, je veux...
+- Voir les créneaux d'entraînement disponibles
+- Consulter mon solde de séances (si pack)
+- Voir mon historique de présences
+- Recevoir une notification avant expiration
 
 ## Adhésion Basic (1€)
 En tant qu'adhérent Basic, je veux...

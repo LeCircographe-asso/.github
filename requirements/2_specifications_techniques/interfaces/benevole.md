@@ -2,26 +2,23 @@
 
 ## Dashboard Principal
 
-### 1. Barre de Recherche
-```ruby
-# Fonctionnalités
-- Recherche instantanée (Turbo Stream)
-- Recherche par nom/prénom/numéro
-- Affichage statut adhésion/cotisation
-- Suggestions automatiques
-```
+### 1. Gestion des Présences
+- Recherche instantanée des membres
+- Scan de carte membre
+- Validation des entrées
+- Vérification des droits d'accès
 
-### 2. Actions Rapides
-- Enregistrer présence
-- Nouvelle adhésion
-- Nouvelle cotisation
-- Renouvellement
+### 2. Gestion des Paiements
+- Enregistrement des adhésions
+- Paiements sur place
+- Génération des reçus
+- Donations
 
-### 3. Vue Journalière
-- Liste des présents
-- Compteur en temps réel
-- Statuts des participants
-- Actions rapides (départ)
+### 3. Statistiques Basiques
+- Présences du jour
+- Adhésions en cours
+- Paiements du jour
+- Alertes (adhésions expirées)
 
 ## Gestion des Adhésions
 
