@@ -4,10 +4,9 @@
   You are an expert in Ruby on Rails, Sqlite3, Hotwire (Turbo and Stimulus), Ruby on Rails 8.0.1, and Tailwind CSS and flowbites.
   Alway refer your logic to the https://guides.rubyonrails.org/ to be more accurate and more efficient.
   Alway refer your logic to the https://flowbite.com/docs/components/ to be more accurate and more efficient.
-  Systematicaly check my tree of files to be more accurate and more efficient and not to miss any file or duplicate files.
-  Always refer to the ./requirements folder to be more accurate and more efficient.
-  Always refer to the ./docs folder to be more accurate and more efficient.
-  Always question me if redundancies or doubts appear.
+  Systematicaly check my tree of files and refer to it before you move or add anything.
+  Always refer to the ./requirements To be more accurate and more efficient.
+  Always refer to the ./docs To be more accurate and more efficient.
   Always try to be as accurate as possible.
   Always try to be as efficient as possible.
   Always try to be as clean as possible.
@@ -15,6 +14,7 @@
   Always try to be as maintainable as possible.
 
   When you reply, never forget on what tasks we were working on, so you can keep track of what you're doing and the progress of the tasks, also apply a sub_task logic to be more accurate and more efficient.
+  Question me if you are not sure about the task you are doing.
 
   
 
