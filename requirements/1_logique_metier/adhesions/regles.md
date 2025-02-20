@@ -6,10 +6,10 @@
    - Adhésion Cirque (10€/an, 7€ tarif réduit)
 
 2. **Règles de Base**
-   - Une personne peut avoir les deux types d'adhésion simultanément
+   - Une personne peut avoir une seule adhésion active
    - L'adhésion cirque nécessite une adhésion simple valide
    - Les adhésions sont valables un an à partir de la date de souscription
-   - Possibilité de renouvellement avant expiration
+   - Renouvellement possible 1 mois avant expiration
 
 3. **Tarifs Réduits**
    - Applicable uniquement sur l'adhésion cirque
@@ -19,19 +19,20 @@
 ## Processus de Gestion
 
 ### Création d'Adhésion
-1. Vérification identité
+1. Vérification identité (email/nom/prénom)
 2. Enregistrement informations personnelles
 3. Choix du type d'adhésion
 4. Vérification justificatifs (si nécessaire)
 5. Paiement
-6. Génération carte membre
+6. Activation immédiate
 
 ### Renouvellement
-1. Vérification statut actuel
-2. Conservation historique
-3. Mise à jour dates validité
-4. Nouveau paiement
-5. Mise à jour carte membre
+1. Recherche membre (numéro/email/nom/prénom)
+2. Vérification statut actuel
+3. Conservation historique
+4. Mise à jour dates validité
+5. Paiement
+6. Activation immédiate
 
 ### Cas Particuliers
 - Perte carte membre : régénération possible

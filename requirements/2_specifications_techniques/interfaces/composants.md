@@ -3,13 +3,10 @@
 ## Composants Partagés
 
 ### 1. Recherche Utilisateur
-```ruby
-# Turbo Stream Search
 - Mise à jour en temps réel
 - Suggestions intelligentes
 - Affichage statut
 - Actions contextuelles
-```
 
 ### 2. Formulaires
 - Validation instantanée
@@ -33,11 +30,12 @@
 
 ### 1. Carte Membre
 - Numéro unique
-- Statut visuel
+- Statut visuel (Basic/Cirque)
+- Date de validité
 - Informations essentielles
 
 ### 2. Pointage
-- Scanner QR Code
+- Recherche par numéro membre/email/nom/ prénom
 - Validation rapide
 - Confirmation visuelle
 - Historique immédiat
