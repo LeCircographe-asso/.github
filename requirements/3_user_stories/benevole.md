@@ -21,6 +21,19 @@ En tant que bénévole, je veux...
 - Enregistrer les donations
 - Appliquer les tarifs réduits avec justificatif
 
+## Gestion des Présences
+En tant que bénévole, je veux...
+- Voir la liste de présence du jour
+- Ajouter un adhérent à la liste
+- Voir rapidement si un adhérent :
+  * A une adhésion valide
+  * A un abonnement actif
+  * A déjà été pointé aujourd'hui
+- Être alerté si :
+  * L'adhésion est expirée
+  * L'abonnement est épuisé
+  * L'adhérent est déjà pointé
+
 ## Scénarios Détaillés
 
 ### En tant que bénévole à l'accueil
@@ -76,4 +89,25 @@ Alors je peux :
   - Enregistrer le montant de la donation
   - Noter si c'est anonyme ou non
   - Générer un reçu si demandé
+```
+
+## Scénarios
+
+### Pointage Standard
+```gherkin
+Scénario: Pointage d'un adhérent
+Étant donné que je suis bénévole
+Et que nous ne sommes pas lundi
+Quand je scanne la carte d'un adhérent
+Alors je peux voir son statut
+Et l'ajouter à la liste si tout est en ordre
+```
+
+### Jour de Fermeture
+```gherkin
+Scénario: Tentative de pointage un lundi
+Étant donné que je suis bénévole
+Et que nous sommes lundi
+Alors je vois un message indiquant que le Circographe est fermé
+Et je ne peux pas ajouter d'adhérents
 ``` 
