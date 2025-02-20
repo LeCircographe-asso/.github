@@ -2,116 +2,150 @@
 
 ## User
 ```ruby
-class User
-  # Attributs principaux
-  - email: string, unique
-  - first_name: string
-  - last_name: string
-  - phone: string
-  - member_number: string # Format: YYT0001
-  - birthdate: date
-  - address: text
-  - emergency_contact: string
-  - emergency_phone: string
-  - active: boolean
+class User < ApplicationRecord
+  # Attributs validés
+  validates :email, presence: true, uniqueness: true
+  validates :first_name, :last_name, presence: true
+  validates :member_number, uniqueness: true, format: { with: /\A\d{4}[A-Z]\d{4}\z/ }
 
   # Relations
-  has_many :roles
+  has_many :user_roles
+  has_many :roles, through: :user_roles
   has_many :memberships
   has_many :subscriptions
   has_many :payments
-  has_many :donations
   has_many :attendances
+  has_many :recorded_payments, class_name: 'Payment', foreign_key: :recorded_by_id
+  has_many :recorded_attendances, class_name: 'Attendance', foreign_key: :recorded_by_id
+
+  # Callbacks
+  before_validation :generate_member_number, on: :create
 end
 ```
 
 ## Role
 ```ruby
-class Role
-  # Attributs
-  - user_id: references
-  - role_type: enum [:member, :volunteer, :admin, :super_admin]
-  - active: boolean
-  - assigned_at: datetime
-  - assigned_by_id: references
+class Role < ApplicationRecord
+  # Enum
+  enum name: { member: 0, volunteer: 1, admin: 2, super_admin: 3 }
 
   # Relations
+  has_many :user_roles, dependent: :destroy
+  has_many :users, through: :user_roles
+
+  # Validations
+  validates :name, presence: true, uniqueness: true
+end
+```
+
+## UserRole
+```ruby
+class UserRole < ApplicationRecord
+  # Relations
   belongs_to :user
-  belongs_to :assigned_by, class_name: 'User'
+  belongs_to :role
+
+  # Validations
+  validates :user_id, uniqueness: { scope: :role_id }
 end
 ```
 
 ## Membership
 ```ruby
-class Membership
-  # Attributs
-  - user_id: references
-  - type: enum [:basic, :circus]
-  - start_date: date
-  - end_date: date
-  - price_paid: decimal
-  - reduced_price: boolean
-  - reduction_reason: string
-  - active: boolean
+class Membership < ApplicationRecord
+  # Enum
+  enum type: { basic: 'BasicMembership', circus: 'CircusMembership' }
 
   # Relations
   belongs_to :user
-  has_many :payments, as: :payable
+  has_many :payments, as: :payable, dependent: :restrict_with_error
+
+  # Validations
+  validates :user, :start_date, :end_date, presence: true
+  validates :type, presence: true, inclusion: { in: types.keys }
+  validate :end_date_after_start_date
+
+  # Scopes
+  scope :active, -> { where('start_date <= ? AND end_date >= ?', Date.current, Date.current) }
+
+  private
+
+  def end_date_after_start_date
+    return if end_date.blank? || start_date.blank?
+    errors.add(:end_date, "doit être après la date de début") if end_date <= start_date
+  end
 end
 ```
 
 ## Subscription
 ```ruby
-class Subscription
-  # Attributs
-  - user_id: references
-  - type: enum [:daily, :pack_10, :trimester, :annual]
-  - start_date: date
-  - end_date: date
-  - entries_count: integer
-  - entries_left: integer
-  - price_paid: decimal
-  - active: boolean
+class Subscription < ApplicationRecord
+  # Enum
+  enum type: { 
+    daily: 'DailySubscription',
+    pack_10: 'PackSubscription',
+    trimester: 'QuarterlySubscription',
+    annual: 'YearlySubscription'
+  }
 
   # Relations
   belongs_to :user
-  has_many :payments, as: :payable
-  has_many :attendances
+  has_many :payments, as: :payable, dependent: :restrict_with_error
+  has_many :attendances, dependent: :restrict_with_error
+
+  # Validations
+  validates :user, :start_date, presence: true
+  validates :type, presence: true, inclusion: { in: types.keys }
+  validates :entries_left, numericality: { less_than_or_equal_to: :entries_count }, if: :pack?
+
+  # Scopes
+  scope :active, -> { where('start_date <= ? AND (end_date >= ? OR end_date IS NULL)', Date.current, Date.current) }
+  scope :with_entries, -> { where('entries_left > 0') }
 end
 ```
 
 ## Payment
 ```ruby
-class Payment
-  # Attributs
-  - user_id: references
-  - amount: decimal
-  - payment_method: enum [:card, :cash, :check]
-  - payable_type: string
-  - payable_id: integer
-  - recorded_by_id: references
-  - donation_amount: decimal
-  - receipt_number: string
+class Payment < ApplicationRecord
+  # Enum
+  enum payment_method: { card: 0, cash: 1, check: 2 }
 
   # Relations
   belongs_to :user
-  belongs_to :recorded_by, class_name: 'User'
   belongs_to :payable, polymorphic: true
+  belongs_to :recorded_by, class_name: 'User'
+
+  # Validations
+  validates :user, :recorded_by, :payment_method, presence: true
+  validates :amount, presence: true, numericality: { greater_than: 0 }
+  validates :donation_amount, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :receipt_number, presence: true, uniqueness: true, 
+            format: { with: /\A\d{8}-[A-Z]+-\d{3}\z/ }
+
+  # Callbacks
+  before_validation :generate_receipt_number, on: :create
 end
 ```
 
 ## Attendance
 ```ruby
-class Attendance
-  # Attributs
-  - user_id: references
-  - subscription_id: references
-  - check_in_time: datetime
-  - recorded_by_id: references
-
+class Attendance < ApplicationRecord
   # Relations
   belongs_to :user
-  belongs_to :subscription, optional: true
+  belongs_to :subscription
   belongs_to :recorded_by, class_name: 'User'
+
+  # Validations
+  validates :user, :subscription, :recorded_by, :check_in, presence: true
+  validates :user_id, uniqueness: { scope: :check_in, message: "déjà pointé à cette date" }
+
+  # Callbacks
+  after_create :decrement_subscription_entries, if: -> { subscription.pack? }
+
+  private
+
+  def decrement_subscription_entries
+    subscription.decrement!(:entries_left) if subscription.entries_left.positive?
+  end
 end
 ``` 

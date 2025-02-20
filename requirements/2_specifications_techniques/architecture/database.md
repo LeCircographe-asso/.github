@@ -5,12 +5,12 @@
 ### users
 | Colonne | Type | Description |
 |---------|------|-------------|
-| email | string | Unique, index |
-| password_digest | string | Crypté |
-| first_name | string | |
-| last_name | string | |
+| email | string | null: false, index: { unique: true } |
+| password_digest | string | null: false |
+| first_name | string | null: false |
+| last_name | string | null: false |
 | phone | string | |
-| member_number | string | Format: YYYYNNN |
+| member_number | string | Format: YYYYNNN, index: true |
 | birthdate | date | |
 | address | text | |
 | emergency_contact | string | |
@@ -20,55 +20,60 @@
 ### roles
 | Colonne | Type | Description |
 |---------|------|-------------|
-| name | string | volunteer/admin/super_admin |
+| name | string | null: false, enum: [:member, :volunteer, :admin, :super_admin] |
 | timestamps | datetime | created_at/updated_at |
 
 ### user_roles
 | Colonne | Type | Description |
 |---------|------|-------------|
-| user_id | references | Foreign Key |
-| role_id | references | Foreign Key |
+| user | references | null: false, foreign_key: true |
+| role | references | null: false, foreign_key: true |
 | timestamps | datetime | created_at/updated_at |
+| index | | [:user_id, :role_id], unique: true |
 
 ### memberships
 | Colonne | Type | Description |
 |---------|------|-------------|
-| user_id | references | Foreign Key |
-| type | string | basic/circus |
-| start_date | date | |
-| end_date | date | |
+| user | references | null: false, foreign_key: true |
+| type | string | null: false, enum: [:basic, :circus] |
+| start_date | date | null: false |
+| end_date | date | null: false |
 | reduced_price | boolean | default: false |
+| reduction_reason | string | |
 | timestamps | datetime | created_at/updated_at |
+| check_constraint | | "end_date > start_date" |
 
 ### subscriptions
 | Colonne | Type | Description |
 |---------|------|-------------|
-| user_id | references | Foreign Key |
-| type | string | daily/pack/quarterly/yearly |
-| start_date | date | |
-| end_date | date | Null pour pack |
+| user | references | null: false, foreign_key: true |
+| type | string | null: false, enum: [:daily, :pack_10, :trimester, :annual] |
+| start_date | date | null: false |
+| end_date | date | null pour pack |
 | entries_count | integer | Pour les carnets |
 | entries_left | integer | Pour les carnets |
 | timestamps | datetime | created_at/updated_at |
+| check_constraint | | "entries_left <= entries_count" |
 
 ### payments
 | Colonne | Type | Description |
 |---------|------|-------------|
-| user_id | references | Foreign Key |
-| payable | references | Polymorphic (Membership/Subscription) |
-| amount | decimal | precision: 10, scale: 2 |
-| donation_amount | decimal | precision: 10, scale: 2 |
-| payment_method | string | cash/card/check |
-| receipt_number | string | YYYYMMDD-TYPE-NNN |
+| user | references | null: false, foreign_key: true |
+| payable | references | null: false, polymorphic: true |
+| amount | decimal | null: false, precision: 10, scale: 2 |
+| donation_amount | decimal | precision: 10, scale: 2, default: 0.0 |
+| payment_method | string | null: false, enum: [:card, :cash, :check] |
+| receipt_number | string | null: false, unique: true, format: YYYYMMDD-TYPE-NNN |
 | installment_number | integer | Pour paiement en plusieurs fois |
-| recorded_by | references | Foreign Key (users) |
+| recorded_by | references | null: false, foreign_key: { to_table: :users } |
 | timestamps | datetime | created_at/updated_at |
 
 ### attendances
 | Colonne | Type | Description |
 |---------|------|-------------|
-| user_id | references | Foreign Key |
-| subscription_id | references | Foreign Key |
-| check_in | datetime | |
-| recorded_by | references | Foreign Key (users) |
-| timestamps | datetime | created_at/updated_at | 
+| user | references | null: false, foreign_key: true |
+| subscription | references | null: false, foreign_key: true |
+| check_in | datetime | null: false |
+| recorded_by | references | null: false, foreign_key: { to_table: :users } |
+| timestamps | datetime | created_at/updated_at |
+| index | | [:user_id, :check_in], unique: true | 
