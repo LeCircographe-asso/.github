@@ -1,0 +1,42 @@
+<%# app/views/layouts/auth.html.erb %>
+<!DOCTYPE html>
+<html class="h-full bg-gray-50">
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Le Circographe" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="h-full">
+    <% if flash.any? %>
+      <div class="fixed top-4 right-4 z-50">
+        <% flash.each do |type, message| %>
+          <div class="<%= flash_class(type) %> mb-2">
+            <%= message %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
+
+<%# app/helpers/application_helper.rb %>
+def flash_class(type)
+  base_class = "px-4 py-3 rounded relative"
+  case type.to_sym
+  when :notice, :success
+    "#{base_class} bg-green-100 border border-green-400 text-green-700"
+  when :alert, :error
+    "#{base_class} bg-red-100 border border-red-400 text-red-700"
+  else
+    "#{base_class} bg-blue-100 border border-blue-400 text-blue-700"
+  end
+end 
