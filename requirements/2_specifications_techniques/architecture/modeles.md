@@ -162,67 +162,63 @@ class Payment < ApplicationRecord
 end
 ```
 
+## DailyAttendanceList
+```ruby
+class DailyAttendanceList < ApplicationRecord
+  # Relations
+  has_many :attendances
+  
+  # Validations
+  validates :date, presence: true, uniqueness: true
+  
+  # Scopes
+  scope :today, -> { find_or_create_by(date: Date.current) }
+  scope :recent, -> { where(date: 2.weeks.ago..Date.current).order(date: :desc) }
+  
+  # Méthodes
+  def self.generate_for_today
+    return if Date.current.monday? # Fermé le lundi
+    return if exists?(date: Date.current) # Déjà créée
+    
+    create!(date: Date.current)
+  end
+end
+```
+
 ## Attendance
 ```ruby
 class Attendance < ApplicationRecord
   # Relations
+  belongs_to :daily_attendance_list
   belongs_to :user
-  belongs_to :subscription
   belongs_to :recorded_by, class_name: 'User'
+  belongs_to :subscription, optional: true # Pour les adhérents basic
 
   # Validations
-  validates :user, :subscription, :recorded_by, :check_in, presence: true
-  validates :user_id, uniqueness: { scope: :check_in, message: "déjà pointé à cette date" }
+  validates :user_id, uniqueness: { scope: :daily_attendance_list_id, 
+                                  message: "déjà pointé aujourd'hui" }
+  validate :user_has_valid_membership
+  validate :subscription_valid, if: :subscription
 
   # Callbacks
-  after_create :decrement_subscription_entries, if: -> { subscription.pack? }
+  after_create :decrement_subscription_entries, if: -> { subscription&.pack? }
 
   private
+
+  def user_has_valid_membership
+    unless user.memberships.active.exists?
+      errors.add(:user, "doit avoir une adhésion valide")
+    end
+  end
+
+  def subscription_valid
+    unless subscription.active?
+      errors.add(:subscription, "doit être valide")
+    end
+  end
 
   def decrement_subscription_entries
     subscription.decrement!(:entries_left) if subscription.entries_left.positive?
   end
 end
 ```
-
-# Modèle Schedule
-```ruby
-class Schedule < ApplicationRecord
-  # Constants
-  DAYS_OF_WEEK = %w[lundi mardi mercredi jeudi vendredi samedi dimanche].freeze
-
-  # Relations
-  has_many :schedule_exceptions
-  has_many :attendances
-
-  # Validations
-  validates :day_of_week, presence: true, inclusion: { in: DAYS_OF_WEEK }
-  validates :start_time, presence: true
-  validates :end_time, presence: true
-  validates :capacity, presence: true, numericality: { greater_than: 0 }
-  validate :end_time_after_start_time
-
-  # Scopes
-  scope :for_day, ->(day) { where(day_of_week: day) }
-  scope :active, -> { where(active: true) }
-  scope :ordered, -> { order(:day_of_week, :start_time) }
-
-  private
-
-  def end_time_after_start_time
-    return if end_time.blank? || start_time.blank?
-    errors.add(:end_time, "doit être après l'heure de début") if end_time <= start_time
-  end
-end
-
-class ScheduleException < ApplicationRecord
-  # Relations
-  belongs_to :schedule
-
-  # Validations
-  validates :date, presence: true
-  validates :description, presence: true
-
-  # Scopes
-  scope :current_and_upcoming, -> { where("date >= ?", Date.current).order(:date) }
-end 

@@ -1,0 +1,12 @@
+<div class="training-sessions">
+  <% @training_sessions.today.each do |session| %>
+    <div class="session-card">
+      <h3><%= session.schedule.description %></h3>
+      <p>
+        <%= session.schedule.start_time.strftime("%H:%M") %> - 
+        <%= session.schedule.end_time.strftime("%H:%M") %>
+      </p>
+      <p>Places : <%= session.attendances.count %> / <%= session.capacity %></p>
+    </div>
+  <% end %>
+</div> 
