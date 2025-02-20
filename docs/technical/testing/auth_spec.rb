@@ -32,12 +32,12 @@ RSpec.describe "Authentication", type: :system do
   end
 
   describe "Login" do
-    let!(:user) { create(:user, email: "jean@test.com", password: "password123") }
+    let(:user) { create(:user, email: "test@example.com", password: "password123") }
 
     it "allows users to sign in with correct credentials" do
-      visit auth_login_path
+      visit login_path
       
-      fill_in "Email", with: "jean@test.com"
+      fill_in "Email", with: user.email
       fill_in "Mot de passe", with: "password123"
       click_button "Se connecter"
       
@@ -46,27 +46,25 @@ RSpec.describe "Authentication", type: :system do
     end
 
     it "remembers user when remember me is checked" do
-      visit auth_login_path
+      visit login_path
       
-      fill_in "Email", with: "jean@test.com"
+      fill_in "Email", with: user.email
       fill_in "Mot de passe", with: "password123"
       check "Se souvenir de moi"
       click_button "Se connecter"
       
-      expect(page).to have_text("Connexion réussie")
-      expect(user.reload.remember_token).to be_present
-      expect(user.remember_token_expires_at).to be > 13.days.from_now
+      expect(page.driver.browser.rack_mock_session.cookie_jar['remember_token']).to be_present
     end
 
     it "shows error with invalid credentials" do
-      visit auth_login_path
+      visit login_path
       
       fill_in "Email", with: "jean@test.com"
       fill_in "Mot de passe", with: "wrong_password"
       click_button "Se connecter"
       
       expect(page).to have_text("Email ou mot de passe invalide")
-      expect(page).to have_current_path(auth_login_path)
+      expect(page).to have_current_path(login_path)
     end
   end
 
@@ -94,6 +92,42 @@ RSpec.describe "Authentication", type: :system do
       
       expect(user.reload.remember_token).to be_nil
       expect(user.remember_token_expires_at).to be_nil
+    end
+  end
+
+  describe "Password Reset" do
+    let(:user) { create(:user) }
+
+    it "allows users to request password reset" do
+      visit password_new_path
+      
+      fill_in "Email", with: user.email
+      click_button "Réinitialiser le mot de passe"
+      
+      expect(page).to have_text("Instructions envoyées")
+      expect(ActionMailer::Base.deliveries.last.to).to include(user.email)
+    end
+  end
+
+  describe "User Model" do
+    describe "validations" do
+      it { should validate_presence_of(:email) }
+      it { should validate_uniqueness_of(:email).case_insensitive }
+      it { should validate_length_of(:password).is_at_least(8) }
+    end
+
+    describe ".authenticate_by" do
+      let(:user) { create(:user, password: "password123") }
+
+      it "authenticates with correct credentials" do
+        authenticated = User.authenticate_by(email: user.email, password: "password123")
+        expect(authenticated).to eq(user)
+      end
+
+      it "returns nil with incorrect credentials" do
+        authenticated = User.authenticate_by(email: user.email, password: "wrong")
+        expect(authenticated).to be_nil
+      end
     end
   end
 end

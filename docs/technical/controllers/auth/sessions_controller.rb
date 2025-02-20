@@ -7,9 +7,9 @@ module Auth
     end
 
     def create
-      user = User.find_by(email: params[:email].downcase)
+      user = User.authenticate_by(email: params[:email], password: params[:password])
       
-      if user&.authenticate(params[:password])
+      if user
         sign_in(user, remember: params[:remember_me] == '1')
         redirect_to after_sign_in_path_for(user), notice: 'Connexion réussie'
       else

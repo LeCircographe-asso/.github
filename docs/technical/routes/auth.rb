@@ -1,14 +1,15 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  # Routes d'authentification
-  namespace :auth do
-    get 'login', to: 'sessions#new'
-    post 'login', to: 'sessions#create'
-    delete 'logout', to: 'sessions#destroy'
-    
-    get 'register', to: 'registrations#new'
-    post 'register', to: 'registrations#create'
-  end
+  # Routes d'authentification générées par Rails 8
+  get  '/login', to: 'auth/sessions#new'
+  post '/login', to: 'auth/sessions#create'
+  get  '/logout', to: 'auth/sessions#destroy'
+  
+  # Routes de réinitialisation de mot de passe
+  get  '/password/new', to: 'auth/passwords#new'
+  post '/password/reset', to: 'auth/passwords#create'
+  get  '/password/edit', to: 'auth/passwords#edit'
+  patch '/password/update', to: 'auth/passwords#update'
 
   # Autres routes...
 end 

@@ -6,18 +6,15 @@
       </h2>
     </div>
 
-    <%= form_with(url: auth_login_path, class: "mt-8 space-y-6") do |f| %>
+    <%= form_with(url: login_path, class: "mt-8 space-y-6") do |f| %>
       <div class="rounded-md shadow-sm -space-y-px">
         <div>
-          <%= f.label :email, class: "sr-only" %>
           <%= f.email_field :email, 
               class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm",
               placeholder: "Email",
-              required: true,
-              autofocus: true %>
+              required: true %>
         </div>
         <div>
-          <%= f.label :password, class: "sr-only" %>
           <%= f.password_field :password,
               class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm",
               placeholder: "Mot de passe",
@@ -30,6 +27,10 @@
           <%= f.check_box :remember_me, class: "h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" %>
           <%= f.label :remember_me, "Se souvenir de moi", class: "ml-2 block text-sm text-gray-900" %>
         </div>
+
+        <%= link_to "Mot de passe oublié ?", 
+            password_new_path,
+            class: "text-sm font-medium text-indigo-600 hover:text-indigo-500" %>
       </div>
 
       <%= f.submit "Se connecter",
