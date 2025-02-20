@@ -6,7 +6,7 @@ RSpec.describe "Authentication", type: :system do
 
   describe "Registration" do
     it "allows new users to sign up" do
-      visit auth_register_path
+      visit register_path
       
       fill_in "Nom", with: "Jean Test"
       fill_in "Email", with: "jean@test.com"
@@ -22,7 +22,7 @@ RSpec.describe "Authentication", type: :system do
     end
 
     it "shows validation errors" do
-      visit auth_register_path
+      visit register_path
       click_button "Créer mon compte"
       
       expect(page).to have_text("Email doit être rempli")
@@ -72,7 +72,7 @@ RSpec.describe "Authentication", type: :system do
     let(:user) { create(:user) }
     
     before do
-      sign_in_as user
+      sign_in user
     end
 
     it "allows user to sign out" do
@@ -85,13 +85,10 @@ RSpec.describe "Authentication", type: :system do
     end
 
     it "clears remember token on logout" do
-      user.remember_me
-      
       visit root_path
       click_link "Déconnexion"
       
-      expect(user.reload.remember_token).to be_nil
-      expect(user.remember_token_expires_at).to be_nil
+      expect(page.driver.browser.rack_mock_session.cookie_jar['remember_token']).to be_nil
     end
   end
 
@@ -134,12 +131,12 @@ end
 
 # spec/requests/auth/sessions_controller_spec.rb
 RSpec.describe Auth::SessionsController, type: :request do
-  describe "POST /auth/login" do
+  describe "POST /login" do
     let!(:user) { create(:user, email: "test@example.com", password: "password123") }
     
     context "with valid credentials" do
       it "signs in the user" do
-        post auth_login_path, params: { 
+        post login_path, params: { 
           email: "test@example.com",
           password: "password123"
         }
@@ -150,14 +147,13 @@ RSpec.describe Auth::SessionsController, type: :request do
     end
     
     context "with remember me" do
-      it "sets remember token" do
-        post auth_login_path, params: { 
+      it "sets remember token cookie" do
+        post login_path, params: {
           email: "test@example.com",
           password: "password123",
           remember_me: "1"
         }
         
-        expect(user.reload.remember_token).to be_present
         expect(response.cookies["remember_token"]).to be_present
       end
     end
@@ -173,15 +169,23 @@ RSpec.describe User, type: :model do
     it { should validate_length_of(:password).is_at_least(8) }
   end
 
-  describe "#remember_me" do
-    let(:user) { create(:user) }
+  describe ".authenticate_by" do
+    let(:user) { create(:user, password: "password123") }
     
-    it "sets remember token and expiration" do
-      user.remember_me
-      
-      expect(user.remember_token).to be_present
-      expect(user.remember_token_expires_at).to be_present
-      expect(user.remember_token_expires_at).to be > 13.days.from_now
+    it "authenticates with valid credentials" do
+      authenticated = User.authenticate_by(
+        email: user.email,
+        password: "password123"
+      )
+      expect(authenticated).to eq(user)
+    end
+
+    it "returns nil with invalid credentials" do
+      authenticated = User.authenticate_by(
+        email: user.email,
+        password: "wrong"
+      )
+      expect(authenticated).to be_nil
     end
   end
 end 
