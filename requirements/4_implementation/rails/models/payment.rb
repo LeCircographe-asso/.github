@@ -7,8 +7,40 @@ class Payment < ApplicationRecord
 
   # Callbacks
   after_create :handle_donation, if: :has_donation?
+  after_create :track_creation
+  after_update :track_changes
+  before_destroy :track_deletion
 
   private
+
+  def track_creation
+    PaymentHistory.create!(
+      payment: self,
+      action: 'create',
+      changes: attributes,
+      recorded_by: recorded_by
+    )
+  end
+
+  def track_changes
+    return unless saved_changes.any?
+    
+    PaymentHistory.create!(
+      payment: self,
+      action: 'update',
+      changes: saved_changes,
+      recorded_by: recorded_by
+    )
+  end
+
+  def track_deletion
+    PaymentHistory.create!(
+      payment_id: id, # Sauvegarde l'ID car le payment va être supprimé
+      action: 'delete',
+      changes: attributes,
+      recorded_by: recorded_by
+    )
+  end
 
   def validate_amounts
     case payable_type
