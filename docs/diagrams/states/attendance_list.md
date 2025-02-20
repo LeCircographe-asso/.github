@@ -1,18 +1,22 @@
+# États des Listes de Présence
+
+```mermaid
 stateDiagram-v2
-    [*] --> Created: Création automatique/manuelle
-    Created --> Active: Ouverture
-    Active --> Closed: Fermeture
+    [*] --> Created: Création (Auto/Manuel)
+    Created --> Open: Ouverture créneau
+    Open --> Closed: Fermeture créneau
     
-    state Active {
+    state Open {
         [*] --> Empty
-        Empty --> HasAttendees: Premier check-in
-        HasAttendees --> Empty: Dernier départ
+        Empty --> HasAttendees: Premier pointage
+        HasAttendees --> Full: Capacité atteinte
     }
     
     Closed --> [*]
 
-    note right of Active
-        Une liste peut avoir
-        un nombre illimité
-        de participants
+    note right of Open
+        Types de liste :
+        * Entraînement (auto)
+        * Événement (manuel)
+        * Réunion (admin)
     end note 
