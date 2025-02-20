@@ -5,11 +5,11 @@
 ### Installation Rails
 ```bash
 # Création du projet avec les configurations modernes
-rails new circographe --css tailwind --database=sqlite3 --javascript=importmap
-```
+rails new circographe \
+  --css tailwind \
+  --database=sqlite3 \
+  --javascript=importmap
 
-### Authentification Native
-```ruby
 # Installation de l'authentification native Rails 8
 rails generate authentication:install
 rails generate authentication:user User

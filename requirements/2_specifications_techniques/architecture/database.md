@@ -11,6 +11,8 @@
 | last_name | string | null: false |
 | phone | string | |
 | member_number | string | Format: YYYYNNN, index: true |
+| email_verified_at | datetime | |
+| remember_token | string | |
 | birthdate | date | |
 | address | text | |
 | emergency_contact | string | |

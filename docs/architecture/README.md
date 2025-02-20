@@ -29,20 +29,30 @@ app/
 
 ### 1. Authentification & Autorisation
 - Authentification native Rails 8
-- Système de rôles personnalisé
-- Gestion fine des permissions
+  * Session-based authentication
+  * Remember me functionality
+  * Password reset
+  * Email verification
+- Système de rôles basé sur les tables roles et user_roles
+- Gestion des permissions par rôle
 
 ### 2. Interface Utilisateur
-- Components Flowbite
-- Interactions temps réel avec Hotwire
-- Design responsive
+- Components Flowbite pour l'UI
+- Interactions temps réel avec Hotwire (Turbo + Stimulus)
+- Design responsive avec Tailwind CSS
+- Formulaires dynamiques
 
 ### 3. Base de Données
 - SQLite3 en développement
 - Migrations versionnées
-- Indexation optimisée
+- Indexation optimisée pour les recherches fréquentes
+- STI pour memberships et subscriptions
 
 ### 4. Performance
-- Cache Redis
-- Background jobs avec Sidekiq
-- Assets précompilés 
+- Cache Redis pour les sessions
+- Background jobs avec Sidekiq pour :
+  * Envoi d'emails
+  * Génération de rapports
+  * Calcul de statistiques
+- Assets précompilés
+- Optimisation des requêtes N+1 
