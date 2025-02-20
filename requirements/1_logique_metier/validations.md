@@ -1,92 +1,73 @@
 # Critères de Validation Technique
 
 ## Validation des Données
+### Utilisateurs et Authentification
 - Email : format valide, unique
 - Mot de passe : min 8 caractères, 1 majuscule, 1 chiffre
-- Dates : format ISO 8601
-- Montants : decimal(10,2)
+- Rôles autorisés : guest, member, volunteer, admin uniquement
+- Permissions : vérification stricte selon le rôle
+
+### Documents et Fichiers
 - Fichiers : taille max 5MB, formats autorisés (PDF, JPG, PNG)
-- Téléphone : format international (+33)
-- Adresse : validation postale (France)
-- Décharge de responsabilité : signature obligatoire (numerique ou orale)
+- Justificatifs : vérification de validité
+- Photos : format carré recommandé, max 1MB
+
+### Données Financières
+- Montants : decimal(10,2)
+- Dates : format ISO 8601
+- Paiements : CB (SumUp), espèces, chèque uniquement
 
 ## Validation des Actions
 ### Adhésions
 - Une seule adhésion active par type (Basic, Cirque)
-- Adhésion Basic requise pour Circus
-- Justificatif requis pour tarif réduit (étudiant, RSA, mineurs.)
+- Adhésion Basic requise pour Cirque
+- Justificatif requis pour tarif réduit (étudiant, RSA, mineurs)
 - Pas de chevauchement d'adhésions
 - Vérification automatique des renouvellements
 - Alerte avant expiration (30j, 15j, 7j)
-- Respect des quotas par type d'adhésion
 
-### Cotisations
+### Cotisations et Abonnements
+- Types autorisés :
+  * Séance unique (4€, valable jour même)
+  * Carnet de 10 séances (validité illimitée)
+  * Trimestriel (3 mois de date à date)
+  * Annuel (12 mois de date à date)
 - Adhésion Cirque valide requise
-- Montant exact requis selon grille tarifaire
 - Un seul abonnement actif à la fois
-- Vérification du nombre de séances (carte de 10 séances)
-- Validation des dates de validité (6 mois max)
-- Règles de suspension/reprise (certificat médical)
-- Calcul prorata temporis
-- Respect des créneaux horaires
-- Gestion des reports exceptionnels
+- Validation des dates selon le type
 
-### Présences
+### Listes de Présence
+- Types de listes :
+  * Entraînement Libre (volunteer + admin)
+  * Evènement (volunteer + admin)
+  * Reunion (admin uniquement)
+- Une seule présence par personne par liste
+- Vérification des droits d'accès selon le type
+- Contrôle des doublons par liste
 - Adhésion/cotisation valide requise
-- Une seule présence par jour et par type de liste de présence
-- Enregistrement par bénévole uniquement
-- Vérification des capacités maximales (seulement pour les listes de présence evenement)
-- Contrôle des doublons
-- Règles d'annulation (24h minimum)
-- Respect des horaires d'ouverture
-- Validation du niveau requis
-- Gestion des cas particuliers (stages, événements)
 
 ### Paiements
+- Méthodes acceptées :
+  * CB via SumUp
+  * Espèces
+  * Chèque
 - Montant exact requis
-- Méthode de paiement valide (CB, chèque, espèces)
 - Reçu obligatoire (format PDF)
 - Traçabilité complète
-- Validation en temps réel
 - Protection anti-doublon
-- Historique des transactions
-- Rapprochement bancaire
-- Gestion des avoirs
-- Facturation automatique mais sur demandes
 
 ## Validation Système
-### Données
-- Cohérence des relations
-- Intégrité référentielle
-- Unicité des enregistrements
-- Format des données
-- Détection des anomalies
-- Nettoyage automatique
-- Archivage sécurisé
-- Sauvegarde quotidienne
-- Validation des imports
-- Gestion des doublons
-
 ### Sécurité
-- Permissions utilisateur (membre, bénévole, admin)
-- Tokens d'authentification (JWT)
-- Limites de tentatives (5 max)
+- Permissions par rôle :
+  * guest : lecture seule, données publiques
+  * member : accès personnel limité
+  * volunteer : gestion présences (hors Reunion)
+  * admin : accès complet
+- Tokens d'authentification
 - Journalisation des accès
-- Protection CSRF/XSS
-- Rate limiting
-- Validation des sessions
-- Audit de sécurité
-- Double authentification
-- Gestion des accès temporaires
 
 ### Automatisation
 - Vérification quotidienne des adhésions
-- Correction automatique des anomalies
 - Notification des anomalies
-- Audit des modifications
 - Sauvegarde des données
-- Monitoring système
-- Rapports d'erreurs
-- Métriques de performance
-- Statistiques d'utilisation
-- Alertes de maintenance 
+- Audit des modifications 
