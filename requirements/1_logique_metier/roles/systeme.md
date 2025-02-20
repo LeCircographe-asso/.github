@@ -1,39 +1,61 @@
-# Système de Rôles
+# Système de Rôles et Adhésions
 
 ## Principes de Base
-- Un utilisateur peut avoir plusieurs rôles simultanément
-- Les rôles sont cumulatifs (les permissions s'additionnent)
-- Les rôles sont indépendants des adhésions/cotisations
+- Les rôles système et les types d'adhésion sont indépendants
+- Un utilisateur peut avoir :
+  * Un ou plusieurs rôles système (Bénévole, Admin, Super Admin)
+  * Une adhésion active (Basic ou Cirque)
 
-## Types de Rôles
+## Rôles Système
 
-### 1. Adhérent (Base)
+### 1. Utilisateur (défaut)
 - Accès à son profil
-- Consultation de son historique
-- Gestion de ses informations personnelles
+- Modification de ses informations personnelles
+- Consultation des types d'adhésion
+- Consultation des événements publics
 
-### 2. Bénévole
+### 2. Bénévole (rôle additionnel)
+- Accès au tableau de bord simplifié
 - Gestion des présences
 - Enregistrement des adhésions
-- Vente de cotisations
 - Validation des entrées
-- Accès au tableau de bord simplifié
+- Enregistrement des paiements
 
-### 3. Administrateur
+### 3. Administrateur (rôle additionnel)
 - Gestion complète des membres
-- Accès aux statistiques
 - Configuration du système
-- Gestion des rôles
+- Gestion des rôles bénévoles
+- Accès aux statistiques
 - Rapports financiers
 
-### 4. Super Admin
-- Configuration système
+### 4. Super Admin (rôle unique)
 - Gestion des administrateurs
+- Configuration système avancée
 - Accès aux logs système
 - Opérations de maintenance
 
-## Attribution des Rôles
-- Seul un admin peut attribuer des rôles
-- Conservation de l'historique des attributions
-- Traçabilité des modifications
-- Possibilité de suspension temporaire 
+## Types d'Adhésion
+
+### 1. Basic
+- Accès aux événements membres
+- Participation aux assemblées
+- Newsletter
+- Durée : 1 an
+
+### 2. Cirque
+- Tous les avantages Basic
+- Accès aux entraînements
+- Historique de présence
+- Tarifs préférentiels
+- Durée : 1 an
+
+## Gestion des Rôles
+- Super Admin peut gérer les Administrateurs
+- Administrateur peut gérer les Bénévoles
+- Conservation de l'historique des modifications
+- Traçabilité complète
+
+## Gestion des Adhésions
+- Bénévoles et Admins peuvent gérer les adhésions
+- Un membre peut avoir une seule adhésion active
+- L'adhésion Cirque nécessite une adhésion Basic valide 
