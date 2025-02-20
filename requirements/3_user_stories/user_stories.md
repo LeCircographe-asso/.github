@@ -125,4 +125,43 @@
 ### Could Have
 - En tant qu'utilisateur, je veux pouvoir filtrer mes notifications par type
 - En tant qu'utilisateur, je veux pouvoir archiver mes anciennes notifications
-- En tant qu'administrateur, je veux pouvoir tester les notifications avant envoi 
+- En tant qu'administrateur, je veux pouvoir tester les notifications avant envoi
+
+## 🔐 Rôles et Permissions
+
+### Bénévole
+- Vérifier les adhésions des membres
+- Enregistrer les présences quotidiennes
+- Consulter les statistiques du jour
+- Gérer la liste d'attente
+- Voir les alertes de capacité
+
+### Administrateur
+- Gérer les adhésions et abonnements
+- Traiter les paiements
+- Accéder aux rapports complets
+- Gérer les bénévoles
+- Configurer les paramètres
+
+### Super Admin
+- Accès complet au système
+- Gestion des rôles
+- Configuration avancée
+- Audit système
+- Correction des données
+
+## 📊 Traçabilité
+
+### Audit
+- Voir l'historique des modifications
+- Suivre les corrections automatiques
+- Consulter les logs de sécurité
+- Analyser les tendances
+- Exporter les données
+
+### Sécurité
+- Validation des accès
+- Protection des données
+- Détection des anomalies
+- Alertes de sécurité
+- Journal des incidents 
