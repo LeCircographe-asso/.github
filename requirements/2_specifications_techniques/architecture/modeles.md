@@ -183,4 +183,46 @@ class Attendance < ApplicationRecord
     subscription.decrement!(:entries_left) if subscription.entries_left.positive?
   end
 end
-``` 
+```
+
+# Modèle Schedule
+```ruby
+class Schedule < ApplicationRecord
+  # Constants
+  DAYS_OF_WEEK = %w[lundi mardi mercredi jeudi vendredi samedi dimanche].freeze
+
+  # Relations
+  has_many :schedule_exceptions
+  has_many :attendances
+
+  # Validations
+  validates :day_of_week, presence: true, inclusion: { in: DAYS_OF_WEEK }
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+  validates :capacity, presence: true, numericality: { greater_than: 0 }
+  validate :end_time_after_start_time
+
+  # Scopes
+  scope :for_day, ->(day) { where(day_of_week: day) }
+  scope :active, -> { where(active: true) }
+  scope :ordered, -> { order(:day_of_week, :start_time) }
+
+  private
+
+  def end_time_after_start_time
+    return if end_time.blank? || start_time.blank?
+    errors.add(:end_time, "doit être après l'heure de début") if end_time <= start_time
+  end
+end
+
+class ScheduleException < ApplicationRecord
+  # Relations
+  belongs_to :schedule
+
+  # Validations
+  validates :date, presence: true
+  validates :description, presence: true
+
+  # Scopes
+  scope :current_and_upcoming, -> { where("date >= ?", Date.current).order(:date) }
+end 
