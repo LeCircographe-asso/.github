@@ -4,7 +4,7 @@
 En tant que bénévole, je veux...
 - Accéder à une version basique du dashboard admin
 - Voir les entraînements du jour
-- Voir la liste des adhérents
+- Voir la liste des présences du jour (Entraînement Libre)
 - Accéder aux fonctionnalités de gestion basique
 
 ## Gestion des Entraînements
@@ -16,9 +16,10 @@ En tant que bénévole, je veux...
 ## Gestion des Paiements
 En tant que bénévole, je veux...
 - Enregistrer les paiements sur place
-- Enregistrer les adhésions (Basic et Cirque)
-- Appliquer les tarifs réduits avec justificatif
+- Enregistrer les adhésions (Basic ou Cirque)
+- Enregistrer les abonnements
 - Enregistrer les donations
+- Appliquer les tarifs réduits avec justificatif
 
 ## Scénarios Détaillés
 
@@ -52,7 +53,7 @@ Scénario: Gestion des paiements
 Quand je reçois un paiement
 Alors je peux :
   - Enregistrer le montant
-  - Spécifier le type (adhésion/donation)
+  - Spécifier le type (adhésion/abonnement/donation)
   - Noter si tarif réduit
 ```
 
@@ -64,4 +65,15 @@ Alors je peux voir :
   - Mon profil adhérent normal
   - Mes outils de bénévole
   - Le dashboard basique
+```
+
+### En tant que bénévole à la caisse
+```gherkin
+Scénario: Réception d'une donation
+Étant donné que je suis à l'accueil
+Quand quelqu'un souhaite faire un don
+Alors je peux :
+  - Enregistrer le montant de la donation
+  - Noter si c'est anonyme ou non
+  - Générer un reçu si demandé
 ``` 
