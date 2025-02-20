@@ -33,7 +33,6 @@
 
 ### 1. Carte Membre
 - Numéro unique
-- QR Code
 - Statut visuel
 - Informations essentielles
 
