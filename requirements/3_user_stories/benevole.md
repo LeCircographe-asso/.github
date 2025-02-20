@@ -1,59 +1,67 @@
 # User Stories - Bénévole
 
-## Gestion Quotidienne
+## Accès Dashboard
+En tant que bénévole, je veux...
+- Accéder à une version basique du dashboard admin
+- Voir les entraînements du jour
+- Voir la liste des adhérents
+- Accéder aux fonctionnalités de gestion basique
 
-### En tant que bénévole de service
-```gherkin
-Scénario: Ouverture session
-Quand je prends mon service
-Alors je peux accéder au tableau de bord
-Et voir la liste des présents
-Et gérer les entrées/sorties
-```
+## Gestion des Entraînements
+En tant que bénévole, je veux...
+- Ouvrir/fermer la salle d'entraînement
+- Faire le pointage des présences
+- Valider la présence des adhérents Cirque
+
+## Gestion des Paiements
+En tant que bénévole, je veux...
+- Enregistrer les paiements sur place
+- Enregistrer les adhésions (Basic et Cirque)
+- Appliquer les tarifs réduits avec justificatif
+- Enregistrer les donations
+
+## Scénarios Détaillés
 
 ### En tant que bénévole à l'accueil
 ```gherkin
-Scénario: Nouvelle adhésion
-Quand un visiteur souhaite adhérer
+Scénario: Enregistrement d'une nouvelle adhésion
+Étant donné que je suis connecté comme bénévole
+Quand un utilisateur se présente pour adhérer
 Alors je peux :
-  - Créer son compte
-  - Enregistrer son adhésion
-  - Traiter le paiement
-  - Générer sa carte membre
+  - Vérifier son compte utilisateur
+  - Sélectionner le type d'adhésion
+  - Appliquer le tarif réduit si justificatif
+  - Enregistrer le paiement
 ```
 
-## Gestion des Présences
-
-### En tant que bénévole
+### En tant que bénévole aux entraînements
 ```gherkin
-Scénario: Pointage membre
-Quand un membre se présente
+Scénario: Gestion d'une séance
+Étant donné que je suis bénévole de permanence
+Quand j'ouvre la salle
 Alors je peux :
-  - Vérifier ses droits
-  - Enregistrer sa présence
-  - Voir son historique
-  - Gérer son départ
+  - Marquer la salle comme ouverte
+  - Pointer les présences des adhérents
+  - Fermer la salle en fin de séance
 ```
 
-## Vente et Renouvellement
-
-### En tant que bénévole caisse
+### En tant que bénévole gestionnaire
 ```gherkin
-Scénario: Vente cotisation
-Quand un membre souhaite une cotisation
+Scénario: Gestion des paiements
+Étant donné que je suis à l'accueil
+Quand je reçois un paiement
 Alors je peux :
-  - Vérifier son adhésion
-  - Proposer les options
-  - Traiter le paiement
-  - Activer la cotisation
+  - Enregistrer le montant
+  - Spécifier le type (adhésion/donation)
+  - Noter si tarif réduit
 ```
 
-### En tant que bénévole administratif
+### En tant que bénévole adhérent
 ```gherkin
-Scénario: Renouvellement
-Quand une adhésion arrive à échéance
-Alors je peux :
-  - Notifier le membre
-  - Traiter le renouvellement
-  - Mettre à jour la carte
+Scénario: Accès à mes fonctions
+Quand j'accède à mon compte
+Alors je peux voir :
+  - Mon profil adhérent normal
+  - Mes outils de bénévole
+  - Le dashboard basique
 ``` 
