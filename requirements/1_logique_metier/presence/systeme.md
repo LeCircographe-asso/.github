@@ -1,10 +1,50 @@
 # Système de Présence
 
 ## Principes de Base
-- Une liste de présence unique est créée automatiquement chaque jour (sauf lundi)
-- Le Circographe est fermé tous les lundis
-- Pas de notion de créneaux horaires dans le système de présence
-- Un adhérent ne peut être pointé qu'une seule fois par jour
+- Système flexible de listes de présence
+- Création automatique pour les entraînements (sauf lundi)
+- Création manuelle possible pour tout type de liste
+- Un adhérent ne peut être pointé qu'une fois par liste
+
+## Types de Listes
+1. **Entraînement**
+   - Création automatique quotidienne (sauf lundi)
+   - Décompte des séances pour les abonnements
+   - Titre automatique standardisé
+
+2. **Réunion**
+   - Création manuelle
+   - Pas de décompte de séances
+   - Titre et description personnalisés
+
+3. **Événement**
+   - Création manuelle
+   - Pas de décompte de séances
+   - Pour les événements spéciaux
+
+4. **Exceptionnel**
+   - Pour les ouvertures hors calendrier
+   - Décompte des séances si applicable
+   - Nécessite une justification
+
+## Processus de Création
+1. **Automatique**
+   - Chaque jour à minuit (sauf lundi)
+   - Type "Entraînement"
+   - Titre standard
+
+2. **Manuel**
+   - Par un bénévole ou admin
+   - Choix du type
+   - Titre personnalisé
+   - Description/justification
+   - Possible même les lundis
+
+## Gestion des Présences
+- Pointage identique quel que soit le type de liste
+- Validation des adhésions toujours active
+- Décompte des séances uniquement pour les types appropriés
+- Export et statistiques par type de liste
 
 ## Types d'Adhérents
 1. **Adhérent Basic**

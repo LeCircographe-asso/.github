@@ -165,22 +165,49 @@ end
 ## DailyAttendanceList
 ```ruby
 class DailyAttendanceList < ApplicationRecord
+  # Enum pour le type de liste
+  enum list_type: {
+    training: 'training',      # Entraînement standard
+    meeting: 'meeting',        # Réunion
+    event: 'event',           # Événement spécial
+    exceptional: 'exceptional' # Ouverture exceptionnelle
+  }
+
   # Relations
   has_many :attendances
+  belongs_to :created_by, class_name: 'User'
   
   # Validations
-  validates :date, presence: true, uniqueness: true
+  validates :date, presence: true
+  validates :list_type, presence: true
+  validates :title, presence: true
+  validates :date, uniqueness: { scope: :list_type, 
+    message: "Une liste de ce type existe déjà pour cette date" }
   
   # Scopes
-  scope :today, -> { find_or_create_by(date: Date.current) }
+  scope :today, -> { where(date: Date.current) }
   scope :recent, -> { where(date: 2.weeks.ago..Date.current).order(date: :desc) }
+  
+  # Callbacks
+  before_validation :set_default_title, if: :training?
   
   # Méthodes
   def self.generate_for_today
-    return if Date.current.monday? # Fermé le lundi
-    return if exists?(date: Date.current) # Déjà créée
+    return if exists?(date: Date.current, list_type: :training)
+    return if Date.current.monday? # Skip lundi sauf création manuelle
     
-    create!(date: Date.current)
+    create!(
+      date: Date.current,
+      list_type: :training,
+      created_by: User.system_user,
+      automatic: true
+    )
+  end
+
+  private
+
+  def set_default_title
+    self.title = "Entraînement du #{I18n.l(date, format: :long)}" if title.blank?
   end
 end
 ```
