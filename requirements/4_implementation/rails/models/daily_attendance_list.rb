@@ -41,6 +41,46 @@ class DailyAttendanceList < ApplicationRecord
     end
   end
 
+  # Ajout des méthodes de statistiques
+  def attendance_stats
+    {
+      total_attendees: attendances.count,
+      members: attendances.joins(:user).where(users: { membership_type: 'member' }).count,
+      volunteers: attendances.joins(:user).where(users: { admin_role: 'volunteer' }).count,
+      subscription_users: attendances.where.not(subscription_id: nil).count,
+      capacity_percentage: capacity_percentage,
+      peak_hours: peak_hours
+    }
+  end
+
+  def peak_hours
+    attendances
+      .group_by_hour(:created_at)
+      .count
+      .sort_by { |_, count| count }
+      .last(3)
+      .to_h
+  end
+
+  def capacity_percentage
+    return 0 if max_capacity.zero?
+    (attendances.count.to_f / max_capacity * 100).round(2)
+  end
+
+  def daily_report
+    {
+      date: date,
+      type: list_type,
+      status: status,
+      stats: attendance_stats,
+      exceptions: {
+        holiday: holiday?,
+        exceptional_closing: exceptional_closing?,
+        outside_hours: outside_opening_hours?
+      }
+    }
+  end
+
   private
 
   def validate_opening_status
