@@ -34,6 +34,15 @@ En tant que bénévole, je veux...
   * L'abonnement est épuisé
   * L'adhérent est déjà pointé
 
+## Gestion des Listes de Présence
+En tant que bénévole, je veux...
+- Voir toutes les listes du jour
+- Faire le check-in sur les listes d'entraînement et d'événements
+- Voir rapidement si un adhérent :
+  * A une adhésion valide
+  * A un abonnement actif
+  * Est déjà sur d'autres listes du jour
+
 ## Scénarios Détaillés
 
 ### En tant que bénévole à l'accueil
@@ -95,19 +104,46 @@ Alors je peux :
 
 ### Pointage Standard
 ```gherkin
-Scénario: Pointage d'un adhérent
+Scénario: Pointage sur la liste d'entraînement
 Étant donné que je suis bénévole
-Et que nous ne sommes pas lundi
 Quand je scanne la carte d'un adhérent
 Alors je peux voir son statut
 Et l'ajouter à la liste si tout est en ordre
 ```
 
-### Jour de Fermeture
+### Gestion Multiple
 ```gherkin
-Scénario: Tentative de pointage un lundi
+Scénario: Gestion de plusieurs listes
 Étant donné que je suis bénévole
-Et que nous sommes lundi
-Alors je vois un message indiquant que le Circographe est fermé
-Et je ne peux pas ajouter d'adhérents
+Et qu'il existe une liste d'entraînement aujourd'hui
+Quand je crée une nouvelle liste de type "réunion"
+Alors je peux gérer les deux listes en parallèle
+Et pointer les adhérents sur l'une ou l'autre
+```
+
+### Vérification des Droits
+```gherkin
+Scénario: Vérification avant pointage
+Étant donné qu'un adhérent se présente
+Quand je scanne sa carte
+Alors je vois :
+  * Son type d'adhésion
+  * Son abonnement actif (si applicable)
+  * Les listes où il est déjà présent aujourd'hui
+```
+
+### Scénarios
+```gherkin
+Scénario: Check-in événement
+Étant donné que je suis bénévole
+Et qu'il y a un événement aujourd'hui
+Quand je scanne la carte d'un adhérent
+Alors je peux l'ajouter à la liste de l'événement
+Et voir son statut d'adhésion
+
+Scénario: Tentative d'accès réunion
+Étant donné que je suis bénévole
+Et qu'il y a une réunion aujourd'hui
+Alors je ne vois pas l'option de check-in pour cette liste
+Et je suis informé que seuls les admins peuvent gérer les réunions
 ``` 

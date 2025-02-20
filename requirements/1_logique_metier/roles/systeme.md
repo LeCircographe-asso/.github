@@ -61,4 +61,17 @@
 ## Gestion des Adhésions
 - Bénévoles et Admins peuvent gérer les adhésions
 - Un membre peut avoir une seule adhésion active
-- L'adhésion Cirque nécessite une adhésion Basic valide 
+- L'adhésion Cirque nécessite une adhésion Basic valide
+
+# Hiérarchie des Rôles
+
+## Rôles de Base
+1. **User** (défaut)
+   - Création de compte
+   - Modification profil
+   - Consultation horaires
+
+2. **Member** (avec adhésion)
+   - Tout ce qu'un User peut faire
+   - Accès aux fonctionnalités membres
+   - Participation aux événements 

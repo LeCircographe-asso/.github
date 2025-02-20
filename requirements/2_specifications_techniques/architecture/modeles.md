@@ -167,10 +167,9 @@ end
 class DailyAttendanceList < ApplicationRecord
   # Enum pour le type de liste
   enum list_type: {
-    training: 'training',      # Entraînement standard
-    meeting: 'meeting',        # Réunion
-    event: 'event',           # Événement spécial
-    exceptional: 'exceptional' # Ouverture exceptionnelle
+    training: 'training',      # Entraînement quotidien
+    meeting: 'meeting',        # Réunion (admin uniquement)
+    event: 'event',           # Événement (check-in bénévole ok)
   }
 
   # Relations
@@ -181,20 +180,21 @@ class DailyAttendanceList < ApplicationRecord
   validates :date, presence: true
   validates :list_type, presence: true
   validates :title, presence: true
-  validates :date, uniqueness: { scope: :list_type, 
-    message: "Une liste de ce type existe déjà pour cette date" }
+  validates :date, uniqueness: { scope: [:list_type, :title], 
+    message: "Une liste avec ce titre existe déjà pour cette date et ce type" }
   
   # Scopes
-  scope :today, -> { where(date: Date.current) }
+  scope :for_date, ->(date) { where(date: date) }
+  scope :training, -> { where(list_type: :training) }
+  scope :special, -> { where.not(list_type: :training) }
   scope :recent, -> { where(date: 2.weeks.ago..Date.current).order(date: :desc) }
   
   # Callbacks
   before_validation :set_default_title, if: :training?
   
   # Méthodes
-  def self.generate_for_today
+  def self.generate_daily_training
     return if exists?(date: Date.current, list_type: :training)
-    return if Date.current.monday? # Skip lundi sauf création manuelle
     
     create!(
       date: Date.current,
@@ -204,48 +204,29 @@ class DailyAttendanceList < ApplicationRecord
     )
   end
 
+  # Méthodes de permission
+  def can_be_managed_by?(user)
+    case list_type
+    when 'training', 'event'
+      user.volunteer? || user.admin?
+    when 'meeting'
+      user.admin?
+    end
+  end
+
+  def can_checkin?(user)
+    case list_type
+    when 'training', 'event'
+      user.volunteer? || user.admin?
+    when 'meeting'
+      user.admin?
+    end
+  end
+
   private
 
   def set_default_title
     self.title = "Entraînement du #{I18n.l(date, format: :long)}" if title.blank?
-  end
-end
-```
-
-## Attendance
-```ruby
-class Attendance < ApplicationRecord
-  # Relations
-  belongs_to :daily_attendance_list
-  belongs_to :user
-  belongs_to :recorded_by, class_name: 'User'
-  belongs_to :subscription, optional: true # Pour les adhérents basic
-
-  # Validations
-  validates :user_id, uniqueness: { scope: :daily_attendance_list_id, 
-                                  message: "déjà pointé aujourd'hui" }
-  validate :user_has_valid_membership
-  validate :subscription_valid, if: :subscription
-
-  # Callbacks
-  after_create :decrement_subscription_entries, if: -> { subscription&.pack? }
-
-  private
-
-  def user_has_valid_membership
-    unless user.memberships.active.exists?
-      errors.add(:user, "doit avoir une adhésion valide")
-    end
-  end
-
-  def subscription_valid
-    unless subscription.active?
-      errors.add(:subscription, "doit être valide")
-    end
-  end
-
-  def decrement_subscription_entries
-    subscription.decrement!(:entries_left) if subscription.entries_left.positive?
   end
 end
 ```

@@ -24,6 +24,14 @@ En tant qu'admin, je veux...
   * Par utilisateur
   * Statistiques globales
 
+## Gestion des Listes de Présence
+En tant qu'administrateur, je veux...
+- Voir et gérer toutes les listes de présence
+- Créer des réunions et en gérer les présences
+- Configurer les types de liste
+- Gérer les paramètres de décompte des séances
+- Exporter les données de présence
+
 ## Scénarios Détaillés
 
 ### En tant qu'administrateur système
@@ -87,4 +95,21 @@ Alors je peux :
     * Ajouter des fermetures exceptionnelles
     * Mettre à jour l'affichage public
   - Paramétrer les notifications
+```
+
+### Scénarios
+```gherkin
+Scénario: Configuration des types de liste
+Étant donné que je suis administrateur
+Quand je configure un nouveau type de liste
+Alors je peux définir :
+  * Si elle décompte des séances
+  * Les permissions requises
+  * Le format du titre par défaut
+
+Scénario: Création d'une réunion
+Étant donné que je suis administrateur
+Quand je crée une nouvelle liste de type "réunion"
+Alors je suis le seul à pouvoir gérer les présences
+Et les bénévoles ne peuvent pas faire de check-in
 ``` 

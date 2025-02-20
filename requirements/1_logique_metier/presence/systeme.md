@@ -2,34 +2,26 @@
 
 ## Principes de Base
 - Système flexible de listes de présence
-- Création automatique pour les entraînements (sauf lundi)
-- Création manuelle possible pour tout type de liste
-- Un adhérent ne peut être pointé qu'une fois par liste
+- Création automatique quotidienne de la liste d'entraînement
+- Création manuelle possible de listes additionnelles
+- Un adhérent peut être présent sur plusieurs listes par jour
+- Chaque liste est indépendante
 
 ## Types de Listes
-1. **Entraînement**
-   - Création automatique quotidienne (sauf lundi)
+1. **Standard (Entraînement)**
+   - Création automatique quotidienne
    - Décompte des séances pour les abonnements
-   - Titre automatique standardisé
+   - Titre standardisé
 
-2. **Réunion**
-   - Création manuelle
+2. **Exceptionnelle**
+   - Création manuelle à tout moment
+   - Types : Réunion, Événement
    - Pas de décompte de séances
-   - Titre et description personnalisés
-
-3. **Événement**
-   - Création manuelle
-   - Pas de décompte de séances
-   - Pour les événements spéciaux
-
-4. **Exceptionnel**
-   - Pour les ouvertures hors calendrier
-   - Décompte des séances si applicable
-   - Nécessite une justification
+   - Peut coexister avec d'autres listes le même jour
 
 ## Processus de Création
 1. **Automatique**
-   - Chaque jour à minuit (sauf lundi)
+   - Chaque jour à minuit
    - Type "Entraînement"
    - Titre standard
 
@@ -38,7 +30,8 @@
    - Choix du type
    - Titre personnalisé
    - Description/justification
-   - Possible même les lundis
+   - Possible n'importe quel jour
+   - Plusieurs listes possibles par jour
 
 ## Gestion des Présences
 - Pointage identique quel que soit le type de liste
