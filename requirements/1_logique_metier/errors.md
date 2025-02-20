@@ -8,23 +8,31 @@
 - Justificatif manquant/invalide (étudiant, RSA, mineurs)
 - Chevauchement de dates
 - Adhésion Basic manquante pour Cirque
-- Quota de membres atteint dans une liste de présence
 
 ### Cotisations
 - Adhésion Cirque requise manquante
-- Carte de 10 séances déjà active
+- Type de cotisation invalide :
+  * Séance unique (4€, jour même)
+  * Carnet de 10 séances
+  * Trimestriel (3 mois)
+  * Annuel (12 mois)
 - Paiement incorrect
 - Quota de séances dépassé
 - Nombre de séances négatif
 
-### Accès
-- Non autorisé (rôle insuffisant)
-- Session expirée
-- Action interdite pour le rôle
-- Tentatives multiples (max 5)
-- Horaires non respectés
-- Liste de présence déjà signée
-- Événement complet
+### Listes de Présence
+- Présence déjà enregistrée sur la liste
+- Accès non autorisé à la liste (Reunion = admin uniquement)
+- Adhésion/cotisation invalide pour la liste
+- Liste de présence clôturée
+- Type de liste invalide (Entraînement Libre/Evènement/Reunion)
+
+### Paiements
+- Montant incorrect
+- Méthode de paiement invalide (SumUp/espèces/chèque uniquement)
+- Reçu non généré
+- Transaction incomplète
+- Double paiement détecté
 
 ## Erreurs Système
 ### Base de données
@@ -37,36 +45,33 @@
 - Contrainte unique violée
 
 ### Services
-- Paiement indisponible
+- Paiement indisponible (SumUp)
 - Email non envoyé
 - Cache invalide
 - File d'attente pleine
 - Erreur de synchronisation
 - PDF non généré
-- Import/Export échoué
 
 ### Traçabilité
-- Journalisation complète
-- Audit des modifications
-- Suivi des corrections
-- Historique des accès
-- Alertes de sécurité
-- Logs de paiement
-- Traces de présence
+- Journalisation incomplète
+- Audit manquant
+- Suivi des corrections impossible
+- Historique des accès incomplet
+- Alertes de sécurité non envoyées
+- Logs de paiement manquants
+- Traces de présence incomplètes
 
 ## Gestion et Récupération
 ### Actions Automatiques
-- Correction des données
-- Nettoyage des doublons
-- Suspension préventive
-- Notification des admins
-- Sauvegarde d'urgence
-- Restauration des données
+- Correction des données impossible
+- Nettoyage des doublons échoué
+- Notification des admins échouée
+- Sauvegarde échouée
+- Restauration impossible
 
 ### Documentation
 - Erreurs fréquentes
 - Solutions proposées
 - Procédures de correction
 - Contact support
-- Guide de dépannage
-- Procédures d'urgence 
+- Guide de dépannage 
