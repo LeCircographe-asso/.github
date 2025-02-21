@@ -1,20 +1,41 @@
-# Le Circographe - Documentation Technique
+# Le Circographe - Guide de Démarrage
 
-## Structure du Projet
+## Technologies Requises
+- Ruby 3.2.0+
+- Rails 8.0.1
+- SQLite3 (dev) / Sqlite3 (prod)
+- Node.js 16+ (pour Tailwind)
+
+## Stack Technique Imposée
+1. **Backend**
+   - Rails 8 authentification native (pas de Devise !)
+   - Hotwire (Turbo + Stimulus)
+   - ActiveJob avec Sidekiq
+   - Action Mailer pour emails
+
+2. **Frontend**
+   - Tailwind CSS
+   - Flowbite Components
+   - Importmaps (pas de Webpacker)
+   - Stimulus Controllers
+
+3. **Base de Données**
+   - SQLite3 (développement et production)
+   - Redis pour cache et jobs
+
+## Architecture Imposée
 ```
 app/
 ├── models/
 │   ├── concerns/
 │   │   └── authorizable.rb       # Gestion des rôles
-│   ├── user.rb                   # Authentification native
+│   ├── user.rb                   # Auth native Rails 8
 │   ├── membership.rb             # STI pour basic/circus
-│   └── subscription.rb           # STI pour les abonnements
-│
+│   └── subscription.rb           # STI pour abonnements
 ├── controllers/
 │   ├── concerns/
-│   │   └── authenticatable.rb    # Méthodes d'auth
-│   └── application_controller.rb # Configuration de base
-│
+│   │   └── authenticatable.rb    # Méthodes auth
+│   └── application_controller.rb
 └── views/
     ├── layouts/
     │   └── application.html.erb  # Layout Flowbite
@@ -22,46 +43,78 @@ app/
         └── _navigation.html.erb  # Nav Flowbite
 ```
 
-## Points Clés
-1. Utilisation de l'authentification native Rails 8
-2. Système d'autorisation basé sur les rôles
-3. Composants Flowbite pour l'UI
-4. Hotwire pour les interactions dynamiques
+## Ordre d'Implémentation
+1. **Phase 1 : Core System**
+   - Authentication native Rails 8
+   - Système de rôles
+   - Modèles de base
+   - Composants Flowbite pour l'UI
+   - Hotwire pour les interactions dynamiques
 
-## Vue d'Ensemble
-Application de gestion pour l'espace de pratique du Circographe, permettant :
-- Gestion des adhésions et cotisations
-- Suivi des présences
-- Administration des accès
-- Reporting et statistiques
+2. **Phase 2 : Features**
+   - Adhésions et cotisations
+   - Présences
+   - Paiements
 
-## Structure de la Documentation
+3. **Phase 3 : UI/UX**
+   - Interface admin
+   - Interface bénévole
+   - Interface membre
 
-### 1. Logique Métier
-- Règles de gestion
-- Processus métier
-- Contraintes fonctionnelles
+## Standards à Respecter
+1. **Code**
+   - [Ruby Style Guide](https://rubystyle.guide)
+   - Tests RSpec obligatoires
+   - Commits conventionnels
 
-### 2. Spécifications Techniques
-- Architecture système
-- Modèles de données
-- Interfaces utilisateur
+2. **Architecture**
+   - MVC strict
+   - Service Objects pour logique complexe
+   - Concerns pour code partagé
+   - Pas de gems non listées
 
-### 3. User Stories
-- Parcours utilisateur
-- Cas d'utilisation
-- Scénarios métier
+3. **Sécurité**
+   - Auth native uniquement
+   - CSRF protection
+   - Strong Parameters
+   - Sanitization des inputs
 
-### 4. Guide d'Implémentation
-- Configuration Rails
-- Structure du code
-- Déploiement
+## Points de Validation
+- ✓ Consulter `requirements/1_logique_metier/` avant chaque feature
+- ✓ Suivre les user stories de `requirements/3_user_stories/`
+- ✓ Respecter l'architecture de `requirements/2_specifications_techniques/`
+- ✓ Implémenter selon `requirements/4_implementation/`
 
-## Glossaire
-[Voir le glossaire complet](./glossaire.md)
+## Documentation
+- 📁 `./docs/` pour documentation technique
+- 📁 `./requirements/` pour règles métier
+- 📁 `./specs/` pour les tests
 
-## Points d'Attention
-- Flexibilité des rôles (cumul possible)
-- Pas de limite de capacité
-- Traçabilité complète des paiements
-- Support hors-ligne possible 
+## Gems Autorisées
+```ruby
+# Gemfile
+source "https://rubygems.org"
+
+ruby "3.2.0"
+gem "rails", "~> 8.0.1"
+gem "sqlite3", "~> 1.4"
+gem "puma", "~> 6.0"
+gem "redis", "~> 4.0"
+gem "sidekiq"
+gem "turbo-rails"
+gem "stimulus-rails"
+gem "tailwindcss-rails"
+gem "flowbite-rails"
+
+group :development, :test do
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+end
+```
+
+## Démarrage Projet
+1. Cloner les dossiers requirements/ et docs/
+2. Suivre l'architecture imposée
+3. Implémenter dans l'ordre défini
+4. Valider chaque étape avec les requirements 
