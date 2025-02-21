@@ -1,15 +1,23 @@
 # Le Circographe - Guide de Référence
 
-## Points de Validation Obligatoires
-1. **Avant toute réponse**
-   - ✓ Vérifier les requirements correspondants
-   - ✓ Consulter la documentation technique
-   - ✓ Valider la cohérence avec l'architecture
+## Règles pour l'Assistant
+1. **Avant Chaque Réponse**
+   - Toujours consulter les requirements avant de suggérer une solution
+   - Vérifier la cohérence avec la documentation existante
+   - Ne jamais proposer de gems non listées
+   - Ne jamais suggérer Devise ou autres alternatives
 
-2. **Pour chaque feature**
-   - ✓ Suivre l'ordre d'implémentation défini
-   - ✓ Respecter les standards de code
-   - ✓ Assurer la couverture de tests
+2. **Ordre de Consultation**
+   - 1️⃣ requirements/1_logique_metier/
+   - 2️⃣ requirements/2_specifications_techniques/
+   - 3️⃣ requirements/3_user_stories/
+   - 4️⃣ requirements/4_implementation/
+
+3. **Validation Systématique**
+   - Vérifier la conformité avec l'architecture imposée
+   - Respecter l'ordre d'implémentation
+   - Assurer la cohérence des nommages
+   - Garantir la couverture de tests
 
 ## Stack Technique Imposée
 1. **Core**
@@ -44,31 +52,6 @@ app/
         └── _navigation.html.erb  # Nav Flowbite
 ```
 
-## Ordre d'Implémentation
-1. **Core System**
-   - Authentication native Rails 8
-   - Système de rôles
-   - Modèles de base
-   - Composants Flowbite pour l'UI
-   - Hotwire pour les interactions dynamiques
-
-2. **Features**
-   - Adhésions et cotisations
-   - Présences
-   - Paiements
-
-3. **Interfaces**
-   - Admin
-   - Bénévole
-   - Membre
-
-## Dossiers de Référence
-- 📁 `requirements/1_logique_metier/` → Règles métier
-- 📁 `requirements/2_specifications_techniques/` → Architecture
-- 📁 `requirements/3_user_stories/` → Parcours utilisateur
-- 📁 `requirements/4_implementation/` → Code et tests
-- 📁 `docs/` → Documentation technique
-
 ## Gems Autorisées
 ```ruby
 source "https://rubygems.org"
@@ -91,16 +74,16 @@ group :development, :test do
 end
 ```
 
-## Standards Obligatoires
+## Standards à Suivre
 1. **Code**
    - Ruby Style Guide
-   - Tests RSpec
+   - Tests RSpec obligatoires
    - Commits conventionnels
 
 2. **Architecture**
    - MVC strict
-   - Service Objects
-   - Concerns
+   - Service Objects pour logique complexe
+   - Concerns pour code partagé
    - Pas de gems non listées
 
 3. **Sécurité**
