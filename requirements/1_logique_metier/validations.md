@@ -70,4 +70,25 @@
 - Vérification quotidienne des adhésions
 - Notification des anomalies
 - Sauvegarde des données
-- Audit des modifications 
+- Audit des modifications
+
+# Validations Système
+
+## Fichiers et Documents
+1. **Justificatifs**
+   - Format : PDF, JPG, PNG
+   - Taille max : 5MB
+   - Upload par drag & drop
+   - Prévisualisation avant envoi
+
+2. **Reçus et Rapports**
+   - Génération PDF automatique
+   - Stockage sécurisé
+   - Archivage automatique
+   - Accès contrôlé
+
+3. **Contenus Riches**
+   - Descriptions d'événements (Action Text)
+   - Notes adhérents (Action Text)
+   - Communications internes (Action Text)
+   - Formatage riche préservé 

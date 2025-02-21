@@ -25,6 +25,8 @@
    - Rails 8.0.1
    - SQLite3 (dev et prod)
    - Authentification native Rails 8 (pas de Devise!)
+   - Active Storage pour fichiers
+   - Action Text pour contenus riches
 
 2. **Frontend**
    - Tailwind CSS
@@ -66,6 +68,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "flowbite-rails"
+gem "image_processing" # Pour Active Storage et Pour prod storage
 
 group :development, :test do
   gem "rspec-rails"
