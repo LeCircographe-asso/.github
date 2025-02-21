@@ -1,23 +1,25 @@
 # Vérification des Règles Métier
 
-## Système de Présence
-| Règle | Implémentation | Status |
-|-------|----------------|--------|
-| Liste quotidienne auto | DailyAttendanceList.generate_daily_training | ✅ |
-| Validation adhésion | Attendance#validate_user_membership | ✅ |
-| Décompte séances | Attendance#decrement_subscription | ✅ |
-| Permissions par type | DailyAttendanceList#can_checkin? | ✅ |
+## Adhésions et Rôles
+| Règle | Implémentation | Status | Priorité |
+|-------|----------------|--------|----------|
+| Types d'adhésion (Basic/Circus) | User#membership_type enum | ✅ | P0 |
+| Validation adhésion Basic avant Circus | Membership#validate_basic_requirement | ✅ | P0 |
+| Tarifs réduits avec justificatif | Membership#apply_discount | ❌ | P1 |
+| Gestion des rôles (Member/Volunteer/Admin) | User#roles association | ✅ | P0 |
 
-## Adhésions
-| Règle | Implémentation | Status |
-|-------|----------------|--------|
-| Une seule adhésion active | Membership#validate_uniqueness | ✅ |
-| Tarifs réduits | Membership#apply_discount | ❌ |
-| Dates validité | Membership#end_date_after_start_date | ✅ |
+## Présence et Listes
+| Règle | Implémentation | Status | Priorité |
+|-------|----------------|--------|----------|
+| Liste quotidienne automatique | DailyAttendanceList.generate_daily | ✅ | P0 |
+| Permissions par type de liste | DailyAttendanceList#can_checkin? | ✅ | P0 |
+| Décompte des séances | Attendance#decrement_subscription | ✅ | P0 |
+| Gestion des exceptions (fermetures) | ScheduleException model | ❌ | P1 |
 
-## Paiements
-| Règle | Implémentation | Status |
-|-------|----------------|--------|
-| Génération reçu | Payment#generate_receipt_number | ✅ |
-| Validation montants | Payment#validate_amounts | ❌ |
-| Gestion dons | Payment#handle_donation | ❌ | 
+## Paiements et Reçus
+| Règle | Implémentation | Status | Priorité |
+|-------|----------------|--------|----------|
+| Validation des montants | Payment#validate_amounts | ✅ | P0 |
+| Gestion des dons | Payment#handle_donation | ✅ | P0 |
+| Génération des reçus | ReceiptService.generate | ❌ | P1 |
+| Historique des transactions | PaymentHistory model | ✅ | P0 | 
