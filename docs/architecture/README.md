@@ -1,0 +1,165 @@
+# Architecture Le Circographe 🏗️
+
+## Vue d'ensemble
+
+Le Circographe est construit sur une architecture moderne et modulaire, utilisant Ruby on Rails 8.0.1 comme framework principal. Cette section détaille l'architecture technique et les choix de conception.
+
+## 🔧 Stack Technique
+
+### Backend
+- Ruby 3.2.0
+- Rails 8.0.1
+- SQLite3
+- Redis (Cache & Jobs)
+- Sidekiq (Background Jobs)
+
+### Frontend
+- Hotwire (Turbo & Stimulus)
+- Tailwind CSS
+- Flowbite Components
+- ImportMaps
+
+### Testing
+- RSpec
+- Factory Bot
+- Faker
+
+## 📂 Structure du Projet
+
+### Composants Principaux
+- [Core](./technical/core/README.md) - Logique métier et modèles
+- [Frontend](./technical/frontend/README.md) - Interface utilisateur
+- [Sécurité](./technical/security/README.md) - Authentification et autorisation
+- [Performance](./technical/performance/README.md) - Optimisations et monitoring
+
+### Organisation du Code
+```
+app/
+├── controllers/    # Contrôleurs REST
+├── models/        # Modèles Active Record
+├── services/      # Services métier
+├── jobs/          # Background jobs
+├── mailers/       # Emails
+├── views/         # Templates ERB/HAML
+└── components/    # View components
+```
+
+## 🔄 Flux de Données
+
+### Diagrammes
+- [Flux Utilisateur](./flow.md#user-flow)
+- [Flux Paiement](./flow.md#payment-flow)
+- [Flux Présence](./flow.md#attendance-flow)
+
+### Intégrations
+- Système de paiement
+- Envoi d'emails
+- Stockage de fichiers
+- API externes
+
+## 🛠️ Composants Techniques
+
+### Services Principaux
+- [AuthenticationService](./components.md#authentication)
+- [PaymentService](./components.md#payment)
+- [NotificationService](./components.md#notification)
+- [StatisticsService](./components.md#statistics)
+
+### Jobs Background
+- Calcul des statistiques
+- Envoi des notifications
+- Synchronisation des données
+- Tâches de maintenance
+
+## 📈 Performance et Scalabilité
+
+### Optimisations
+- Cache Redis
+- Background jobs
+- Eager loading
+- Indexation DB
+
+### Monitoring
+- Métriques système
+- Logs applicatifs
+- Alertes
+- Dashboard
+
+## 🔒 Sécurité
+
+### Mesures Principales
+- Authentification native Rails
+- Autorisation basée sur les rôles
+- Protection CSRF
+- Encryption des données sensibles
+
+### Audit
+- Logs de sécurité
+- Traçabilité des actions
+- Monitoring des accès
+
+## 📝 Guides de Développement
+
+### Setup
+1. [Installation](./technical/installation.md)
+2. [Configuration](./technical/configuration.md)
+3. [Déploiement](./technical/deployment.md)
+
+### Bonnes Pratiques
+- [Conventions de Code](./technical/conventions.md)
+- [Guidelines API](./technical/api_guidelines.md)
+- [Tests](./technical/testing.md)
+
+## 🔄 Cycle de Développement
+
+### Workflow
+1. Développement local
+2. Tests automatisés
+3. Review de code
+4. Déploiement staging
+5. Tests QA
+6. Déploiement production
+
+### Environnements
+- Development
+- Testing
+- Staging
+- Production
+
+## 📚 Documentation Technique
+
+### API
+- [Documentation API](./technical/api/README.md)
+- [Endpoints](./technical/api/endpoints.md)
+- [Authentication](./technical/api/auth.md)
+
+### Base de Données
+- [Schéma](./technical/database/schema.md)
+- [Migrations](./technical/database/migrations.md)
+- [Indexation](./technical/database/indexes.md)
+
+## 🤝 Contribution
+
+### Process
+1. Fork du projet
+2. Création de branche
+3. Développement
+4. Tests
+5. Pull Request
+
+### Standards
+- [Guidelines de Code](./technical/guidelines.md)
+- [Convention de Commits](./technical/commits.md)
+- [Process de Review](./technical/review.md)
+
+## 📞 Contact
+
+### Support Technique
+- **Email**: tech@lecirco.org
+- **Slack**: #tech-support
+- **Documentation**: [Wiki Technique](./technical/wiki.md)
+
+### Urgences
+- **Astreinte**: +33 6 XX XX XX XX
+- **Slack**: #tech-emergency
+- **Incident Process**: [Guide Incidents](./technical/incidents.md) 
