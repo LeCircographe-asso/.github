@@ -1,58 +1,99 @@
 # Documentation des Diagrammes
 
 ## Vue d'ensemble
-Cette documentation regroupe les différents diagrammes illustrant l'architecture et le fonctionnement du système.
+Cette documentation regroupe les diagrammes illustrant l'architecture et le fonctionnement du Circographe.
 
 ## Structure des Diagrammes
 
 ### 1. Flux Global (`flow.md`)
-- Représente la hiérarchie des utilisateurs
-- Montre les relations entre adhésions et présences
-- Illustre les permissions des différents rôles
+- Hiérarchie des rôles utilisateurs (Guest → Admin)
+- Cycle de vie des adhésions et cotisations
+- Système de paiement et donations
+- Gestion des présences et statistiques
+- Relations et dépendances entre composants
 
 ### 2. Séquences (`sequence/`)
 #### Check-in (`check_in.md`)
 - Processus de pointage d'un adhérent
-- Vérifications effectuées
-- Gestion des erreurs
+- Vérifications :
+  * Adhésion Basic valide
+  * Adhésion Cirque pour entraînements
+  * Cotisation active ou carnet valide
+- Gestion des erreurs et notifications
 
 #### Paiement (`payment.md`)
-- Processus de paiement complet
-- Gestion des tarifs réduits
-- Traitement des dons
-- Génération des reçus
+- Processus complet de paiement
+- Gestion des tarifs réduits avec justificatifs
+- Options de paiement :
+  * CB via SumUp
+  * Espèces avec reçu
+  * Chèque avec bordereau
+- Paiements échelonnés (> 50€)
+- Donations et reçus fiscaux
 
 ### 3. Architecture (`architecture/`)
 #### Modèles (`models.md`)
-- Structure des données
-- Relations entre les modèles
-- Attributs principaux
-- Méthodes clés
+- Structure des données :
+  * Users et rôles
+  * Memberships (Basic/Cirque)
+  * Subscriptions (séance/carnet/abonnement)
+  * Payments et installments
+  * Attendances et DailyLists
+- Relations et dépendances
+- Validations métier
 
 ### 4. États (`states/`)
 #### Liste de Présence (`attendance_list.md`)
-- Cycle de vie d'une liste
-- États possibles
-- Transitions autorisées
+- Types de listes :
+  * Entraînement (volunteer + admin)
+  * Événement (volunteer + admin)
+  * Réunion (admin uniquement)
+- États : préparation → active → clôturée
+- Transitions et validations
+- Génération des statistiques
 
 ### 5. Composants (`components.md`)
-- Architecture globale de l'application
-- Organisation des services
-- Flux de données
-- Interactions entre composants
+- Architecture complète :
+  * Frontend (Hotwire/Stimulus)
+  * Backend (Rails 8/Concerns)
+  * Services métier
+  * Jobs background
+  * Stockage (SQLite/Redis)
+- Flux de données et interactions
+- Monitoring et métriques
 
 ## Utilisation
 
 Ces diagrammes servent à :
-1. Comprendre le système
-2. Former les nouveaux développeurs
-3. Documenter les choix d'architecture
+1. Documenter l'architecture technique
+2. Illustrer la logique métier
+3. Former les nouveaux développeurs
 4. Faciliter la maintenance
+5. Guider les évolutions futures
 
 ## Maintenance
 
 Pour modifier un diagramme :
 1. Utiliser la syntaxe Mermaid
 2. Respecter les conventions de nommage
-3. Mettre à jour ce README si nécessaire
-4. Vérifier la cohérence avec les autres diagrammes 
+3. Maintenir la cohérence avec le code
+4. Vérifier l'alignement avec les requirements
+5. Mettre à jour ce README si nécessaire
+
+## Conventions Mermaid
+
+### Couleurs
+- Frontend : #f9f (rose)
+- Backend : #bbf (bleu)
+- Services : #bfb (vert)
+- Storage : #fbb (rouge)
+- Adhésions : #dfd (vert clair)
+- Cotisations : #ffd (jaune)
+- Statistiques : #ddf (bleu clair)
+
+### Relations
+- `-->` : Dépendance directe
+- `-.->` : Dépendance optionnelle
+- `==>` : Flux de données
+- `o--o` : Association
+- `*--*` : Composition 

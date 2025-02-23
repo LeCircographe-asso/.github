@@ -1,11 +1,34 @@
 # Documentation Technique - Système de Présence
 
 ## Vue d'ensemble
-Le système de présence permet de gérer plusieurs listes en parallèle :
-- Liste d'entraînement quotidienne (automatique)
-- Listes additionnelles (réunions, événements)
-- Gestion indépendante des présences
+Le système de présence permet de gérer plusieurs types de listes en parallèle avec une interface Hotwire/Stimulus pour une expérience fluide.
+
+## Points Clés
+- Création automatique des listes d'entraînement
+- Interface temps réel avec Turbo
+- Validation des droits et adhésions
 - Décompte intelligent des séances
+
+## Structure Technique
+- Modèles : `DailyAttendanceList`, `Attendance`
+- Controllers : `AttendancesController`
+- Jobs : `CreateDailyAttendanceListJob`
+- Vues Turbo et Stimulus
+
+## Documentation Détaillée
+- [Implémentation Technique](./implementation.md)
+- [Règles Métier](../../requirements/1_logique_metier/presence/systeme.md)
+
+## Interfaces
+- Scan de carte ou recherche par nom
+- Validation automatique des droits
+- Vue en temps réel des présents
+- Export de données
+
+## Sécurité
+- Validation des permissions
+- Protection contre les doublons
+- Journalisation des modifications
 
 ## Types de Liste et Permissions
 
@@ -36,10 +59,6 @@ Le système de présence permet de gérer plusieurs listes en parallèle :
 - Création rapide de nouvelles listes
 - Pointage simplifié
 - Alertes intelligentes
-
-## Modèles
-- `DailyAttendanceList` : Liste de présence quotidienne
-- `Attendance` : Entrée individuelle dans la liste
 
 ## Automatisation
 - Tâche CRON quotidienne pour créer la liste du jour
