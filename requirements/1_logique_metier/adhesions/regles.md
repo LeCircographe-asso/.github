@@ -13,8 +13,10 @@
 
 3. **Tarifs Réduits**
    - Applicable uniquement sur l'adhésion cirque
-   - Justificatif obligatoire (étudiant, RSA, etc.)
-   - Validation par un bénévole ou admin
+   - Justificatif à présenter physiquement (Etudiant, Porteur de Handicap, RSA)
+   - Validation visuelle par admin uniquement
+   - Pas de stockage du justificatif
+   - Simple flag "reduced_price" en base
 
 ## Processus de Gestion
 

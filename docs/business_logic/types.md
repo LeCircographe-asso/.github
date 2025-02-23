@@ -11,10 +11,10 @@ enum membership: {
 }
 ```
 
-### Rôles Administratifs (admin_role)
+### Rôles Système (role)
 ```ruby
-enum admin_role: {
-  none: 0,        # Pas de rôle admin
+enum role: {
+  none: 0,        # User par défaut
   volunteer: 1,   # Bénévole
   admin: 2,       # Admin
   super_admin: 3  # Super Admin
@@ -58,17 +58,17 @@ class User < ApplicationRecord
   
   # Vérifie si l'utilisateur a un rôle administratif
   def staff?
-    volunteer? || admin? || super_admin?
+    volunteer? || admin?
   end
   
   # Vérifie si l'utilisateur peut accéder aux entraînements
   def can_access_training?
-    circus? || staff?
+    circus? && active_subscription?
   end
   
   # Vérifie si l'utilisateur peut gérer les entraînements
   def can_manage_training?
-    staff?
+    staff? && (admin? || active_membership?)
   end
 end
 ```
@@ -78,21 +78,25 @@ end
 ### Hiérarchie des Rôles
 ```mermaid
 graph TD
-    U[Utilisateur] --> B[Basic]
-    U --> C[Circus]
-    B --> V[Bénévole]
-    C --> V
+    U[User] --> V[Volunteer]
     V --> A[Admin]
     A --> S[Super Admin]
+    
+    B[Basic] -.-> V
+    C[Circus] -.-> V
+    
+    style B fill:#f9f,stroke:#333
+    style C fill:#f9f,stroke:#333
+    note[Adhésion requise pour Volunteer] -.-> V
 ```
 
 ### Flux d'Adhésion
 ```mermaid
 graph LR
-    A[Inscription] -->|Validation| B[Adhésion Basic/Circus]
-    B -->|Paiement| C[Activation]
-    C -->|1 an| D[Expiration]
-    C -->|Option| E[Rôle Bénévole]
+    A[Inscription] -->|Validation| B[Adhésion Basic]
+    B -->|Option| C[Adhésion Cirque]
+    B -->|Validation Admin| D[Rôle Volunteer]
+    D -->|Super Admin| E[Rôle Admin]
 ```
 
 ### Processus de Paiement
@@ -108,7 +112,7 @@ graph TD
 
 ### Base de Données
 - Tables : pluriel, snake_case (users, memberships)
-- Colonnes : singulier, snake_case (user_id, admin_role)
+- Colonnes : singulier, snake_case (user_id, role)
 - Enum : singulier (membership, status)
 
 ### Code

@@ -1,10 +1,10 @@
 # Gestion des Reçus
 
 ## Principes de Base
-1. **Génération Automatique**
-   - À chaque paiement validé
-   - Format PDF standardisé
-   - Numérotation unique (YYYYMMDD-XXX)
+1. **Génération sur Demande**
+   - Option disponible pour chaque paiement
+   - Format PDF standardisé si généré
+   - Numérotation unique si généré (YYYYMMDD-XXX)
 
 2. **Types de Reçus**
    - Adhésion (Basic/Cirque)

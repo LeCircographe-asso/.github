@@ -8,10 +8,11 @@
 - Chaque liste est indépendante
 
 ## Types de Listes
-1. **Standard (Entraînement)**
-   - Création automatique quotidienne
-   - Décompte des séances pour les abonnements
-   - Titre standardisé
+1. **Standard (Entraînement Libre)**
+   - Création automatique à minuit
+   - Une seule liste par jour
+   - Non modifiable une fois créée
+   - Pas de suppression possible
 
 2. **Exceptionnelle**
    - Création manuelle à tout moment
@@ -65,7 +66,8 @@
 2. Vérifie son adhésion (Basic ou Cirque)
 3. Vérifie son abonnement si nécessaire
 4. Ajoute l'adhérent à la liste du jour
-5. Le système :
-   - Vérifie que l'adhérent n'est pas déjà pointé
-   - Décompte une séance si applicable
-   - Enregistre qui a effectué le pointage 
+
+## Processus de Paiement (Distinct du Pointage)
+1. Peut se faire à tout moment
+2. Ne nécessite pas de pointage immédiat
+3. Peut concerner adhésion ou cotisation 

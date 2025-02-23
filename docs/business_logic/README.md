@@ -1,82 +1,43 @@
 # Logique Métier - Le Circographe
 
 ## Vue d'ensemble
-L'application gère une association de cirque avec différents niveaux d'adhésion et un système de gestion des entraînements.
+L'application gère une association de cirque avec :
+- Système de rôles (User, Volunteer, Admin)
+- Système d'adhésions (Basic, Cirque)
+- Gestion des présences
+- Statistiques et rapports
 
 ## Composants Principaux
 
-### 1. Utilisateurs et Rôles
-Backend :
-- Utilisateur : compte sans adhésion
-- Membre : statut de base pour tout adhérent
-- Bénévole : membre avec accès admin basique
-- Admin : accès complet
-- Super Admin : accès total (godmode)
+### 1. Rôles et Adhésions
+- Rôles système indépendants des adhésions
+- Adhésions gérées sur place uniquement
+- Validations croisées rôles/adhésions
+- Documentation détaillée : [`roles/systeme.md`](../../requirements/1_logique_metier/roles/systeme.md)
 
-Frontend :
-- Utilisateur : compte sans adhésion
-- Adhérent : membre avec adhésion Basic
-- Adhérent Cirque : membre avec adhésion Circus
-- Bénévole : accès admin basique
-- Admin : accès complet
-- Super Admin : accès total
-
-### 2. Types d'Adhésion
-- Basic (1€) : accès aux événements
-- Circus :
-  * Prix normal : 10€
-  * Prix réduit : 7€ (avec justificatif)
-  * Upgrade depuis Basic : 9€ ou 6€ (réduit)
-- Durée : 1 an
-- Souscription uniquement sur place
-
-### 3. Gestion des Entraînements
+### 2. Gestion des Présences
 - Pointage par les bénévoles
-- Pas d'inscription en ligne
-- Accès réservé aux membres Circus
+- Validation adhésions/cotisations
+- Statistiques de fréquentation
+- Documentation : [`presence/systeme.md`](../../requirements/1_logique_metier/presence/systeme.md)
 
-### 4. Système de Paiement
+### 3. Système de Paiement
 - Paiement sur place uniquement
 - Système de donations
 - Traçabilité complète
-
-## Organisation de la Documentation
-- [`adhesions.md`](./adhesions.md) : Système complet d'adhésion et rôles
-
-## Principes Fondamentaux
-1. Simplicité administrative
-   - Adhésions gérées sur place
-   - Processus simples et directs
-
-2. Contrôle d'accès
-   - Adhésion requise pour participer
-   - Rôles clairement définis
-   - Permissions progressives
-
-3. Traçabilité
-   - Historique des adhésions
-   - Suivi des paiements
-   - Journal des présences
+- Documentation : [`paiements/systeme.md`](../../requirements/1_logique_metier/paiements/systeme.md)
 
 ## Processus Clés
 
-### 1. Gestion des Adhésions
+### 1. Cycle de Vie Utilisateur
 ```mermaid
 graph TD
-    A[Visiteur] -->|Adhésion Simple 1€| B[Membre Simple]
-    B -->|Upgrade 10€/7€| C[Membre Cirque]
-    C -->|Achat| D[Cotisations]
+    A[Création Compte] -->|Validation| B[Adhésion Basic]
+    B -->|Option| C[Adhésion Cirque]
+    B -->|Validation Admin| D[Rôle Volunteer]
 ```
 
-### 2. Cycle de Vie Membre
-```mermaid
-graph LR
-    A[Inscription] -->|Validation| B[Adhésion]
-    B -->|Paiement| C[Activation]
-    C -->|Utilisation| D[Renouvellement]
-```
-
-### 3. Flux Financier
+### 2. Flux Financier
 ```mermaid
 graph TD
     A[Paiement] -->|Enregistrement| B[Reçu]
