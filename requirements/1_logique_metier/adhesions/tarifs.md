@@ -5,7 +5,7 @@
 |------|--------------|--------------|------------|
 | Adhésion Basic | 1€/an | - | Obligatoire |
 | Adhésion Cirque | 10€/an | 7€/an | Basic valide |
-| Pass Journée | 4€ | - | Adhésion valide |
+| Pass Journée | 4€ | - | Adhésion Cirque |
 | Carnet 10 Séances | 30€ | - | Adhésion Cirque |
 | Abonnement Trimestriel | 65€ | - | Adhésion Cirque |
 | Abonnement Annuel | 150€ | - | Adhésion Cirque |
