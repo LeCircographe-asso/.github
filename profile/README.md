@@ -4,69 +4,69 @@
 Le Circographe est une application de gestion complète pour une association de cirque, développée avec Ruby on Rails 8.0.1. Cette documentation couvre l'ensemble des aspects techniques, fonctionnels et organisationnels du projet.
 
 ## 🚀 Démarrage Rapide
-- [Guide d'Installation](./architecture/technical/installation.md)
-- [Premier Pas](./architecture/technical/quickstart.md)
-- [FAQ](./architecture/technical/faq.md)
+- [Guide d'Installation](/docs/architecture/technical/installation.md)
+- [Premier Pas](/docs/architecture/technical/quickstart.md)
+- [FAQ](/docs/architecture/technical/faq.md)
 
 ## 📚 Structure de la Documentation
 
 ### 📖 Fondamentaux
-- [Glossaire](./glossaire.md) - Terminologie métier et technique
-- [Architecture Globale](./architecture/README.md) - Vue d'ensemble technique
-- [Processus Métier](./business/README.md) - Flux et règles métier
-- [Validation](./validation/README.md) - Tests et qualité
+- [Glossaire](/docs/glossaire.md) - Terminologie métier et technique
+- [Architecture Globale](/docs/architecture/README.md) - Vue d'ensemble technique
+- [Processus Métier](/docs/business/README.md) - Flux et règles métier
+- [Validation](/docs/validation/README.md) - Tests et qualité
 
 ### 🏗️ Architecture Technique
-- [Core](./architecture/technical/core/README.md) - Logique métier
-- [Frontend](./architecture/technical/frontend/README.md) - Interface utilisateur
-- [Sécurité](./architecture/technical/security/README.md) - Gestion des accès
-- [Performance](./architecture/technical/performance/README.md) - Optimisations
+- [Core](/docs/architecture/technical/core/README.md) - Logique métier
+- [Frontend](/docs/architecture/technical/frontend/README.md) - Interface utilisateur
+- [Sécurité](/docs/architecture/technical/security/README.md) - Gestion des accès
+- [Performance](/docs/architecture/technical/performance/README.md) - Optimisations
 
 ### 💼 Documentation Métier
 #### États et Workflows
-- [États Utilisateur](./business/states/user.md)
-- [États Adhésion](./business/states/membership.md)
-- [États Paiement](./business/states/payment.md)
-- [États Présence](./business/states/attendance_list.md)
-- [États Rôles](./business/states/roles.md)
-- [États Reçus](./business/states/receipt.md)
-- [États Notifications](./business/states/notification.md)
-- [États Abonnements](./business/states/subscription.md)
-- [États Permanences](./business/states/volunteer_shift.md)
+- [États Utilisateur](/docs/business/states/user.md)
+- [États Adhésion](/docs/business/states/membership.md)
+- [États Paiement](/docs/business/states/payment.md)
+- [États Présence](/docs/business/states/attendance_list.md)
+- [États Rôles](/docs/business/states/roles.md)
+- [États Reçus](/docs/business/states/receipt.md)
+- [États Notifications](/docs/business/states/notification.md)
+- [États Abonnements](/docs/business/states/subscription.md)
+- [États Permanences](/docs/business/states/volunteer_shift.md)
 
 #### Processus Clés
-- [Check-in](./business/processes/check_in.md)
-- [Paiement](./business/processes/payment.md)
+- [Check-in](/docs/business/processes/check_in.md)
+- [Paiement](/docs/business/processes/payment.md)
 
 #### Règles et Concepts
-- [Règles Métier](./business/rules/business_rules.md)
-- [Concepts Métier](./business/rules/concepts.md)
-- [Mapping Concepts](./business/rules/concept_mapping.md)
+- [Règles Métier](/docs/business/rules/business_rules.md)
+- [Concepts Métier](/docs/business/rules/concepts.md)
+- [Mapping Concepts](/docs/business/rules/concept_mapping.md)
 
 ### ✅ Validation et Tests
-- [User Stories](./validation/user_stories/user_stories.md)
-- [Traçabilité](./validation/traceability/README.md)
-- [Plan de Tests](./validation/test_plan.md)
+- [User Stories](/docs/validation/user_stories/user_stories.md)
+- [Traçabilité](/docs/validation/traceability/README.md)
+- [Plan de Tests](/docs/validation/test_plan.md)
 
 ## 🎯 Guides par Cas d'Usage
 
 ### 👥 Gestion des Membres
-- [Guide Complet](./business/guides/member_management.md)
-- [États Utilisateur](./business/states/user.md)
-- [États Adhésion](./business/states/membership.md)
-- [États Rôles](./business/states/roles.md)
+- [Guide Complet](/docs/business/guides/member_management.md)
+- [États Utilisateur](/docs/business/states/user.md)
+- [États Adhésion](/docs/business/states/membership.md)
+- [États Rôles](/docs/business/states/roles.md)
 
 ### 💰 Gestion Financière
-- [Guide Complet](./business/guides/financial_management.md)
-- [États Paiement](./business/states/payment.md)
-- [États Reçus](./business/states/receipt.md)
-- [Processus Paiement](./business/processes/payment.md)
+- [Guide Complet](/docs/business/guides/financial_management.md)
+- [États Paiement](/docs/business/states/payment.md)
+- [États Reçus](/docs/business/states/receipt.md)
+- [Processus Paiement](/docs/business/processes/payment.md)
 
 ### 📊 Suivi & Statistiques
-- [Guide Complet](./business/guides/tracking_stats.md)
-- [États Présence](./business/states/attendance_list.md)
-- [Check-in](./business/processes/check_in.md)
-- [États Permanences](./business/states/volunteer_shift.md)
+- [Guide Complet](/docs/business/guides/tracking_stats.md)
+- [États Présence](/docs/business/states/attendance_list.md)
+- [Check-in](/docs/business/processes/check_in.md)
+- [États Permanences](/docs/business/states/volunteer_shift.md)
 
 ## 🔄 Gestion des Documents
 
@@ -78,7 +78,7 @@ Le Circographe est une application de gestion complète pour une association de 
 
 ### Versioning
 - Utilisation du versioning sémantique (MAJOR.MINOR.PATCH)
-- Versions documentées dans [CHANGELOG.md](./CHANGELOG.md)
+- Versions documentées dans [CHANGELOG.md](/CHANGELOG.md)
 - Tags Git pour chaque version majeure
 
 ## 📝 Contribution
@@ -107,12 +107,12 @@ Le Circographe est une application de gestion complète pour une association de 
 ### Support Technique
 - **Email** : tech@lecirco.org
 - **Slack** : #tech-support
-- [Documentation Technique](./architecture/technical/README.md#contact)
+- [Documentation Technique](/docs/architecture/technical/README.md#contact)
 
 ### Support Métier
 - **Email** : business@lecirco.org
 - **Slack** : #business-support
-- [Documentation Métier](./business/rules/README.md#contact)
+- [Documentation Métier](/docs/business/rules/README.md#contact)
 
 ## 📜 Licence
-Ce projet est sous licence MIT - voir le fichier [LICENSE.md](../LICENSE.md) pour plus de détails. 
+Ce projet est sous licence MIT - voir le fichier [LICENSE.md](/LICENSE.md) pour plus de détails. 

@@ -18,105 +18,105 @@ business/
 ## 🎯 Domaines Métier
 
 ### 👥 Gestion des Membres
-- [Guide Complet](./guides/member_management.md)
-- [Règles d'Adhésion](./rules/membership_rules.md)
-- [Processus d'Inscription](./processes/registration.md)
-- [États Membre](./states/user.md)
+- [Guide Complet](/docs/business/guides/member_management.md)
+- [Règles d'Adhésion](/docs/business/rules/membership_rules.md)
+- [Processus d'Inscription](/docs/business/processes/registration.md)
+- [États Membre](/docs/business/states/user.md)
 
 ### 💰 Gestion Financière
-- [Guide Complet](./guides/financial_management.md)
-- [Règles de Paiement](./rules/payment_rules.md)
-- [Processus de Paiement](./processes/payment.md)
-- [États Paiement](./states/payment.md)
+- [Guide Complet](/docs/business/guides/financial_management.md)
+- [Règles de Paiement](/docs/business/rules/payment_rules.md)
+- [Processus de Paiement](/docs/business/processes/payment.md)
+- [États Paiement](/docs/business/states/payment.md)
 
 ### 📅 Gestion des Présences
-- [Guide Complet](./guides/attendance_management.md)
-- [Règles de Présence](./rules/attendance_rules.md)
-- [Processus Check-in](./processes/check_in.md)
-- [États Liste](./states/attendance_list.md)
+- [Guide Complet](/docs/business/guides/attendance_management.md)
+- [Règles de Présence](/docs/business/rules/attendance_rules.md)
+- [Processus Check-in](/docs/business/processes/check_in.md)
+- [États Liste](/docs/business/states/attendance_list.md)
 
 ## 📋 Règles Métier
 
 ### Concepts Fondamentaux
-- [Glossaire](../glossaire.md)
-- [Concepts Métier](./rules/concepts.md)
-- [Mapping Technique](./rules/concept_mapping.md)
+- [Glossaire](/docs/glossaire.md)
+- [Concepts Métier](/docs/business/rules/concepts.md)
+- [Mapping Technique](/docs/business/rules/concept_mapping.md)
 
 ### Règles Principales
-- [Règles d'Adhésion](./rules/membership_rules.md)
-- [Règles de Paiement](./rules/payment_rules.md)
-- [Règles de Présence](./rules/attendance_rules.md)
-- [Règles de Sécurité](./rules/security_rules.md)
+- [Règles d'Adhésion](/docs/business/rules/membership_rules.md)
+- [Règles de Paiement](/docs/business/rules/payment_rules.md)
+- [Règles de Présence](/docs/business/rules/attendance_rules.md)
+- [Règles de Sécurité](/docs/business/rules/security_rules.md)
 
 ## 🔄 Processus
 
 ### Adhésion et Inscription
-- [Inscription Membre](./processes/registration.md)
-- [Renouvellement](./processes/renewal.md)
-- [Modification Profil](./processes/profile_update.md)
+- [Inscription Membre](/docs/business/processes/registration.md)
+- [Renouvellement](/docs/business/processes/renewal.md)
+- [Modification Profil](/docs/business/processes/profile_update.md)
 
 ### Paiements
-- [Paiement Adhésion](./processes/membership_payment.md)
-- [Paiement Cotisation](./processes/subscription_payment.md)
-- [Gestion Dons](./processes/donation.md)
+- [Paiement Adhésion](/docs/business/processes/membership_payment.md)
+- [Paiement Cotisation](/docs/business/processes/subscription_payment.md)
+- [Gestion Dons](/docs/business/processes/donation.md)
 
 ### Présence
-- [Check-in Membre](./processes/check_in.md)
-- [Gestion Liste](./processes/attendance_list.md)
-- [Statistiques](./processes/statistics.md)
+- [Check-in Membre](/docs/business/processes/check_in.md)
+- [Gestion Liste](/docs/business/processes/attendance_list.md)
+- [Statistiques](/docs/business/processes/statistics.md)
 
 ## 🔄 États et Transitions
 
 ### États Utilisateur
-- [États Membre](./states/user.md)
-- [États Adhésion](./states/membership.md)
-- [États Rôles](./states/roles.md)
+- [États Membre](/docs/business/states/user.md)
+- [États Adhésion](/docs/business/states/membership.md)
+- [États Rôles](/docs/business/states/roles.md)
 
 ### États Financiers
-- [États Paiement](./states/payment.md)
-- [États Reçu](./states/receipt.md)
-- [États Cotisation](./states/subscription.md)
+- [États Paiement](/docs/business/states/payment.md)
+- [États Reçu](/docs/business/states/receipt.md)
+- [États Cotisation](/docs/business/states/subscription.md)
 
 ### États Opérationnels
-- [États Liste Présence](./states/attendance_list.md)
-- [États Permanence](./states/volunteer_shift.md)
-- [États Notification](./states/notification.md)
+- [États Liste Présence](/docs/business/states/attendance_list.md)
+- [États Permanence](/docs/business/states/volunteer_shift.md)
+- [États Notification](/docs/business/states/notification.md)
 
 ## 📚 Guides Utilisateur
 
 ### Guides par Rôle
-- [Guide Membre](./guides/member.md)
-- [Guide Bénévole](./guides/volunteer.md)
-- [Guide Admin](./guides/admin.md)
+- [Guide Membre](/docs/business/guides/member.md)
+- [Guide Bénévole](/docs/business/guides/volunteer.md)
+- [Guide Admin](/docs/business/guides/admin.md)
 
 ### Guides par Fonction
-- [Guide Adhésions](./guides/memberships.md)
-- [Guide Paiements](./guides/payments.md)
-- [Guide Présences](./guides/attendance.md)
+- [Guide Adhésions](/docs/business/guides/memberships.md)
+- [Guide Paiements](/docs/business/guides/payments.md)
+- [Guide Présences](/docs/business/guides/attendance.md)
 
 ## 📊 Rapports et Statistiques
 
 ### Rapports Standards
-- [Rapport Quotidien](./reports/daily.md)
-- [Rapport Mensuel](./reports/monthly.md)
-- [Rapport Annuel](./reports/yearly.md)
+- [Rapport Quotidien](/docs/business/reports/daily.md)
+- [Rapport Mensuel](/docs/business/reports/monthly.md)
+- [Rapport Annuel](/docs/business/reports/yearly.md)
 
 ### Analyses
-- [KPIs](./reports/kpis.md)
-- [Tendances](./reports/trends.md)
-- [Prévisions](./reports/forecasts.md)
+- [KPIs](/docs/business/reports/kpis.md)
+- [Tendances](/docs/business/reports/trends.md)
+- [Prévisions](/docs/business/reports/forecasts.md)
 
 ## 🔍 Validation
 
 ### Tests Fonctionnels
-- [Plan de Test](../validation/test_plan.md)
-- [Scénarios](../validation/scenarios.md)
-- [Résultats](../validation/results.md)
+- [Plan de Test](/docs/validation/test_plan.md)
+- [Scénarios](/docs/validation/scenarios.md)
+- [Résultats](/docs/validation/results.md)
 
 ### Qualité
-- [Checklist Qualité](./quality/checklist.md)
-- [Audit Process](./quality/audit.md)
-- [Amélioration Continue](./quality/improvement.md)
+- [Checklist Qualité](/docs/business/quality/checklist.md)
+- [Audit Process](/docs/business/quality/audit.md)
+- [Amélioration Continue](/docs/business/quality/improvement.md)
 
 ## 📞 Support
 
@@ -125,6 +125,6 @@ business/
 - **Slack**: #business-support
 
 ### Ressources
-- [FAQ](./support/faq.md)
-- [Troubleshooting](./support/troubleshooting.md)
-- [Formation](./support/training.md) 
+- [FAQ](/docs/business/support/faq.md)
+- [Troubleshooting](/docs/business/support/troubleshooting.md)
+- [Formation](/docs/business/support/training.md) 

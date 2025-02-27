@@ -27,10 +27,10 @@ Le Circographe est construit sur une architecture moderne et modulaire, utilisan
 ## 📂 Structure du Projet
 
 ### Composants Principaux
-- [Core](./technical/core/README.md) - Logique métier et modèles
-- [Frontend](./technical/frontend/README.md) - Interface utilisateur
-- [Sécurité](./technical/security/README.md) - Authentification et autorisation
-- [Performance](./technical/performance/README.md) - Optimisations et monitoring
+- [Core](/docs/architecture/technical/core/README.md) - Logique métier et modèles
+- [Frontend](/docs/architecture/technical/frontend/README.md) - Interface utilisateur
+- [Sécurité](/docs/architecture/technical/security/README.md) - Authentification et autorisation
+- [Performance](/docs/architecture/technical/performance/README.md) - Optimisations et monitoring
 
 ### Organisation du Code
 ```
@@ -47,9 +47,9 @@ app/
 ## 🔄 Flux de Données
 
 ### Diagrammes
-- [Flux Utilisateur](./flow.md#user-flow)
-- [Flux Paiement](./flow.md#payment-flow)
-- [Flux Présence](./flow.md#attendance-flow)
+- [Flux Utilisateur](/docs/architecture/flow.md#user-flow)
+- [Flux Paiement](/docs/architecture/flow.md#payment-flow)
+- [Flux Présence](/docs/architecture/flow.md#attendance-flow)
 
 ### Intégrations
 - Système de paiement
@@ -60,10 +60,10 @@ app/
 ## 🛠️ Composants Techniques
 
 ### Services Principaux
-- [AuthenticationService](./components.md#authentication)
-- [PaymentService](./components.md#payment)
-- [NotificationService](./components.md#notification)
-- [StatisticsService](./components.md#statistics)
+- [AuthenticationService](/docs/architecture/components.md#authentication)
+- [PaymentService](/docs/architecture/components.md#payment)
+- [NotificationService](/docs/architecture/components.md#notification)
+- [StatisticsService](/docs/architecture/components.md#statistics)
 
 ### Jobs Background
 - Calcul des statistiques
@@ -101,14 +101,14 @@ app/
 ## 📝 Guides de Développement
 
 ### Setup
-1. [Installation](./technical/installation.md)
-2. [Configuration](./technical/configuration.md)
-3. [Déploiement](./technical/deployment.md)
+1. [Installation](/docs/architecture/technical/installation.md)
+2. [Configuration](/docs/architecture/technical/configuration.md)
+3. [Déploiement](/docs/architecture/technical/deployment.md)
 
 ### Bonnes Pratiques
-- [Conventions de Code](./technical/conventions.md)
-- [Guidelines API](./technical/api_guidelines.md)
-- [Tests](./technical/testing.md)
+- [Conventions de Code](/docs/architecture/technical/conventions.md)
+- [Guidelines API](/docs/architecture/technical/api_guidelines.md)
+- [Tests](/docs/architecture/technical/testing.md)
 
 ## 🔄 Cycle de Développement
 
@@ -129,14 +129,14 @@ app/
 ## 📚 Documentation Technique
 
 ### API
-- [Documentation API](./technical/api/README.md)
-- [Endpoints](./technical/api/endpoints.md)
-- [Authentication](./technical/api/auth.md)
+- [Documentation API](/docs/architecture/technical/api/README.md)
+- [Endpoints](/docs/architecture/technical/api/endpoints.md)
+- [Authentication](/docs/architecture/technical/api/auth.md)
 
 ### Base de Données
-- [Schéma](./technical/database/schema.md)
-- [Migrations](./technical/database/migrations.md)
-- [Indexation](./technical/database/indexes.md)
+- [Schéma](/docs/architecture/technical/database/schema.md)
+- [Migrations](/docs/architecture/technical/database/migrations.md)
+- [Indexation](/docs/architecture/technical/database/indexes.md)
 
 ## 🤝 Contribution
 
@@ -148,18 +148,18 @@ app/
 5. Pull Request
 
 ### Standards
-- [Guidelines de Code](./technical/guidelines.md)
-- [Convention de Commits](./technical/commits.md)
-- [Process de Review](./technical/review.md)
+- [Guidelines de Code](/docs/architecture/technical/guidelines.md)
+- [Convention de Commits](/docs/architecture/technical/commits.md)
+- [Process de Review](/docs/architecture/technical/review.md)
 
 ## 📞 Contact
 
 ### Support Technique
 - **Email**: tech@lecirco.org
 - **Slack**: #tech-support
-- **Documentation**: [Wiki Technique](./technical/wiki.md)
+- **Documentation**: [Wiki Technique](/docs/architecture/technical/wiki.md)
 
 ### Urgences
 - **Astreinte**: +33 6 XX XX XX XX
 - **Slack**: #tech-emergency
-- **Incident Process**: [Guide Incidents](./technical/incidents.md) 
+- **Incident Process**: [Guide Incidents](/docs/architecture/technical/incidents.md) 

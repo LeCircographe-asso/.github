@@ -12,4 +12,4 @@ This directory contains sequence diagrams and process flows for Le Circographe's
 
 ## Navigation
 
-- [⬅️ Back to Business Documentation](../README.md) 
+- [⬅️ Back to Business Documentation](/docs/business/README.md) 

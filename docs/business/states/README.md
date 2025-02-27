@@ -11,4 +11,4 @@ This directory contains state machines and lifecycle diagrams for Le Circographe
 
 ## Navigation
 
-- [⬅️ Back to Business Documentation](../README.md) 
+- [⬅️ Back to Business Documentation](/docs/business/README.md) 

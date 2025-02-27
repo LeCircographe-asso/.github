@@ -18,20 +18,20 @@ validation/
 ## 🎯 Domaines de Test
 
 ### 🔍 Tests Fonctionnels
-- [Plan de Test](./test_plan.md)
-- [Scénarios de Test](./test_cases/README.md)
-- [Résultats](./results/README.md)
+- [Plan de Test](/docs/validation/test_plan.md)
+- [Scénarios de Test](/docs/validation/test_cases/README.md)
+- [Résultats](/docs/validation/results/README.md)
 
 ### 📋 User Stories
-- [Vue d'ensemble](./user_stories/README.md)
-- [Stories Membres](./user_stories/member.md)
-- [Stories Bénévoles](./user_stories/volunteer.md)
-- [Stories Admin](./user_stories/admin.md)
+- [Vue d'ensemble](/docs/validation/user_stories/README.md)
+- [Stories Membres](/docs/validation/user_stories/member.md)
+- [Stories Bénévoles](/docs/validation/user_stories/volunteer.md)
+- [Stories Admin](/docs/validation/user_stories/admin.md)
 
 ### 🔄 Traçabilité
-- [Matrice Requirements](./traceability/requirements.md)
-- [Matrice Tests](./traceability/tests.md)
-- [Couverture Code](./traceability/coverage.md)
+- [Matrice Requirements](/docs/validation/traceability/requirements.md)
+- [Matrice Tests](/docs/validation/traceability/tests.md)
+- [Couverture Code](/docs/validation/traceability/coverage.md)
 
 ## 📋 État des Tests
 
@@ -88,26 +88,26 @@ validation/
 ## 🔍 Validation Métier
 
 ### Règles Métier
-- [Validation Adhésions](./business/membership.md)
-- [Validation Paiements](./business/payment.md)
-- [Validation Présences](./business/attendance.md)
+- [Validation Adhésions](/docs/validation/business/membership.md)
+- [Validation Paiements](/docs/validation/business/payment.md)
+- [Validation Présences](/docs/validation/business/attendance.md)
 
 ### Scénarios Critiques
-- [Scénarios Adhésion](./scenarios/membership.md)
-- [Scénarios Paiement](./scenarios/payment.md)
-- [Scénarios Présence](./scenarios/attendance.md)
+- [Scénarios Adhésion](/docs/validation/scenarios/membership.md)
+- [Scénarios Paiement](/docs/validation/scenarios/payment.md)
+- [Scénarios Présence](/docs/validation/scenarios/attendance.md)
 
 ## 📈 Rapports
 
 ### Rapports Automatisés
-- [Rapport Quotidien](./reports/daily.md)
-- [Rapport Hebdomadaire](./reports/weekly.md)
-- [Rapport Sprint](./reports/sprint.md)
+- [Rapport Quotidien](/docs/validation/reports/daily.md)
+- [Rapport Hebdomadaire](/docs/validation/reports/weekly.md)
+- [Rapport Sprint](/docs/validation/reports/sprint.md)
 
 ### Tableaux de Bord
-- [Dashboard QA](./dashboards/qa.md)
-- [Dashboard Tests](./dashboards/tests.md)
-- [Dashboard Bugs](./dashboards/bugs.md)
+- [Dashboard QA](/docs/validation/dashboards/qa.md)
+- [Dashboard Tests](/docs/validation/dashboards/tests.md)
+- [Dashboard Bugs](/docs/validation/dashboards/bugs.md)
 
 ## 🐛 Gestion des Bugs
 
@@ -128,14 +128,14 @@ validation/
 ## 📝 Templates
 
 ### Templates de Test
-- [Template User Story](./templates/user_story.md)
-- [Template Test Case](./templates/test_case.md)
-- [Template Bug Report](./templates/bug_report.md)
+- [Template User Story](/docs/validation/templates/user_story.md)
+- [Template Test Case](/docs/validation/templates/test_case.md)
+- [Template Bug Report](/docs/validation/templates/bug_report.md)
 
 ### Checklists
-- [Checklist Review](./checklists/review.md)
-- [Checklist Deploy](./checklists/deploy.md)
-- [Checklist Release](./checklists/release.md)
+- [Checklist Review](/docs/validation/checklists/review.md)
+- [Checklist Deploy](/docs/validation/checklists/deploy.md)
+- [Checklist Release](/docs/validation/checklists/release.md)
 
 ## 📞 Support
 
@@ -144,6 +144,6 @@ validation/
 - **Slack**: #qa-support
 
 ### Ressources
-- [Guide QA](./resources/qa_guide.md)
-- [Best Practices](./resources/best_practices.md)
-- [FAQ](./resources/faq.md) 
+- [Guide QA](/docs/validation/resources/qa_guide.md)
+- [Best Practices](/docs/validation/resources/best_practices.md)
+- [FAQ](/docs/validation/resources/faq.md) 

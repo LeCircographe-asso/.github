@@ -10,7 +10,7 @@ This directory contains the core business rules and concepts that govern Le Circ
 
 ## Navigation
 
-- [⬅️ Back to Business Documentation](../README.md)
-- [➡️ Core Concepts](concepts.md)
-- [➡️ Business Rules](business_rules.md)
-- [➡️ Concept Mapping](concept_mapping.md) 
+- [⬅️ Back to Business Documentation](/docs/business/README.md)
+- [➡️ Core Concepts](/docs/business/rules/concepts.md)
+- [➡️ Business Rules](/docs/business/rules/business_rules.md)
+- [➡️ Concept Mapping](/docs/business/rules/concept_mapping.md) 
