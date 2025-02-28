@@ -6,21 +6,21 @@ Le domaine de rôles définit les règles, les spécifications techniques et les
 
 ## Contenu du dossier
 
-### [📜 Règles Métier](requirements/1_métier/adhesion/regles.md)
+### [📜 Règles Métier](./regles.md)
 Source de vérité définissant les règles fondamentales des rôles:
 - Hiérarchie des rôles système
 - Fonctions associatives
 - Attribution des permissions
 - Règles d'escalade et délégation
 
-### [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
+### [⚙️ Spécifications Techniques](./specs.md)
 Documentation technique pour l'implémentation:
 - Modèles de données
 - Système d'autorisation
 - Gestion des permissions
 - Politiques d'accès
 
-### [✅ Validation](requirements/1_métier/adhesion/validation.md)
+### [✅ Validation](./validation.md)
 Critères de validation pour garantir la conformité:
 - Scénarios de test des permissions
 - Matrice de rôles et fonctionnalités
@@ -43,42 +43,42 @@ Critères de validation pour garantir la conformité:
 
 ## Navigation
 
-- [⬅️ Retour aux domaines métier](/requirements/1_métier/)
-- [📜 Règles des Rôles](requirements/1_métier/adhesion/regles.md)
-- [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
-- [✅ Validation](requirements/1_métier/adhesion/validation.md)
+- [⬅️ Retour aux domaines métier](../index.md)
+- [📜 Règles des Rôles](./regles.md)
+- [⚙️ Spécifications Techniques](./specs.md)
+- [✅ Validation](./validation.md)
 
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme de permissions](docs/architecture/diagrams/roles_permissions.md)
-- [📝 Matrice d'autorisation](../..../../docs/architecture/matrices/authorization_matrix.md)
+- [📝 Diagramme de permissions](../../../docs/architecture/diagrams/roles_permissions.md)
+- [📝 Matrice d'autorisation](../../../docs/architecture/matrices/authorization_matrix.md)
 
 ### Documentation utilisateur
-- [📘 Guide des Rôles](/docs/business/regles/roles_systeme.md) - Explication pour les administrateurs
-- [📗 Guide des Fonctions](/docs/utilisateur/guides/fonctions_association.md) - Rôles associatifs
+- [📘 Guide des Rôles](../../../docs/business/regles/roles_systeme.md) - Explication pour les administrateurs
+- [📗 Guide des Fonctions](../../../docs/utilisateur/guides/fonctions_association.md) - Rôles associatifs
 
 ## Relations avec les autres domaines
 
 Le domaine des rôles interagit directement avec les domaines suivants:
 
-### [Domaine Adhésion](requirements/1_métier/adhesion/index.md)
+### [Domaine Adhésion](../adhesion/index.md)
 - Vérification du statut d'adhésion pour l'attribution de certains rôles
 - Conditions d'adhésion spécifiques pour certains rôles (ex: adhésion Cirque obligatoire pour les bénévoles)
 
-### [Domaine Présence](requirements/1_métier/adhesion/index.md)
+### [Domaine Présence](../presence/index.md)
 - Permissions différentes selon les rôles pour la gestion des listes de présence
 - Accès aux statistiques et rapports selon le rôle
 
-### [Domaine Paiement](requirements/1_métier/adhesion/index.md)
+### [Domaine Paiement](../paiement/index.md)
 - Autorisations de gestion des paiements selon les rôles
 - Accès aux fonctionnalités financières basé sur les rôles
 
-### [Domaine Cotisation](requirements/1_métier/adhesion/index.md)
+### [Domaine Cotisation](../cotisation/index.md)
 - Certains rôles peuvent créer ou modifier des cotisations
 - Permissions spéciales pour appliquer des réductions ou des offres spéciales
 
-### [Domaine Notification](requirements/1_métier/adhesion/index.md)
+### [Domaine Notification](../notification/index.md)
 - Certains rôles reçoivent des notifications spécifiques
 - Rôles administratifs peuvent configurer les paramètres de notification
 - Alertes lors des changements de rôles dans le système 

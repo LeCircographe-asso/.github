@@ -6,21 +6,21 @@ Le domaine de notification définit les règles, les spécifications techniques 
 
 ## Contenu du dossier
 
-### [📜 Règles Métier](requirements/1_métier/adhesion/regles.md)
+### [📜 Règles Métier](./regles.md)
 Source de vérité définissant les règles fondamentales des notifications:
 - Types de notifications
 - Déclencheurs et conditions d'envoi
 - Contenu et formatage
 - Canaux de communication
 
-### [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
+### [⚙️ Spécifications Techniques](./specs.md)
 Documentation technique pour l'implémentation:
 - Modèles de données
 - Services d'envoi
 - Templates et personnalisation
 - Gestion des files d'attente
 
-### [✅ Validation](requirements/1_métier/adhesion/validation.md)
+### [✅ Validation](./validation.md)
 Critères de validation pour garantir la conformité:
 - Scénarios de test par type de notification
 - Vérification de la livraison
@@ -43,46 +43,46 @@ Critères de validation pour garantir la conformité:
 
 ## Navigation
 
-- [⬅️ Retour aux domaines métier](/requirements/1_métier/)
-- [📜 Règles des Notifications](requirements/1_métier/adhesion/regles.md)
-- [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
-- [✅ Validation](requirements/1_métier/adhesion/validation.md)
+- [⬅️ Retour aux domaines métier](../index.md)
+- [📜 Règles des Notifications](./regles.md)
+- [⚙️ Spécifications Techniques](./specs.md)
+- [✅ Validation](./validation.md)
 
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme de flux](docs/architecture/diagrams/notification_flow.md)
-- [📝 Modèles de messages](docs/architecture/templates/notification_templates.md)
+- [📝 Diagramme de flux](../../../docs/architecture/diagrams/notification_flow.md)
+- [📝 Modèles de messages](../../../docs/architecture/templates/notification_templates.md)
 
 ### Documentation utilisateur
-- [📘 Guide des Notifications](/docs/business/regles/notifications.md) - Configuration pour les administrateurs
-- [📗 Guide de Communication](/docs/utilisateur/guides/preferences_communication.md) - Préférences pour les membres
+- [📘 Guide des Notifications](../../../docs/business/regles/notifications.md) - Configuration pour les administrateurs
+- [📗 Guide de Communication](../../../docs/utilisateur/guides/preferences_communication.md) - Préférences pour les membres
 
 ## Relations avec les autres domaines
 
 Le domaine des notifications interagit directement avec les domaines suivants:
 
-### [Domaine Adhésion](requirements/1_métier/adhesion/index.md)
+### [Domaine Adhésion](../adhesion/index.md)
 - Notifications de bienvenue aux nouveaux membres
 - Rappels d'échéance pour les adhésions expirant prochainement
 - Confirmations de renouvellement d'adhésion
 
-### [Domaine Cotisation](requirements/1_métier/adhesion/index.md)
+### [Domaine Cotisation](../cotisation/index.md)
 - Notifications d'achat de nouvelles cotisations
 - Rappels d'échéance pour les abonnements
 - Alertes sur le nombre de séances restantes dans un carnet
 
-### [Domaine Paiement](requirements/1_métier/adhesion/index.md)
+### [Domaine Paiement](../paiement/index.md)
 - Confirmations de paiement
 - Reçus électroniques
 - Rappels de paiements en attente
 
-### [Domaine Présence](requirements/1_métier/adhesion/index.md)
+### [Domaine Présence](../presence/index.md)
 - Confirmation d'enregistrement de présence
 - Alertes de capacité maximale atteinte
 - Statistiques périodiques de fréquentation (pour les administrateurs)
 
-### [Domaine Rôles](requirements/1_métier/adhesion/index.md)
+### [Domaine Rôles](../roles/index.md)
 - Notifications spécifiques selon les rôles des utilisateurs
 - Alertes aux administrateurs pour les actions nécessitant attention
 - Notifications de changement de rôle ou de privilèges 

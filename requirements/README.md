@@ -131,7 +131,7 @@ end
   - [📁 Spécifications Techniques](./2_specifications_techniques/) - Détails d'implémentation
   - [📁 User Stories](./3_user_stories/) - Scénarios utilisateurs
   - [📁 Implémentation](./4_implementation/) - Guide d'implémentation
-  - [📁 Processus](./processes/) - Documentation des processus métier (déplacée)
+  - [📁 Processus](../docs/business/) - Documentation des processus métier
 - [📁 Documentation](../docs/)
   - [📁 Architecture](../docs/architecture/) - Schémas et diagrammes
   - [📁 Guides Métier](../docs/business/) - Documentation pour les parties prenantes

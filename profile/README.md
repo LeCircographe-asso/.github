@@ -29,26 +29,26 @@ Le Circographe est une application de gestion complète pour une association de 
 
 | Documentation | Description |
 |---------------|-------------|
-| [🔧 Installation](docs/architecture/README.md) | Comment installer l'application |
-| [🚀 Premier pas](docs/architecture/README.md) | Guide de prise en main rapide |
-| [❓ FAQ](/docs/faq.md) | Questions fréquemment posées |
+| [🔧 Installation](../docs/architecture/README.md) | Comment installer l'application |
+| [🚀 Premier pas](../docs/architecture/README.md) | Guide de prise en main rapide |
+| [❓ FAQ](docs/faq.md) | Questions fréquemment posées |
 
 ## 🏛️ Structure de la documentation
 
 Notre documentation est organisée de manière hiérarchique pour faciliter la navigation:
 
-### 📁 [Requirements](docs/architecture/README.md)
+### 📁 [Requirements](../docs/architecture/README.md)
 
 - [📁 Métier](../..../../requirements/1_métier/index.md) - Règles et spécifications métier
-- [📁 Spécifications Techniques](docs/architecture/README.md) - Détails d'implémentation
-- [📁 User Stories](docs/architecture/README.md) - Scénarios utilisateur par domaine
-- [📁 Implémentation](docs/architecture/README.md) - Guide d'implémentation
+- [📁 Spécifications Techniques](../docs/architecture/README.md) - Détails d'implémentation
+- [📁 User Stories](../docs/architecture/README.md) - Scénarios utilisateur par domaine
+- [📁 Implémentation](../docs/architecture/README.md) - Guide d'implémentation
 
-### 📁 [Docs](docs/glossaire.md)
+### 📁 [Docs](../docs/glossaire.md)
 
 - [📁 Architecture](../..../../docs/architecture/README.md) - Documentation technique
-- [📁 Business](docs/architecture/README.md) - Documentation métier
-- [📁 Utilisateur](docs/architecture/README.md) - Guides pour les utilisateurs finaux
+- [📁 Business](../docs/architecture/README.md) - Documentation métier
+- [📁 Utilisateur](../docs/architecture/README.md) - Guides pour les utilisateurs finaux
 
 ## 🔄 Domaines métier
 
@@ -161,7 +161,7 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](/docs/utilisateur/guides/membres.md)
+  - [Guide complet](docs/utilisateur/guides/membres.md)
   - Domaines associés:
     - [Adhésion](../..../../requirements/1_métier/adhesion/index.md)
     - [Rôles](../..../../requirements/1_métier/roles/index.md)
@@ -173,7 +173,7 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](/docs/utilisateur/guides/finances.md)
+  - [Guide complet](docs/utilisateur/guides/finances.md)
   - Domaines associés:
     - [Paiement](../..../../requirements/1_métier/paiement/index.md)
     - [Adhésion](../..../../requirements/1_métier/adhesion/index.md)
@@ -185,7 +185,7 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](/docs/utilisateur/guides/statistiques.md)
+  - [Guide complet](docs/utilisateur/guides/statistiques.md)
   - Domaines associés:
     - [Présence](../..../../requirements/1_métier/presence/index.md)
     - [Paiement](../..../../requirements/1_métier/paiement/index.md)

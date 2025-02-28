@@ -39,6 +39,6 @@ Documentation des aspects sécurité de Le Circographe.
 
 ## Navigation
 
-- [⬅️ Back to Technical](docs/architecture/README.md)
-- [⬆️ Back to Architecture](docs/architecture/README.md)
-- [🏠 Back to Home](docs/architecture/README.md) 
+- [⬅️ Back to Technical](../../README.md)
+- [⬆️ Back to Architecture](../../README.md)
+- [🏠 Back to Home](../../README.md) 

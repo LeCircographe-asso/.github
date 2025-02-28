@@ -273,7 +273,7 @@ Pour `format=pdf` ou `format=html`, le contenu approprié est retourné avec les
    - La date de fin est calculée automatiquement (1 an après la date de début)
 
 3. **Statuts et transitions**
-   - Les transitions de statut suivent le diagramme d'états défini dans [membership_states.md](docs/architecture/diagrams/membership_states.md)
+   - Les transitions de statut suivent le diagramme d'états défini dans [membership_states.md](../../../docs/architecture/diagrams/membership_states.md)
 
 4. **Renouvellement**
    - Le renouvellement est possible 30 jours avant la date de fin

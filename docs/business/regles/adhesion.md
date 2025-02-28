@@ -48,7 +48,7 @@ La vérification du justificatif se fait uniquement sur place par un bénévoles
 
 ## Cycle de Vie d'une Adhésion
 
-![Diagramme des états d'une adhésion](/docs/business/images/adhesion_states.png)
+![Diagramme des états d'une adhésion](docs/business/images/adhesion_states.png)
 
 ### États d'une Adhésion
 

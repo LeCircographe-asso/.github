@@ -3,7 +3,7 @@
 ## Identification du Document
 - **Domaine**: Cotisation
 - **Version**: 1.0.0
-- **Référence**: [Règles de Cotisation](requirements/1_métier/adhesion/regles.md)
+- **Référence**: [Règles de Cotisation](./regles.md)
 - **Dernière révision**: [DATE]
 
 ## Critères d'Acceptation

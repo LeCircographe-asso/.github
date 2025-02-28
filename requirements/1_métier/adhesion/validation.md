@@ -3,7 +3,7 @@
 ## Identification du Document
 - **Domaine**: Adhésion
 - **Version**: 1.0.0
-- **Référence**: [Règles d'Adhésion](requirements/1_métier/adhesion/regles.md)
+- **Référence**: [Règles d'Adhésion](regles.md)
 - **Dernière révision**: [DATE]
 
 ## Critères d'Acceptation

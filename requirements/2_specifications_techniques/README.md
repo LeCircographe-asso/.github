@@ -69,7 +69,7 @@ La stack utilise exclusivement les technologies et paradigmes recommandés par R
 
 ## 🗄️ Modèles et architecture des données
 
-> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [modeles.md](requirements/2_specifications_techniques/modeles.md).
+> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [modeles.md](modeles.md).
 
 L'application utilise une architecture modulaire par domaine métier, avec des modèles optimisés pour les relations entre domaines. Les principales caractéristiques incluent:
 
@@ -81,7 +81,7 @@ L'application utilise une architecture modulaire par domaine métier, avec des m
 
 ## 🔐 Sécurité et authentification
 
-> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [securite.md](requirements/2_specifications_techniques/securite.md).
+> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [securite.md](securite.md).
 
 L'application implémente un système d'authentification et d'autorisation robuste:
 
@@ -106,7 +106,7 @@ Les interfaces respectent les standards modernes tout en étant adaptées aux sp
 
 ## ⚡ Performance et optimisation
 
-> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [performance.md](requirements/2_specifications_techniques/performance.md).
+> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [performance.md](performance.md).
 
 L'application intègre des stratégies d'optimisation à tous les niveaux:
 
@@ -118,7 +118,7 @@ L'application intègre des stratégies d'optimisation à tous les niveaux:
 
 ## 🧪 Tests et validation technique
 
-> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [tests.md](requirements/2_specifications_techniques/tests.md).
+> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [tests.md](tests.md).
 
 La stratégie de test complète assure la fiabilité et la qualité du code:
 
@@ -132,7 +132,7 @@ La stratégie de test complète assure la fiabilité et la qualité du code:
 ## 🖇️ Liens vers la documentation technique approfondie
 
 - [Architecture détaillée](../..../..../../docs/architecture/README.md)
-- [Guide d'implémentation](docs/architecture/README.md)
+- [Guide d'implémentation](../../docs/architecture/README.md)
 - [Rails 8.0.1 Guides](https://guides.rubyonrails.org/)
 - [Flowbite Components](https://flowbite.com/docs/components/)
 

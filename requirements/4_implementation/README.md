@@ -25,9 +25,9 @@ Le dossier `rails/` contient des modèles, contrôleurs, vues et autres composan
 
 Pour une documentation plus approfondie ou récente, veuillez consulter :
 
-- [Architecture Technique](../..../..../../docs/architecture/technical/) - Documentation détaillée de l'architecture
+- [Architecture Technique](../../docs/architecture/technical/) - Documentation détaillée de l'architecture
 - [Spécifications par Domaine](../1_métier/) - Spécifications techniques par domaine fonctionnel
-- [États des Objets](docs/business/images/adhesion_states.md) - Diagrammes d'états pour les objets métier
+- [États des Objets](../../docs/business/states/) - Diagrammes d'états pour les objets métier
 
 ## Documentation Obsolète
 

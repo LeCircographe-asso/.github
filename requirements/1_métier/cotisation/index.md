@@ -6,21 +6,21 @@ Le domaine de cotisation définit les règles, les spécifications techniques et
 
 ## Contenu du dossier
 
-### [📜 Règles Métier](requirements/1_métier/adhesion/regles.md)
+### [📜 Règles Métier](./regles.md)
 Source de vérité définissant les règles fondamentales des cotisations:
 - Types de cotisations (mensuelle, trimestrielle, etc.)
 - Tarifs et conditions
 - États et transitions
 - Calcul des périodes de validité
 
-### [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
+### [⚙️ Spécifications Techniques](./specs.md)
 Documentation technique pour l'implémentation:
 - Modèles de données
 - Validations
 - Services
 - API et endpoints
 
-### [✅ Validation](requirements/1_métier/adhesion/validation.md)
+### [✅ Validation](./validation.md)
 Critères de validation pour garantir la conformité:
 - Scénarios de test
 - Cas limites
@@ -43,38 +43,38 @@ Critères de validation pour garantir la conformité:
 
 ## Navigation
 
-- [⬅️ Retour aux domaines métier](/requirements/1_métier/)
-- [📜 Règles de Cotisation](requirements/1_métier/adhesion/regles.md)
-- [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
-- [✅ Validation](requirements/1_métier/adhesion/validation.md)
+- [⬅️ Retour aux domaines métier](../index.md)
+- [📜 Règles de Cotisation](./regles.md)
+- [⚙️ Spécifications Techniques](./specs.md)
+- [✅ Validation](./validation.md)
 
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme d'états](docs/architecture/diagrams/subscription_states.md)
-- [📝 Spécifications API](/requirements/2_specifications_techniques/api/subscription_api.md)
+- [📝 Diagramme d'états](../../../docs/architecture/diagrams/subscription_states.md)
+- [📝 Spécifications API](../../2_specifications_techniques/api/subscription_api.md)
 
 ### Documentation utilisateur
-- [📘 Guide des Cotisations](docs/business/regles/cotisation.md) - Explication accessible des cotisations
-- [📗 Guide Cotisation - Membres](docs/utilisateur/guides/cotisation_membre.md) - Guide utilisateur 
+- [📘 Guide des Cotisations](../../../docs/business/regles/cotisation.md) - Explication accessible des cotisations
+- [📗 Guide Cotisation - Membres](../../../docs/utilisateur/guides/cotisation_membre.md) - Guide utilisateur 
 
 ## Relations avec les autres domaines
 
 Le domaine de cotisation interagit directement avec les domaines suivants:
 
-### [Domaine Adhésion](requirements/1_métier/adhesion/index.md)
+### [Domaine Adhésion](../adhesion/index.md)
 - Vérification de l'adhésion Cirque valide avant création d'une cotisation
 - Une cotisation ne peut être activée que si l'adhésion est valide
 
-### [Domaine Paiement](requirements/1_métier/adhesion/index.md)
+### [Domaine Paiement](../paiement/index.md)
 - Validation des paiements pour activer les cotisations
 - Gestion des remboursements en cas d'annulation
 
-### [Domaine Présence](requirements/1_métier/adhesion/index.md)
+### [Domaine Présence](../presence/index.md)
 - Vérification de la validité des cotisations pour autoriser l'accès
 - Décompte des entrées pour les cotisations à la carte
 
-### [Domaine Notification](requirements/1_métier/adhesion/index.md)
+### [Domaine Notification](../notification/index.md)
 - Envoi de rappels avant expiration de cotisation
 - Notification de validation après paiement
 - Alerte lorsqu'un carnet approche de sa fin 

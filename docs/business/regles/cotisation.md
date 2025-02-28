@@ -80,7 +80,7 @@ Par exemple, si vous avez un abonnement annuel et un carnet de séances, l'abonn
 
 ## Cycle de Vie d'une Cotisation
 
-![Diagramme des états d'une cotisation](docs/business/images/cotisation_states.md)
+![Diagramme des états d'une cotisation](../images/cotisation_states.md)
 
 ### États d'une Cotisation
 

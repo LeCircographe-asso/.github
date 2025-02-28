@@ -6,21 +6,21 @@ Le domaine d'adhésion définit les règles, les spécifications techniques et l
 
 ## Contenu du dossier
 
-### [📜 Règles Métier](requirements/1_métier/adhesion/regles.md)
+### [📜 Règles Métier](regles.md)
 Source de vérité définissant les règles fondamentales des adhésions:
 - Types d'adhésion (Basic, Cirque)
 - Tarifs et conditions
 - États et transitions
 - Processus d'adhésion
 
-### [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
+### [⚙️ Spécifications Techniques](specs.md)
 Documentation technique pour l'implémentation:
 - Modèles de données
 - Validations
 - Services
 - API et endpoints
 
-### [✅ Validation](requirements/1_métier/adhesion/validation.md)
+### [✅ Validation](validation.md)
 Critères de validation pour garantir la conformité:
 - Scénarios de test
 - Cas limites
@@ -43,42 +43,42 @@ Critères de validation pour garantir la conformité:
 
 ## Navigation
 
-- [⬅️ Retour aux domaines métier](/requirements/1_métier/)
-- [📜 Règles d'Adhésion](requirements/1_métier/adhesion/regles.md)
-- [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
-- [✅ Validation](requirements/1_métier/adhesion/validation.md)
+- [⬅️ Retour aux domaines métier](..)
+- [📜 Règles d'Adhésion](regles.md)
+- [⚙️ Spécifications Techniques](specs.md)
+- [✅ Validation](validation.md)
 
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme d'états](docs/architecture/diagrams/membership_states.md)
-- [📝 Spécifications API](requirements/2_specifications_techniques/api/membership_api.md)
+- [📝 Diagramme d'états](../../../docs/architecture/diagrams/membership_states.md)
+- [📝 Spécifications API](../../2_specifications_techniques/api/membership_api.md)
 
 ### Documentation utilisateur
-- [📘 Guide des Adhésions](docs/business/regles/adhesion.md) - Explication accessible des adhésions
-- [📗 Guide d'Adhésion - Membres](docs/utilisateur/guides/adhesion_membre.md) - Guide utilisateur 
+- [📘 Guide des Adhésions](../../../docs/business/regles/adhesion.md) - Explication accessible des adhésions
+- [📗 Guide d'Adhésion - Membres](../../../docs/utilisateur/guides/adhesion_membre.md) - Guide utilisateur 
 
 ## Relations avec les autres domaines
 
 Le domaine d'adhésion interagit directement avec les domaines suivants:
 
-### [Domaine Paiement](requirements/1_métier/adhesion/index.md)
+### [Domaine Paiement](index.md)
 - Validation des paiements pour activer les adhésions
 - Différents tarifs selon le type d'adhésion (Basic, Cirque, tarif réduit)
 
-### [Domaine Cotisation](requirements/1_métier/adhesion/index.md)
+### [Domaine Cotisation](index.md)
 - Une adhésion Cirque valide est requise pour souscrire à une cotisation
 - L'expiration d'une adhésion peut suspendre les cotisations associées
 
-### [Domaine Présence](requirements/1_métier/adhesion/index.md)
+### [Domaine Présence](index.md)
 - Vérification de l'adhésion pour autoriser l'accès aux activités
 - Type d'adhésion déterminant l'accès à différents types d'événements
 
-### [Domaine Rôles](requirements/1_métier/adhesion/index.md)
+### [Domaine Rôles](index.md)
 - Certains rôles nécessitent un type d'adhésion spécifique
 - Gestion des droits d'accès basée sur le statut d'adhésion
 
-### [Domaine Notification](requirements/1_métier/adhesion/index.md)
+### [Domaine Notification](index.md)
 - Envoi de bienvenue aux nouveaux adhérents
 - Rappels avant expiration d'adhésion
 - Notifications de validation après paiement 

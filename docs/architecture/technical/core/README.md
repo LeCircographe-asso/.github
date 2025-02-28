@@ -25,6 +25,6 @@ Cette section contient la documentation technique du cœur de l'application Le C
 
 ## Navigation
 
-- [⬅️ Back to Technical](docs/architecture/README.md)
-- [⬆️ Back to Architecture](docs/architecture/README.md)
-- [🏠 Back to Home](docs/architecture/README.md) 
+- [⬅️ Back to Technical](../../README.md)
+- [⬆️ Back to Architecture](../../README.md)
+- [🏠 Back to Home](../../README.md) 

@@ -202,7 +202,7 @@ end
 
 ### Matrice de Permissions
 
-La matrice complète des permissions par rôle est disponible dans le document [roles_permissions.md](docs/architecture/diagrams/roles_permissions.md).
+La matrice complète des permissions par rôle est disponible dans le document [roles_permissions.md](../../diagrams/roles_permissions.md).
 
 ## Gestion des Erreurs d'Authentification
 
