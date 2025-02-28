@@ -27,10 +27,10 @@ Le Circographe est construit sur une architecture moderne et modulaire, utilisan
 ## 📂 Structure du Projet
 
 ### Composants Principaux
-- [Core](/docs/architecture/technical/core/README.md) - Logique métier et modèles
-- [Frontend](/docs/architecture/technical/frontend/README.md) - Interface utilisateur
-- [Sécurité](/docs/architecture/technical/security/README.md) - Authentification et autorisation
-- [Performance](/docs/architecture/technical/performance/README.md) - Optimisations et monitoring
+- [Core](docs/architecture/README.md) - Logique métier et modèles
+- [Frontend](docs/architecture/README.md) - Interface utilisateur
+- [Sécurité](docs/architecture/README.md) - Authentification et autorisation
+- [Performance](docs/architecture/README.md) - Optimisations et monitoring
 
 ### Organisation du Code
 ```
@@ -103,7 +103,7 @@ app/
 ### Setup
 1. [Installation](/docs/architecture/technical/installation.md)
 2. [Configuration](/docs/architecture/technical/configuration.md)
-3. [Déploiement](/docs/architecture/technical/deployment.md)
+3. [Déploiement](docs/architecture/technical/deployment/deployment.md)
 
 ### Bonnes Pratiques
 - [Conventions de Code](/docs/architecture/technical/conventions.md)
@@ -129,9 +129,9 @@ app/
 ## 📚 Documentation Technique
 
 ### API
-- [Documentation API](/docs/architecture/technical/api/README.md)
+- [Documentation API](docs/architecture/README.md)
 - [Endpoints](/docs/architecture/technical/api/endpoints.md)
-- [Authentication](/docs/architecture/technical/api/auth.md)
+- [Authentication](docs/architecture/technical/api/auth.md)
 
 ### Base de Données
 - [Schéma](/docs/architecture/technical/database/schema.md)

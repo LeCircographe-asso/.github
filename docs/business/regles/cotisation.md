@@ -80,7 +80,7 @@ Par exemple, si vous avez un abonnement annuel et un carnet de séances, l'abonn
 
 ## Cycle de Vie d'une Cotisation
 
-![Diagramme des états d'une cotisation](/docs/business/images/cotisation_states.md)
+![Diagramme des états d'une cotisation](docs/business/images/cotisation_states.md)
 
 ### États d'une Cotisation
 
@@ -154,4 +154,4 @@ Vous ne pourrez plus utiliser vos cotisations jusqu'au renouvellement de votre a
 
 ---
 
-> Pour les spécifications techniques détaillées, consultez la [documentation source](/requirements/1_métier/cotisation/regles.md) 
+> Pour les spécifications techniques détaillées, consultez la [documentation source](../../requirements/1_métier/cotisation/regles.md) 

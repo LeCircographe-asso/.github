@@ -41,12 +41,12 @@ Tous les domaines métier sont désormais organisés dans `requirements/1_métie
 
 | Domaine | Description |
 |---------|-------------|
-| [Adhésion](1_métier/adhesion/index.md) | Règles et processus liés aux adhésions Basic et Cirque |
-| [Cotisation](1_métier/cotisation/index.md) | Règles pour les formules de cotisations d'accès aux entraînements |
-| [Paiement](1_métier/paiement/index.md) | Règles pour les transactions financières et reçus |
-| [Présence](1_métier/presence/index.md) | Gestion des présences et statistiques |
-| [Rôles](1_métier/roles/index.md) | Gestion des rôles système et utilisateurs |
-| [Notification](1_métier/notification/index.md) | Communication avec les membres |
+| [Adhésion](requirements/1_métier/adhesion/index.md) | Règles et processus liés aux adhésions Basic et Cirque |
+| [Cotisation](requirements/1_métier/adhesion/index.md) | Règles pour les formules de cotisations d'accès aux entraînements |
+| [Paiement](requirements/1_métier/adhesion/index.md) | Règles pour les transactions financières et reçus |
+| [Présence](requirements/1_métier/adhesion/index.md) | Gestion des présences et statistiques |
+| [Rôles](requirements/1_métier/adhesion/index.md) | Gestion des rôles système et utilisateurs |
+| [Notification](requirements/1_métier/adhesion/index.md) | Communication avec les membres |
 
 ## Stack Technique Imposée
 1. **Core**
@@ -132,11 +132,11 @@ end
   - [📁 User Stories](3_user_stories/) - Scénarios utilisateurs
   - [📁 Implémentation](4_implementation/) - Guide d'implémentation
   - [📁 Processus](processes/) - Documentation des processus métier (déplacée)
-- [📁 Documentation](../docs/)
-  - [📁 Architecture](../docs/architecture/) - Schémas et diagrammes
-  - [📁 Guides Métier](../docs/business/) - Documentation pour les parties prenantes
-  - [📁 Guides Utilisateur](../docs/utilisateur/) - Documentation pour utilisateurs finaux
-  - [📄 Glossaire](../docs/glossaire.md) - Termes et définitions
+- [📁 Documentation](..../../docs/)
+  - [📁 Architecture](..../../docs/architecture/) - Schémas et diagrammes
+  - [📁 Guides Métier](..../../docs/business/) - Documentation pour les parties prenantes
+  - [📁 Guides Utilisateur](..../../docs/utilisateur/) - Documentation pour utilisateurs finaux
+  - [📄 Glossaire](..../../docs/glossaire.md) - Termes et définitions
 
 ---
 

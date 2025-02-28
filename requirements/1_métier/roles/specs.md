@@ -102,7 +102,7 @@ Service gérant les vérifications d'autorisation avec les méthodes principales
 
 ## 3. Règles d'implémentation
 
-La mise en œuvre technique du système de rôles doit respecter la séparation claire entre adhésion et rôles système définie dans les [Règles Métier - Rôles](regles.md).
+La mise en œuvre technique du système de rôles doit respecter la séparation claire entre adhésion et rôles système définie dans les [Règles Métier - Rôles](requirements/1_métier/adhesion/regles.md).
 
 ### 3.1 Implémentation de l'attribution des rôles
 

@@ -6,27 +6,27 @@ Ce dossier contient tous les documents de règles métier du Circographe, destin
 
 ### Domaine : Adhésion
 
-- [**Guide des Adhésions**](adhesion.md) - Explique les différents types d'adhésion, les tarifs, et le processus d'adhésion à l'association.
+- [**Guide des Adhésions**](docs/business/regles/adhesion.md) - Explique les différents types d'adhésion, les tarifs, et le processus d'adhésion à l'association.
 
 ### Domaine : Cotisation
 
-- [**Guide des Cotisations**](cotisation.md) - Détaille les différentes formules de cotisation permettant l'accès aux entraînements (Pass Journée, Carnet, Abonnements).
+- [**Guide des Cotisations**](docs/business/regles/cotisation.md) - Détaille les différentes formules de cotisation permettant l'accès aux entraînements (Pass Journée, Carnet, Abonnements).
 
 ### Domaine : Paiement
 
-- [**Guide des Paiements**](paiement.md) - Explique les différentes méthodes de paiement, les processus de validation et les documents générés.
+- [**Guide des Paiements**](docs/business/regles/paiement.md) - Explique les différentes méthodes de paiement, les processus de validation et les documents générés.
 
 ### Domaine : Présence
 
-- [**Guide des Présences**](presence.md) - Détaille le système de pointage, les listes de présence et les droits d'accès aux installations.
+- [**Guide des Présences**](docs/business/regles/presence.md) - Détaille le système de pointage, les listes de présence et les droits d'accès aux installations.
 
 ### Domaine : Rôles
 
-- [**Guide des Rôles**](roles.md) - Présente les différents rôles utilisateur dans le système et leurs permissions associées.
+- [**Guide des Rôles**](docs/business/regles/roles.md) - Présente les différents rôles utilisateur dans le système et leurs permissions associées.
 
 ### Domaine : Notification
 
-- [**Guide des Notifications**](notification.md) - Explique le système de communication automatisé et ses différents canaux.
+- [**Guide des Notifications**](docs/business/regles/notification.md) - Explique le système de communication automatisé et ses différents canaux.
 
 ## Documentation obsolète
 
@@ -36,8 +36,8 @@ Les documents qui ne sont plus à jour avec les processus et règles actuels ont
 
 Des diagrammes illustrant les cycles de vie et processus métier sont disponibles dans le dossier [images](/docs/business/images/):
 
-- [États des adhésions](/docs/business/images/adhesion_states.md)
-- [États des cotisations](/docs/business/images/cotisation_states.md)
+- [États des adhésions](docs/business/images/adhesion_states.md)
+- [États des cotisations](docs/business/images/cotisation_states.md)
 
 ## Objectif de cette documentation
 
@@ -46,7 +46,7 @@ Ces documents visent à:
 2. Fournir des références officielles pour les membres et bénévoles
 3. Standardiser les processus et garantir leur cohérence
 
-Pour les documents techniques détaillés, consultez le dossier [requirements/1_métier](/requirements/1_métier/).
+Pour les documents techniques détaillés, consultez le dossier [requirements/1_métier](../../requirements/1_métier/).
 
 ---
 

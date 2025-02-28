@@ -16,8 +16,8 @@ Le système de présence permet de gérer plusieurs types de listes en parallèl
 - Vues Turbo et Stimulus
 
 ## Documentation Détaillée
-- [Implémentation Technique](./implementation.md)
-- [Règles Métier](../../requirements/1_métier/presence/systeme.md)
+- [Implémentation Technique](docs/architecture/technical/core/features/attendance/implementation.md)
+- [Règles Métier](../..../../requirements/1_métier/presence/regles.md)
 
 ## Interfaces
 - Scan de carte ou recherche par nom

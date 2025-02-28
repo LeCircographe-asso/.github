@@ -12,7 +12,7 @@ Les spécifications API sont organisées par domaine métier :
 
 | Fichier | Description |
 |---------|-------------|
-| [membership_api.md](membership_api.md) | API pour la gestion des adhésions |
+| [requirements/2_specifications_techniques/api/membership_api.md](requirements/2_specifications_techniques/api/membership_api.md) | API pour la gestion des adhésions |
 | [subscription_api.md](subscription_api.md) | API pour la gestion des cotisations |
 | [payment_api.md](payment_api.md) | API pour la gestion des paiements |
 | [attendance_api.md](attendance_api.md) | API pour la gestion des présences |

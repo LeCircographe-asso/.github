@@ -10,16 +10,16 @@ Le Circographe expose une API REST complète permettant d'interagir avec toutes 
 
 | Document | Description |
 |----------|-------------|
-| [README.md](README.md) | Ce document |
+| [docs/architecture/README.md](docs/architecture/README.md) | Ce document |
 | [endpoints.md](endpoints.md) | Liste complète des endpoints API |
-| [auth.md](auth.md) | Documentation sur l'authentification et l'autorisation |
+| [docs/architecture/technical/api/auth.md](docs/architecture/technical/api/auth.md) | Documentation sur l'authentification et l'autorisation |
 | [versioning.md](versioning.md) | Politique de versionnement des API |
-| [errors.md](errors.md) | Codes d'erreur et gestion des erreurs |
+| [docs/architecture/technical/security/api/errors.md](docs/architecture/technical/security/api/errors.md) | Codes d'erreur et gestion des erreurs |
 | [examples.md](examples.md) | Exemples d'utilisation des API |
 
 ## Spécifications Techniques
 
-Les spécifications détaillées de chaque API sont disponibles dans le dossier [requirements/2_specifications_techniques/api/](/requirements/2_specifications_techniques/api/).
+Les spécifications détaillées de chaque API sont disponibles dans le dossier [requirements/2_specifications_techniques/api/](requirements/2_specifications_techniques/api/membership_api.md).
 
 ## Principes de Conception
 

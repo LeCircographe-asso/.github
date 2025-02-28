@@ -13,16 +13,16 @@ Ce dossier contient les spécifications techniques essentielles de l'application
 
 ## 🔄 Relations avec les domaines métier
 
-Les spécifications techniques sont organisées pour supporter les [domaines métier](../1_métier/index.md) de l'application:
+Les spécifications techniques sont organisées pour supporter les [domaines métier](requirements/1_métier/adhesion/index.md) de l'application:
 
 | Domaine Métier | Aspects Techniques Principaux |
 |----------------|-------------------------------|
-| [Adhésion](../1_métier/adhesion/index.md) | Modèles utilisateur et adhésion, workflows d'authentification |
-| [Cotisation](../1_métier/cotisation/index.md) | Gestion des paiements récurrents, validité des formules |
-| [Paiement](../1_métier/paiement/index.md) | Transactions, reçus, sécurité des données financières |
-| [Présence](../1_métier/presence/index.md) | Check-in temps réel, génération de QR codes, statistiques |
-| [Rôles](../1_métier/roles/index.md) | Système d'autorisation, audit d'actions, permissions |
-| [Notification](../1_métier/notification/index.md) | Système de notifications, emails, préférences utilisateur |
+| [Adhésion](requirements/1_métier/adhesion/index.md) | Modèles utilisateur et adhésion, workflows d'authentification |
+| [Cotisation](requirements/1_métier/adhesion/index.md) | Gestion des paiements récurrents, validité des formules |
+| [Paiement](requirements/1_métier/adhesion/index.md) | Transactions, reçus, sécurité des données financières |
+| [Présence](requirements/1_métier/adhesion/index.md) | Check-in temps réel, génération de QR codes, statistiques |
+| [Rôles](requirements/1_métier/adhesion/index.md) | Système d'autorisation, audit d'actions, permissions |
+| [Notification](requirements/1_métier/adhesion/index.md) | Système de notifications, emails, préférences utilisateur |
 
 ## 📂 Organisation technique
 
@@ -59,7 +59,7 @@ La stack utilise exclusivement les technologies et paradigmes recommandés par R
 
 ## 🗄️ Modèles et architecture des données
 
-> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [modeles.md](./modeles.md).
+> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [modeles.md](requirements/2_specifications_techniques/modeles.md).
 
 L'application utilise une architecture modulaire par domaine métier, avec des modèles optimisés pour les relations entre domaines. Les principales caractéristiques incluent:
 
@@ -71,7 +71,7 @@ L'application utilise une architecture modulaire par domaine métier, avec des m
 
 ## 🔐 Sécurité et authentification
 
-> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [securite.md](./securite.md).
+> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [securite.md](requirements/2_specifications_techniques/securite.md).
 
 L'application implémente un système d'authentification et d'autorisation robuste:
 
@@ -96,7 +96,7 @@ Les interfaces respectent les standards modernes tout en étant adaptées aux sp
 
 ## ⚡ Performance et optimisation
 
-> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [performance.md](./performance.md).
+> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [performance.md](requirements/2_specifications_techniques/performance.md).
 
 L'application intègre des stratégies d'optimisation à tous les niveaux:
 
@@ -108,7 +108,7 @@ L'application intègre des stratégies d'optimisation à tous les niveaux:
 
 ## 🧪 Tests et validation technique
 
-> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [tests.md](./tests.md).
+> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [tests.md](requirements/2_specifications_techniques/tests.md).
 
 La stratégie de test complète assure la fiabilité et la qualité du code:
 
@@ -121,8 +121,8 @@ La stratégie de test complète assure la fiabilité et la qualité du code:
 
 ## 🖇️ Liens vers la documentation technique approfondie
 
-- [Architecture détaillée](../../docs/architecture/README.md)
-- [Guide d'implémentation](../4_implementation/README.md)
+- [Architecture détaillée](../..../../docs/architecture/README.md)
+- [Guide d'implémentation](docs/architecture/README.md)
 - [Rails 8.0.1 Guides](https://guides.rubyonrails.org/)
 - [Flowbite Components](https://flowbite.com/docs/components/)
 

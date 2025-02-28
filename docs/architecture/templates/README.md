@@ -7,12 +7,12 @@ Ce dossier contient tous les templates utilisés dans l'application Le Circograp
 Les templates sont organisés selon les catégories suivantes :
 
 ### Documents Officiels
-- [Reçu de Paiement](payment_receipt.md) - Template pour les reçus de paiement
+- [Reçu de Paiement](docs/architecture/templates/payment_receipt.md) - Template pour les reçus de paiement
 - [Carte de Membre](membership_card.md) - Template pour les cartes de membre
 - [Attestation d'Adhésion](membership_certificate.md) - Template pour les attestations
 
 ### Notifications
-- [Templates de Notification](notification_templates.md) - Templates pour les différents types de notifications
+- [Templates de Notification](docs/architecture/templates/notification_templates.md) - Templates pour les différents types de notifications
 - [Templates d'Email](email_templates.md) - Templates pour les emails automatiques
 
 ### Rapports

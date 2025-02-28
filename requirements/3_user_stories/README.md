@@ -161,13 +161,13 @@ Chaque domaine possède ses propres critères d'acceptation détaillés dans le 
 
 | Nouveau Document | Anciens Documents |
 |------------------|-------------------|
-| [adhesion.md](./adhesion.md) | adherent.md (partiellement), user_stories.md (sections adhésion) |
-| [cotisation.md](./cotisation.md) | adherent.md (sections cotisation), user_stories.md (sections cotisation) |
-| [paiement.md](./paiement.md) | adherent.md (sections paiement), benevole.md (validation paiements) |
-| [presence.md](./presence.md) | adherent.md (sections présence), benevole.md (gestion présence) |
-| [roles.md](./roles.md) | admin.md, super_admin.md, benevole.md (sections rôles) |
-| [notification.md](./notification.md) | Extraits de tous les anciens fichiers (sections notifications) |
-| [public.md](./public.md) | public.md (restructuré) |
+| [adhesion.md](docs/business/regles/adhesion.md) | adherent.md (partiellement), user_stories.md (sections adhésion) |
+| [cotisation.md](docs/business/regles/cotisation.md) | adherent.md (sections cotisation), user_stories.md (sections cotisation) |
+| [paiement.md](docs/business/regles/paiement.md) | adherent.md (sections paiement), benevole.md (validation paiements) |
+| [presence.md](docs/business/regles/presence.md) | adherent.md (sections présence), benevole.md (gestion présence) |
+| [roles.md](docs/business/regles/roles.md) | admin.md, super_admin.md, benevole.md (sections rôles) |
+| [notification.md](docs/business/regles/notification.md) | Extraits de tous les anciens fichiers (sections notifications) |
+| [public.md](requirements/3_user_stories/public.md) | public.md (restructuré) |
 </details>
 
 ## 🔄 Maintenance

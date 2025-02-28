@@ -29,26 +29,26 @@ Le Circographe est une application de gestion complète pour une association de 
 
 | Documentation | Description |
 |---------------|-------------|
-| [🔧 Installation](/requirements/4_implementation/README.md) | Comment installer l'application |
-| [🚀 Premier pas](/requirements/4_implementation/rails/README.md) | Guide de prise en main rapide |
+| [🔧 Installation](docs/architecture/README.md) | Comment installer l'application |
+| [🚀 Premier pas](docs/architecture/README.md) | Guide de prise en main rapide |
 | [❓ FAQ](/docs/faq.md) | Questions fréquemment posées |
 
 ## 🏛️ Structure de la documentation
 
 Notre documentation est organisée de manière hiérarchique pour faciliter la navigation:
 
-### 📁 [Requirements](/requirements/README.md)
+### 📁 [Requirements](docs/architecture/README.md)
 
-- [📁 Métier](/requirements/1_métier/index.md) - Règles et spécifications métier
-- [📁 Spécifications Techniques](/requirements/2_specifications_techniques/README.md) - Détails d'implémentation
-- [📁 User Stories](/requirements/3_user_stories/README.md) - Scénarios utilisateur par domaine
-- [📁 Implémentation](/requirements/4_implementation/README.md) - Guide d'implémentation
+- [📁 Métier](../../requirements/1_métier/index.md) - Règles et spécifications métier
+- [📁 Spécifications Techniques](docs/architecture/README.md) - Détails d'implémentation
+- [📁 User Stories](docs/architecture/README.md) - Scénarios utilisateur par domaine
+- [📁 Implémentation](docs/architecture/README.md) - Guide d'implémentation
 
-### 📁 [Docs](/docs/glossaire.md)
+### 📁 [Docs](docs/glossaire.md)
 
-- [📁 Architecture](/docs/architecture/README.md) - Documentation technique
-- [📁 Business](/docs/business/README.md) - Documentation métier
-- [📁 Utilisateur](/docs/utilisateur/README.md) - Guides pour les utilisateurs finaux
+- [📁 Architecture](../../docs/architecture/README.md) - Documentation technique
+- [📁 Business](docs/architecture/README.md) - Documentation métier
+- [📁 Utilisateur](docs/architecture/README.md) - Guides pour les utilisateurs finaux
 
 ## 🔄 Domaines métier
 
@@ -163,9 +163,9 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
   
   - [Guide complet](/docs/utilisateur/guides/membres.md)
   - Domaines associés:
-    - [Adhésion](/requirements/1_métier/adhesion/index.md)
-    - [Rôles](/requirements/1_métier/roles/index.md)
-    - [Notification](/requirements/1_métier/notification/index.md)
+    - [Adhésion](../../requirements/1_métier/adhesion/index.md)
+    - [Rôles](../../requirements/1_métier/roles/index.md)
+    - [Notification](../../requirements/1_métier/notification/index.md)
 </details>
 
 ### 💰 Gestion financière
@@ -175,9 +175,9 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
   
   - [Guide complet](/docs/utilisateur/guides/finances.md)
   - Domaines associés:
-    - [Paiement](/requirements/1_métier/paiement/index.md)
-    - [Adhésion](/requirements/1_métier/adhesion/index.md)
-    - [Cotisation](/requirements/1_métier/cotisation/index.md)
+    - [Paiement](../../requirements/1_métier/paiement/index.md)
+    - [Adhésion](../../requirements/1_métier/adhesion/index.md)
+    - [Cotisation](../../requirements/1_métier/cotisation/index.md)
 </details>
 
 ### 📊 Suivi et statistiques
@@ -187,27 +187,8 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
   
   - [Guide complet](/docs/utilisateur/guides/statistiques.md)
   - Domaines associés:
-    - [Présence](/requirements/1_métier/presence/index.md)
-    - [Paiement](/requirements/1_métier/paiement/index.md)
-</details>
-
-## 🔄 Gestion des documents
-
-<details>
-  <summary><strong>Cycle de vie des documents</strong></summary>
-  
-  1. **Brouillon** - Document en cours d'écriture
-  2. **Revue** - Document en cours de relecture
-  3. **Validé** - Document approuvé et publié
-  4. **Archivé** - Document remplacé ou obsolète
-</details>
-
-<details>
-  <summary><strong>Versioning</strong></summary>
-  
-  - Utilisation du versioning sémantique (MAJOR.MINOR.PATCH)
-  - Versions documentées dans [CHANGELOG.md](/CHANGELOG.md)
-  - Tags Git pour chaque version majeure
+    - [Présence](../../requirements/1_métier/presence/index.md)
+    - [Paiement](../../requirements/1_métier/paiement/index.md)
 </details>
 
 ## 📝 Contribution

@@ -6,21 +6,21 @@ Le domaine de paiement définit les règles, les spécifications techniques et l
 
 ## Contenu du dossier
 
-### [📜 Règles Métier](regles.md)
+### [📜 Règles Métier](requirements/1_métier/adhesion/regles.md)
 Source de vérité définissant les règles fondamentales des paiements:
 - Méthodes de paiement acceptées
 - Processus de validation et reçus
 - Gestion des remboursements
 - Traitement des dons
 
-### [⚙️ Spécifications Techniques](specs.md)
+### [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
 Documentation technique pour l'implémentation:
 - Modèles de données
 - Services de paiement
 - Sécurisation des transactions
 - Émission des reçus
 
-### [✅ Validation](validation.md)
+### [✅ Validation](requirements/1_métier/adhesion/validation.md)
 Critères de validation pour garantir la conformité:
 - Scénarios de test des paiements
 - Validation des reçus
@@ -44,30 +44,30 @@ Critères de validation pour garantir la conformité:
 ## Navigation
 
 - [⬅️ Retour aux domaines métier](/requirements/1_métier/)
-- [📜 Règles de Paiement](regles.md)
-- [⚙️ Spécifications Techniques](specs.md)
-- [✅ Validation](validation.md)
+- [📜 Règles de Paiement](requirements/1_métier/adhesion/regles.md)
+- [⚙️ Spécifications Techniques](requirements/1_métier/adhesion/specs.md)
+- [✅ Validation](requirements/1_métier/adhesion/validation.md)
 
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme de flux](/docs/architecture/diagrams/payment_flow.md)
-- [📝 Modèle de reçu](/docs/architecture/templates/payment_receipt.md)
+- [📝 Diagramme de flux](../..../../docs/architecture/diagrams/payment_flow.md)
+- [📝 Modèle de reçu](../..../../docs/architecture/templates/payment_receipt.md)
 
 ### Documentation utilisateur
-- [📘 Guide des Paiements](/docs/business/regles/paiement.md) - Explication pour les administrateurs
+- [📘 Guide des Paiements](docs/business/regles/paiement.md) - Explication pour les administrateurs
 - [📗 Guide des Reçus](/docs/utilisateur/guides/recus_paiement.md) - Guide pour les membres
 
 ## Relations avec les autres domaines
 
 Le domaine de paiement interagit directement avec les domaines suivants:
 
-### [Domaine Adhésion](../adhesion/index.md)
+### [Domaine Adhésion](requirements/1_métier/adhesion/index.md)
 - Enregistrement des paiements d'adhésion
 - Activation des adhésions après paiement validé
 - Génération des reçus d'adhésion
 
-### [Domaine Cotisation](../cotisation/index.md)
+### [Domaine Cotisation](requirements/1_métier/adhesion/index.md)
 - Enregistrement des paiements de cotisation
 - Activation des cotisations après paiement validé
 - Gestion des paiements échelonnés pour les abonnements

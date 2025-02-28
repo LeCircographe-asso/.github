@@ -21,24 +21,24 @@ business/
 - [Guide Complet](/docs/business/guides/member_management.md)
 - [Règles d'Adhésion](/docs/business/rules/membership_rules.md)
 - [Processus d'Inscription](/docs/business/processes/registration.md)
-- [États Membre](/docs/business/states/user.md)
+- [États Membre](docs/business/states/user.md)
 
 ### 💰 Gestion Financière
 - [Guide Complet](/docs/business/guides/financial_management.md)
 - [Règles de Paiement](/docs/business/rules/payment_rules.md)
-- [Processus de Paiement](/docs/business/processes/payment.md)
-- [États Paiement](/docs/business/states/payment.md)
+- [Processus de Paiement](docs/business/states/payment.md)
+- [États Paiement](docs/business/states/payment.md)
 
 ### 📅 Gestion des Présences
 - [Guide Complet](/docs/business/guides/attendance_management.md)
 - [Règles de Présence](/docs/business/rules/attendance_rules.md)
 - [Processus Check-in](/docs/business/processes/check_in.md)
-- [États Liste](/docs/business/states/attendance_list.md)
+- [États Liste](docs/business/states/attendance_list.md)
 
 ## 📋 Règles Métier
 
 ### Concepts Fondamentaux
-- [Glossaire](/docs/glossaire.md)
+- [Glossaire](docs/glossaire.md)
 - [Concepts Métier](/docs/business/rules/concepts.md)
 - [Mapping Technique](/docs/business/rules/concept_mapping.md)
 
@@ -62,35 +62,35 @@ business/
 
 ### Présence
 - [Check-in Membre](/docs/business/processes/check_in.md)
-- [Gestion Liste](/docs/business/processes/attendance_list.md)
+- [Gestion Liste](docs/business/states/attendance_list.md)
 - [Statistiques](/docs/business/processes/statistics.md)
 
 ## 🔄 États et Transitions
 
 ### États Utilisateur
-- [États Membre](/docs/business/states/user.md)
-- [États Adhésion](/docs/business/states/membership.md)
-- [États Rôles](/docs/business/states/roles.md)
+- [États Membre](docs/business/states/user.md)
+- [États Adhésion](docs/business/states/membership.md)
+- [États Rôles](docs/business/regles/roles.md)
 
 ### États Financiers
-- [États Paiement](/docs/business/states/payment.md)
-- [États Reçu](/docs/business/states/receipt.md)
-- [États Cotisation](/docs/business/states/subscription.md)
+- [États Paiement](docs/business/states/payment.md)
+- [États Reçu](docs/business/states/receipt.md)
+- [États Cotisation](docs/business/states/subscription.md)
 
 ### États Opérationnels
-- [États Liste Présence](/docs/business/states/attendance_list.md)
-- [États Permanence](/docs/business/states/volunteer_shift.md)
-- [États Notification](/docs/business/states/notification.md)
+- [États Liste Présence](docs/business/states/attendance_list.md)
+- [États Permanence](docs/business/states/volunteer_shift.md)
+- [États Notification](docs/business/regles/notification.md)
 
 ## 📚 Guides Utilisateur
 
 ### Guides par Rôle
 - [Guide Membre](/docs/business/guides/member.md)
 - [Guide Bénévole](/docs/business/guides/volunteer.md)
-- [Guide Admin](/docs/business/guides/admin.md)
+- [Guide Admin](docs/architecture/technical/frontend/components/admin.md)
 
 ### Guides par Fonction
-- [Guide Adhésions](/docs/business/guides/memberships.md)
+- [Guide Adhésions](docs/architecture/technical/security/api/endpoints/memberships.md)
 - [Guide Paiements](/docs/business/guides/payments.md)
 - [Guide Présences](/docs/business/guides/attendance.md)
 

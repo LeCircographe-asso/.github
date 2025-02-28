@@ -7,16 +7,16 @@ Ce dossier contient tous les diagrammes d'architecture du projet Le Circographe,
 Les diagrammes sont organisés selon les catégories suivantes :
 
 ### Diagrammes d'États
-- [États des Adhésions](membership_states.md) - Cycle de vie d'une adhésion
-- [États des Cotisations](subscription_states.md) - Cycle de vie d'une cotisation
+- [États des Adhésions](docs/architecture/diagrams/membership_states.md) - Cycle de vie d'une adhésion
+- [États des Cotisations](docs/architecture/diagrams/subscription_states.md) - Cycle de vie d'une cotisation
 
 ### Diagrammes de Flux
-- [Flux de Paiement](payment_flow.md) - Processus de paiement complet
-- [Flux de Pointage](check_in_flow.md) - Processus d'enregistrement des présences
-- [Flux de Notification](notification_flow.md) - Système de notifications
+- [Flux de Paiement](docs/architecture/diagrams/payment_flow.md) - Processus de paiement complet
+- [Flux de Pointage](docs/architecture/diagrams/check_in_flow.md) - Processus d'enregistrement des présences
+- [Flux de Notification](docs/architecture/diagrams/notification_flow.md) - Système de notifications
 
 ### Diagrammes de Structure
-- [Permissions des Rôles](roles_permissions.md) - Matrice des permissions par rôle
+- [Permissions des Rôles](docs/architecture/diagrams/roles_permissions.md) - Matrice des permissions par rôle
 - [Structure de la Base de Données](database_schema.md) - Schéma relationnel
 
 ## Conventions de Nommage

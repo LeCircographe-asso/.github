@@ -15,9 +15,9 @@ Cette section définit les spécifications des interfaces utilisateur pour l'app
 
 Les interfaces de l'application sont structurées en trois catégories principales:
 
-1. **[Interface administrateur](./admin.md)** - Pour la gestion complète de l'application
-2. **[Interface bénévole](./benevole.md)** - Pour les opérations quotidiennes de l'association
-3. **[Composants partagés](./composants.md)** - Éléments d'interface réutilisables
+1. **[Interface administrateur](docs/architecture/technical/frontend/components/admin.md)** - Pour la gestion complète de l'application
+2. **[Interface bénévole](requirements/2_specifications_techniques/interfaces/benevole.md)** - Pour les opérations quotidiennes de l'association
+3. **[Composants partagés](requirements/2_specifications_techniques/interfaces/composants.md)** - Éléments d'interface réutilisables
 
 ## 📊 Principes de conception
 
@@ -81,7 +81,7 @@ Inclut des interfaces pour la gestion des créneaux, l'enregistrement des prése
 
 ## 🔄 Éléments partagés entre interfaces
 
-Les composants réutilisables sont documentés dans [composants.md](./composants.md) et incluent:
+Les composants réutilisables sont documentés dans [composants.md](requirements/2_specifications_techniques/interfaces/composants.md) et incluent:
 
 - Systèmes de navigation (menus, breadcrumbs)
 - Éléments de formulaire standardisés
@@ -106,9 +106,9 @@ Toutes les interfaces sont conçues selon l'approche mobile-first:
 
 ## 📚 Documentation complémentaire
 
-- [Interface administrateur](./admin.md) - Détails de l'interface d'administration
-- [Interface bénévole](./benevole.md) - Spécifications pour les bénévoles
-- [Composants partagés](./composants.md) - Bibliothèque de composants réutilisables
+- [Interface administrateur](docs/architecture/technical/frontend/components/admin.md) - Détails de l'interface d'administration
+- [Interface bénévole](requirements/2_specifications_techniques/interfaces/benevole.md) - Spécifications pour les bénévoles
+- [Composants partagés](requirements/2_specifications_techniques/interfaces/composants.md) - Bibliothèque de composants réutilisables
 
 ## 📆 Historique des mises à jour
 
