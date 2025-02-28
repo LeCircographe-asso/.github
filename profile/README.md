@@ -1,142 +1,260 @@
 # Le Circographe - Documentation Officielle 📚
 
+<div align="center">
+  <img src="/docs/images/logo.png" alt="Logo Le Circographe" width="200"/>
+  <p><i>Une application de gestion complète pour association de cirque</i></p>
+  
+  ![Version](https://img.shields.io/badge/version-1.3.0-blue)
+  ![Rails](https://img.shields.io/badge/Rails-8.0.1-red)
+  ![License](https://img.shields.io/badge/license-MIT-green)
+</div>
+
+<div align="right">
+  <a href="/.github/README.md">⬅️ Retour au projet</a>
+</div>
+
 ## 🎯 Vue d'ensemble
 Le Circographe est une application de gestion complète pour une association de cirque, développée avec Ruby on Rails 8.0.1. Cette documentation couvre l'ensemble des aspects techniques, fonctionnels et organisationnels du projet.
 
-## 🚀 Démarrage Rapide
-- [Guide d'Installation](/docs/architecture/technical/installation.md)
-- [Premier Pas](/docs/architecture/technical/quickstart.md)
-- [FAQ](/docs/architecture/technical/faq.md)
+## 🧭 Navigation
 
-## 📚 Structure de la Documentation
+- [📘 Guide de démarrage rapide](#-guide-de-démarrage-rapide)
+- [🏛️ Structure de la documentation](#-structure-de-la-documentation)
+- [🔄 Domaines métier](#-domaines-métier)
+- [📋 Guides par cas d'usage](#-guides-par-cas-dusage)
+- [📝 Contribution](#-contribution)
+- [📞 Support](#-support-et-contact)
 
-### 📖 Fondamentaux
-- [Glossaire](/docs/glossaire.md) - Terminologie métier et technique
-- [Architecture Globale](/docs/architecture/README.md) - Vue d'ensemble technique
-- [Processus Métier](/docs/business/README.md) - Flux et règles métier
-- [Validation](/docs/validation/README.md) - Tests et qualité
+## 📘 Guide de démarrage rapide
 
-### 🏗️ Architecture Technique
-- [Core](/docs/architecture/technical/core/README.md) - Logique métier
-- [Frontend](/docs/architecture/technical/frontend/README.md) - Interface utilisateur
-- [Sécurité](/docs/architecture/technical/security/README.md) - Gestion des accès
-- [Performance](/docs/architecture/technical/performance/README.md) - Optimisations
+| Documentation | Description |
+|---------------|-------------|
+| [🔧 Installation](./.github/requirements/4_implementation/installation.md) | Comment installer l'application |
+| [🚀 Premier pas](./.github/requirements/4_implementation/quickstart.md) | Guide de prise en main rapide |
+| [❓ FAQ](./.github/requirements/4_implementation/faq.md) | Questions fréquemment posées |
 
-### 🔄 Domaines Métier Restructurés
-Notre application est organisée autour de six domaines métier clairement définis, chacun avec ses propres responsabilités :
+## 🏛️ Structure de la documentation
 
-1. **[Adhésion](/docs/business/domains/adhesion/README.md)** - Gestion des adhésions Basic et Cirque
-   - Création et renouvellement d'adhésions
-   - Upgrade d'adhésion Basic vers Cirque
-   - Gestion du cycle de vie des adhésions
+Notre documentation est organisée de manière hiérarchique pour faciliter la navigation:
 
-2. **[Cotisation](/docs/business/domains/cotisation/README.md)** - Formules d'accès aux entraînements
-   - Séances uniques, cartes 10 séances
-   - Abonnements mensuels et annuels
-   - Tarifications normale et réduite
+### 📁 [Requirements](./.github/requirements/README.md)
 
-3. **[Paiement](/docs/business/domains/paiement/README.md)** - Transactions financières
-   - Gestion des paiements et des reçus
-   - Traitement des dons et reçus fiscaux
-   - Rapports financiers et export comptable
+- [📁 Métier](./.github/requirements/1_métier/index.md) - Règles et spécifications métier
+- [📁 Spécifications Techniques](./.github/requirements/2_specifications_techniques/README.md) - Détails d'implémentation
+- [📁 User Stories](./.github/requirements/3_user_stories/README.md) - Scénarios utilisateur par domaine
+- [📁 Implémentation](./.github/requirements/4_implementation/README.md) - Guide d'implémentation
 
-4. **[Présence](/docs/business/domains/presence/README.md)** - Suivi des entraînements
-   - Pointage et contrôle d'accès
-   - Statistiques de fréquentation
-   - Gestion de la capacité des créneaux
+### 📁 [Docs](./docs/glossaire.md)
 
-5. **[Rôles](/docs/business/domains/roles/README.md)** - Gestion des accès
-   - Rôles système (permissions techniques)
-   - Rôles associatifs (fonctions au sein de l'association)
-   - Audit des actions par rôle
+- [📁 Architecture](./docs/architecture/README.md) - Documentation technique
+- [📁 Business](./docs/business/README.md) - Documentation métier
+- [📁 Utilisateur](./docs/utilisateur/README.md) - Guides pour les utilisateurs finaux
 
-6. **[Notification](/docs/business/domains/notification/README.md)** - Communication automatisée
-   - Rappels d'échéance et confirmations
-   - Alertes système et communications
-   - Préférences de notification personnalisées
+## 🔄 Domaines métier
 
-### 💼 Documentation Métier
-#### Processus Clés
-- [Check-in](/docs/business/processes/check_in.md)
-- [Paiement](/docs/business/processes/payment.md)
-- [Adhésion](/docs/business/processes/membership.md)
-- [Gestion des cotisations](/docs/business/processes/subscription.md)
+Notre application est organisée autour de six domaines métier clairement définis, chacun avec ses propres responsabilités:
 
-#### Règles et Concepts
-- [Règles Métier](/docs/business/rules/business_rules.md)
-- [Concepts Métier](/docs/business/rules/concepts.md)
-- [Mapping Concepts](/docs/business/rules/concept_mapping.md)
+<table>
+  <tr>
+    <th>Domaine</th>
+    <th>Description</th>
+    <th>Documentation</th>
+  </tr>
+  <tr>
+    <td><strong>Adhésion</strong></td>
+    <td>
+      Gestion des adhésions Basic et Cirque, incluant:
+      <ul>
+        <li>Création et renouvellement</li>
+        <li>Upgrade Basic → Cirque</li>
+        <li>Cycle de vie des adhésions</li>
+      </ul>
+    </td>
+    <td>
+      <a href="./.github/requirements/1_métier/adhesion/index.md">Règles métier</a><br>
+      <a href="./.github/requirements/3_user_stories/adhesion.md">User stories</a>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Cotisation</strong></td>
+    <td>
+      Formules d'accès aux entraînements:
+      <ul>
+        <li>Séances uniques, cartes 10 séances</li>
+        <li>Abonnements mensuels et annuels</li>
+        <li>Tarifications normale et réduite</li>
+      </ul>
+    </td>
+    <td>
+      <a href="./.github/requirements/1_métier/cotisation/index.md">Règles métier</a><br>
+      <a href="./.github/requirements/3_user_stories/cotisation.md">User stories</a>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Paiement</strong></td>
+    <td>
+      Transactions financières:
+      <ul>
+        <li>Gestion des paiements et reçus</li>
+        <li>Traitement des dons et reçus fiscaux</li>
+        <li>Rapports financiers</li>
+      </ul>
+    </td>
+    <td>
+      <a href="./.github/requirements/1_métier/paiement/index.md">Règles métier</a><br>
+      <a href="./.github/requirements/3_user_stories/paiement.md">User stories</a>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Présence</strong></td>
+    <td>
+      Suivi des entraînements:
+      <ul>
+        <li>Pointage et contrôle d'accès</li>
+        <li>Statistiques de fréquentation</li>
+        <li>Gestion de la capacité</li>
+      </ul>
+    </td>
+    <td>
+      <a href="./.github/requirements/1_métier/presence/index.md">Règles métier</a><br>
+      <a href="./.github/requirements/3_user_stories/presence.md">User stories</a>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Rôles</strong></td>
+    <td>
+      Gestion des accès:
+      <ul>
+        <li>Rôles système (permissions)</li>
+        <li>Rôles associatifs (fonctions)</li>
+        <li>Audit des actions</li>
+      </ul>
+    </td>
+    <td>
+      <a href="./.github/requirements/1_métier/roles/index.md">Règles métier</a><br>
+      <a href="./.github/requirements/3_user_stories/roles.md">User stories</a>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Notification</strong></td>
+    <td>
+      Communication automatisée:
+      <ul>
+        <li>Rappels et confirmations</li>
+        <li>Alertes système</li>
+        <li>Préférences de notification</li>
+      </ul>
+    </td>
+    <td>
+      <a href="./.github/requirements/1_métier/notification/index.md">Règles métier</a><br>
+      <a href="./.github/requirements/3_user_stories/notification.md">User stories</a>
+    </td>
+  </tr>
+</table>
 
-### ✅ Validation et Tests
-- [User Stories](/docs/validation/user_stories/README.md)
-- [Traçabilité](/docs/validation/traceability/README.md)
-- [Plan de Tests](/docs/validation/test_plan.md)
+## 📋 Guides par cas d'usage
 
-## 🎯 Guides par Cas d'Usage
+Pour faciliter la navigation, nous proposons des guides par cas d'usage qui traversent les différents domaines:
 
-### 👥 Gestion des Membres
-- [Guide Complet](/docs/business/guides/member_management.md)
-- [Adhésion](/docs/business/domains/adhesion/README.md)
-- [Rôles Utilisateurs](/docs/business/domains/roles/user_roles.md)
-- [Notifications Membres](/docs/business/domains/notification/member_notifications.md)
+### 👥 Gestion des membres
 
-### 💰 Gestion Financière
-- [Guide Complet](/docs/business/guides/financial_management.md)
-- [Paiements](/docs/business/domains/paiement/payments.md)
-- [Reçus](/docs/business/domains/paiement/receipts.md)
-- [Dons](/docs/business/domains/paiement/donations.md)
+<details>
+  <summary><strong>Voir les guides et références</strong></summary>
+  
+  - [Guide complet](./docs/utilisateur/guides/membres.md)
+  - Domaines associés:
+    - [Adhésion](./.github/requirements/1_métier/adhesion/index.md)
+    - [Rôles](./.github/requirements/1_métier/roles/index.md)
+    - [Notification](./.github/requirements/1_métier/notification/index.md)
+</details>
 
-### 📊 Suivi & Statistiques
-- [Guide Complet](/docs/business/guides/tracking_stats.md)
-- [Présence](/docs/business/domains/presence/attendance.md)
-- [Check-in](/docs/business/processes/check_in.md)
-- [Rapports](/docs/business/reports/README.md)
+### 💰 Gestion financière
 
-## 🔄 Gestion des Documents
+<details>
+  <summary><strong>Voir les guides et références</strong></summary>
+  
+  - [Guide complet](./docs/utilisateur/guides/finances.md)
+  - Domaines associés:
+    - [Paiement](./.github/requirements/1_métier/paiement/index.md)
+    - [Adhésion](./.github/requirements/1_métier/adhesion/index.md)
+    - [Cotisation](./.github/requirements/1_métier/cotisation/index.md)
+</details>
 
-### Cycle de Vie
-1. **Brouillon** - Document en cours d'écriture
-2. **Revue** - Document en cours de relecture
-3. **Validé** - Document approuvé et publié
-4. **Archivé** - Document remplacé ou obsolète
+### 📊 Suivi et statistiques
 
-### Versioning
-- Utilisation du versioning sémantique (MAJOR.MINOR.PATCH)
-- Versions documentées dans [CHANGELOG.md](/CHANGELOG.md)
-- Tags Git pour chaque version majeure
+<details>
+  <summary><strong>Voir les guides et références</strong></summary>
+  
+  - [Guide complet](./docs/utilisateur/guides/statistiques.md)
+  - Domaines associés:
+    - [Présence](./.github/requirements/1_métier/presence/index.md)
+    - [Paiement](./.github/requirements/1_métier/paiement/index.md)
+</details>
+
+## 🔄 Gestion des documents
+
+<details>
+  <summary><strong>Cycle de vie des documents</strong></summary>
+  
+  1. **Brouillon** - Document en cours d'écriture
+  2. **Revue** - Document en cours de relecture
+  3. **Validé** - Document approuvé et publié
+  4. **Archivé** - Document remplacé ou obsolète
+</details>
+
+<details>
+  <summary><strong>Versioning</strong></summary>
+  
+  - Utilisation du versioning sémantique (MAJOR.MINOR.PATCH)
+  - Versions documentées dans [CHANGELOG.md](./CHANGELOG.md)
+  - Tags Git pour chaque version majeure
+</details>
 
 ## 📝 Contribution
 
-### Guide de Contribution
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
+<details>
+  <summary><strong>Guide de contribution</strong></summary>
+  
+  1. Fork le projet
+  2. Créer une branche (`git checkout -b feature/AmazingFeature`)
+  3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
+  4. Push vers la branche (`git push origin feature/AmazingFeature`)
+  5. Ouvrir une Pull Request
+</details>
 
-### Standards de Documentation
-- Utiliser le Markdown pour tous les documents
-- Suivre les templates fournis
-- Maintenir les liens entre documents
-- Mettre à jour le glossaire si nécessaire
+<details>
+  <summary><strong>Standards de documentation</strong></summary>
+  
+  - Utiliser le Markdown pour tous les documents
+  - Suivre les templates fournis
+  - Maintenir les liens entre documents
+  - Mettre à jour le glossaire si nécessaire
+</details>
 
 ## 🏷️ Versions
+
 - v1.0.0 - Version initiale
 - v1.1.0 - Ajout gestion des dons
 - v1.2.0 - Intégration comptabilité
 - v1.3.0 - Réorganisation de la documentation
 
-## 📞 Support et Contact
+## 📞 Support et contact
 
-### Support Technique
+### Support technique
 - **Email** : tech@lecirco.org
 - **Slack** : #tech-support
-- [Documentation Technique](/docs/architecture/technical/README.md#contact)
 
-### Support Métier
+### Support métier
 - **Email** : business@lecirco.org
 - **Slack** : #business-support
-- [Documentation Métier](/docs/business/rules/README.md#contact)
 
-## 📜 Licence
-Ce projet est sous licence MIT - voir le fichier [LICENSE.md](/LICENSE.md) pour plus de détails. 
+---
+
+<div align="center">
+  <p>
+    <a href="/.github/README.md">⬅️ Retour au projet</a> | 
+    <a href="#le-circographe---documentation-officielle-">⬆️ Haut de page</a>
+  </p>
+  
+  <p>Ce projet est sous licence MIT - voir le fichier <a href="/LICENSE.md">LICENSE.md</a> pour plus de détails.</p>
+</div> 

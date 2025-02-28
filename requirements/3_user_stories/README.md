@@ -1,10 +1,17 @@
-# User Stories - Le Circographe
+# 📖 User Stories - Le Circographe
 
-## Vue d'ensemble
+<div align="right">
+  <a href="../README.md">⬅️ Retour aux requirements</a> •
+  <a href="../../profile/README.md">📚 Documentation principale</a>
+</div>
+
+<p align="center"><i>🧭 Chemin: <a href="../../profile/README.md">Documentation</a> > <a href="../README.md">Requirements</a> > <b>User Stories</b></i></p>
+
+## 🔍 Vue d'ensemble
 
 Ce dossier contient toutes les user stories de l'application, réorganisées par domaine métier pour aligner parfaitement les besoins utilisateurs avec l'architecture fonctionnelle de l'application.
 
-## Structure
+## 📂 Structure
 
 ```
 3_user_stories/
@@ -18,7 +25,7 @@ Ce dossier contient toutes les user stories de l'application, réorganisées par
 └── public.md           # Stories pour utilisateurs non connectés
 ```
 
-## Format Standard
+## 📋 Format Standard
 
 Chaque user story suit le format :
 ```
@@ -32,50 +39,97 @@ Critères d'acceptation :
 ...
 ```
 
-## Organisation par Domaine Métier
+## 🧩 Organisation par Domaine Métier
 
-### 1. [Adhésion](./adhesion.md)
-- Création et gestion des adhésions
-- Renouvellement d'adhésion
-- Upgrade d'adhésion (Basic vers Cirque)
-- Vérification du statut d'adhésion
+<table>
+  <tr>
+    <th>Domaine</th>
+    <th>Description</th>
+    <th>Lien</th>
+  </tr>
+  <tr>
+    <td><strong>Adhésion</strong></td>
+    <td>
+      <ul>
+        <li>Création et gestion des adhésions</li>
+        <li>Renouvellement d'adhésion</li>
+        <li>Upgrade d'adhésion (Basic vers Cirque)</li>
+      </ul>
+    </td>
+    <td><a href="./adhesion.md">📄 adhesion.md</a></td>
+  </tr>
+  <tr>
+    <td><strong>Cotisation</strong></td>
+    <td>
+      <ul>
+        <li>Achat et gestion des formules</li>
+        <li>Consultation des séances restantes</li>
+        <li>Renouvellement des formules</li>
+      </ul>
+    </td>
+    <td><a href="./cotisation.md">📄 cotisation.md</a></td>
+  </tr>
+  <tr>
+    <td><strong>Paiement</strong></td>
+    <td>
+      <ul>
+        <li>Transactions financières</li>
+        <li>Génération et consultation des reçus</li>
+        <li>Gestion des remboursements</li>
+      </ul>
+    </td>
+    <td><a href="./paiement.md">📄 paiement.md</a></td>
+  </tr>
+  <tr>
+    <td><strong>Présence</strong></td>
+    <td>
+      <ul>
+        <li>Pointage aux entraînements</li>
+        <li>Consultation des listes de présence</li>
+        <li>Statistiques de fréquentation</li>
+      </ul>
+    </td>
+    <td><a href="./presence.md">📄 presence.md</a></td>
+  </tr>
+  <tr>
+    <td><strong>Rôles</strong></td>
+    <td>
+      <ul>
+        <li>Attribution des rôles système</li>
+        <li>Gestion des permissions</li>
+        <li>Rôles associatifs</li>
+      </ul>
+    </td>
+    <td><a href="./roles.md">📄 roles.md</a></td>
+  </tr>
+  <tr>
+    <td><strong>Notification</strong></td>
+    <td>
+      <ul>
+        <li>Rappels d'échéance</li>
+        <li>Confirmations de transaction</li>
+        <li>Préférences de communication</li>
+      </ul>
+    </td>
+    <td><a href="./notification.md">📄 notification.md</a></td>
+  </tr>
+  <tr>
+    <td><strong>Public</strong></td>
+    <td>
+      <ul>
+        <li>Création de compte</li>
+        <li>Consultation des informations publiques</li>
+        <li>Contact et demandes</li>
+      </ul>
+    </td>
+    <td><a href="./public.md">📄 public.md</a></td>
+  </tr>
+</table>
 
-### 2. [Cotisation](./cotisation.md)
-- Achat et gestion des formules de cotisation
-- Consultation des séances restantes
-- Renouvellement des formules
-- Options tarifaires (normal/réduit)
+## 🎯 Priorités
 
-### 3. [Paiement](./paiement.md)
-- Transactions financières
-- Génération et consultation des reçus
-- Gestion des remboursements
-- Historique des paiements
-
-### 4. [Présence](./presence.md)
-- Pointage aux entraînements
-- Consultation des listes de présence
-- Statistiques de fréquentation
-- Contrôle d'accès
-
-### 5. [Rôles](./roles.md)
-- Attribution des rôles système
-- Gestion des permissions
-- Rôles associatifs (bénévole, CA, etc.)
-- Audit des actions par rôle
-
-### 6. [Notification](./notification.md)
-- Rappels d'échéance
-- Confirmations de transaction
-- Alertes système
-- Préférences de communication
-
-### 7. [Public](./public.md)
-- Création de compte
-- Consultation des informations publiques
-- Contact et demandes
-
-## Priorités
+<details>
+  <summary><strong>Niveaux de priorité des user stories</strong></summary>
 
 ### P0 - Critique
 - Inscription et authentification
@@ -94,12 +148,16 @@ Critères d'acceptation :
 - Export de données
 - Personnalisation
 - Fonctionnalités secondaires
+</details>
 
-## Validation
+## ✅ Validation
 
 Chaque domaine possède ses propres critères d'acceptation détaillés dans le fichier correspondant, alignés avec les critères définis dans les fichiers `validation.md` de chaque domaine métier.
 
-## Mapping avec les anciens fichiers
+## 🔄 Mapping avec les anciens fichiers
+
+<details>
+  <summary><strong>Voir la correspondance avec l'ancienne structure</strong></summary>
 
 | Nouveau Document | Anciens Documents |
 |------------------|-------------------|
@@ -109,9 +167,13 @@ Chaque domaine possède ses propres critères d'acceptation détaillés dans le 
 | [presence.md](./presence.md) | adherent.md (sections présence), benevole.md (gestion présence) |
 | [roles.md](./roles.md) | admin.md, super_admin.md, benevole.md (sections rôles) |
 | [notification.md](./notification.md) | Extraits de tous les anciens fichiers (sections notifications) |
-| [public.md](./public.md) | public.md (inchangé) |
+| [public.md](./public.md) | public.md (restructuré) |
+</details>
 
-## Maintenance
+## 🔄 Maintenance
+
+<details>
+  <summary><strong>Processus de mise à jour</strong></summary>
 
 ### 1. Mise à Jour
 - Revue régulière des stories par domaine
@@ -126,4 +188,14 @@ Chaque domaine possède ses propres critères d'acceptation détaillés dans le 
 ### 3. Tests
 - Aligner les scénarios de test avec les critères dans validation.md
 - Vérifier la couverture fonctionnelle
-- Documenter les résultats 
+- Documenter les résultats
+</details>
+
+---
+
+<div align="center">
+  <p>
+    <a href="../README.md">⬅️ Retour aux requirements</a> | 
+    <a href="#-user-stories---le-circographe">⬆️ Haut de page</a>
+  </p>
+</div> 
