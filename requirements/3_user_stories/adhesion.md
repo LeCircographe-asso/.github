@@ -16,7 +16,7 @@ Ce document contient les user stories relatives à la gestion des adhésions (Ba
     <tr>
       <td align="center"><a href="../1_métier/adhesion/index.md">📑 Règles métier</a></td>
       <td align="center"><a href="../1_métier/adhesion/validation.md">✅ Critères de validation</a></td>
-      <td align="center"><a href="../4_implementation/adhesion.md">⚙️ Guide d'implémentation</a></td>
+      <td align="center"><a href="../1_métier/adhesion/specs.md">⚙️ Spécifications</a></td>
     </tr>
   </table>
 </div>

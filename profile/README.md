@@ -10,7 +10,7 @@
 </div>
 
 <div align="right">
-  <a href="/.github/README.md">⬅️ Retour au projet</a>
+  <a href="/README.md">⬅️ Retour au projet</a>
 </div>
 
 ## 🎯 Vue d'ensemble
@@ -29,26 +29,26 @@ Le Circographe est une application de gestion complète pour une association de 
 
 | Documentation | Description |
 |---------------|-------------|
-| [🔧 Installation](./.github/requirements/4_implementation/installation.md) | Comment installer l'application |
-| [🚀 Premier pas](./.github/requirements/4_implementation/quickstart.md) | Guide de prise en main rapide |
-| [❓ FAQ](./.github/requirements/4_implementation/faq.md) | Questions fréquemment posées |
+| [🔧 Installation](/requirements/4_implementation/README.md) | Comment installer l'application |
+| [🚀 Premier pas](/requirements/4_implementation/rails/README.md) | Guide de prise en main rapide |
+| [❓ FAQ](/docs/faq.md) | Questions fréquemment posées |
 
 ## 🏛️ Structure de la documentation
 
 Notre documentation est organisée de manière hiérarchique pour faciliter la navigation:
 
-### 📁 [Requirements](./.github/requirements/README.md)
+### 📁 [Requirements](/requirements/README.md)
 
-- [📁 Métier](./.github/requirements/1_métier/index.md) - Règles et spécifications métier
-- [📁 Spécifications Techniques](./.github/requirements/2_specifications_techniques/README.md) - Détails d'implémentation
-- [📁 User Stories](./.github/requirements/3_user_stories/README.md) - Scénarios utilisateur par domaine
-- [📁 Implémentation](./.github/requirements/4_implementation/README.md) - Guide d'implémentation
+- [📁 Métier](/requirements/1_métier/index.md) - Règles et spécifications métier
+- [📁 Spécifications Techniques](/requirements/2_specifications_techniques/README.md) - Détails d'implémentation
+- [📁 User Stories](/requirements/3_user_stories/README.md) - Scénarios utilisateur par domaine
+- [📁 Implémentation](/requirements/4_implementation/README.md) - Guide d'implémentation
 
-### 📁 [Docs](./docs/glossaire.md)
+### 📁 [Docs](/docs/glossaire.md)
 
-- [📁 Architecture](./docs/architecture/README.md) - Documentation technique
-- [📁 Business](./docs/business/README.md) - Documentation métier
-- [📁 Utilisateur](./docs/utilisateur/README.md) - Guides pour les utilisateurs finaux
+- [📁 Architecture](/docs/architecture/README.md) - Documentation technique
+- [📁 Business](/docs/business/README.md) - Documentation métier
+- [📁 Utilisateur](/docs/utilisateur/README.md) - Guides pour les utilisateurs finaux
 
 ## 🔄 Domaines métier
 
@@ -71,8 +71,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="./.github/requirements/1_métier/adhesion/index.md">Règles métier</a><br>
-      <a href="./.github/requirements/3_user_stories/adhesion.md">User stories</a>
+      <a href="/requirements/1_métier/adhesion/index.md">Règles métier</a><br>
+      <a href="/requirements/3_user_stories/adhesion.md">User stories</a>
     </td>
   </tr>
   <tr>
@@ -86,8 +86,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="./.github/requirements/1_métier/cotisation/index.md">Règles métier</a><br>
-      <a href="./.github/requirements/3_user_stories/cotisation.md">User stories</a>
+      <a href="/requirements/1_métier/cotisation/index.md">Règles métier</a><br>
+      <a href="/requirements/3_user_stories/cotisation.md">User stories</a>
     </td>
   </tr>
   <tr>
@@ -101,8 +101,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="./.github/requirements/1_métier/paiement/index.md">Règles métier</a><br>
-      <a href="./.github/requirements/3_user_stories/paiement.md">User stories</a>
+      <a href="/requirements/1_métier/paiement/index.md">Règles métier</a><br>
+      <a href="/requirements/3_user_stories/paiement.md">User stories</a>
     </td>
   </tr>
   <tr>
@@ -116,8 +116,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="./.github/requirements/1_métier/presence/index.md">Règles métier</a><br>
-      <a href="./.github/requirements/3_user_stories/presence.md">User stories</a>
+      <a href="/requirements/1_métier/presence/index.md">Règles métier</a><br>
+      <a href="/requirements/3_user_stories/presence.md">User stories</a>
     </td>
   </tr>
   <tr>
@@ -131,8 +131,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="./.github/requirements/1_métier/roles/index.md">Règles métier</a><br>
-      <a href="./.github/requirements/3_user_stories/roles.md">User stories</a>
+      <a href="/requirements/1_métier/roles/index.md">Règles métier</a><br>
+      <a href="/requirements/3_user_stories/roles.md">User stories</a>
     </td>
   </tr>
   <tr>
@@ -146,8 +146,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="./.github/requirements/1_métier/notification/index.md">Règles métier</a><br>
-      <a href="./.github/requirements/3_user_stories/notification.md">User stories</a>
+      <a href="/requirements/1_métier/notification/index.md">Règles métier</a><br>
+      <a href="/requirements/3_user_stories/notification.md">User stories</a>
     </td>
   </tr>
 </table>
@@ -161,11 +161,11 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](./docs/utilisateur/guides/membres.md)
+  - [Guide complet](/docs/utilisateur/guides/membres.md)
   - Domaines associés:
-    - [Adhésion](./.github/requirements/1_métier/adhesion/index.md)
-    - [Rôles](./.github/requirements/1_métier/roles/index.md)
-    - [Notification](./.github/requirements/1_métier/notification/index.md)
+    - [Adhésion](/requirements/1_métier/adhesion/index.md)
+    - [Rôles](/requirements/1_métier/roles/index.md)
+    - [Notification](/requirements/1_métier/notification/index.md)
 </details>
 
 ### 💰 Gestion financière
@@ -173,11 +173,11 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](./docs/utilisateur/guides/finances.md)
+  - [Guide complet](/docs/utilisateur/guides/finances.md)
   - Domaines associés:
-    - [Paiement](./.github/requirements/1_métier/paiement/index.md)
-    - [Adhésion](./.github/requirements/1_métier/adhesion/index.md)
-    - [Cotisation](./.github/requirements/1_métier/cotisation/index.md)
+    - [Paiement](/requirements/1_métier/paiement/index.md)
+    - [Adhésion](/requirements/1_métier/adhesion/index.md)
+    - [Cotisation](/requirements/1_métier/cotisation/index.md)
 </details>
 
 ### 📊 Suivi et statistiques
@@ -185,10 +185,10 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](./docs/utilisateur/guides/statistiques.md)
+  - [Guide complet](/docs/utilisateur/guides/statistiques.md)
   - Domaines associés:
-    - [Présence](./.github/requirements/1_métier/presence/index.md)
-    - [Paiement](./.github/requirements/1_métier/paiement/index.md)
+    - [Présence](/requirements/1_métier/presence/index.md)
+    - [Paiement](/requirements/1_métier/paiement/index.md)
 </details>
 
 ## 🔄 Gestion des documents
@@ -206,7 +206,7 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
   <summary><strong>Versioning</strong></summary>
   
   - Utilisation du versioning sémantique (MAJOR.MINOR.PATCH)
-  - Versions documentées dans [CHANGELOG.md](./CHANGELOG.md)
+  - Versions documentées dans [CHANGELOG.md](/CHANGELOG.md)
   - Tags Git pour chaque version majeure
 </details>
 
@@ -252,7 +252,7 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 
 <div align="center">
   <p>
-    <a href="/.github/README.md">⬅️ Retour au projet</a> | 
+    <a href="/README.md">⬅️ Retour au projet</a> | 
     <a href="#le-circographe---documentation-officielle-">⬆️ Haut de page</a>
   </p>
   
