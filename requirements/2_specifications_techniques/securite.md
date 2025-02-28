@@ -667,6 +667,11 @@ class User < ApplicationRecord
 end
 ```
 
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Révision et mise à jour des liens
+- **27 février 2024** : Création du document complet sur la sécurité et l'authentification
+
 ---
 
 <div align="center">

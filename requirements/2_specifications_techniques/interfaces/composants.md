@@ -301,3 +301,17 @@ end
 - Reçu automatique
 - Confirmation visuelle
 - Historique transaction 
+
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Révision et mise à jour des liens
+- **26 février 2024** : Création du document complet sur les composants d'interface
+
+---
+
+<div align="center">
+  <p>
+    <a href="./README.md">⬅️ Retour aux interfaces</a> | 
+    <a href="#-composants-partagés---le-circographe">⬆️ Haut de page</a>
+  </p>
+</div> 

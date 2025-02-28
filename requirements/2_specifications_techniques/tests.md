@@ -679,6 +679,11 @@ RSpec.describe "Issue #123: Renouvellement d'adhésion incorrect", type: :model 
 end
 ```
 
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Création du document complet sur les tests et validation technique
+- **27 février 2024** : Définition initiale de la stratégie de test
+
 ---
 
 <div align="center">

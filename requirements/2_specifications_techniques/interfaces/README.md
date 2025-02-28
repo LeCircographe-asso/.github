@@ -110,6 +110,12 @@ Toutes les interfaces sont conçues selon l'approche mobile-first:
 - [Interface bénévole](./benevole.md) - Spécifications pour les bénévoles
 - [Composants partagés](./composants.md) - Bibliothèque de composants réutilisables
 
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Révision des liens et de la structure de la documentation
+- **26 février 2024** : Création des documents détaillés pour chaque interface
+- **25 février 2024** : Structure initiale du dossier interfaces
+
 ---
 
 <div align="center">

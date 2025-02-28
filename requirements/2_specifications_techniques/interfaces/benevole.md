@@ -267,6 +267,11 @@ L'interface bénévole est principalement utilisée sur tablettes à l'accueil:
 - Alertes automatiques pour les problèmes critiques (capacité atteinte, etc.)
 - Journal des opérations pour la traçabilité
 
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Révision et mise à jour des liens
+- **26 février 2024** : Création du document complet sur l'interface bénévole
+
 ---
 
 <div align="center">

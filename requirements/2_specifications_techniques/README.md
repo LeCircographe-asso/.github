@@ -121,10 +121,16 @@ La stratégie de test complète assure la fiabilité et la qualité du code:
 
 ## 🖇️ Liens vers la documentation technique approfondie
 
-- [Architecture détaillée](/docs/architecture/README.md)
-- [Guide d'implémentation](/requirements/4_implementation/README.md)
+- [Architecture détaillée](../../docs/architecture/README.md)
+- [Guide d'implémentation](../4_implementation/README.md)
 - [Rails 8.0.1 Guides](https://guides.rubyonrails.org/)
 - [Flowbite Components](https://flowbite.com/docs/components/)
+
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Ajout des documents sur la performance et les tests, structuration complète
+- **27 février 2024** : Création des documents sur la sécurité et les modèles 
+- **26 février 2024** : Structure initiale, documents sur les interfaces et le stockage
 
 ---
 

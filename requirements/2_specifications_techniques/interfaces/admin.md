@@ -235,6 +235,11 @@ L'interface administrateur est entièrement responsive pour permettre une gestio
 - Menu latéral rétractable
 - Actions prioritaires accessibles sur mobile
 
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Révision et mise à jour des liens
+- **26 février 2024** : Création du document complet sur l'interface administrateur
+
 ---
 
 <div align="center">

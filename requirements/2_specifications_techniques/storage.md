@@ -85,6 +85,11 @@ end
 | Paiement | Reçus générés (PDF), factures (PDF) |
 | Présence | QR codes générés (image), trombinoscope (image) |
 
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Révision et mise à jour des liens
+- **26 février 2024** : Création initiale du document sur le stockage
+
 ---
 
 <div align="center">

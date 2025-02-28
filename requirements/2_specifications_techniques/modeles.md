@@ -656,6 +656,12 @@ class Adhesion < ApplicationRecord
 end
 ```
 
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Révision et mise à jour des liens
+- **27 février 2024** : Création du document complet sur les modèles de données
+- **26 février 2024** : Définition initiale de la structure des modèles
+
 ---
 
 <div align="center">

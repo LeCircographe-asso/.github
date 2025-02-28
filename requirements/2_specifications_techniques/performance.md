@@ -805,6 +805,11 @@ Rails.application.configure do
 end
 ```
 
+## 📆 Historique des mises à jour
+
+- **28 février 2024** : Création du document complet sur la performance et l'optimisation
+- **27 février 2024** : Définition initiale des stratégies d'optimisation par domaine métier
+
 ---
 
 <div align="center">
