@@ -82,9 +82,9 @@ Pour faciliter la transition vers cette nouvelle structure, voici les correspond
 
 | Nouveau Document | Anciens Documents |
 |------------------|-------------------|
-| [Adhésion/regles.md](adhesion/regles.md) | requirements/1_logique_metier/adhesions/regles.md, requirements/1_logique_metier/adhesions/tarifs.md, docs/business/rules/membership_rules.md |
-| [Cotisation/regles.md](cotisation/regles.md) | requirements/1_logique_metier/cotisations/types.md, docs/business/rules/subscription_rules.md |
-| [Paiement/regles.md](paiement/regles.md) | requirements/1_logique_metier/paiements/methodes.md, requirements/1_logique_metier/paiements/recus.md, requirements/1_logique_metier/paiements/dons.md, docs/business/rules/payment_rules.md |
-| [Presence/regles.md](presence/regles.md) | requirements/1_logique_metier/presences/listes.md, docs/business/processes/check_in.md |
-| [Roles/regles.md](roles/regles.md) | requirements/1_logique_metier/utilisateurs/roles.md, docs/business/rules/user_roles.md |
-| [Notification/regles.md](notification/regles.md) | requirements/1_logique_metier/notifications/types.md, docs/business/states/notification.md | 
+| [Adhésion/regles.md](adhesion/regles.md) | requirements/1_métier/adhesions/regles.md, requirements/1_métier/adhesions/tarifs.md, docs/business/rules/membership_rules.md |
+| [Cotisation/regles.md](cotisation/regles.md) | requirements/1_métier/cotisations/types.md, docs/business/rules/subscription_rules.md |
+| [Paiement/regles.md](paiement/regles.md) | requirements/1_métier/paiements/methodes.md, requirements/1_métier/paiements/recus.md, requirements/1_métier/paiements/dons.md, docs/business/rules/payment_rules.md |
+| [Presence/regles.md](presence/regles.md) | requirements/1_métier/presences/listes.md, docs/business/processes/check_in.md |
+| [Roles/regles.md](roles/regles.md) | requirements/1_métier/utilisateurs/roles.md, docs/business/rules/user_roles.md |
+| [Notification/regles.md](notification/regles.md) | requirements/1_métier/notifications/types.md, docs/business/states/notification.md | 

@@ -2,10 +2,10 @@
 
 <div align="right">
   <a href="./README.md">⬅️ Retour aux spécifications techniques</a> •
-  <a href="../profile/README.md">📚 Documentation principale</a>
+  <a href="../../profile/README.md">📚 Documentation principale</a>
 </div>
 
-<p align="center"><i>🧭 Chemin: <a href="../profile/README.md">Documentation</a> > <a href="../README.md">Requirements</a> > <a href="./README.md">Spécifications Techniques</a> > <b>Sécurité et Authentification</b></i></p>
+<p align="center"><i>🧭 Chemin: <a href="../../profile/README.md">Documentation</a> > <a href="../README.md">Requirements</a> > <a href="./README.md">Spécifications Techniques</a> > <b>Sécurité et Authentification</b></i></p>
 
 ## 📋 Vue d'ensemble
 

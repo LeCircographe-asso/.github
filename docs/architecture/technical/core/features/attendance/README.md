@@ -17,7 +17,7 @@ Le système de présence permet de gérer plusieurs types de listes en parallèl
 
 ## Documentation Détaillée
 - [Implémentation Technique](./implementation.md)
-- [Règles Métier](../../requirements/1_logique_metier/presence/systeme.md)
+- [Règles Métier](../../requirements/1_métier/presence/systeme.md)
 
 ## Interfaces
 - Scan de carte ou recherche par nom

@@ -3,7 +3,7 @@
 ## Structure Actuelle
 ```
 /requirements
-├── 1_logique_metier/
+├── 1_métier/
 │   ├── adhesions/
 │   ├── systeme.md
 │   ├── tarifs.md
@@ -30,7 +30,7 @@
 
 ## Logique Métier
 ```
-/requirements/1_logique_metier/
+/requirements/1_métier/
 ├── adhesions/
 │   ├── systeme.md
 │   ├── tarifs.md
