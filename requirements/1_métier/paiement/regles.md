@@ -121,6 +121,29 @@ Le domaine de paiement définit les processus, méthodes et règles pour toutes 
 6. Validation du paiement et mise à jour des statuts
 7. Génération du reçu (électronique ou papier)
 
+#### Diagramme de flux du paiement standard
+
+```mermaid
+flowchart TD
+    A[Début] --> B[Sélection des items]
+    B --> C[Calcul du montant total]
+    C --> D[Proposition d'ajout d'un don]
+    D --> E{Ajout d'un don?}
+    E -->|Oui| F[Ajout du montant du don]
+    E -->|Non| G[Choix méthode de paiement]
+    F --> G
+    G --> H{Méthode choisie}
+    H -->|Espèces| I[Paiement en espèces]
+    H -->|Carte| J[Paiement par carte]
+    H -->|Chèque| K[Paiement par chèque]
+    I --> L[Validation du paiement]
+    J --> L
+    K --> L
+    L --> M[Mise à jour des statuts]
+    M --> N[Génération du reçu]
+    N --> O[Fin]
+```
+
 ### 5.2 Paiement en plusieurs fois
 
 *Applicable uniquement pour les montants supérieurs à 50€ (abonnements trimestriels et annuels)*

@@ -164,6 +164,44 @@ Toute notification doit comporter les éléments suivants :
 | Archivée           | Conservée pour référence mais plus active                     | 6 mois minimum                         |
 | Supprimée          | Effacée du système                                            | Après la période de conservation       |
 
+#### Diagramme de séquence du cycle de vie d'une notification
+
+```mermaid
+sequenceDiagram
+    participant S as Système
+    participant N as Notification
+    participant C as Canal (Email/Push/App)
+    participant U as Utilisateur
+    
+    S->>N: Création
+    Note over N: État: Créée
+    
+    N->>C: Envoi
+    Note over N: État: Envoyée
+    
+    C->>U: Transmission
+    C-->>N: Confirmation de livraison
+    Note over N: État: Délivrée
+    
+    U->>C: Ouverture/Lecture
+    C-->>N: Notification de lecture
+    Note over N: État: Lue
+    
+    alt L'utilisateur effectue l'action
+        U->>S: Action sur la notification
+        S-->>N: Enregistrement de l'action
+        Note over N: État: Actionnée
+    end
+    
+    Note over N: Après période active
+    S->>N: Archivage
+    Note over N: État: Archivée
+    
+    Note over N: Après période d'archivage
+    S->>N: Suppression
+    Note over N: État: Supprimée
+```
+
 ### 6.2 Conservation et archivage
 
 | Type               | Période de conservation active | Période d'archivage               |

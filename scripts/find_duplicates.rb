@@ -7,11 +7,12 @@
 require 'digest'
 require 'set'
 
+DEFAULT_SIMILARITY_THRESHOLD = 0.8 # Seuil de similarité par défaut (0.0 à 1.0)
+
 class DuplicateFinder
   DOCS_ROOT = File.expand_path('../../', __FILE__)
   MARKDOWN_PATTERN = '**/*.md'
   MIN_PARAGRAPH_LENGTH = 100 # Ignorer les paragraphes trop courts
-  DEFAULT_SIMILARITY_THRESHOLD = 0.8 # Seuil de similarité par défaut (0.0 à 1.0)
   
   attr_reader :duplicates, :similarity_threshold
   

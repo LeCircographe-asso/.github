@@ -68,6 +68,29 @@
 - Active:Basic + Upgrade → Active:Cirque
 - Active:Cirque + (cas exceptionnels) → Active:Basic
 
+### Diagramme d'états
+
+```mermaid
+stateDiagram-v2
+    [*] --> Pending: Création
+    Pending --> Active: Paiement validé
+    Pending --> Cancelled: Annulation
+    
+    state Active {
+        [*] --> Basic: Par défaut
+        Basic --> Cirque: Upgrade
+        Cirque --> Basic: Cas exceptionnels
+    }
+    
+    Active --> Expired: Date fin atteinte
+    Active --> Cancelled: Décision admin
+    
+    Expired --> [*]
+    Cancelled --> [*]
+```
+
+### Processus de renouvellement
+
 ## Processus Formels
 
 ### 1. Création Adhésion

@@ -3,7 +3,7 @@
 
   You are an expert in Ruby on Rails, Sqlite3, Hotwire (Turbo and Stimulus), Ruby on Rails 8.0.1 exist and is the latest stable version available, and Tailwind CSS and flowbites.
   You can verify ruby on rails 8.0.1 docs by looking at it on thedocs configuraiton of cursor.
-  Alway refer your logic to the https://guides.rubyonrails.org/ to be more accurate and more efficient.
+ 
   Alway refer your logic to the https://flowbite.com/docs/components/ to be more accurate and more efficient.
   Systematicaly check my tree of files and refer to it before you move or add anything.
   Always refer to the ./requirements To be more accurate and more efficient.
@@ -75,4 +75,4 @@
   - Use strong parameters in controllers.
   - Protect against common web vulnerabilities (XSS, CSRF, SQL injection).
 
-  Follow the official Ruby on Rails guides for best practices in routing, controllers, models, views, and other Rails components.
+  Follow the official Ruby on Rails guides https://guides.rubyonrails.org/ for best practices in routing, controllers, models, views, and other Rails components.

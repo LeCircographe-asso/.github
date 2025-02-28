@@ -24,16 +24,6 @@ Les spécifications techniques sont organisées pour supporter les [domaines mé
 | [Rôles](requirements/1_métier/adhesion/index.md) | Système d'autorisation, audit d'actions, permissions |
 | [Notification](requirements/1_métier/adhesion/index.md) | Système de notifications, emails, préférences utilisateur |
 
-
-### Diagramme de flux
-
-```mermaid
-flowchart TD
-    A[Début] --> B[Étape 1]
-    B --> C[Étape 2]
-    C --> D[Fin]
-```
-
 ## 📂 Organisation technique
 
 ```

@@ -40,6 +40,56 @@ Si l'adhésion d'un utilisateur expire:
 - Ses rôles sont automatiquement **réactivés** lors du renouvellement de l'adhésion
 - L'utilisateur conserve l'accès à ses données personnelles et à son historique même pendant la période de suspension
 
+### Diagramme des relations entre rôles et adhésions
+
+```mermaid
+classDiagram
+    class User {
+        +String email
+        +String password_digest
+        +String first_name
+        +String last_name
+        +DateTime created_at
+        +DateTime updated_at
+        +has_valid_membership()
+        +has_role(role_name)
+    }
+    
+    class Membership {
+        +String type
+        +String status
+        +Date start_date
+        +Date end_date
+        +is_valid()
+        +is_expired()
+        +renew()
+    }
+    
+    class Role {
+        +String name
+        +Boolean active
+        +DateTime assigned_at
+        +suspend()
+        +activate()
+        +revoke()
+    }
+    
+    class Permission {
+        +String action
+        +String resource
+        +check_permission(user, action, resource)
+    }
+    
+    User "1" -- "0..n" Role : has
+    User "1" -- "0..n" Membership : has
+    Role "1" -- "n" Permission : includes
+    Membership -- Role : affects status
+    
+    note for User "Un utilisateur peut avoir plusieurs rôles\net plusieurs adhésions (historique)"
+    note for Role "Les rôles définissent les permissions\ndans l'application"
+    note for Membership "L'adhésion détermine l'accès\naux installations physiques"
+```
+
 ## 4. Matrice des permissions par rôle
 
 ### 4.1 Fonctionnalités générales
