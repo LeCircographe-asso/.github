@@ -2,18 +2,20 @@
 
 ## Vue d'ensemble
 
-Ce dossier contient toutes les user stories de l'application, organisées par type d'utilisateur.
+Ce dossier contient toutes les user stories de l'application, réorganisées par domaine métier pour aligner parfaitement les besoins utilisateurs avec l'architecture fonctionnelle de l'application.
 
 ## Structure
 
 ```
 3_user_stories/
-├── user_stories.md  # Vue d'ensemble
-├── public.md        # Utilisateurs non connectés
-├── adherent.md      # Adhérents
-├── benevole.md      # Bénévoles
-├── admin.md         # Administrateurs
-└── super_admin.md   # Super administrateurs
+├── README.md           # Vue d'ensemble et organisation
+├── adhesion.md         # Stories liées aux adhésions (Basic et Cirque)
+├── cotisation.md       # Stories liées aux formules de cotisation
+├── paiement.md         # Stories liées aux paiements et reçus
+├── presence.md         # Stories liées au pointage et statistiques
+├── roles.md            # Stories liées à la gestion des rôles et permissions
+├── notification.md     # Stories liées aux communications automatisées
+└── public.md           # Stories pour utilisateurs non connectés
 ```
 
 ## Format Standard
@@ -30,102 +32,98 @@ Critères d'acceptation :
 ...
 ```
 
-## Rôles Utilisateurs
+## Organisation par Domaine Métier
 
-### 1. Public
+### 1. [Adhésion](./adhesion.md)
+- Création et gestion des adhésions
+- Renouvellement d'adhésion
+- Upgrade d'adhésion (Basic vers Cirque)
+- Vérification du statut d'adhésion
+
+### 2. [Cotisation](./cotisation.md)
+- Achat et gestion des formules de cotisation
+- Consultation des séances restantes
+- Renouvellement des formules
+- Options tarifaires (normal/réduit)
+
+### 3. [Paiement](./paiement.md)
+- Transactions financières
+- Génération et consultation des reçus
+- Gestion des remboursements
+- Historique des paiements
+
+### 4. [Présence](./presence.md)
+- Pointage aux entraînements
+- Consultation des listes de présence
+- Statistiques de fréquentation
+- Contrôle d'accès
+
+### 5. [Rôles](./roles.md)
+- Attribution des rôles système
+- Gestion des permissions
+- Rôles associatifs (bénévole, CA, etc.)
+- Audit des actions par rôle
+
+### 6. [Notification](./notification.md)
+- Rappels d'échéance
+- Confirmations de transaction
+- Alertes système
+- Préférences de communication
+
+### 7. [Public](./public.md)
+- Création de compte
 - Consultation des informations publiques
-- Inscription
-- Contact
-- Voir [public.md](./public.md)
-
-### 2. Adhérent
-- Gestion du profil
-- Gestion des adhésions
-- Participation aux activités
-- Voir [adherent.md](./adherent.md)
-
-### 3. Bénévole
-- Gestion des présences
-- Validation des paiements
-- Support aux adhérents
-- Voir [benevole.md](./benevole.md)
-
-### 4. Admin
-- Gestion des utilisateurs
-- Gestion des activités
-- Rapports et statistiques
-- Voir [admin.md](./admin.md)
-
-### 5. Super Admin
-- Configuration système
-- Gestion des rôles
-- Maintenance
-- Voir [super_admin.md](./super_admin.md)
+- Contact et demandes
 
 ## Priorités
 
 ### P0 - Critique
-- Inscription
-- Authentification
+- Inscription et authentification
 - Gestion des adhésions
 - Pointage présence
+- Paiements de base
 
 ### P1 - Important
-- Paiements
-- Gestion des rôles
+- Gestion des cotisations
+- Attribution des rôles
 - Statistiques basiques
-- Notifications
+- Notifications essentielles
 
 ### P2 - Utile
 - Rapports avancés
 - Export de données
 - Personnalisation
-- API
+- Fonctionnalités secondaires
 
 ## Validation
 
-### Critères Généraux
-- Interface intuitive
-- Temps de réponse < 2s
-- Messages d'erreur clairs
-- Confirmation des actions importantes
+Chaque domaine possède ses propres critères d'acceptation détaillés dans le fichier correspondant, alignés avec les critères définis dans les fichiers `validation.md` de chaque domaine métier.
 
-### Tests Utilisateur
-- Scénarios de test
-- Feedback utilisateur
-- Itérations
-- Documentation des bugs
+## Mapping avec les anciens fichiers
 
-## Interdépendances
-
-### Adhésion → Paiement
-- Validation paiement requise
-- Statut adhésion mis à jour
-- Notifications envoyées
-
-### Présence → Adhésion
-- Vérification adhésion active
-- Mise à jour statistiques
-- Alertes si nécessaire
-
-### Rôles → Fonctionnalités
-- Accès conditionnels
-- Validation des permissions
-- Audit des actions
+| Nouveau Document | Anciens Documents |
+|------------------|-------------------|
+| [adhesion.md](./adhesion.md) | adherent.md (partiellement), user_stories.md (sections adhésion) |
+| [cotisation.md](./cotisation.md) | adherent.md (sections cotisation), user_stories.md (sections cotisation) |
+| [paiement.md](./paiement.md) | adherent.md (sections paiement), benevole.md (validation paiements) |
+| [presence.md](./presence.md) | adherent.md (sections présence), benevole.md (gestion présence) |
+| [roles.md](./roles.md) | admin.md, super_admin.md, benevole.md (sections rôles) |
+| [notification.md](./notification.md) | Extraits de tous les anciens fichiers (sections notifications) |
+| [public.md](./public.md) | public.md (inchangé) |
 
 ## Maintenance
 
 ### 1. Mise à Jour
-- Revue régulière des stories
-- Ajout de nouveaux besoins
+- Revue régulière des stories par domaine
+- Ajout de nouveaux besoins dans le domaine approprié
 - Archivage des stories obsolètes
 
 ### 2. Documentation
-- Maintenir les liens à jour
+- Maintenir la cohérence avec les fichiers de règles métier
 - Documenter les changements
 - Tracer les décisions
 
 ### 3. Tests
-- Mettre à jour les scénarios
-- Vérifier la couverture
+- Aligner les scénarios de test avec les critères dans validation.md
+- Vérifier la couverture fonctionnelle
 - Documenter les résultats 

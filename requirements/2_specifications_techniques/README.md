@@ -8,13 +8,24 @@ Ce dossier contient toutes les spécifications techniques de l'application, orga
 
 ```
 2_specifications_techniques/
-├── architecture/   # Architecture système
-├── interfaces/     # Interfaces utilisateur
-├── modeles/       # Modèles de données
-├── storage/       # Gestion du stockage
-├── validations/   # Validations techniques
-└── storage.md     # Spécifications stockage
+├── architecture/    # Architecture système
+├── interfaces/      # Interfaces utilisateur
+├── modeles/         # Modèles de données
+├── storage/         # Gestion du stockage
+├── validations/     # Validations techniques
+├── storage.md       # Spécifications stockage
+└── deprecated/      # Documentation obsolète
 ```
+
+## Documentation Actuelle
+
+Certaines parties de la documentation technique ont été déplacées ou mises à jour dans d'autres sections du projet :
+
+- [Architecture Technique](../../docs/architecture/technical/) - Documentation détaillée de l'architecture système
+- [États Systèmes](../../docs/business/states/) - Diagrammes d'états des objets métier
+- [Spécifications par Domaine](../1_métier/) - Spécifications techniques par domaine fonctionnel
+
+Les documents obsolètes ont été déplacés dans le dossier [deprecated](./deprecated/).
 
 ## Domaines Techniques
 
@@ -140,4 +151,8 @@ Ce dossier contient toutes les spécifications techniques de l'application, orga
 - Uptime
 - Performance
 - Sécurité
-- Alertes 
+- Alertes
+
+---
+
+*Dernière mise à jour : Février 2023* 
