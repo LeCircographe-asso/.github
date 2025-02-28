@@ -1,0 +1,1364 @@
+Script started on 2025-02-28 14:15:16+01:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="155" LINES="23"]
+[1m[7m%[27m[1m[0m                                                                                                                                                           ]2;aka@DESKTOP-AKA:~/project-manager-circographe/.github]1;..raphe/.github]7;file://DESKTOP-AKA/home/aka/project-manager-circographe/.github\[0m[27m[24m[J[01;32m➜  [36m.github[00m [K[?1h=[?2004h[0m[27m[24m[J[01;32m➜  [36m.github[00m [K[0m[27m[24m[J[01;32m➜  [36m.github[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [Ksscript
+[J[0mScriptRunner.exe  [JScripts           [Jscript            [Jscripto.dll       [Jscriptreplay      [J[01;34mscripts[0m/        [J[A[0m[27m[24m[26Cscript[KS[5CRunner.exe
+[J[7mScriptRunner.exe[0m  [JScripts           [Jscript            [Jscript            [Jscripto.dll       [Jscriptreplay      [J[01;34mscripts[0m/        [J[A[0m[27m[24m[26CScriptRunner.exe[K
+[7mScriptRunner.exe[0m  [7mScriptRunner.exe[0m  [A[0m[27m[24m[26CScriptRunner.exe[K[10Ds         [9D
+[18C[7mScripts         [0m  ScriptRunner.exe  [A[0m[27m[24m[26CScripts[Ks[5C 
+[36C[7mscript          [0m  [18CScripts           [A[0m[27m[24m[26Cscript[K[1m=[0m
+[54C[7mscript          [0m  [36Cscript            [A[0m[27m[24m[26Cscript[1m=[0m[K[0mo.dll
+[72C[7mscripto.dll     [0m  [54Cscript            [A[0m[27m[24m[26Cscripto.dll[Kreplay
+[90C[7mscriptreplay    [0m  [72Cscripto.dll       [A[0m[27m[24m[26Cscriptreplay[Ks[1m/[0m    
+[108C[7mscripts/        [0m[90Cscriptreplay      [A[0m[27m[24m[26Cscripts[1m/[0m[K
+[J[A[34C[0m [?1l>[?2004l
+[J]2;scripts]1;scriptsRVM used your Gemfile for selecting Ruby, it is all fine - Heroku does that too,
+you can ignore these warnings with 'rvm rvmrc warning ignore /home/aka/project-manager-circographe/.github/Gemfile'.
+To ignore the warning for all files run 'rvm rvmrc warning ignore allGemfiles'.
+
+Required ruby-3.2.0 is not installed.
+To install do: 'rvm install "ruby-3.2.0"'
+[1m[7m%[27m[1m[0m                                                                                                                                                           ]2;aka@DESKTOP-AKA:~/project-manager-circographe/.github/scripts]1;..ithub/scripts]7;file://DESKTOP-AKA/home/aka/project-manager-circographe/.github/scripts\[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=[?2004hscripts ruby check_broken_links.rb[?1l>[?2004l
+]2;ruby check_broken_links.rb]1;ruby❌ Found 397 broken links in 44 files:
+
+📄 docs/architecture/README.md:
+  - Line 30: [/docs/architecture/technical/core/README.md] in '- [Core](/docs/architecture/technical/core/README.md) - Logique métier et modèles'
+  - Line 31: [/docs/architecture/technical/frontend/README.md] in '- [Frontend](/docs/architecture/technical/frontend/README.md) - Interface utilisateur'
+  - Line 32: [/docs/architecture/technical/security/README.md] in '- [Sécurité](/docs/architecture/technical/security/README.md) - Authentification et autorisation'
+  - Line 33: [/docs/architecture/technical/performance/README.md] in '- [Performance](/docs/architecture/technical/performance/README.md) - Optimisations et monitoring'
+  - Line 50: [/docs/architecture/flow.md#user-flow] in '- [Flux Utilisateur](/docs/architecture/flow.md#user-flow)'
+  - Line 51: [/docs/architecture/flow.md#payment-flow] in '- [Flux Paiement](/docs/architecture/flow.md#payment-flow)'
+  - Line 52: [/docs/architecture/flow.md#attendance-flow] in '- [Flux Présence](/docs/architecture/flow.md#attendance-flow)'
+  - Line 63: [/docs/architecture/components.md#authentication] in '- [AuthenticationService](/docs/architecture/components.md#authentication)'
+  - Line 64: [/docs/architecture/components.md#payment] in '- [PaymentService](/docs/architecture/components.md#payment)'
+  - Line 65: [/docs/architecture/components.md#notification] in '- [NotificationService](/docs/architecture/components.md#notification)'
+  - Line 66: [/docs/architecture/components.md#statistics] in '- [StatisticsService](/docs/architecture/components.md#statistics)'
+  - Line 104: [/docs/architecture/technical/installation.md] in '1. [Installation](/docs/architecture/technical/installation.md)'
+  - Line 105: [/docs/architecture/technical/configuration.md] in '2. [Configuration](/docs/architecture/technical/configuration.md)'
+  - Line 106: [/docs/architecture/technical/deployment.md] in '3. [Déploiement](/docs/architecture/technical/deployment.md)'
+  - Line 109: [/docs/architecture/technical/conventions.md] in '- [Conventions de Code](/docs/architecture/technical/conventions.md)'
+  - Line 110: [/docs/architecture/technical/api_guidelines.md] in '- [Guidelines API](/docs/architecture/technical/api_guidelines.md)'
+  - Line 111: [/docs/architecture/technical/testing.md] in '- [Tests](/docs/architecture/technical/testing.md)'
+  - Line 132: [/docs/architecture/technical/api/README.md] in '- [Documentation API](/docs/architecture/technical/api/README.md)'
+  - Line 133: [/docs/architecture/technical/api/endpoints.md] in '- [Endpoints](/docs/architecture/technical/api/endpoints.md)'
+  - Line 134: [/docs/architecture/technical/api/auth.md] in '- [Authentication](/docs/architecture/technical/api/auth.md)'
+  - Line 137: [/docs/architecture/technical/database/schema.md] in '- [Schéma](/docs/architecture/technical/database/schema.md)'
+  - Line 138: [/docs/architecture/technical/database/migrations.md] in '- [Migrations](/docs/architecture/technical/database/migrations.md)'
+  - Line 139: [/docs/architecture/technical/database/indexes.md] in '- [Indexation](/docs/architecture/technical/database/indexes.md)'
+  - Line 151: [/docs/architecture/technical/guidelines.md] in '- [Guidelines de Code](/docs/architecture/technical/guidelines.md)'
+  - Line 152: [/docs/architecture/technical/commits.md] in '- [Convention de Commits](/docs/architecture/technical/commits.md)'
+  - Line 153: [/docs/architecture/technical/review.md] in '- [Process de Review](/docs/architecture/technical/review.md)'
+  - Line 160: [/docs/architecture/technical/wiki.md] in '- **Documentation**: [Wiki Technique](/docs/architecture/technical/wiki.md)'
+  - Line 165: [/docs/architecture/technical/incidents.md] in '- **Incident Process**: [Guide Incidents](/docs/architecture/technical/incidents.md)'
+
+📄 docs/architecture/diagrams/README.md:
+  - Line 10: [membership_states.md] in '- [États des Adhésions](membership_states.md) - Cycle de vie d'une adhésion'
+  - Line 11: [subscription_states.md] in '- [États des Cotisations](subscription_states.md) - Cycle de vie d'une cotisation'
+  - Line 14: [payment_flow.md] in '- [Flux de Paiement](payment_flow.md) - Processus de paiement complet'
+  - Line 15: [check_in_flow.md] in '- [Flux de Pointage](check_in_flow.md) - Processus d'enregistrement des présences'
+  - Line 16: [notification_flow.md] in '- [Flux de Notification](notification_flow.md) - Système de notifications'
+  - Line 19: [roles_permissions.md] in '- [Permissions des Rôles](roles_permissions.md) - Matrice des permissions par rôle'
+  - Line 20: [database_schema.md] in '- [Structure de la Base de Données](database_schema.md) - Schéma relationnel'
+
+📄 docs/architecture/technical/api/README.md:
+  - Line 13: [README.md] in '| [README.md](README.md) | Ce document |'
+  - Line 14: [endpoints.md] in '| [endpoints.md](endpoints.md) | Liste complète des endpoints API |'
+  - Line 15: [auth.md] in '| [auth.md](auth.md) | Documentation sur l'authentification et l'autorisation |'
+  - Line 16: [versioning.md] in '| [versioning.md](versioning.md) | Politique de versionnement des API |'
+  - Line 17: [errors.md] in '| [errors.md](errors.md) | Codes d'erreur et gestion des erreurs |'
+  - Line 18: [examples.md] in '| [examples.md](examples.md) | Exemples d'utilisation des API |'
+  - Line 22: [/requirements/2_specifications_techniques/api/] in 'Les spécifications détaillées de chaque API sont disponibles dans le dossier [requirements/2_specifications_techniques/api/](/requirements/2_specifications_techniques/api/).'
+  - Line 54: [versioning.md] in 'La politique de versionnement complète est détaillée dans [versioning.md](versioning.md).'
+
+📄 docs/architecture/technical/api/auth.md:
+  - Line 205: [/docs/architecture/diagrams/roles_permissions.md] in 'La matrice complète des permissions par rôle est disponible dans le document [roles_permissions.md](/docs/architecture/diagrams/roles_permissions.md).'
+
+📄 docs/architecture/technical/core/README.md:
+  - Line 28: [../README.md] in '- [⬅️ Back to Technical](../README.md)'
+  - Line 29: [../../README.md] in '- [⬆️ Back to Architecture](../../README.md)'
+  - Line 30: [../../../README.md] in '- [🏠 Back to Home](../../../README.md)'
+
+📄 docs/architecture/technical/core/features/attendance/README.md:
+  - Line 19: [./implementation.md] in '- [Implémentation Technique](./implementation.md)'
+  - Line 20: [../../requirements/1_métier/presence/systeme.md] in '- [Règles Métier](../../requirements/1_métier/presence/systeme.md)'
+
+📄 docs/architecture/technical/frontend/README.md:
+  - Line 40: [../README.md] in '- [⬅️ Back to Technical](../README.md)'
+  - Line 41: [../../README.md] in '- [⬆️ Back to Architecture](../../README.md)'
+  - Line 42: [../../../README.md] in '- [🏠 Back to Home](../../../README.md)'
+
+📄 docs/architecture/technical/performance/README.md:
+  - Line 42: [../README.md] in '- [⬅️ Back to Technical](../README.md)'
+  - Line 43: [../../README.md] in '- [⬆️ Back to Architecture](../../README.md)'
+  - Line 44: [../../../README.md] in '- [🏠 Back to Home](../../../README.md)'
+
+📄 docs/architecture/technical/security/README.md:
+  - Line 42: [../README.md] in '- [⬅️ Back to Technical](../README.md)'
+  - Line 43: [../../README.md] in '- [⬆️ Back to Architecture](../../README.md)'
+  - Line 44: [../../../README.md] in '- [🏠 Back to Home](../../../README.md)'
+
+📄 docs/architecture/templates/README.md:
+  - Line 10: [payment_receipt.md] in '- [Reçu de Paiement](payment_receipt.md) - Template pour les reçus de paiement'
+  - Line 11: [membership_card.md] in '- [Carte de Membre](membership_card.md) - Template pour les cartes de membre'
+  - Line 12: [membership_certificate.md] in '- [Attestation d'Adhésion](membership_certificate.md) - Template pour les attestations'
+  - Line 15: [notification_templates.md] in '- [Templates de Notification](notification_templates.md) - Templates pour les différents types de notifications'
+  - Line 16: [email_templates.md] in '- [Templates d'Email](email_templates.md) - Templates pour les emails automatiques'
+  - Line 19: [attendance_report.md] in '- [Rapport de Présence](attendance_report.md) - Template pour les rapports de présence'
+  - Line 20: [financial_report.md] in '- [Rapport Financier](financial_report.md) - Template pour les rapports financiers'
+
+📄 docs/business/README.md:
+  - Line 21: [/docs/business/guides/member_management.md] in '- [Guide Complet](/docs/business/guides/member_management.md)'
+  - Line 22: [/docs/business/rules/membership_rules.md] in '- [Règles d'Adhésion](/docs/business/rules/membership_rules.md)'
+  - Line 23: [/docs/business/processes/registration.md] in '- [Processus d'Inscription](/docs/business/processes/registration.md)'
+  - Line 24: [/docs/business/states/user.md] in '- [États Membre](/docs/business/states/user.md)'
+  - Line 27: [/docs/business/guides/financial_management.md] in '- [Guide Complet](/docs/business/guides/financial_management.md)'
+  - Line 28: [/docs/business/rules/payment_rules.md] in '- [Règles de Paiement](/docs/business/rules/payment_rules.md)'
+  - Line 29: [/docs/business/processes/payment.md] in '- [Processus de Paiement](/docs/business/processes/payment.md)'
+  - Line 30: [/docs/business/states/payment.md] in '- [États Paiement](/docs/business/states/payment.md)'
+  - Line 33: [/docs/business/guides/attendance_management.md] in '- [Guide Complet](/docs/business/guides/attendance_management.md)'
+  - Line 34: [/docs/business/rules/attendance_rules.md] in '- [Règles de Présence](/docs/business/rules/attendance_rules.md)'
+  - Line 35: [/docs/business/processes/check_in.md] in '- [Processus Check-in](/docs/business/processes/check_in.md)'
+  - Line 36: [/docs/business/states/attendance_list.md] in '- [États Liste](/docs/business/states/attendance_list.md)'
+  - Line 41: [/docs/glossaire.md] in '- [Glossaire](/docs/glossaire.md)'
+  - Line 42: [/docs/business/rules/concepts.md] in '- [Concepts Métier](/docs/business/rules/concepts.md)'
+  - Line 43: [/docs/business/rules/concept_mapping.md] in '- [Mapping Technique](/docs/business/rules/concept_mapping.md)'
+  - Line 46: [/docs/business/rules/membership_rules.md] in '- [Règles d'Adhésion](/docs/business/rules/membership_rules.md)'
+  - Line 47: [/docs/business/rules/payment_rules.md] in '- [Règles de Paiement](/docs/business/rules/payment_rules.md)'
+  - Line 48: [/docs/business/rules/attendance_rules.md] in '- [Règles de Présence](/docs/business/rules/attendance_rules.md)'
+  - Line 49: [/docs/business/rules/security_rules.md] in '- [Règles de Sécurité](/docs/business/rules/security_rules.md)'
+  - Line 54: [/docs/business/processes/registration.md] in '- [Inscription Membre](/docs/business/processes/registration.md)'
+  - Line 55: [/docs/business/processes/renewal.md] in '- [Renouvellement](/docs/business/processes/renewal.md)'
+  - Line 56: [/docs/business/processes/profile_update.md] in '- [Modification Profil](/docs/business/processes/profile_update.md)'
+  - Line 59: [/docs/business/processes/membership_payment.md] in '- [Paiement Adhésion](/docs/business/processes/membership_payment.md)'
+  - Line 60: [/docs/business/processes/subscription_payment.md] in '- [Paiement Cotisation](/docs/business/processes/subscription_payment.md)'
+  - Line 61: [/docs/business/processes/donation.md] in '- [Gestion Dons](/docs/business/processes/donation.md)'
+  - Line 64: [/docs/business/processes/check_in.md] in '- [Check-in Membre](/docs/business/processes/check_in.md)'
+  - Line 65: [/docs/business/processes/attendance_list.md] in '- [Gestion Liste](/docs/business/processes/attendance_list.md)'
+  - Line 66: [/docs/business/processes/statistics.md] in '- [Statistiques](/docs/business/processes/statistics.md)'
+  - Line 71: [/docs/business/states/user.md] in '- [États Membre](/docs/business/states/user.md)'
+  - Line 72: [/docs/business/states/membership.md] in '- [États Adhésion](/docs/business/states/membership.md)'
+  - Line 73: [/docs/business/states/roles.md] in '- [États Rôles](/docs/business/states/roles.md)'
+  - Line 76: [/docs/business/states/payment.md] in '- [États Paiement](/docs/business/states/payment.md)'
+  - Line 77: [/docs/business/states/receipt.md] in '- [États Reçu](/docs/business/states/receipt.md)'
+  - Line 78: [/docs/business/states/subscription.md] in '- [États Cotisation](/docs/business/states/subscription.md)'
+  - Line 81: [/docs/business/states/attendance_list.md] in '- [États Liste Présence](/docs/business/states/attendance_list.md)'
+  - Line 82: [/docs/business/states/volunteer_shift.md] in '- [États Permanence](/docs/business/states/volunteer_shift.md)'
+  - Line 83: [/docs/business/states/notification.md] in '- [États Notification](/docs/business/states/notification.md)'
+  - Line 88: [/docs/business/guides/member.md] in '- [Guide Membre](/docs/business/guides/member.md)'
+  - Line 89: [/docs/business/guides/volunteer.md] in '- [Guide Bénévole](/docs/business/guides/volunteer.md)'
+  - Line 90: [/docs/business/guides/admin.md] in '- [Guide Admin](/docs/business/guides/admin.md)'
+  - Line 93: [/docs/business/guides/memberships.md] in '- [Guide Adhésions](/docs/business/guides/memberships.md)'
+  - Line 94: [/docs/business/guides/payments.md] in '- [Guide Paiements](/docs/business/guides/payments.md)'
+  - Line 95: [/docs/business/guides/attendance.md] in '- [Guide Présences](/docs/business/guides/attendance.md)'
+  - Line 100: [/docs/business/reports/daily.md] in '- [Rapport Quotidien](/docs/business/reports/daily.md)'
+  - Line 101: [/docs/business/reports/monthly.md] in '- [Rapport Mensuel](/docs/business/reports/monthly.md)'
+  - Line 102: [/docs/business/reports/yearly.md] in '- [Rapport Annuel](/docs/business/reports/yearly.md)'
+  - Line 105: [/docs/business/reports/kpis.md] in '- [KPIs](/docs/business/reports/kpis.md)'
+  - Line 106: [/docs/business/reports/trends.md] in '- [Tendances](/docs/business/reports/trends.md)'
+  - Line 107: [/docs/business/reports/forecasts.md] in '- [Prévisions](/docs/business/reports/forecasts.md)'
+  - Line 112: [/docs/validation/test_plan.md] in '- [Plan de Test](/docs/validation/test_plan.md)'
+  - Line 113: [/docs/validation/scenarios.md] in '- [Scénarios](/docs/validation/scenarios.md)'
+  - Line 114: [/docs/validation/results.md] in '- [Résultats](/docs/validation/results.md)'
+  - Line 117: [/docs/business/quality/checklist.md] in '- [Checklist Qualité](/docs/business/quality/checklist.md)'
+  - Line 118: [/docs/business/quality/audit.md] in '- [Audit Process](/docs/business/quality/audit.md)'
+  - Line 119: [/docs/business/quality/improvement.md] in '- [Amélioration Continue](/docs/business/quality/improvement.md)'
+  - Line 128: [/docs/business/support/faq.md] in '- [FAQ](/docs/business/support/faq.md)'
+  - Line 129: [/docs/business/support/troubleshooting.md] in '- [Troubleshooting](/docs/business/support/troubleshooting.md)'
+  - Line 130: [/docs/business/support/training.md] in '- [Formation](/docs/business/support/training.md)'
+
+📄 docs/business/regles/README.md:
+  - Line 9: [adhesion.md] in '- [**Guide des Adhésions**](adhesion.md) - Explique les différents types d'adhésion, les tarifs, et le processus d'adhésion à l'association.'
+  - Line 13: [cotisation.md] in '- [**Guide des Cotisations**](cotisation.md) - Détaille les différentes formules de cotisation permettant l'accès aux entraînements (Pass Journée, Carnet, Abonnements).'
+  - Line 17: [paiement.md] in '- [**Guide des Paiements**](paiement.md) - Explique les différentes méthodes de paiement, les processus de validation et les documents générés.'
+  - Line 21: [presence.md] in '- [**Guide des Présences**](presence.md) - Détaille le système de pointage, les listes de présence et les droits d'accès aux installations.'
+  - Line 25: [roles.md] in '- [**Guide des Rôles**](roles.md) - Présente les différents rôles utilisateur dans le système et leurs permissions associées.'
+  - Line 29: [notification.md] in '- [**Guide des Notifications**](notification.md) - Explique le système de communication automatisé et ses différents canaux.'
+  - Line 33: [deprecated/] in 'Les documents qui ne sont plus à jour avec les processus et règles actuels ont été déplacés dans le dossier [deprecated](deprecated/). Veuillez consulter ce dossier uniquement pour référence historique et utilisez toujours les documents de ce répertoire pour les opérations courantes.'
+  - Line 37: [/docs/business/images/] in 'Des diagrammes illustrant les cycles de vie et processus métier sont disponibles dans le dossier [images](/docs/business/images/):'
+  - Line 39: [/docs/business/images/adhesion_states.md] in '- [États des adhésions](/docs/business/images/adhesion_states.md)'
+  - Line 40: [/docs/business/images/cotisation_states.md] in '- [États des cotisations](/docs/business/images/cotisation_states.md)'
+  - Line 49: [/requirements/1_métier/] in 'Pour les documents techniques détaillés, consultez le dossier [requirements/1_métier](/requirements/1_métier/).'
+
+📄 docs/business/regles/adhesion.md:
+  - Line 51: [/docs/business/images/adhesion_states.png] in '![Diagramme des états d'une adhésion](/docs/business/images/adhesion_states.png)'
+  - Line 143: [/requirements/1_métier/adhesion/regles.md] in '> Pour les spécifications techniques détaillées, consultez la [documentation source](/requirements/1_métier/adhesion/regles.md)'
+
+📄 docs/business/regles/cotisation.md:
+  - Line 83: [/docs/business/images/cotisation_states.md] in '![Diagramme des états d'une cotisation](/docs/business/images/cotisation_states.md)'
+  - Line 157: [/requirements/1_métier/cotisation/regles.md] in '> Pour les spécifications techniques détaillées, consultez la [documentation source](/requirements/1_métier/cotisation/regles.md)'
+
+📄 docs/business/regles/deprecated/README.md:
+  - Line 14: [../../../architecture/] in '- [Documentation Technique](../../../architecture/)'
+  - Line 15: [../../../utilisateur/guides/] in '- [Guides Utilisateur](../../../utilisateur/guides/)'
+
+📄 docs/business/states/README.md:
+  - Line 14: [/docs/business/README.md] in '- [⬅️ Back to Business Documentation](/docs/business/README.md)'
+
+📄 docs/utilisateur/guides/README.md:
+  - Line 9: [adhesion_membre.md] in '- [**Guide d'adhésion**](adhesion_membre.md) - Comment devenir membre du Circographe et gérer son adhésion'
+  - Line 10: [cotisation_membre.md] in '- [**Guide des cotisations**](cotisation_membre.md) - Comment choisir, acheter et utiliser les différentes formules de cotisation'
+  - Line 11: [presence_membre.md] in '- [**Guide des présences**](presence_membre.md) - Comment pointer sa présence et consulter son historique'
+  - Line 12: [paiement_membre.md] in '- [**Guide des paiements**](paiement_membre.md) - Comment effectuer et suivre ses paiements'
+  - Line 13: [roles_membre.md] in '- [**Guide des rôles**](roles_membre.md) - Comprendre les différents rôles et permissions'
+  - Line 14: [notification_membre.md] in '- [**Guide des notifications**](notification_membre.md) - Gérer ses préférences de notification et communication'
+  - Line 20: [adhesion_admin.md] in '- [**Guide d'administration des adhésions**](adhesion_admin.md) - Comment gérer les adhésions des membres'
+  - Line 21: [cotisation_admin.md] in '- [**Guide d'administration des cotisations**](cotisation_admin.md) - Comment vendre et gérer les cotisations des membres'
+  - Line 22: [presence_admin.md] in '- [**Guide d'administration des présences**](presence_admin.md) - Comment gérer les listes de présence et contrôler l'accès'
+  - Line 23: [paiement_admin.md] in '- [**Guide d'administration des paiements**](paiement_admin.md) - Comment traiter les paiements et gérer la comptabilité'
+  - Line 24: [roles_admin.md] in '- [**Guide d'administration des rôles**](roles_admin.md) - Comment attribuer et gérer les droits utilisateurs'
+  - Line 25: [notification_admin.md] in '- [**Guide d'administration des notifications**](notification_admin.md) - Comment configurer et envoyer des notifications'
+  - Line 39: [/docs/utilisateur/images/] in 'Les captures d'écran mentionnées dans les guides sont stockées dans le dossier [images](/docs/utilisateur/images/).'
+  - Line 43: [../deprecated/] in 'Les guides qui ne sont plus à jour avec les processus et interfaces actuels ont été déplacés dans le dossier [deprecated](../deprecated/). Veuillez consulter ce dossier uniquement pour référence historique et utilisez toujours les guides de ce répertoire pour les opérations courantes.'
+  - Line 53: [/docs/business/] in 'Les guides sont régulièrement mis à jour pour refléter les changements dans le système et maintenir la cohérence avec la [documentation métier](/docs/business/).'
+
+📄 docs/utilisateur/guides/adhesion_membre.md:
+  - Line 31: [../images/inscription_screen.png] in '![Écran d'inscription](../images/inscription_screen.png)'
+  - Line 54: [../images/choix_adhesion.png] in '![Choix d'adhésion](../images/choix_adhesion.png)'
+  - Line 83: [../images/paiement_screen.png] in '![Écran de paiement](../images/paiement_screen.png)'
+  - Line 103: [../images/statut_adhesion.png] in '![Statut d'adhésion](../images/statut_adhesion.png)'
+  - Line 133: [../images/upgrade_adhesion.png] in '![Upgrade d'adhésion](../images/upgrade_adhesion.png)'
+
+📄 docs/utilisateur/guides/cotisation_admin.md:
+  - Line 24: [../images/admin_verification_adhesion.png] in '![Interface de vérification d'adhésion](../images/admin_verification_adhesion.png)'
+  - Line 72: [../images/admin_vente_cotisation.png] in '![Interface de vente de cotisations](../images/admin_vente_cotisation.png)'
+  - Line 114: [../images/admin_entree_cotisation.png] in '![Interface d'enregistrement d'entrée](../images/admin_entree_cotisation.png)'
+
+📄 docs/utilisateur/guides/cotisation_membre.md:
+  - Line 21: [../images/verification_adhesion.png] in '![Vérification de l'adhésion](../images/verification_adhesion.png)'
+  - Line 49: [../images/comparatif_cotisations.png] in '![Tableau comparatif des formules](../images/comparatif_cotisations.png)'
+  - Line 85: [../images/scan_membre.png] in '![Écran d'accueil](../images/scan_membre.png)'
+  - Line 107: [../images/cotisations_screen.png] in '![Écran de gestion des cotisations](../images/cotisations_screen.png)'
+
+📄 docs/utilisateur/guides/notification_membre.md:
+  - Line 42: [../images/types_notifications.png] in '![Types de notifications](../images/types_notifications.png)'
+  - Line 72: [../images/canaux_notification.png] in '![Canaux de notification](../images/canaux_notification.png)'
+  - Line 83: [../images/acces_preferences.png] in '![Accès aux préférences](../images/acces_preferences.png)'
+  - Line 103: [../images/personnalisation_notifs.png] in '![Écran de personnalisation](../images/personnalisation_notifs.png)'
+  - Line 141: [../images/exemples_notifications.png] in '![Exemples de notifications](../images/exemples_notifications.png)'
+  - Line 163: [../images/centre_notifications.png] in '![Centre de notifications](../images/centre_notifications.png)'
+
+📄 docs/utilisateur/guides/paiement_membre.md:
+  - Line 40: [../images/types_paiements.png] in '![Types de paiements](../images/types_paiements.png)'
+  - Line 67: [../images/methodes_paiement.png] in '![Méthodes de paiement](../images/methodes_paiement.png)'
+  - Line 81: [../images/processus_paiement.png] in '![Processus de paiement](../images/processus_paiement.png)'
+  - Line 110: [../images/exemple_recu.png] in '![Exemple de reçu](../images/exemple_recu.png)'
+  - Line 143: [../images/paiement_echelonne.png] in '![Paiement échelonné](../images/paiement_echelonne.png)'
+  - Line 168: [../images/historique_paiements.png] in '![Historique de paiements](../images/historique_paiements.png)'
+
+📄 docs/utilisateur/guides/presence_membre.md:
+  - Line 24: [../images/verification_acces.png] in '![Vérification des droits d'accès](../images/verification_acces.png)'
+  - Line 41: [../images/pointage_screen.png] in '![Écran de pointage](../images/pointage_screen.png)'
+  - Line 67: [../images/liste_evenement.png] in '![Exemple de liste spéciale](../images/liste_evenement.png)'
+  - Line 86: [../images/historique_presence.png] in '![Historique des présences](../images/historique_presence.png)'
+
+📄 docs/utilisateur/guides/roles_membre.md:
+  - Line 27: [../images/interface_membre.png] in '![Interface membre](../images/interface_membre.png)'
+  - Line 68: [../images/permissions_adhesion.png] in '![Permissions par adhésion](../images/permissions_adhesion.png)'
+  - Line 94: [../images/devenir_benevole.png] in '![Devenir bénévole](../images/devenir_benevole.png)'
+
+📄 profile/README.md:
+  - Line 32: [/requirements/4_implementation/README.md] in '| [🔧 Installation](/requirements/4_implementation/README.md) | Comment installer l'application |'
+  - Line 33: [/requirements/4_implementation/rails/README.md] in '| [🚀 Premier pas](/requirements/4_implementation/rails/README.md) | Guide de prise en main rapide |'
+  - Line 34: [/docs/faq.md] in '| [❓ FAQ](/docs/faq.md) | Questions fréquemment posées |'
+  - Line 40: [/requirements/README.md] in '### 📁 [Requirements](/requirements/README.md)'
+  - Line 42: [/requirements/1_métier/index.md] in '- [📁 Métier](/requirements/1_métier/index.md) - Règles et spécifications métier'
+  - Line 43: [/requirements/2_specifications_techniques/README.md] in '- [📁 Spécifications Techniques](/requirements/2_specifications_techniques/README.md) - Détails d'implémentation'
+  - Line 44: [/requirements/3_user_stories/README.md] in '- [📁 User Stories](/requirements/3_user_stories/README.md) - Scénarios utilisateur par domaine'
+  - Line 45: [/requirements/4_implementation/README.md] in '- [📁 Implémentation](/requirements/4_implementation/README.md) - Guide d'implémentation'
+  - Line 47: [/docs/glossaire.md] in '### 📁 [Docs](/docs/glossaire.md)'
+  - Line 49: [/docs/architecture/README.md] in '- [📁 Architecture](/docs/architecture/README.md) - Documentation technique'
+  - Line 50: [/docs/business/README.md] in '- [📁 Business](/docs/business/README.md) - Documentation métier'
+  - Line 51: [/docs/utilisateur/README.md] in '- [📁 Utilisateur](/docs/utilisateur/README.md) - Guides pour les utilisateurs finaux'
+  - Line 164: [/docs/utilisateur/guides/membres.md] in '- [Guide complet](/docs/utilisateur/guides/membres.md)'
+  - Line 166: [/requirements/1_métier/adhesion/index.md] in '- [Adhésion](/requirements/1_métier/adhesion/index.md)'
+  - Line 167: [/requirements/1_métier/roles/index.md] in '- [Rôles](/requirements/1_métier/roles/index.md)'
+  - Line 168: [/requirements/1_métier/notification/index.md] in '- [Notification](/requirements/1_métier/notification/index.md)'
+  - Line 176: [/docs/utilisateur/guides/finances.md] in '- [Guide complet](/docs/utilisateur/guides/finances.md)'
+  - Line 178: [/requirements/1_métier/paiement/index.md] in '- [Paiement](/requirements/1_métier/paiement/index.md)'
+  - Line 179: [/requirements/1_métier/adhesion/index.md] in '- [Adhésion](/requirements/1_métier/adhesion/index.md)'
+  - Line 180: [/requirements/1_métier/cotisation/index.md] in '- [Cotisation](/requirements/1_métier/cotisation/index.md)'
+  - Line 188: [/docs/utilisateur/guides/statistiques.md] in '- [Guide complet](/docs/utilisateur/guides/statistiques.md)'
+  - Line 190: [/requirements/1_métier/presence/index.md] in '- [Présence](/requirements/1_métier/presence/index.md)'
+  - Line 191: [/requirements/1_métier/paiement/index.md] in '- [Paiement](/requirements/1_métier/paiement/index.md)'
+  - Line 209: [/CHANGELOG.md] in '- Versions documentées dans [CHANGELOG.md](/CHANGELOG.md)'
+
+📄 requirements/1_métier/adhesion/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+  - Line 47: [regles.md] in '- [📜 Règles d'Adhésion](regles.md)'
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+  - Line 54: [/docs/architecture/diagrams/membership_states.md] in '- [📝 Diagramme d'états](/docs/architecture/diagrams/membership_states.md)'
+  - Line 55: [/requirements/2_specifications_techniques/api/membership_api.md] in '- [📝 Spécifications API](/requirements/2_specifications_techniques/api/membership_api.md)'
+  - Line 58: [/docs/business/regles/adhesion.md] in '- [📘 Guide des Adhésions](/docs/business/regles/adhesion.md) - Explication accessible des adhésions'
+  - Line 59: [/docs/utilisateur/guides/adhesion_membre.md] in '- [📗 Guide d'Adhésion - Membres](/docs/utilisateur/guides/adhesion_membre.md) - Guide utilisateur'
+  - Line 65: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+  - Line 69: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+  - Line 73: [../presence/index.md] in '### [Domaine Présence](../presence/index.md)'
+  - Line 77: [../roles/index.md] in '### [Domaine Rôles](../roles/index.md)'
+  - Line 81: [../notification/index.md] in '### [Domaine Notification](../notification/index.md)'
+
+📄 requirements/1_métier/adhesion/specs.md:
+  - Line 6: [/requirements/1_métier/adhesion/regles.md] in '- **Référence**: [Règles d'Adhésion](/requirements/1_métier/adhesion/regles.md)'
+
+📄 requirements/1_métier/adhesion/validation.md:
+  - Line 6: [/requirements/1_métier/adhesion/regles.md] in '- **Référence**: [Règles d'Adhésion](/requirements/1_métier/adhesion/regles.md)'
+
+📄 requirements/1_métier/cotisation/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+  - Line 47: [regles.md] in '- [📜 Règles de Cotisation](regles.md)'
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+  - Line 54: [/docs/architecture/diagrams/subscription_states.md] in '- [📝 Diagramme d'états](/docs/architecture/diagrams/subscription_states.md)'
+  - Line 55: [/requirements/2_specifications_techniques/api/subscription_api.md] in '- [📝 Spécifications API](/requirements/2_specifications_techniques/api/subscription_api.md)'
+  - Line 58: [/docs/business/regles/cotisation.md] in '- [📘 Guide des Cotisations](/docs/business/regles/cotisation.md) - Explication accessible des cotisations'
+  - Line 59: [/docs/utilisateur/guides/cotisation_membre.md] in '- [📗 Guide Cotisation - Membres](/docs/utilisateur/guides/cotisation_membre.md) - Guide utilisateur'
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+  - Line 69: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+  - Line 73: [../presence/index.md] in '### [Domaine Présence](../presence/index.md)'
+  - Line 77: [../notification/index.md] in '### [Domaine Notification](../notification/index.md)'
+
+📄 requirements/1_métier/cotisation/validation.md:
+  - Line 6: [/requirements/1_métier/cotisation/regles.md] in '- **Référence**: [Règles de Cotisation](/requirements/1_métier/cotisation/regles.md)'
+
+📄 requirements/1_métier/index.md:
+  - Line 19: [adhesion/index.md] in '### [Adhésion](adhesion/index.md)'
+  - Line 21: [adhesion/regles.md] in '- [📜 Règles](adhesion/regles.md) - Définition des types d'adhésion, tarifs, validité, etc.'
+  - Line 22: [adhesion/specs.md] in '- [⚙️ Specs](adhesion/specs.md) - Structure de données et implémentation technique'
+  - Line 23: [adhesion/validation.md] in '- [✅ Validation](adhesion/validation.md) - Critères d'acceptation et scénarios de test'
+  - Line 25: [cotisation/index.md] in '### [Cotisation](cotisation/index.md)'
+  - Line 27: [cotisation/regles.md] in '- [📜 Règles](cotisation/regles.md) - Types de cotisation, tarification, droits d'accès'
+  - Line 28: [cotisation/specs.md] in '- [⚙️ Specs](cotisation/specs.md) - Structure de données et implémentation technique'
+  - Line 29: [cotisation/validation.md] in '- [✅ Validation](cotisation/validation.md) - Critères d'acceptation et scénarios de test'
+  - Line 31: [paiement/index.md] in '### [Paiement](paiement/index.md)'
+  - Line 33: [paiement/regles.md] in '- [📜 Règles](paiement/regles.md) - Méthodes de paiement, reçus, remboursements'
+  - Line 34: [paiement/specs.md] in '- [⚙️ Specs](paiement/specs.md) - Structure de données et implémentation technique'
+  - Line 35: [paiement/validation.md] in '- [✅ Validation](paiement/validation.md) - Critères d'acceptation et scénarios de test'
+  - Line 37: [presence/index.md] in '### [Présence](presence/index.md)'
+  - Line 39: [presence/regles.md] in '- [📜 Règles](presence/regles.md) - Pointage, listes de présence, règles d'accès'
+  - Line 40: [presence/specs.md] in '- [⚙️ Specs](presence/specs.md) - Structure de données et implémentation technique'
+  - Line 41: [presence/validation.md] in '- [✅ Validation](presence/validation.md) - Critères d'acceptation et scénarios de test'
+  - Line 43: [roles/index.md] in '### [Rôles](roles/index.md)'
+  - Line 45: [roles/regles.md] in '- [📜 Règles](roles/regles.md) - Hiérarchie et définition des rôles, permissions'
+  - Line 46: [roles/specs.md] in '- [⚙️ Specs](roles/specs.md) - Structure de données et implémentation technique'
+  - Line 47: [roles/validation.md] in '- [✅ Validation](roles/validation.md) - Critères d'acceptation et scénarios de test'
+  - Line 49: [notification/index.md] in '### [Notification](notification/index.md)'
+  - Line 51: [notification/regles.md] in '- [📜 Règles](notification/regles.md) - Types de notification, déclencheurs, contenu'
+  - Line 52: [notification/specs.md] in '- [⚙️ Specs](notification/specs.md) - Structure de données et implémentation technique'
+  - Line 53: [notification/validation.md] in '- [✅ Validation](notification/validation.md) - Critères d'acceptation et scénarios de test'
+  - Line 57: [/requirements/] in '- [⬅️ Retour aux requirements](/requirements/)'
+  - Line 58: [/requirements/2_specifications_techniques/] in '- [➡️ Spécifications Techniques](/requirements/2_specifications_techniques/)'
+  - Line 59: [/requirements/3_user_stories/] in '- [➡️ User Stories](/requirements/3_user_stories/)'
+  - Line 60: [/requirements/4_implementation/] in '- [➡️ Implémentation](/requirements/4_implementation/)'
+  - Line 85: [adhesion/regles.md] in '| [Adhésion/regles.md](adhesion/regles.md) | requirements/1_métier/adhesions/regles.md, requirements/1_métier/adhesions/tarifs.md, docs/business/rules/membership_rules.md |'
+  - Line 86: [cotisation/regles.md] in '| [Cotisation/regles.md](cotisation/regles.md) | requirements/1_métier/cotisations/types.md, docs/business/rules/subscription_rules.md |'
+  - Line 87: [paiement/regles.md] in '| [Paiement/regles.md](paiement/regles.md) | requirements/1_métier/paiements/methodes.md, requirements/1_métier/paiements/recus.md, requirements/1_métier/paiements/dons.md, docs/business/rules/payment_rules.md |'
+  - Line 88: [presence/regles.md] in '| [Presence/regles.md](presence/regles.md) | requirements/1_métier/presences/listes.md, docs/business/processes/check_in.md |'
+  - Line 89: [roles/regles.md] in '| [Roles/regles.md](roles/regles.md) | requirements/1_métier/utilisateurs/roles.md, docs/business/rules/user_roles.md |'
+  - Line 90: [notification/regles.md] in '| [Notification/regles.md](notification/regles.md) | requirements/1_métier/notifications/types.md, docs/business/states/notification.md |'
+
+📄 requirements/1_métier/notification/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+  - Line 47: [regles.md] in '- [📜 Règles des Notifications](regles.md)'
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+  - Line 54: [/docs/architecture/diagrams/notification_flow.md] in '- [📝 Diagramme de flux](/docs/architecture/diagrams/notification_flow.md)'
+  - Line 55: [/docs/architecture/templates/notification_templates.md] in '- [📝 Modèles de messages](/docs/architecture/templates/notification_templates.md)'
+  - Line 58: [/docs/business/regles/notifications.md] in '- [📘 Guide des Notifications](/docs/business/regles/notifications.md) - Configuration pour les administrateurs'
+  - Line 59: [/docs/utilisateur/guides/preferences_communication.md] in '- [📗 Guide de Communication](/docs/utilisateur/guides/preferences_communication.md) - Préférences pour les membres'
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+  - Line 70: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+  - Line 75: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+  - Line 80: [../presence/index.md] in '### [Domaine Présence](../presence/index.md)'
+  - Line 85: [../roles/index.md] in '### [Domaine Rôles](../roles/index.md)'
+
+📄 requirements/1_métier/paiement/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+  - Line 47: [regles.md] in '- [📜 Règles de Paiement](regles.md)'
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+  - Line 54: [/docs/architecture/diagrams/payment_flow.md] in '- [📝 Diagramme de flux](/docs/architecture/diagrams/payment_flow.md)'
+  - Line 55: [/docs/architecture/templates/payment_receipt.md] in '- [📝 Modèle de reçu](/docs/architecture/templates/payment_receipt.md)'
+  - Line 58: [/docs/business/regles/paiement.md] in '- [📘 Guide des Paiements](/docs/business/regles/paiement.md) - Explication pour les administrateurs'
+  - Line 59: [/docs/utilisateur/guides/recus_paiement.md] in '- [📗 Guide des Reçus](/docs/utilisateur/guides/recus_paiement.md) - Guide pour les membres'
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+  - Line 70: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+
+📄 requirements/1_métier/presence/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+  - Line 47: [regles.md] in '- [📜 Règles de Présence](regles.md)'
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+  - Line 54: [/docs/architecture/diagrams/check_in_flow.md] in '- [📝 Diagramme de flux](/docs/architecture/diagrams/check_in_flow.md)'
+  - Line 55: [/docs/architecture/reports/attendance_reports.md] in '- [📝 Formats des rapports](/docs/architecture/reports/attendance_reports.md)'
+  - Line 58: [/docs/business/regles/pointage.md] in '- [📘 Guide de Pointage](/docs/business/regles/pointage.md) - Procédures pour les administrateurs'
+  - Line 59: [/docs/utilisateur/guides/acces_entrainement.md] in '- [📗 Guide d'Accès](/docs/utilisateur/guides/acces_entrainement.md) - Guide pour les membres'
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+  - Line 69: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+  - Line 74: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+  - Line 78: [../roles/index.md] in '### [Domaine Rôles](../roles/index.md)'
+  - Line 82: [../notification/index.md] in '### [Domaine Notification](../notification/index.md)'
+
+📄 requirements/1_métier/roles/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+  - Line 47: [regles.md] in '- [📜 Règles des Rôles](regles.md)'
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+  - Line 54: [/docs/architecture/diagrams/roles_permissions.md] in '- [📝 Diagramme de permissions](/docs/architecture/diagrams/roles_permissions.md)'
+  - Line 55: [/docs/architecture/matrices/authorization_matrix.md] in '- [📝 Matrice d'autorisation](/docs/architecture/matrices/authorization_matrix.md)'
+  - Line 58: [/docs/business/regles/roles_systeme.md] in '- [📘 Guide des Rôles](/docs/business/regles/roles_systeme.md) - Explication pour les administrateurs'
+  - Line 59: [/docs/utilisateur/guides/fonctions_association.md] in '- [📗 Guide des Fonctions](/docs/utilisateur/guides/fonctions_association.md) - Rôles associatifs'
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+  - Line 69: [../presence/index.md] in '### [Domaine Présence](../presence/index.md)'
+  - Line 73: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+  - Line 77: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+  - Line 81: [../notification/index.md] in '### [Domaine Notification](../notification/index.md)'
+
+📄 requirements/1_métier/roles/specs.md:
+  - Line 105: [regles.md] in 'La mise en œuvre technique du système de rôles doit respecter la séparation claire entre adhésion et rôles système définie dans les [Règles Métier - Rôles](regles.md).'
+
+📄 requirements/2_specifications_techniques/README.md:
+  - Line 16: [../1_métier/index.md] in 'Les spécifications techniques sont organisées pour supporter les [domaines métier](../1_métier/index.md) de l'application:'
+  - Line 20: [../1_métier/adhesion/index.md] in '| [Adhésion](../1_métier/adhesion/index.md) | Modèles utilisateur et adhésion, workflows d'authentification |'
+  - Line 21: [../1_métier/cotisation/index.md] in '| [Cotisation](../1_métier/cotisation/index.md) | Gestion des paiements récurrents, validité des formules |'
+  - Line 22: [../1_métier/paiement/index.md] in '| [Paiement](../1_métier/paiement/index.md) | Transactions, reçus, sécurité des données financières |'
+  - Line 23: [../1_métier/presence/index.md] in '| [Présence](../1_métier/presence/index.md) | Check-in temps réel, génération de QR codes, statistiques |'
+  - Line 24: [../1_métier/roles/index.md] in '| [Rôles](../1_métier/roles/index.md) | Système d'autorisation, audit d'actions, permissions |'
+  - Line 25: [../1_métier/notification/index.md] in '| [Notification](../1_métier/notification/index.md) | Système de notifications, emails, préférences utilisateur |'
+  - Line 62: [./modeles.md] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [modeles.md](./modeles.md).'
+  - Line 74: [./securite.md] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [securite.md](./securite.md).'
+  - Line 87: [./interfaces/] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le dossier [interfaces/](./interfaces/).'
+  - Line 99: [./performance.md] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [performance.md](./performance.md).'
+  - Line 111: [./tests.md] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [tests.md](./tests.md).'
+  - Line 124: [../../docs/architecture/README.md] in '- [Architecture détaillée](../../docs/architecture/README.md)'
+  - Line 125: [../4_implementation/README.md] in '- [Guide d'implémentation](../4_implementation/README.md)'
+
+📄 requirements/2_specifications_techniques/api/README.md:
+  - Line 15: [membership_api.md] in '| [membership_api.md](membership_api.md) | API pour la gestion des adhésions |'
+  - Line 16: [subscription_api.md] in '| [subscription_api.md](subscription_api.md) | API pour la gestion des cotisations |'
+  - Line 17: [payment_api.md] in '| [payment_api.md](payment_api.md) | API pour la gestion des paiements |'
+  - Line 18: [attendance_api.md] in '| [attendance_api.md](attendance_api.md) | API pour la gestion des présences |'
+  - Line 19: [notification_api.md] in '| [notification_api.md](notification_api.md) | API pour la gestion des notifications |'
+  - Line 20: [user_api.md] in '| [user_api.md](user_api.md) | API pour la gestion des utilisateurs et rôles |'
+
+📄 requirements/2_specifications_techniques/api/membership_api.md:
+  - Line 276: [/docs/architecture/diagrams/membership_states.md] in '- Les transitions de statut suivent le diagramme d'états défini dans [membership_states.md](/docs/architecture/diagrams/membership_states.md)'
+
+📄 requirements/2_specifications_techniques/interfaces/README.md:
+  - Line 18: [./admin.md] in '1. **[Interface administrateur](./admin.md)** - Pour la gestion complète de l'application'
+  - Line 19: [./benevole.md] in '2. **[Interface bénévole](./benevole.md)** - Pour les opérations quotidiennes de l'association'
+  - Line 20: [./composants.md] in '3. **[Composants partagés](./composants.md)** - Éléments d'interface réutilisables'
+  - Line 84: [./composants.md] in 'Les composants réutilisables sont documentés dans [composants.md](./composants.md) et incluent:'
+  - Line 109: [./admin.md] in '- [Interface administrateur](./admin.md) - Détails de l'interface d'administration'
+  - Line 110: [./benevole.md] in '- [Interface bénévole](./benevole.md) - Spécifications pour les bénévoles'
+  - Line 111: [./composants.md] in '- [Composants partagés](./composants.md) - Bibliothèque de composants réutilisables'
+
+📄 requirements/2_specifications_techniques/modeles.md:
+  - Line 123: [1] in 'last_num = derniere&.numero&.match(/(\d+)$/)&.[](1).to_i || 0'
+
+📄 requirements/3_user_stories/README.md:
+  - Line 164: [./adhesion.md] in '| [adhesion.md](./adhesion.md) | adherent.md (partiellement), user_stories.md (sections adhésion) |'
+  - Line 165: [./cotisation.md] in '| [cotisation.md](./cotisation.md) | adherent.md (sections cotisation), user_stories.md (sections cotisation) |'
+  - Line 166: [./paiement.md] in '| [paiement.md](./paiement.md) | adherent.md (sections paiement), benevole.md (validation paiements) |'
+  - Line 167: [./presence.md] in '| [presence.md](./presence.md) | adherent.md (sections présence), benevole.md (gestion présence) |'
+  - Line 168: [./roles.md] in '| [roles.md](./roles.md) | admin.md, super_admin.md, benevole.md (sections rôles) |'
+  - Line 169: [./notification.md] in '| [notification.md](./notification.md) | Extraits de tous les anciens fichiers (sections notifications) |'
+  - Line 170: [./public.md] in '| [public.md](./public.md) | public.md (restructuré) |'
+
+📄 requirements/4_implementation/README.md:
+  - Line 28: [../../docs/architecture/technical/] in '- [Architecture Technique](../../docs/architecture/technical/) - Documentation détaillée de l'architecture'
+  - Line 29: [../1_métier/] in '- [Spécifications par Domaine](../1_métier/) - Spécifications techniques par domaine fonctionnel'
+  - Line 30: [../../docs/business/states/] in '- [États des Objets](../../docs/business/states/) - Diagrammes d'états pour les objets métier'
+  - Line 34: [./deprecated/] in 'Certains documents qui ne sont plus à jour ont été déplacés dans le dossier [deprecated](./deprecated/). Ces fichiers sont conservés pour référence historique mais ne sont plus considérés comme la source principale d'information pour le développement actuel.'
+
+📄 requirements/README.md:
+  - Line 44: [1_métier/adhesion/index.md] in '| [Adhésion](1_métier/adhesion/index.md) | Règles et processus liés aux adhésions Basic et Cirque |'
+  - Line 45: [1_métier/cotisation/index.md] in '| [Cotisation](1_métier/cotisation/index.md) | Règles pour les formules de cotisations d'accès aux entraînements |'
+  - Line 46: [1_métier/paiement/index.md] in '| [Paiement](1_métier/paiement/index.md) | Règles pour les transactions financières et reçus |'
+  - Line 47: [1_métier/presence/index.md] in '| [Présence](1_métier/presence/index.md) | Gestion des présences et statistiques |'
+  - Line 48: [1_métier/roles/index.md] in '| [Rôles](1_métier/roles/index.md) | Gestion des rôles système et utilisateurs |'
+  - Line 49: [1_métier/notification/index.md] in '| [Notification](1_métier/notification/index.md) | Communication avec les membres |'
+  - Line 130: [1_métier/] in '- [📁 Domaines Métier](1_métier/) - Règles métier par domaine'
+  - Line 131: [2_specifications_techniques/] in '- [📁 Spécifications Techniques](2_specifications_techniques/) - Détails d'implémentation'
+  - Line 132: [3_user_stories/] in '- [📁 User Stories](3_user_stories/) - Scénarios utilisateurs'
+  - Line 133: [4_implementation/] in '- [📁 Implémentation](4_implementation/) - Guide d'implémentation'
+  - Line 134: [processes/] in '- [📁 Processus](processes/) - Documentation des processus métier (déplacée)'
+  - Line 135: [../docs/] in '- [📁 Documentation](../docs/)'
+  - Line 136: [../docs/architecture/] in '- [📁 Architecture](../docs/architecture/) - Schémas et diagrammes'
+  - Line 137: [../docs/business/] in '- [📁 Guides Métier](../docs/business/) - Documentation pour les parties prenantes'
+  - Line 138: [../docs/utilisateur/] in '- [📁 Guides Utilisateur](../docs/utilisateur/) - Documentation pour utilisateurs finaux'
+  - Line 139: [../docs/glossaire.md] in '- [📄 Glossaire](../docs/glossaire.md) - Termes et définitions'
+
+💡 Run with --fix to attempt automatic fixes: ruby check_broken_links.rb --fix
+[1m[7m%[27m[1m[0m                                                                                                                                                           ]2;aka@DESKTOP-AKA:~/project-manager-circographe/.github/scripts]1;..ithub/scripts]7;file://DESKTOP-AKA/home/aka/project-manager-circographe/.github/scripts\[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=[?2004h[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m ruby check_broken_links.rb --fix[?1l>[?2004l
+]2;ruby check_broken_links.rb --fix]1;ruby❌ Found 397 broken links in 44 files:
+
+📄 docs/architecture/README.md:
+  - Line 30: [/docs/architecture/technical/core/README.md] in '- [Core](/docs/architecture/technical/core/README.md) - Logique métier et modèles'
+    ↳ Attempted to fix
+  - Line 31: [/docs/architecture/technical/frontend/README.md] in '- [Frontend](/docs/architecture/technical/frontend/README.md) - Interface utilisateur'
+    ↳ Attempted to fix
+  - Line 32: [/docs/architecture/technical/security/README.md] in '- [Sécurité](/docs/architecture/technical/security/README.md) - Authentification et autorisation'
+    ↳ Attempted to fix
+  - Line 33: [/docs/architecture/technical/performance/README.md] in '- [Performance](/docs/architecture/technical/performance/README.md) - Optimisations et monitoring'
+    ↳ Attempted to fix
+  - Line 50: [/docs/architecture/flow.md#user-flow] in '- [Flux Utilisateur](/docs/architecture/flow.md#user-flow)'
+    ↳ Attempted to fix
+  - Line 51: [/docs/architecture/flow.md#payment-flow] in '- [Flux Paiement](/docs/architecture/flow.md#payment-flow)'
+    ↳ Attempted to fix
+  - Line 52: [/docs/architecture/flow.md#attendance-flow] in '- [Flux Présence](/docs/architecture/flow.md#attendance-flow)'
+    ↳ Attempted to fix
+  - Line 63: [/docs/architecture/components.md#authentication] in '- [AuthenticationService](/docs/architecture/components.md#authentication)'
+    ↳ Attempted to fix
+  - Line 64: [/docs/architecture/components.md#payment] in '- [PaymentService](/docs/architecture/components.md#payment)'
+    ↳ Attempted to fix
+  - Line 65: [/docs/architecture/components.md#notification] in '- [NotificationService](/docs/architecture/components.md#notification)'
+    ↳ Attempted to fix
+  - Line 66: [/docs/architecture/components.md#statistics] in '- [StatisticsService](/docs/architecture/components.md#statistics)'
+    ↳ Attempted to fix
+  - Line 104: [/docs/architecture/technical/installation.md] in '1. [Installation](/docs/architecture/technical/installation.md)'
+    ↳ Attempted to fix
+  - Line 105: [/docs/architecture/technical/configuration.md] in '2. [Configuration](/docs/architecture/technical/configuration.md)'
+    ↳ Attempted to fix
+  - Line 106: [/docs/architecture/technical/deployment.md] in '3. [Déploiement](/docs/architecture/technical/deployment.md)'
+    ↳ Attempted to fix
+  - Line 109: [/docs/architecture/technical/conventions.md] in '- [Conventions de Code](/docs/architecture/technical/conventions.md)'
+    ↳ Attempted to fix
+  - Line 110: [/docs/architecture/technical/api_guidelines.md] in '- [Guidelines API](/docs/architecture/technical/api_guidelines.md)'
+    ↳ Attempted to fix
+  - Line 111: [/docs/architecture/technical/testing.md] in '- [Tests](/docs/architecture/technical/testing.md)'
+    ↳ Attempted to fix
+  - Line 132: [/docs/architecture/technical/api/README.md] in '- [Documentation API](/docs/architecture/technical/api/README.md)'
+    ↳ Attempted to fix
+  - Line 133: [/docs/architecture/technical/api/endpoints.md] in '- [Endpoints](/docs/architecture/technical/api/endpoints.md)'
+    ↳ Attempted to fix
+  - Line 134: [/docs/architecture/technical/api/auth.md] in '- [Authentication](/docs/architecture/technical/api/auth.md)'
+    ↳ Attempted to fix
+  - Line 137: [/docs/architecture/technical/database/schema.md] in '- [Schéma](/docs/architecture/technical/database/schema.md)'
+    ↳ Attempted to fix
+  - Line 138: [/docs/architecture/technical/database/migrations.md] in '- [Migrations](/docs/architecture/technical/database/migrations.md)'
+    ↳ Attempted to fix
+  - Line 139: [/docs/architecture/technical/database/indexes.md] in '- [Indexation](/docs/architecture/technical/database/indexes.md)'
+    ↳ Attempted to fix
+  - Line 151: [/docs/architecture/technical/guidelines.md] in '- [Guidelines de Code](/docs/architecture/technical/guidelines.md)'
+    ↳ Attempted to fix
+  - Line 152: [/docs/architecture/technical/commits.md] in '- [Convention de Commits](/docs/architecture/technical/commits.md)'
+    ↳ Attempted to fix
+  - Line 153: [/docs/architecture/technical/review.md] in '- [Process de Review](/docs/architecture/technical/review.md)'
+    ↳ Attempted to fix
+  - Line 160: [/docs/architecture/technical/wiki.md] in '- **Documentation**: [Wiki Technique](/docs/architecture/technical/wiki.md)'
+    ↳ Attempted to fix
+  - Line 165: [/docs/architecture/technical/incidents.md] in '- **Incident Process**: [Guide Incidents](/docs/architecture/technical/incidents.md)'
+    ↳ Attempted to fix
+
+📄 docs/architecture/diagrams/README.md:
+  - Line 10: [membership_states.md] in '- [États des Adhésions](membership_states.md) - Cycle de vie d'une adhésion'
+    ↳ Attempted to fix
+  - Line 11: [subscription_states.md] in '- [États des Cotisations](subscription_states.md) - Cycle de vie d'une cotisation'
+    ↳ Attempted to fix
+  - Line 14: [payment_flow.md] in '- [Flux de Paiement](payment_flow.md) - Processus de paiement complet'
+    ↳ Attempted to fix
+  - Line 15: [check_in_flow.md] in '- [Flux de Pointage](check_in_flow.md) - Processus d'enregistrement des présences'
+    ↳ Attempted to fix
+  - Line 16: [notification_flow.md] in '- [Flux de Notification](notification_flow.md) - Système de notifications'
+    ↳ Attempted to fix
+  - Line 19: [roles_permissions.md] in '- [Permissions des Rôles](roles_permissions.md) - Matrice des permissions par rôle'
+    ↳ Attempted to fix
+  - Line 20: [database_schema.md] in '- [Structure de la Base de Données](database_schema.md) - Schéma relationnel'
+    ↳ Attempted to fix
+
+📄 docs/architecture/technical/api/README.md:
+  - Line 13: [README.md] in '| [README.md](README.md) | Ce document |'
+    ↳ Attempted to fix
+  - Line 14: [endpoints.md] in '| [endpoints.md](endpoints.md) | Liste complète des endpoints API |'
+    ↳ Attempted to fix
+  - Line 15: [auth.md] in '| [auth.md](auth.md) | Documentation sur l'authentification et l'autorisation |'
+    ↳ Attempted to fix
+  - Line 16: [versioning.md] in '| [versioning.md](versioning.md) | Politique de versionnement des API |'
+    ↳ Attempted to fix
+  - Line 17: [errors.md] in '| [errors.md](errors.md) | Codes d'erreur et gestion des erreurs |'
+    ↳ Attempted to fix
+  - Line 18: [examples.md] in '| [examples.md](examples.md) | Exemples d'utilisation des API |'
+    ↳ Attempted to fix
+  - Line 22: [/requirements/2_specifications_techniques/api/] in 'Les spécifications détaillées de chaque API sont disponibles dans le dossier [requirements/2_specifications_techniques/api/](/requirements/2_specifications_techniques/api/).'
+    ↳ Attempted to fix
+  - Line 54: [versioning.md] in 'La politique de versionnement complète est détaillée dans [versioning.md](versioning.md).'
+    ↳ Attempted to fix
+
+📄 docs/architecture/technical/api/auth.md:
+  - Line 205: [/docs/architecture/diagrams/roles_permissions.md] in 'La matrice complète des permissions par rôle est disponible dans le document [roles_permissions.md](/docs/architecture/diagrams/roles_permissions.md).'
+    ↳ Attempted to fix
+
+📄 docs/architecture/technical/core/README.md:
+  - Line 28: [../README.md] in '- [⬅️ Back to Technical](../README.md)'
+    ↳ Attempted to fix
+  - Line 29: [../../README.md] in '- [⬆️ Back to Architecture](../../README.md)'
+    ↳ Attempted to fix
+  - Line 30: [../../../README.md] in '- [🏠 Back to Home](../../../README.md)'
+    ↳ Attempted to fix
+
+📄 docs/architecture/technical/core/features/attendance/README.md:
+  - Line 19: [./implementation.md] in '- [Implémentation Technique](./implementation.md)'
+    ↳ Attempted to fix
+  - Line 20: [../../requirements/1_métier/presence/systeme.md] in '- [Règles Métier](../../requirements/1_métier/presence/systeme.md)'
+    ↳ Attempted to fix
+
+📄 docs/architecture/technical/frontend/README.md:
+  - Line 40: [../README.md] in '- [⬅️ Back to Technical](../README.md)'
+    ↳ Attempted to fix
+  - Line 41: [../../README.md] in '- [⬆️ Back to Architecture](../../README.md)'
+    ↳ Attempted to fix
+  - Line 42: [../../../README.md] in '- [🏠 Back to Home](../../../README.md)'
+    ↳ Attempted to fix
+
+📄 docs/architecture/technical/performance/README.md:
+  - Line 42: [../README.md] in '- [⬅️ Back to Technical](../README.md)'
+    ↳ Attempted to fix
+  - Line 43: [../../README.md] in '- [⬆️ Back to Architecture](../../README.md)'
+    ↳ Attempted to fix
+  - Line 44: [../../../README.md] in '- [🏠 Back to Home](../../../README.md)'
+    ↳ Attempted to fix
+
+📄 docs/architecture/technical/security/README.md:
+  - Line 42: [../README.md] in '- [⬅️ Back to Technical](../README.md)'
+    ↳ Attempted to fix
+  - Line 43: [../../README.md] in '- [⬆️ Back to Architecture](../../README.md)'
+    ↳ Attempted to fix
+  - Line 44: [../../../README.md] in '- [🏠 Back to Home](../../../README.md)'
+    ↳ Attempted to fix
+
+📄 docs/architecture/templates/README.md:
+  - Line 10: [payment_receipt.md] in '- [Reçu de Paiement](payment_receipt.md) - Template pour les reçus de paiement'
+    ↳ Attempted to fix
+  - Line 11: [membership_card.md] in '- [Carte de Membre](membership_card.md) - Template pour les cartes de membre'
+    ↳ Attempted to fix
+  - Line 12: [membership_certificate.md] in '- [Attestation d'Adhésion](membership_certificate.md) - Template pour les attestations'
+    ↳ Attempted to fix
+  - Line 15: [notification_templates.md] in '- [Templates de Notification](notification_templates.md) - Templates pour les différents types de notifications'
+    ↳ Attempted to fix
+  - Line 16: [email_templates.md] in '- [Templates d'Email](email_templates.md) - Templates pour les emails automatiques'
+    ↳ Attempted to fix
+  - Line 19: [attendance_report.md] in '- [Rapport de Présence](attendance_report.md) - Template pour les rapports de présence'
+    ↳ Attempted to fix
+  - Line 20: [financial_report.md] in '- [Rapport Financier](financial_report.md) - Template pour les rapports financiers'
+    ↳ Attempted to fix
+
+📄 docs/business/README.md:
+  - Line 21: [/docs/business/guides/member_management.md] in '- [Guide Complet](/docs/business/guides/member_management.md)'
+    ↳ Attempted to fix
+  - Line 22: [/docs/business/rules/membership_rules.md] in '- [Règles d'Adhésion](/docs/business/rules/membership_rules.md)'
+    ↳ Attempted to fix
+  - Line 23: [/docs/business/processes/registration.md] in '- [Processus d'Inscription](/docs/business/processes/registration.md)'
+    ↳ Attempted to fix
+  - Line 24: [/docs/business/states/user.md] in '- [États Membre](/docs/business/states/user.md)'
+    ↳ Attempted to fix
+  - Line 27: [/docs/business/guides/financial_management.md] in '- [Guide Complet](/docs/business/guides/financial_management.md)'
+    ↳ Attempted to fix
+  - Line 28: [/docs/business/rules/payment_rules.md] in '- [Règles de Paiement](/docs/business/rules/payment_rules.md)'
+    ↳ Attempted to fix
+  - Line 29: [/docs/business/processes/payment.md] in '- [Processus de Paiement](/docs/business/processes/payment.md)'
+    ↳ Attempted to fix
+  - Line 30: [/docs/business/states/payment.md] in '- [États Paiement](/docs/business/states/payment.md)'
+    ↳ Attempted to fix
+  - Line 33: [/docs/business/guides/attendance_management.md] in '- [Guide Complet](/docs/business/guides/attendance_management.md)'
+    ↳ Attempted to fix
+  - Line 34: [/docs/business/rules/attendance_rules.md] in '- [Règles de Présence](/docs/business/rules/attendance_rules.md)'
+    ↳ Attempted to fix
+  - Line 35: [/docs/business/processes/check_in.md] in '- [Processus Check-in](/docs/business/processes/check_in.md)'
+    ↳ Attempted to fix
+  - Line 36: [/docs/business/states/attendance_list.md] in '- [États Liste](/docs/business/states/attendance_list.md)'
+    ↳ Attempted to fix
+  - Line 41: [/docs/glossaire.md] in '- [Glossaire](/docs/glossaire.md)'
+    ↳ Attempted to fix
+  - Line 42: [/docs/business/rules/concepts.md] in '- [Concepts Métier](/docs/business/rules/concepts.md)'
+    ↳ Attempted to fix
+  - Line 43: [/docs/business/rules/concept_mapping.md] in '- [Mapping Technique](/docs/business/rules/concept_mapping.md)'
+    ↳ Attempted to fix
+  - Line 46: [/docs/business/rules/membership_rules.md] in '- [Règles d'Adhésion](/docs/business/rules/membership_rules.md)'
+    ↳ Attempted to fix
+  - Line 47: [/docs/business/rules/payment_rules.md] in '- [Règles de Paiement](/docs/business/rules/payment_rules.md)'
+    ↳ Attempted to fix
+  - Line 48: [/docs/business/rules/attendance_rules.md] in '- [Règles de Présence](/docs/business/rules/attendance_rules.md)'
+    ↳ Attempted to fix
+  - Line 49: [/docs/business/rules/security_rules.md] in '- [Règles de Sécurité](/docs/business/rules/security_rules.md)'
+    ↳ Attempted to fix
+  - Line 54: [/docs/business/processes/registration.md] in '- [Inscription Membre](/docs/business/processes/registration.md)'
+    ↳ Attempted to fix
+  - Line 55: [/docs/business/processes/renewal.md] in '- [Renouvellement](/docs/business/processes/renewal.md)'
+    ↳ Attempted to fix
+  - Line 56: [/docs/business/processes/profile_update.md] in '- [Modification Profil](/docs/business/processes/profile_update.md)'
+    ↳ Attempted to fix
+  - Line 59: [/docs/business/processes/membership_payment.md] in '- [Paiement Adhésion](/docs/business/processes/membership_payment.md)'
+    ↳ Attempted to fix
+  - Line 60: [/docs/business/processes/subscription_payment.md] in '- [Paiement Cotisation](/docs/business/processes/subscription_payment.md)'
+    ↳ Attempted to fix
+  - Line 61: [/docs/business/processes/donation.md] in '- [Gestion Dons](/docs/business/processes/donation.md)'
+    ↳ Attempted to fix
+  - Line 64: [/docs/business/processes/check_in.md] in '- [Check-in Membre](/docs/business/processes/check_in.md)'
+    ↳ Attempted to fix
+  - Line 65: [/docs/business/processes/attendance_list.md] in '- [Gestion Liste](/docs/business/processes/attendance_list.md)'
+    ↳ Attempted to fix
+  - Line 66: [/docs/business/processes/statistics.md] in '- [Statistiques](/docs/business/processes/statistics.md)'
+    ↳ Attempted to fix
+  - Line 71: [/docs/business/states/user.md] in '- [États Membre](/docs/business/states/user.md)'
+    ↳ Attempted to fix
+  - Line 72: [/docs/business/states/membership.md] in '- [États Adhésion](/docs/business/states/membership.md)'
+    ↳ Attempted to fix
+  - Line 73: [/docs/business/states/roles.md] in '- [États Rôles](/docs/business/states/roles.md)'
+    ↳ Attempted to fix
+  - Line 76: [/docs/business/states/payment.md] in '- [États Paiement](/docs/business/states/payment.md)'
+    ↳ Attempted to fix
+  - Line 77: [/docs/business/states/receipt.md] in '- [États Reçu](/docs/business/states/receipt.md)'
+    ↳ Attempted to fix
+  - Line 78: [/docs/business/states/subscription.md] in '- [États Cotisation](/docs/business/states/subscription.md)'
+    ↳ Attempted to fix
+  - Line 81: [/docs/business/states/attendance_list.md] in '- [États Liste Présence](/docs/business/states/attendance_list.md)'
+    ↳ Attempted to fix
+  - Line 82: [/docs/business/states/volunteer_shift.md] in '- [États Permanence](/docs/business/states/volunteer_shift.md)'
+    ↳ Attempted to fix
+  - Line 83: [/docs/business/states/notification.md] in '- [États Notification](/docs/business/states/notification.md)'
+    ↳ Attempted to fix
+  - Line 88: [/docs/business/guides/member.md] in '- [Guide Membre](/docs/business/guides/member.md)'
+    ↳ Attempted to fix
+  - Line 89: [/docs/business/guides/volunteer.md] in '- [Guide Bénévole](/docs/business/guides/volunteer.md)'
+    ↳ Attempted to fix
+  - Line 90: [/docs/business/guides/admin.md] in '- [Guide Admin](/docs/business/guides/admin.md)'
+    ↳ Attempted to fix
+  - Line 93: [/docs/business/guides/memberships.md] in '- [Guide Adhésions](/docs/business/guides/memberships.md)'
+    ↳ Attempted to fix
+  - Line 94: [/docs/business/guides/payments.md] in '- [Guide Paiements](/docs/business/guides/payments.md)'
+    ↳ Attempted to fix
+  - Line 95: [/docs/business/guides/attendance.md] in '- [Guide Présences](/docs/business/guides/attendance.md)'
+    ↳ Attempted to fix
+  - Line 100: [/docs/business/reports/daily.md] in '- [Rapport Quotidien](/docs/business/reports/daily.md)'
+    ↳ Attempted to fix
+  - Line 101: [/docs/business/reports/monthly.md] in '- [Rapport Mensuel](/docs/business/reports/monthly.md)'
+    ↳ Attempted to fix
+  - Line 102: [/docs/business/reports/yearly.md] in '- [Rapport Annuel](/docs/business/reports/yearly.md)'
+    ↳ Attempted to fix
+  - Line 105: [/docs/business/reports/kpis.md] in '- [KPIs](/docs/business/reports/kpis.md)'
+    ↳ Attempted to fix
+  - Line 106: [/docs/business/reports/trends.md] in '- [Tendances](/docs/business/reports/trends.md)'
+    ↳ Attempted to fix
+  - Line 107: [/docs/business/reports/forecasts.md] in '- [Prévisions](/docs/business/reports/forecasts.md)'
+    ↳ Attempted to fix
+  - Line 112: [/docs/validation/test_plan.md] in '- [Plan de Test](/docs/validation/test_plan.md)'
+    ↳ Attempted to fix
+  - Line 113: [/docs/validation/scenarios.md] in '- [Scénarios](/docs/validation/scenarios.md)'
+    ↳ Attempted to fix
+  - Line 114: [/docs/validation/results.md] in '- [Résultats](/docs/validation/results.md)'
+    ↳ Attempted to fix
+  - Line 117: [/docs/business/quality/checklist.md] in '- [Checklist Qualité](/docs/business/quality/checklist.md)'
+    ↳ Attempted to fix
+  - Line 118: [/docs/business/quality/audit.md] in '- [Audit Process](/docs/business/quality/audit.md)'
+    ↳ Attempted to fix
+  - Line 119: [/docs/business/quality/improvement.md] in '- [Amélioration Continue](/docs/business/quality/improvement.md)'
+    ↳ Attempted to fix
+  - Line 128: [/docs/business/support/faq.md] in '- [FAQ](/docs/business/support/faq.md)'
+    ↳ Attempted to fix
+  - Line 129: [/docs/business/support/troubleshooting.md] in '- [Troubleshooting](/docs/business/support/troubleshooting.md)'
+    ↳ Attempted to fix
+  - Line 130: [/docs/business/support/training.md] in '- [Formation](/docs/business/support/training.md)'
+    ↳ Attempted to fix
+
+📄 docs/business/regles/README.md:
+  - Line 9: [adhesion.md] in '- [**Guide des Adhésions**](adhesion.md) - Explique les différents types d'adhésion, les tarifs, et le processus d'adhésion à l'association.'
+    ↳ Attempted to fix
+  - Line 13: [cotisation.md] in '- [**Guide des Cotisations**](cotisation.md) - Détaille les différentes formules de cotisation permettant l'accès aux entraînements (Pass Journée, Carnet, Abonnements).'
+    ↳ Attempted to fix
+  - Line 17: [paiement.md] in '- [**Guide des Paiements**](paiement.md) - Explique les différentes méthodes de paiement, les processus de validation et les documents générés.'
+    ↳ Attempted to fix
+  - Line 21: [presence.md] in '- [**Guide des Présences**](presence.md) - Détaille le système de pointage, les listes de présence et les droits d'accès aux installations.'
+    ↳ Attempted to fix
+  - Line 25: [roles.md] in '- [**Guide des Rôles**](roles.md) - Présente les différents rôles utilisateur dans le système et leurs permissions associées.'
+    ↳ Attempted to fix
+  - Line 29: [notification.md] in '- [**Guide des Notifications**](notification.md) - Explique le système de communication automatisé et ses différents canaux.'
+    ↳ Attempted to fix
+  - Line 33: [deprecated/] in 'Les documents qui ne sont plus à jour avec les processus et règles actuels ont été déplacés dans le dossier [deprecated](deprecated/). Veuillez consulter ce dossier uniquement pour référence historique et utilisez toujours les documents de ce répertoire pour les opérations courantes.'
+    ↳ Attempted to fix
+  - Line 37: [/docs/business/images/] in 'Des diagrammes illustrant les cycles de vie et processus métier sont disponibles dans le dossier [images](/docs/business/images/):'
+    ↳ Attempted to fix
+  - Line 39: [/docs/business/images/adhesion_states.md] in '- [États des adhésions](/docs/business/images/adhesion_states.md)'
+    ↳ Attempted to fix
+  - Line 40: [/docs/business/images/cotisation_states.md] in '- [États des cotisations](/docs/business/images/cotisation_states.md)'
+    ↳ Attempted to fix
+  - Line 49: [/requirements/1_métier/] in 'Pour les documents techniques détaillés, consultez le dossier [requirements/1_métier](/requirements/1_métier/).'
+    ↳ Attempted to fix
+
+📄 docs/business/regles/adhesion.md:
+  - Line 51: [/docs/business/images/adhesion_states.png] in '![Diagramme des états d'une adhésion](/docs/business/images/adhesion_states.png)'
+    ↳ Attempted to fix
+  - Line 143: [/requirements/1_métier/adhesion/regles.md] in '> Pour les spécifications techniques détaillées, consultez la [documentation source](/requirements/1_métier/adhesion/regles.md)'
+    ↳ Attempted to fix
+
+📄 docs/business/regles/cotisation.md:
+  - Line 83: [/docs/business/images/cotisation_states.md] in '![Diagramme des états d'une cotisation](/docs/business/images/cotisation_states.md)'
+    ↳ Attempted to fix
+  - Line 157: [/requirements/1_métier/cotisation/regles.md] in '> Pour les spécifications techniques détaillées, consultez la [documentation source](/requirements/1_métier/cotisation/regles.md)'
+    ↳ Attempted to fix
+
+📄 docs/business/regles/deprecated/README.md:
+  - Line 14: [../../../architecture/] in '- [Documentation Technique](../../../architecture/)'
+    ↳ Attempted to fix
+  - Line 15: [../../../utilisateur/guides/] in '- [Guides Utilisateur](../../../utilisateur/guides/)'
+    ↳ Attempted to fix
+
+📄 docs/business/states/README.md:
+  - Line 14: [/docs/business/README.md] in '- [⬅️ Back to Business Documentation](/docs/business/README.md)'
+    ↳ Attempted to fix
+
+📄 docs/utilisateur/guides/README.md:
+  - Line 9: [adhesion_membre.md] in '- [**Guide d'adhésion**](adhesion_membre.md) - Comment devenir membre du Circographe et gérer son adhésion'
+    ↳ Attempted to fix
+  - Line 10: [cotisation_membre.md] in '- [**Guide des cotisations**](cotisation_membre.md) - Comment choisir, acheter et utiliser les différentes formules de cotisation'
+    ↳ Attempted to fix
+  - Line 11: [presence_membre.md] in '- [**Guide des présences**](presence_membre.md) - Comment pointer sa présence et consulter son historique'
+    ↳ Attempted to fix
+  - Line 12: [paiement_membre.md] in '- [**Guide des paiements**](paiement_membre.md) - Comment effectuer et suivre ses paiements'
+    ↳ Attempted to fix
+  - Line 13: [roles_membre.md] in '- [**Guide des rôles**](roles_membre.md) - Comprendre les différents rôles et permissions'
+    ↳ Attempted to fix
+  - Line 14: [notification_membre.md] in '- [**Guide des notifications**](notification_membre.md) - Gérer ses préférences de notification et communication'
+    ↳ Attempted to fix
+  - Line 20: [adhesion_admin.md] in '- [**Guide d'administration des adhésions**](adhesion_admin.md) - Comment gérer les adhésions des membres'
+    ↳ Attempted to fix
+  - Line 21: [cotisation_admin.md] in '- [**Guide d'administration des cotisations**](cotisation_admin.md) - Comment vendre et gérer les cotisations des membres'
+    ↳ Attempted to fix
+  - Line 22: [presence_admin.md] in '- [**Guide d'administration des présences**](presence_admin.md) - Comment gérer les listes de présence et contrôler l'accès'
+    ↳ Attempted to fix
+  - Line 23: [paiement_admin.md] in '- [**Guide d'administration des paiements**](paiement_admin.md) - Comment traiter les paiements et gérer la comptabilité'
+    ↳ Attempted to fix
+  - Line 24: [roles_admin.md] in '- [**Guide d'administration des rôles**](roles_admin.md) - Comment attribuer et gérer les droits utilisateurs'
+    ↳ Attempted to fix
+  - Line 25: [notification_admin.md] in '- [**Guide d'administration des notifications**](notification_admin.md) - Comment configurer et envoyer des notifications'
+    ↳ Attempted to fix
+  - Line 39: [/docs/utilisateur/images/] in 'Les captures d'écran mentionnées dans les guides sont stockées dans le dossier [images](/docs/utilisateur/images/).'
+    ↳ Attempted to fix
+  - Line 43: [../deprecated/] in 'Les guides qui ne sont plus à jour avec les processus et interfaces actuels ont été déplacés dans le dossier [deprecated](../deprecated/). Veuillez consulter ce dossier uniquement pour référence historique et utilisez toujours les guides de ce répertoire pour les opérations courantes.'
+    ↳ Attempted to fix
+  - Line 53: [/docs/business/] in 'Les guides sont régulièrement mis à jour pour refléter les changements dans le système et maintenir la cohérence avec la [documentation métier](/docs/business/).'
+    ↳ Attempted to fix
+
+📄 docs/utilisateur/guides/adhesion_membre.md:
+  - Line 31: [../images/inscription_screen.png] in '![Écran d'inscription](../images/inscription_screen.png)'
+    ↳ Attempted to fix
+  - Line 54: [../images/choix_adhesion.png] in '![Choix d'adhésion](../images/choix_adhesion.png)'
+    ↳ Attempted to fix
+  - Line 83: [../images/paiement_screen.png] in '![Écran de paiement](../images/paiement_screen.png)'
+    ↳ Attempted to fix
+  - Line 103: [../images/statut_adhesion.png] in '![Statut d'adhésion](../images/statut_adhesion.png)'
+    ↳ Attempted to fix
+  - Line 133: [../images/upgrade_adhesion.png] in '![Upgrade d'adhésion](../images/upgrade_adhesion.png)'
+    ↳ Attempted to fix
+
+📄 docs/utilisateur/guides/cotisation_admin.md:
+  - Line 24: [../images/admin_verification_adhesion.png] in '![Interface de vérification d'adhésion](../images/admin_verification_adhesion.png)'
+    ↳ Attempted to fix
+  - Line 72: [../images/admin_vente_cotisation.png] in '![Interface de vente de cotisations](../images/admin_vente_cotisation.png)'
+    ↳ Attempted to fix
+  - Line 114: [../images/admin_entree_cotisation.png] in '![Interface d'enregistrement d'entrée](../images/admin_entree_cotisation.png)'
+    ↳ Attempted to fix
+
+📄 docs/utilisateur/guides/cotisation_membre.md:
+  - Line 21: [../images/verification_adhesion.png] in '![Vérification de l'adhésion](../images/verification_adhesion.png)'
+    ↳ Attempted to fix
+  - Line 49: [../images/comparatif_cotisations.png] in '![Tableau comparatif des formules](../images/comparatif_cotisations.png)'
+    ↳ Attempted to fix
+  - Line 85: [../images/scan_membre.png] in '![Écran d'accueil](../images/scan_membre.png)'
+    ↳ Attempted to fix
+  - Line 107: [../images/cotisations_screen.png] in '![Écran de gestion des cotisations](../images/cotisations_screen.png)'
+    ↳ Attempted to fix
+
+📄 docs/utilisateur/guides/notification_membre.md:
+  - Line 42: [../images/types_notifications.png] in '![Types de notifications](../images/types_notifications.png)'
+    ↳ Attempted to fix
+  - Line 72: [../images/canaux_notification.png] in '![Canaux de notification](../images/canaux_notification.png)'
+    ↳ Attempted to fix
+  - Line 83: [../images/acces_preferences.png] in '![Accès aux préférences](../images/acces_preferences.png)'
+    ↳ Attempted to fix
+  - Line 103: [../images/personnalisation_notifs.png] in '![Écran de personnalisation](../images/personnalisation_notifs.png)'
+    ↳ Attempted to fix
+  - Line 141: [../images/exemples_notifications.png] in '![Exemples de notifications](../images/exemples_notifications.png)'
+    ↳ Attempted to fix
+  - Line 163: [../images/centre_notifications.png] in '![Centre de notifications](../images/centre_notifications.png)'
+    ↳ Attempted to fix
+
+📄 docs/utilisateur/guides/paiement_membre.md:
+  - Line 40: [../images/types_paiements.png] in '![Types de paiements](../images/types_paiements.png)'
+    ↳ Attempted to fix
+  - Line 67: [../images/methodes_paiement.png] in '![Méthodes de paiement](../images/methodes_paiement.png)'
+    ↳ Attempted to fix
+  - Line 81: [../images/processus_paiement.png] in '![Processus de paiement](../images/processus_paiement.png)'
+    ↳ Attempted to fix
+  - Line 110: [../images/exemple_recu.png] in '![Exemple de reçu](../images/exemple_recu.png)'
+    ↳ Attempted to fix
+  - Line 143: [../images/paiement_echelonne.png] in '![Paiement échelonné](../images/paiement_echelonne.png)'
+    ↳ Attempted to fix
+  - Line 168: [../images/historique_paiements.png] in '![Historique de paiements](../images/historique_paiements.png)'
+    ↳ Attempted to fix
+
+📄 docs/utilisateur/guides/presence_membre.md:
+  - Line 24: [../images/verification_acces.png] in '![Vérification des droits d'accès](../images/verification_acces.png)'
+    ↳ Attempted to fix
+  - Line 41: [../images/pointage_screen.png] in '![Écran de pointage](../images/pointage_screen.png)'
+    ↳ Attempted to fix
+  - Line 67: [../images/liste_evenement.png] in '![Exemple de liste spéciale](../images/liste_evenement.png)'
+    ↳ Attempted to fix
+  - Line 86: [../images/historique_presence.png] in '![Historique des présences](../images/historique_presence.png)'
+    ↳ Attempted to fix
+
+📄 docs/utilisateur/guides/roles_membre.md:
+  - Line 27: [../images/interface_membre.png] in '![Interface membre](../images/interface_membre.png)'
+    ↳ Attempted to fix
+  - Line 68: [../images/permissions_adhesion.png] in '![Permissions par adhésion](../images/permissions_adhesion.png)'
+    ↳ Attempted to fix
+  - Line 94: [../images/devenir_benevole.png] in '![Devenir bénévole](../images/devenir_benevole.png)'
+    ↳ Attempted to fix
+
+📄 profile/README.md:
+  - Line 32: [/requirements/4_implementation/README.md] in '| [🔧 Installation](/requirements/4_implementation/README.md) | Comment installer l'application |'
+    ↳ Attempted to fix
+  - Line 33: [/requirements/4_implementation/rails/README.md] in '| [🚀 Premier pas](/requirements/4_implementation/rails/README.md) | Guide de prise en main rapide |'
+    ↳ Attempted to fix
+  - Line 34: [/docs/faq.md] in '| [❓ FAQ](/docs/faq.md) | Questions fréquemment posées |'
+    ↳ Attempted to fix
+  - Line 40: [/requirements/README.md] in '### 📁 [Requirements](/requirements/README.md)'
+    ↳ Attempted to fix
+  - Line 42: [/requirements/1_métier/index.md] in '- [📁 Métier](/requirements/1_métier/index.md) - Règles et spécifications métier'
+    ↳ Attempted to fix
+  - Line 43: [/requirements/2_specifications_techniques/README.md] in '- [📁 Spécifications Techniques](/requirements/2_specifications_techniques/README.md) - Détails d'implémentation'
+    ↳ Attempted to fix
+  - Line 44: [/requirements/3_user_stories/README.md] in '- [📁 User Stories](/requirements/3_user_stories/README.md) - Scénarios utilisateur par domaine'
+    ↳ Attempted to fix
+  - Line 45: [/requirements/4_implementation/README.md] in '- [📁 Implémentation](/requirements/4_implementation/README.md) - Guide d'implémentation'
+    ↳ Attempted to fix
+  - Line 47: [/docs/glossaire.md] in '### 📁 [Docs](/docs/glossaire.md)'
+    ↳ Attempted to fix
+  - Line 49: [/docs/architecture/README.md] in '- [📁 Architecture](/docs/architecture/README.md) - Documentation technique'
+    ↳ Attempted to fix
+  - Line 50: [/docs/business/README.md] in '- [📁 Business](/docs/business/README.md) - Documentation métier'
+    ↳ Attempted to fix
+  - Line 51: [/docs/utilisateur/README.md] in '- [📁 Utilisateur](/docs/utilisateur/README.md) - Guides pour les utilisateurs finaux'
+    ↳ Attempted to fix
+  - Line 164: [/docs/utilisateur/guides/membres.md] in '- [Guide complet](/docs/utilisateur/guides/membres.md)'
+    ↳ Attempted to fix
+  - Line 166: [/requirements/1_métier/adhesion/index.md] in '- [Adhésion](/requirements/1_métier/adhesion/index.md)'
+    ↳ Attempted to fix
+  - Line 167: [/requirements/1_métier/roles/index.md] in '- [Rôles](/requirements/1_métier/roles/index.md)'
+    ↳ Attempted to fix
+  - Line 168: [/requirements/1_métier/notification/index.md] in '- [Notification](/requirements/1_métier/notification/index.md)'
+    ↳ Attempted to fix
+  - Line 176: [/docs/utilisateur/guides/finances.md] in '- [Guide complet](/docs/utilisateur/guides/finances.md)'
+    ↳ Attempted to fix
+  - Line 178: [/requirements/1_métier/paiement/index.md] in '- [Paiement](/requirements/1_métier/paiement/index.md)'
+    ↳ Attempted to fix
+  - Line 179: [/requirements/1_métier/adhesion/index.md] in '- [Adhésion](/requirements/1_métier/adhesion/index.md)'
+    ↳ Attempted to fix
+  - Line 180: [/requirements/1_métier/cotisation/index.md] in '- [Cotisation](/requirements/1_métier/cotisation/index.md)'
+    ↳ Attempted to fix
+  - Line 188: [/docs/utilisateur/guides/statistiques.md] in '- [Guide complet](/docs/utilisateur/guides/statistiques.md)'
+    ↳ Attempted to fix
+  - Line 190: [/requirements/1_métier/presence/index.md] in '- [Présence](/requirements/1_métier/presence/index.md)'
+    ↳ Attempted to fix
+  - Line 191: [/requirements/1_métier/paiement/index.md] in '- [Paiement](/requirements/1_métier/paiement/index.md)'
+    ↳ Attempted to fix
+  - Line 209: [/CHANGELOG.md] in '- Versions documentées dans [CHANGELOG.md](/CHANGELOG.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/adhesion/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+    ↳ Attempted to fix
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+    ↳ Attempted to fix
+  - Line 47: [regles.md] in '- [📜 Règles d'Adhésion](regles.md)'
+    ↳ Attempted to fix
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 54: [/docs/architecture/diagrams/membership_states.md] in '- [📝 Diagramme d'états](/docs/architecture/diagrams/membership_states.md)'
+    ↳ Attempted to fix
+  - Line 55: [/requirements/2_specifications_techniques/api/membership_api.md] in '- [📝 Spécifications API](/requirements/2_specifications_techniques/api/membership_api.md)'
+    ↳ Attempted to fix
+  - Line 58: [/docs/business/regles/adhesion.md] in '- [📘 Guide des Adhésions](/docs/business/regles/adhesion.md) - Explication accessible des adhésions'
+    ↳ Attempted to fix
+  - Line 59: [/docs/utilisateur/guides/adhesion_membre.md] in '- [📗 Guide d'Adhésion - Membres](/docs/utilisateur/guides/adhesion_membre.md) - Guide utilisateur'
+    ↳ Attempted to fix
+  - Line 65: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+    ↳ Attempted to fix
+  - Line 69: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+    ↳ Attempted to fix
+  - Line 73: [../presence/index.md] in '### [Domaine Présence](../presence/index.md)'
+    ↳ Attempted to fix
+  - Line 77: [../roles/index.md] in '### [Domaine Rôles](../roles/index.md)'
+    ↳ Attempted to fix
+  - Line 81: [../notification/index.md] in '### [Domaine Notification](../notification/index.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/adhesion/specs.md:
+  - Line 6: [/requirements/1_métier/adhesion/regles.md] in '- **Référence**: [Règles d'Adhésion](/requirements/1_métier/adhesion/regles.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/adhesion/validation.md:
+  - Line 6: [/requirements/1_métier/adhesion/regles.md] in '- **Référence**: [Règles d'Adhésion](/requirements/1_métier/adhesion/regles.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/cotisation/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+    ↳ Attempted to fix
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+    ↳ Attempted to fix
+  - Line 47: [regles.md] in '- [📜 Règles de Cotisation](regles.md)'
+    ↳ Attempted to fix
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 54: [/docs/architecture/diagrams/subscription_states.md] in '- [📝 Diagramme d'états](/docs/architecture/diagrams/subscription_states.md)'
+    ↳ Attempted to fix
+  - Line 55: [/requirements/2_specifications_techniques/api/subscription_api.md] in '- [📝 Spécifications API](/requirements/2_specifications_techniques/api/subscription_api.md)'
+    ↳ Attempted to fix
+  - Line 58: [/docs/business/regles/cotisation.md] in '- [📘 Guide des Cotisations](/docs/business/regles/cotisation.md) - Explication accessible des cotisations'
+    ↳ Attempted to fix
+  - Line 59: [/docs/utilisateur/guides/cotisation_membre.md] in '- [📗 Guide Cotisation - Membres](/docs/utilisateur/guides/cotisation_membre.md) - Guide utilisateur'
+    ↳ Attempted to fix
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+    ↳ Attempted to fix
+  - Line 69: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+    ↳ Attempted to fix
+  - Line 73: [../presence/index.md] in '### [Domaine Présence](../presence/index.md)'
+    ↳ Attempted to fix
+  - Line 77: [../notification/index.md] in '### [Domaine Notification](../notification/index.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/cotisation/validation.md:
+  - Line 6: [/requirements/1_métier/cotisation/regles.md] in '- **Référence**: [Règles de Cotisation](/requirements/1_métier/cotisation/regles.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/index.md:
+  - Line 19: [adhesion/index.md] in '### [Adhésion](adhesion/index.md)'
+    ↳ Attempted to fix
+  - Line 21: [adhesion/regles.md] in '- [📜 Règles](adhesion/regles.md) - Définition des types d'adhésion, tarifs, validité, etc.'
+    ↳ Attempted to fix
+  - Line 22: [adhesion/specs.md] in '- [⚙️ Specs](adhesion/specs.md) - Structure de données et implémentation technique'
+    ↳ Attempted to fix
+  - Line 23: [adhesion/validation.md] in '- [✅ Validation](adhesion/validation.md) - Critères d'acceptation et scénarios de test'
+    ↳ Attempted to fix
+  - Line 25: [cotisation/index.md] in '### [Cotisation](cotisation/index.md)'
+    ↳ Attempted to fix
+  - Line 27: [cotisation/regles.md] in '- [📜 Règles](cotisation/regles.md) - Types de cotisation, tarification, droits d'accès'
+    ↳ Attempted to fix
+  - Line 28: [cotisation/specs.md] in '- [⚙️ Specs](cotisation/specs.md) - Structure de données et implémentation technique'
+    ↳ Attempted to fix
+  - Line 29: [cotisation/validation.md] in '- [✅ Validation](cotisation/validation.md) - Critères d'acceptation et scénarios de test'
+    ↳ Attempted to fix
+  - Line 31: [paiement/index.md] in '### [Paiement](paiement/index.md)'
+    ↳ Attempted to fix
+  - Line 33: [paiement/regles.md] in '- [📜 Règles](paiement/regles.md) - Méthodes de paiement, reçus, remboursements'
+    ↳ Attempted to fix
+  - Line 34: [paiement/specs.md] in '- [⚙️ Specs](paiement/specs.md) - Structure de données et implémentation technique'
+    ↳ Attempted to fix
+  - Line 35: [paiement/validation.md] in '- [✅ Validation](paiement/validation.md) - Critères d'acceptation et scénarios de test'
+    ↳ Attempted to fix
+  - Line 37: [presence/index.md] in '### [Présence](presence/index.md)'
+    ↳ Attempted to fix
+  - Line 39: [presence/regles.md] in '- [📜 Règles](presence/regles.md) - Pointage, listes de présence, règles d'accès'
+    ↳ Attempted to fix
+  - Line 40: [presence/specs.md] in '- [⚙️ Specs](presence/specs.md) - Structure de données et implémentation technique'
+    ↳ Attempted to fix
+  - Line 41: [presence/validation.md] in '- [✅ Validation](presence/validation.md) - Critères d'acceptation et scénarios de test'
+    ↳ Attempted to fix
+  - Line 43: [roles/index.md] in '### [Rôles](roles/index.md)'
+    ↳ Attempted to fix
+  - Line 45: [roles/regles.md] in '- [📜 Règles](roles/regles.md) - Hiérarchie et définition des rôles, permissions'
+    ↳ Attempted to fix
+  - Line 46: [roles/specs.md] in '- [⚙️ Specs](roles/specs.md) - Structure de données et implémentation technique'
+    ↳ Attempted to fix
+  - Line 47: [roles/validation.md] in '- [✅ Validation](roles/validation.md) - Critères d'acceptation et scénarios de test'
+    ↳ Attempted to fix
+  - Line 49: [notification/index.md] in '### [Notification](notification/index.md)'
+    ↳ Attempted to fix
+  - Line 51: [notification/regles.md] in '- [📜 Règles](notification/regles.md) - Types de notification, déclencheurs, contenu'
+    ↳ Attempted to fix
+  - Line 52: [notification/specs.md] in '- [⚙️ Specs](notification/specs.md) - Structure de données et implémentation technique'
+    ↳ Attempted to fix
+  - Line 53: [notification/validation.md] in '- [✅ Validation](notification/validation.md) - Critères d'acceptation et scénarios de test'
+    ↳ Attempted to fix
+  - Line 57: [/requirements/] in '- [⬅️ Retour aux requirements](/requirements/)'
+    ↳ Attempted to fix
+  - Line 58: [/requirements/2_specifications_techniques/] in '- [➡️ Spécifications Techniques](/requirements/2_specifications_techniques/)'
+    ↳ Attempted to fix
+  - Line 59: [/requirements/3_user_stories/] in '- [➡️ User Stories](/requirements/3_user_stories/)'
+    ↳ Attempted to fix
+  - Line 60: [/requirements/4_implementation/] in '- [➡️ Implémentation](/requirements/4_implementation/)'
+    ↳ Attempted to fix
+  - Line 85: [adhesion/regles.md] in '| [Adhésion/regles.md](adhesion/regles.md) | requirements/1_métier/adhesions/regles.md, requirements/1_métier/adhesions/tarifs.md, docs/business/rules/membership_rules.md |'
+    ↳ Attempted to fix
+  - Line 86: [cotisation/regles.md] in '| [Cotisation/regles.md](cotisation/regles.md) | requirements/1_métier/cotisations/types.md, docs/business/rules/subscription_rules.md |'
+    ↳ Attempted to fix
+  - Line 87: [paiement/regles.md] in '| [Paiement/regles.md](paiement/regles.md) | requirements/1_métier/paiements/methodes.md, requirements/1_métier/paiements/recus.md, requirements/1_métier/paiements/dons.md, docs/business/rules/payment_rules.md |'
+    ↳ Attempted to fix
+  - Line 88: [presence/regles.md] in '| [Presence/regles.md](presence/regles.md) | requirements/1_métier/presences/listes.md, docs/business/processes/check_in.md |'
+    ↳ Attempted to fix
+  - Line 89: [roles/regles.md] in '| [Roles/regles.md](roles/regles.md) | requirements/1_métier/utilisateurs/roles.md, docs/business/rules/user_roles.md |'
+    ↳ Attempted to fix
+  - Line 90: [notification/regles.md] in '| [Notification/regles.md](notification/regles.md) | requirements/1_métier/notifications/types.md, docs/business/states/notification.md |'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/notification/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+    ↳ Attempted to fix
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+    ↳ Attempted to fix
+  - Line 47: [regles.md] in '- [📜 Règles des Notifications](regles.md)'
+    ↳ Attempted to fix
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 54: [/docs/architecture/diagrams/notification_flow.md] in '- [📝 Diagramme de flux](/docs/architecture/diagrams/notification_flow.md)'
+    ↳ Attempted to fix
+  - Line 55: [/docs/architecture/templates/notification_templates.md] in '- [📝 Modèles de messages](/docs/architecture/templates/notification_templates.md)'
+    ↳ Attempted to fix
+  - Line 58: [/docs/business/regles/notifications.md] in '- [📘 Guide des Notifications](/docs/business/regles/notifications.md) - Configuration pour les administrateurs'
+    ↳ Attempted to fix
+  - Line 59: [/docs/utilisateur/guides/preferences_communication.md] in '- [📗 Guide de Communication](/docs/utilisateur/guides/preferences_communication.md) - Préférences pour les membres'
+    ↳ Attempted to fix
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+    ↳ Attempted to fix
+  - Line 70: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+    ↳ Attempted to fix
+  - Line 75: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+    ↳ Attempted to fix
+  - Line 80: [../presence/index.md] in '### [Domaine Présence](../presence/index.md)'
+    ↳ Attempted to fix
+  - Line 85: [../roles/index.md] in '### [Domaine Rôles](../roles/index.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/paiement/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+    ↳ Attempted to fix
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+    ↳ Attempted to fix
+  - Line 47: [regles.md] in '- [📜 Règles de Paiement](regles.md)'
+    ↳ Attempted to fix
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 54: [/docs/architecture/diagrams/payment_flow.md] in '- [📝 Diagramme de flux](/docs/architecture/diagrams/payment_flow.md)'
+    ↳ Attempted to fix
+  - Line 55: [/docs/architecture/templates/payment_receipt.md] in '- [📝 Modèle de reçu](/docs/architecture/templates/payment_receipt.md)'
+    ↳ Attempted to fix
+  - Line 58: [/docs/business/regles/paiement.md] in '- [📘 Guide des Paiements](/docs/business/regles/paiement.md) - Explication pour les administrateurs'
+    ↳ Attempted to fix
+  - Line 59: [/docs/utilisateur/guides/recus_paiement.md] in '- [📗 Guide des Reçus](/docs/utilisateur/guides/recus_paiement.md) - Guide pour les membres'
+    ↳ Attempted to fix
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+    ↳ Attempted to fix
+  - Line 70: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/presence/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+    ↳ Attempted to fix
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+    ↳ Attempted to fix
+  - Line 47: [regles.md] in '- [📜 Règles de Présence](regles.md)'
+    ↳ Attempted to fix
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 54: [/docs/architecture/diagrams/check_in_flow.md] in '- [📝 Diagramme de flux](/docs/architecture/diagrams/check_in_flow.md)'
+    ↳ Attempted to fix
+  - Line 55: [/docs/architecture/reports/attendance_reports.md] in '- [📝 Formats des rapports](/docs/architecture/reports/attendance_reports.md)'
+    ↳ Attempted to fix
+  - Line 58: [/docs/business/regles/pointage.md] in '- [📘 Guide de Pointage](/docs/business/regles/pointage.md) - Procédures pour les administrateurs'
+    ↳ Attempted to fix
+  - Line 59: [/docs/utilisateur/guides/acces_entrainement.md] in '- [📗 Guide d'Accès](/docs/utilisateur/guides/acces_entrainement.md) - Guide pour les membres'
+    ↳ Attempted to fix
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+    ↳ Attempted to fix
+  - Line 69: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+    ↳ Attempted to fix
+  - Line 74: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+    ↳ Attempted to fix
+  - Line 78: [../roles/index.md] in '### [Domaine Rôles](../roles/index.md)'
+    ↳ Attempted to fix
+  - Line 82: [../notification/index.md] in '### [Domaine Notification](../notification/index.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/roles/index.md:
+  - Line 9: [regles.md] in '### [📜 Règles Métier](regles.md)'
+    ↳ Attempted to fix
+  - Line 16: [specs.md] in '### [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 23: [validation.md] in '### [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 46: [/requirements/1_métier/] in '- [⬅️ Retour aux domaines métier](/requirements/1_métier/)'
+    ↳ Attempted to fix
+  - Line 47: [regles.md] in '- [📜 Règles des Rôles](regles.md)'
+    ↳ Attempted to fix
+  - Line 48: [specs.md] in '- [⚙️ Spécifications Techniques](specs.md)'
+    ↳ Attempted to fix
+  - Line 49: [validation.md] in '- [✅ Validation](validation.md)'
+    ↳ Attempted to fix
+  - Line 54: [/docs/architecture/diagrams/roles_permissions.md] in '- [📝 Diagramme de permissions](/docs/architecture/diagrams/roles_permissions.md)'
+    ↳ Attempted to fix
+  - Line 55: [/docs/architecture/matrices/authorization_matrix.md] in '- [📝 Matrice d'autorisation](/docs/architecture/matrices/authorization_matrix.md)'
+    ↳ Attempted to fix
+  - Line 58: [/docs/business/regles/roles_systeme.md] in '- [📘 Guide des Rôles](/docs/business/regles/roles_systeme.md) - Explication pour les administrateurs'
+    ↳ Attempted to fix
+  - Line 59: [/docs/utilisateur/guides/fonctions_association.md] in '- [📗 Guide des Fonctions](/docs/utilisateur/guides/fonctions_association.md) - Rôles associatifs'
+    ↳ Attempted to fix
+  - Line 65: [../adhesion/index.md] in '### [Domaine Adhésion](../adhesion/index.md)'
+    ↳ Attempted to fix
+  - Line 69: [../presence/index.md] in '### [Domaine Présence](../presence/index.md)'
+    ↳ Attempted to fix
+  - Line 73: [../paiement/index.md] in '### [Domaine Paiement](../paiement/index.md)'
+    ↳ Attempted to fix
+  - Line 77: [../cotisation/index.md] in '### [Domaine Cotisation](../cotisation/index.md)'
+    ↳ Attempted to fix
+  - Line 81: [../notification/index.md] in '### [Domaine Notification](../notification/index.md)'
+    ↳ Attempted to fix
+
+📄 requirements/1_métier/roles/specs.md:
+  - Line 105: [regles.md] in 'La mise en œuvre technique du système de rôles doit respecter la séparation claire entre adhésion et rôles système définie dans les [Règles Métier - Rôles](regles.md).'
+    ↳ Attempted to fix
+
+📄 requirements/2_specifications_techniques/README.md:
+  - Line 16: [../1_métier/index.md] in 'Les spécifications techniques sont organisées pour supporter les [domaines métier](../1_métier/index.md) de l'application:'
+    ↳ Attempted to fix
+  - Line 20: [../1_métier/adhesion/index.md] in '| [Adhésion](../1_métier/adhesion/index.md) | Modèles utilisateur et adhésion, workflows d'authentification |'
+    ↳ Attempted to fix
+  - Line 21: [../1_métier/cotisation/index.md] in '| [Cotisation](../1_métier/cotisation/index.md) | Gestion des paiements récurrents, validité des formules |'
+    ↳ Attempted to fix
+  - Line 22: [../1_métier/paiement/index.md] in '| [Paiement](../1_métier/paiement/index.md) | Transactions, reçus, sécurité des données financières |'
+    ↳ Attempted to fix
+  - Line 23: [../1_métier/presence/index.md] in '| [Présence](../1_métier/presence/index.md) | Check-in temps réel, génération de QR codes, statistiques |'
+    ↳ Attempted to fix
+  - Line 24: [../1_métier/roles/index.md] in '| [Rôles](../1_métier/roles/index.md) | Système d'autorisation, audit d'actions, permissions |'
+    ↳ Attempted to fix
+  - Line 25: [../1_métier/notification/index.md] in '| [Notification](../1_métier/notification/index.md) | Système de notifications, emails, préférences utilisateur |'
+    ↳ Attempted to fix
+  - Line 62: [./modeles.md] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [modeles.md](./modeles.md).'
+    ↳ Attempted to fix
+  - Line 74: [./securite.md] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [securite.md](./securite.md).'
+    ↳ Attempted to fix
+  - Line 87: [./interfaces/] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le dossier [interfaces/](./interfaces/).'
+    ↳ Attempted to fix
+  - Line 99: [./performance.md] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [performance.md](./performance.md).'
+    ↳ Attempted to fix
+  - Line 111: [./tests.md] in '> 📝 **Note**: Les spécifications détaillées se trouvent dans le document [tests.md](./tests.md).'
+    ↳ Attempted to fix
+  - Line 124: [../../docs/architecture/README.md] in '- [Architecture détaillée](../../docs/architecture/README.md)'
+    ↳ Attempted to fix
+  - Line 125: [../4_implementation/README.md] in '- [Guide d'implémentation](../4_implementation/README.md)'
+    ↳ Attempted to fix
+
+📄 requirements/2_specifications_techniques/api/README.md:
+  - Line 15: [membership_api.md] in '| [membership_api.md](membership_api.md) | API pour la gestion des adhésions |'
+    ↳ Attempted to fix
+  - Line 16: [subscription_api.md] in '| [subscription_api.md](subscription_api.md) | API pour la gestion des cotisations |'
+    ↳ Attempted to fix
+  - Line 17: [payment_api.md] in '| [payment_api.md](payment_api.md) | API pour la gestion des paiements |'
+    ↳ Attempted to fix
+  - Line 18: [attendance_api.md] in '| [attendance_api.md](attendance_api.md) | API pour la gestion des présences |'
+    ↳ Attempted to fix
+  - Line 19: [notification_api.md] in '| [notification_api.md](notification_api.md) | API pour la gestion des notifications |'
+    ↳ Attempted to fix
+  - Line 20: [user_api.md] in '| [user_api.md](user_api.md) | API pour la gestion des utilisateurs et rôles |'
+    ↳ Attempted to fix
+
+📄 requirements/2_specifications_techniques/api/membership_api.md:
+  - Line 276: [/docs/architecture/diagrams/membership_states.md] in '- Les transitions de statut suivent le diagramme d'états défini dans [membership_states.md](/docs/architecture/diagrams/membership_states.md)'
+    ↳ Attempted to fix
+
+📄 requirements/2_specifications_techniques/interfaces/README.md:
+  - Line 18: [./admin.md] in '1. **[Interface administrateur](./admin.md)** - Pour la gestion complète de l'application'
+    ↳ Attempted to fix
+  - Line 19: [./benevole.md] in '2. **[Interface bénévole](./benevole.md)** - Pour les opérations quotidiennes de l'association'
+    ↳ Attempted to fix
+  - Line 20: [./composants.md] in '3. **[Composants partagés](./composants.md)** - Éléments d'interface réutilisables'
+    ↳ Attempted to fix
+  - Line 84: [./composants.md] in 'Les composants réutilisables sont documentés dans [composants.md](./composants.md) et incluent:'
+    ↳ Attempted to fix
+  - Line 109: [./admin.md] in '- [Interface administrateur](./admin.md) - Détails de l'interface d'administration'
+    ↳ Attempted to fix
+  - Line 110: [./benevole.md] in '- [Interface bénévole](./benevole.md) - Spécifications pour les bénévoles'
+    ↳ Attempted to fix
+  - Line 111: [./composants.md] in '- [Composants partagés](./composants.md) - Bibliothèque de composants réutilisables'
+    ↳ Attempted to fix
+
+📄 requirements/2_specifications_techniques/modeles.md:
+  - Line 123: [1] in 'last_num = derniere&.numero&.match(/(\d+)$/)&.[](1).to_i || 0'
+    ↳ Attempted to fix
+
+📄 requirements/3_user_stories/README.md:
+  - Line 164: [./adhesion.md] in '| [adhesion.md](./adhesion.md) | adherent.md (partiellement), user_stories.md (sections adhésion) |'
+    ↳ Attempted to fix
+  - Line 165: [./cotisation.md] in '| [cotisation.md](./cotisation.md) | adherent.md (sections cotisation), user_stories.md (sections cotisation) |'
+    ↳ Attempted to fix
+  - Line 166: [./paiement.md] in '| [paiement.md](./paiement.md) | adherent.md (sections paiement), benevole.md (validation paiements) |'
+    ↳ Attempted to fix
+  - Line 167: [./presence.md] in '| [presence.md](./presence.md) | adherent.md (sections présence), benevole.md (gestion présence) |'
+    ↳ Attempted to fix
+  - Line 168: [./roles.md] in '| [roles.md](./roles.md) | admin.md, super_admin.md, benevole.md (sections rôles) |'
+    ↳ Attempted to fix
+  - Line 169: [./notification.md] in '| [notification.md](./notification.md) | Extraits de tous les anciens fichiers (sections notifications) |'
+    ↳ Attempted to fix
+  - Line 170: [./public.md] in '| [public.md](./public.md) | public.md (restructuré) |'
+    ↳ Attempted to fix
+
+📄 requirements/4_implementation/README.md:
+  - Line 28: [../../docs/architecture/technical/] in '- [Architecture Technique](../../docs/architecture/technical/) - Documentation détaillée de l'architecture'
+    ↳ Attempted to fix
+  - Line 29: [../1_métier/] in '- [Spécifications par Domaine](../1_métier/) - Spécifications techniques par domaine fonctionnel'
+    ↳ Attempted to fix
+  - Line 30: [../../docs/business/states/] in '- [États des Objets](../../docs/business/states/) - Diagrammes d'états pour les objets métier'
+    ↳ Attempted to fix
+  - Line 34: [./deprecated/] in 'Certains documents qui ne sont plus à jour ont été déplacés dans le dossier [deprecated](./deprecated/). Ces fichiers sont conservés pour référence historique mais ne sont plus considérés comme la source principale d'information pour le développement actuel.'
+    ↳ Attempted to fix
+
+📄 requirements/README.md:
+  - Line 44: [1_métier/adhesion/index.md] in '| [Adhésion](1_métier/adhesion/index.md) | Règles et processus liés aux adhésions Basic et Cirque |'
+    ↳ Attempted to fix
+  - Line 45: [1_métier/cotisation/index.md] in '| [Cotisation](1_métier/cotisation/index.md) | Règles pour les formules de cotisations d'accès aux entraînements |'
+    ↳ Attempted to fix
+  - Line 46: [1_métier/paiement/index.md] i

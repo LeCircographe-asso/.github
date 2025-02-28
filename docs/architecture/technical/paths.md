@@ -4,63 +4,118 @@
 ```
 /requirements
 ├── 1_métier/
-│   ├── adhesions/
-│   ├── systeme.md
-│   ├── tarifs.md
-│   └── reductions.md
-│   └── presence/
-│   └── paiements/
-│   └── systeme.md
-│   └── reglements.md
+│   ├── adhesion/
+│   ├── cotisation/
+│   ├── paiement/
+│   ├── presence/
+│   ├── roles/
+│   └── notification/
 ├── 2_specifications_techniques/
-│   ├── architecture/
-│   └── modeles/
-│   └── services.md
+│   ├── README.md
+│   ├── interfaces/
+│   ├── modeles.md
+│   ├── securite.md
+│   ├── performance.md
+│   ├── tests.md
+│   ├── storage.md
+│   └── api/
 └── 3_user_stories/
 └── 4_implementation/
     └── rails/
 ```
 
 ## Points à Corriger
-1. Déplacer `paiements/tarifs.md` vers `adhesions/`
-2. Créer `modeles/receipt.rb`
-3. Ajouter les tests manquants dans `spec/services/` 
+1. Créer les dossiers API manquants
+2. Ajouter les diagrammes référencés
+3. Compléter la documentation des templates
+4. Standardiser les noms de fichiers
 
 ## Structure des Fichiers
 
 ## Logique Métier
 ```
 /requirements/1_métier/
-├── adhesions/
-│   ├── systeme.md
-│   ├── tarifs.md
-│   └── reductions.md
+├── adhesion/
+│   ├── index.md
+│   ├── regles.md
+│   ├── specs.md
+│   └── validation.md
+├── cotisation/
+│   ├── index.md
+│   ├── regles.md
+│   ├── specs.md
+│   └── validation.md
+├── paiement/
+│   ├── index.md
+│   ├── regles.md
+│   ├── specs.md
+│   └── validation.md
 ├── presence/
-│   ├── systeme.md
-│   └── regles.md
-└── paiements/
-    ├── systeme.md
-    └── reglements.md
+│   ├── index.md
+│   ├── regles.md
+│   ├── specs.md
+│   └── validation.md
+├── roles/
+│   ├── index.md
+│   ├── regles.md
+│   ├── specs.md
+│   └── validation.md
+└── notification/
+    ├── index.md
+    ├── regles.md
+    ├── specs.md
+    └── validation.md
 ```
 
 ## Spécifications Techniques
 ```
 /requirements/2_specifications_techniques/
-├── architecture/
-│   ├── modeles.md
-│   └── services.md
-└── modeles/
-    ├── user.rb
-    ├── membership.rb
-    ├── payment.rb
-    └── receipt.rb
+├── README.md
+├── interfaces/
+│   ├── README.md
+│   ├── admin.md
+│   ├── benevole.md
+│   └── composants.md
+├── api/
+│   ├── README.md
+│   ├── membership_api.md
+│   ├── subscription_api.md
+│   ├── payment_api.md
+│   ├── attendance_api.md
+│   └── notification_api.md
+├── modeles.md
+├── securite.md
+├── performance.md
+├── tests.md
+└── storage.md
 ```
 
-## Tests
+## Documentation Technique
 ```
-/requirements/4_implementation/rails/spec/
-├── models/
-│   └── receipt_spec.rb
-└── services/
-    └── receipt_service_spec.rb
+/docs/architecture/
+├── README.md
+├── diagrams/
+│   ├── README.md
+│   ├── membership_states.md
+│   ├── subscription_states.md
+│   ├── payment_flow.md
+│   ├── check_in_flow.md
+│   ├── notification_flow.md
+│   └── roles_permissions.md
+├── templates/
+│   ├── README.md
+│   ├── payment_receipt.md
+│   ├── membership_card.md
+│   └── notification_templates.md
+└── technical/
+    ├── README.md
+    ├── api/
+    │   ├── README.md
+    │   ├── endpoints.md
+    │   ├── auth.md
+    │   └── versioning.md
+    ├── core/
+    ├── frontend/
+    ├── security/
+    └── performance/
 ``` 
