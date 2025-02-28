@@ -9,8 +9,8 @@
 6. [Gestion des Variables et Attributs](#6-gestion-des-variables-et-attributs)
 7. [Helpers et Services](#7-helpers-et-services)
 8. [Bonnes Pratiques et Conventions](#8-bonnes-pratiques-et-conventions)
-9. [10. Guide Pratique des Relations MVC](#10-guide-pratique-des-relations-mvc)
-10. [Migrations Complexes et Relations Avancées](#9-migrations-complexes-et-relations-avancées)
+9. [Migrations Complexes et Relations Avancées](#9-migrations-complexes-et-relations-avancées)
+10. [Guide Pratique des Relations MVC](#10-guide-pratique-des-relations-mvc)
 11. [Guide Approfondi des Attributs et Variables](#11-guide-approfondi-des-attributs-et-variables)
 12. [Cas Pratique : Le Circographe](#12-cas-pratique-le-circographe)
 
@@ -22,6 +22,46 @@ L'architecture MVC dans Rails 8 sépare votre application en trois composants pr
 - **Model (M)**: Gère les données, la logique métier et les règles de l'application
 - **View (V)**: S'occupe de la présentation et de l'interface utilisateur
 - **Controller (C)**: Coordonne les interactions entre le Model et la View
+
+> **Clarification**: MVC est un pattern architectural qui permet de séparer les préoccupations et de maintenir un code propre et organisé.
+
+#### ✅ Bonnes pratiques MVC
+- Garder la logique métier dans les modèles
+- Les contrôleurs doivent être minces, servant uniquement de coordination
+- Les vues ne doivent contenir que la logique de présentation
+
+```ruby
+# ✅ Bon exemple: Logique métier dans le modèle
+class Order < ApplicationRecord
+  def total_with_tax
+    line_items.sum(&:price) * (1 + tax_rate)
+  end
+end
+
+# Contrôleur qui reste mince
+class OrdersController < ApplicationController
+  def show
+    @order = Order.find(params[:id])
+    @total = @order.total_with_tax
+  end
+end
+```
+
+#### ❌ Mauvaises pratiques MVC
+- Placer la logique métier dans les contrôleurs
+- Effectuer des requêtes de base de données dans les vues
+- Mélanger la logique de présentation dans les modèles
+
+```ruby
+# ❌ Mauvais exemple: Logique métier dans le contrôleur
+class OrdersController < ApplicationController
+  def show
+    @order = Order.find(params[:id])
+    # La logique métier ne devrait pas être ici
+    @total = @order.line_items.sum(&:price) * (1 + @order.tax_rate)
+  end
+end
+```
 
 ### Flow de Données Typique
 1. L'utilisateur interagit avec l'application (clic, formulaire...)
@@ -39,33 +79,612 @@ L'architecture MVC dans Rails 8 sépare votre application en trois composants pr
 Les modèles Rails 8 utilisent Active Record pour gérer les relations entre tables :
 
 ```ruby
-class User < ApplicationRecord
-  # Relations
-  belongs_to :department
-  has_many :posts, dependent: :destroy
-  has_one :profile
-  has_and_belongs_to_many :projects
+# ✅ Bon exemple: Modèle bien structuré avec scopes et validations
+class Article < ApplicationRecord
+  belongs_to :user
+  has_many :comments, dependent: :destroy
   
-  # Validations
-  validates :email, presence: true, uniqueness: true
-  validates :name, presence: true, length: { minimum: 2 }
+  validates :title, presence: true, length: { minimum: 5, maximum: 100 }
+  validates :content, presence: true
   
-  # Callbacks
-  before_save :normalize_email
-  after_create :send_welcome_email
+  scope :published, -> { where(published: true) }
+  scope :recent, -> { order(created_at: :desc).limit(5) }
   
-  # Scopes
-  scope :active, -> { where(status: 'active') }
-  scope :recent, -> { where('created_at > ?', 30.days.ago) }
+  before_save :normalize_title
   
   private
   
-  def normalize_email
-    self.email = email.downcase.strip
+  def normalize_title
+    self.title = title.titleize
+  end
+end
+```
+
+# ✅ Bon exemple: Modèle avec relations complexes bien définies
+class User < ApplicationRecord
+  # Relations claires et bidirectionnelles
+  belongs_to :role
+  has_many :memberships, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
+  has_many :plans, through: :subscriptions
+  
+  # Relation avec alias pour clarté
+  has_many :instructed_sessions, class_name: 'Session', foreign_key: 'instructor_id'
+  has_many :attendances
+  has_many :attended_sessions, through: :attendances, source: :session
+  
+  # Scopes qui utilisent les relations
+  scope :with_active_membership, -> { 
+    joins(:memberships).where('memberships.expires_on >= ?', Date.current)
+  }
+end
+
+## 3. Les Contrôleurs (Controllers)
+
+### Structure de Base
+```ruby
+# ✅ Bon exemple: Contrôleur bien structuré
+class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  
+  def index
+    @articles = Article.published.includes(:user, :categories).page(params[:page])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @articles }
+      format.turbo_stream
+    end
   end
   
-  def send_welcome_email
-    UserMailer.welcome_email(self).deliver_later
+  def show
+    @comments = @article.comments.includes(:user)
+    
+    # Rails 8 Turbo Streams
+    respond_to do |format|
+      format.html
+      format.turbo_stream { render turbo_stream: turbo_stream.update("article", partial: "articles/article") }
+    end
+  end
+  
+  private
+  
+  def set_article
+    @article = Article.find(params[:id])
+  end
+  
+  def article_params
+    params.require(:article).permit(:title, :content, :published)
+  end
+end
+```
+
+## 4. Les Vues et Hotwire
+
+### Structure des Vues avec Hotwire
+```erb
+<!-- app/views/articles/index.html.erb -->
+<div id="articles">
+  <%= render @articles %>
+</div>
+
+<%= turbo_frame_tag "new_article" do %>
+  <%= link_to "Nouvel article", new_article_path %>
+<% end %>
+
+<%= turbo_stream_from "articles" %>
+```
+
+### Composants Stimulus
+```javascript
+// app/javascript/controllers/article_form_controller.js
+import { Controller } from "@hotwired/stimulus"
+
+export default class extends Controller {
+  static targets = ["form", "output", "submitButton"]
+  static values = { 
+    successUrl: String,
+    errorMessage: String
+  }
+
+  async submit(event) {
+    event.preventDefault()
+    this.submitButtonTarget.disabled = true
+
+    try {
+      const response = await fetch(this.formTarget.action, {
+        method: "POST",
+        body: new FormData(this.formTarget)
+      })
+
+      if (response.ok) {
+        Turbo.visit(this.successUrlValue)
+      } else {
+        this.outputTarget.textContent = this.errorMessageValue
+      }
+    } catch (error) {
+      console.error("Erreur:", error)
+    } finally {
+      this.submitButtonTarget.disabled = false
+    }
+  }
+}
+```
+
+### Turbo Streams
+```ruby
+# app/controllers/articles_controller.rb
+def create
+  @article = current_user.articles.build(article_params)
+  
+  if @article.save
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to @article }
+    end
+  else
+    render :new, status: :unprocessable_entity
+  end
+end
+```
+
+## 5. Authentification avec Rails 8
+
+### Configuration de Base
+```ruby
+# config/initializers/authentication.rb
+Rails.application.config.authentication do |config|
+  config.authentication_method = :database
+  config.allow_guest_access = false
+  config.session_timeout = 30.minutes
+end
+```
+
+### Modèle User avec Authentification
+```ruby
+# ✅ Bon exemple: Authentication sécurisée
+# app/models/user.rb
+class User < ApplicationRecord
+  has_secure_password
+  has_many :sessions, dependent: :destroy
+  
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :password, length: { minimum: 8 }, allow_nil: true
+  
+  before_save :downcase_email
+  
+  private
+  
+  def downcase_email
+    self.email = email.downcase if email.present?
+  end
+end
+
+# app/controllers/sessions_controller.rb
+def create
+  user = User.find_by(email: params[:email].downcase)
+  
+  if user&.authenticate(params[:password])
+    session = user.sessions.create!(
+      token: SecureRandom.urlsafe_base64(32),
+      expires_at: 2.weeks.from_now,
+      user_agent: request.user_agent,
+      ip_address: request.ip
+    )
+    
+    cookies.encrypted[:session_token] = {
+      value: session.token,
+      expires: session.expires_at,
+      httponly: true,
+      secure: Rails.env.production?
+    }
+    
+    redirect_to root_path, notice: "Connexion réussie"
+  else
+    flash.now[:alert] = "Email ou mot de passe incorrect"
+    render :new, status: :unprocessable_entity
+  end
+end
+```
+
+## 6. Gestion des Variables et Attributs
+
+### Variables d'Instance (@variable)
+Les variables d'instance sont utilisées pour passer des données du contrôleur aux vues :
+
+```ruby
+# Dans le contrôleur
+class ProfilesController < ApplicationController
+  def show
+    @user = current_user                    # Accessible dans la vue
+    @recent_posts = @user.posts.recent      # Accessible dans la vue
+    total_posts = @user.posts.count         # NON accessible dans la vue (variable locale)
+  end
+end
+```
+
+```erb
+<!-- Dans la vue -->
+<h1>Profil de <%= @user.name %></h1>
+<div class="recent-posts">
+  <%= render @recent_posts %>
+</div>
+```
+
+### Symboles et Attributs
+```ruby
+# ✅ Bon exemple: Utilisation de symboles et attributs
+class Product < ApplicationRecord
+  # Symboles comme identifiants
+  enum status: { draft: 0, published: 1, archived: 2 }
+  
+  # Attributs virtuels typés
+  attribute :full_price, :decimal
+  attribute :sale_active, :boolean, default: false
+  
+  # Méthodes qui définissent les attributs virtuels
+  def full_price
+    price * (1 + tax_rate)
+  end
+  
+  # Utilisation cohérente des symboles comme clés
+  def search_options
+    {
+      status: status,
+      category_ids: categories.pluck(:id),
+      in_stock: inventory_count > 0
+    }
+  end
+end
+```
+
+### Variables Locales dans les Partials
+```erb
+<!-- app/views/articles/_article.html.erb -->
+<div class="article" id="<%= dom_id(article) %>">
+  <h2><%= article.title %></h2>
+  <% if article.published? %>
+    <span class="badge badge-success">Publié</span>
+  <% else %>
+    <span class="badge badge-warning">Brouillon</span>
+  <% end %>
+  
+  <!-- Logique métier dans la vue -->
+  <p>Publié il y a <%= (Time.current - article.published_at) / 86400 %> jours</p>
+</div>
+
+<!-- Utilisation du partial -->
+<%= render "article", article: @article %>
+<%= render partial: "article", collection: @articles %>
+```
+
+## 7. Helpers et Services
+
+### Application Helper
+```ruby
+# app/helpers/application_helper.rb
+module ApplicationHelper
+  # Format une date selon le format spécifié
+  # @param date [Date, DateTime] la date à formater
+  # @param format [Symbol] le format (:short, :long, :relative)
+  # @return [String] la date formatée
+  def format_date(date, format = :short)
+    return unless date
+    
+    case format
+    when :short
+      l(date, format: "%d/%m/%Y")
+    when :long
+      l(date, format: "%d %B %Y à %H:%M")
+    when :relative
+      time_ago_in_words(date)
+    end
+  end
+  
+  # Génère un titre de page avec le nom de l'app
+  def page_title(title = nil)
+    base = "Le Circographe"
+    title.present? ? "#{title} | #{base}" : base
+  end
+end
+```
+
+### Service Objects
+```ruby
+# ✅ Bon exemple: Service bien structuré
+class OrderProcessor
+  def initialize(order, payment_params)
+    @order = order
+    @payment_params = payment_params
+  end
+  
+  def call
+    return failure("Commande déjà payée") if @order.paid?
+    
+    ActiveRecord::Base.transaction do
+      process_payment
+      update_inventory
+      send_confirmation
+      
+      success(@order, "Paiement traité avec succès")
+    end
+  rescue Payment::ProcessingError => e
+    failure(e.message)
+  end
+  
+  private
+  
+  def process_payment
+    @payment = Payment.create!(@payment_params.merge(order: @order))
+    @order.update!(status: 'paid', paid_at: Time.current)
+  end
+  
+  def update_inventory
+    @order.line_items.each do |item|
+      item.product.decrement!(:inventory_count, item.quantity)
+    end
+  end
+  
+  def send_confirmation
+    OrderMailer.confirmation(@order).deliver_later
+  end
+  
+  def success(order, message)
+    { success: true, order: order, message: message }
+  end
+  
+  def failure(message)
+    { success: false, message: message }
+  end
+end
+```
+
+## 8. Bonnes Pratiques et Conventions
+
+### Conventions de Nommage
+- Models: Singulier, PascalCase (`User`, `Article`)
+- Controllers: Pluriel, PascalCase (`UsersController`)
+- Tables: Pluriel, snake_case (`users`, `articles`)
+- Fichiers: snake_case (`user.rb`, `application_controller.rb`)
+
+### Organisation du Code
+```ruby
+# ✅ Bon exemple: Organisation avec concerns et namespaces
+# app/models/concerns/searchable.rb
+module Searchable
+  extend ActiveSupport::Concern
+  
+  included do
+    scope :search, ->(term) { where("title LIKE ?", "%#{term}%") }
+  end
+end
+
+# app/models/article.rb
+class Article < ApplicationRecord
+  include Searchable
+  # Le modèle hérite du comportement de recherche
+end
+
+# app/controllers/admin/articles_controller.rb
+module Admin
+  class ArticlesController < AdminController
+    # Interface d'administration séparée
+  end
+end
+```
+
+### Sécurité
+```ruby
+# Protection CSRF
+protect_from_forgery with: :exception
+
+# Strong Parameters
+def article_params
+  params.require(:article)
+        .permit(:title, :content, allowed_categories: [])
+end
+
+# Authentification et Autorisation
+before_action :authenticate_user!
+before_action :authorize_user, only: [:edit, :update, :destroy]
+```
+
+### Performance
+```ruby
+# Eager Loading
+@articles = Article.includes(:author, :categories)
+                  .with_attached_images
+                  .recent
+                  .page(params[:page])
+
+# Caching
+<% cache ["v1", @article] do %>
+  <%= render @article %>
+<% end %>
+
+# Background Jobs
+ArticleProcessingJob.perform_later(@article)
+```
+
+## 9. Migrations Complexes et Relations Avancées
+
+### Structure de Base de Données pour un Établissement
+```ruby
+# Exemple de structure pour le Circographe
+
+# app/db/migrations/YYYYMMDDHHMMSS_create_base_structure.rb
+class CreateMembers < ActiveRecord::Migration[8.0]
+  def change
+    create_table :members do |t|
+      t.string :email, null: false, index: { unique: true }
+      t.string :first_name, null: false
+      t.string :last_name, null: false
+      t.references :membership_type, null: false, foreign_key: true
+      t.date :joined_on, null: false
+      t.date :expires_on
+      t.jsonb :preferences, default: {}, null: false
+      
+      t.timestamps
+    end
+    
+    add_index :members, [:last_name, :first_name]
+    add_index :members, :expires_on, where: "expires_on IS NOT NULL"
+  end
+end
+```
+
+### Modèles avec Relations Complexes
+```ruby
+# app/models/user.rb
+class User < ApplicationRecord
+  belongs_to :role
+  
+  has_many :memberships
+  has_many :subscriptions
+  has_many :plans, through: :subscriptions
+  has_many :attendances
+  has_many :attended_sessions, through: :attendances, source: :session
+  has_many :instructed_sessions, class_name: 'Session', foreign_key: 'instructor_id'
+  has_many :accounting_entries
+
+  # Validations
+  validates :email, presence: true, uniqueness: true
+  
+  # Scopes
+  scope :active_members, -> { joins(:memberships).where('memberships.end_date >= ?', Date.current) }
+  scope :with_active_subscription, -> { joins(:subscriptions).where('subscriptions.end_date >= ?', Date.current) }
+  
+  # Méthodes métier
+  def active_membership
+    memberships.where('end_date >= ?', Date.current).first
+  end
+
+  def remaining_sessions
+    current_subscription = subscriptions.where('end_date >= ?', Date.current).first
+    return 0 unless current_subscription
+    current_subscription.sessions_count - attendances.where(subscription: current_subscription).count
+  end
+end
+
+# app/models/membership.rb
+class Membership < ApplicationRecord
+  belongs_to :user
+  has_many :accounting_entries
+
+  validates :start_date, :end_date, presence: true
+  validate :end_date_after_start_date
+  
+  # Callbacks
+  after_create :create_accounting_entry
+  
+  private
+  
+  def end_date_after_start_date
+    return if end_date.blank? || start_date.blank?
+    errors.add(:end_date, "doit être après la date de début") if end_date < start_date
+  end
+
+  def create_accounting_entry
+    accounting_entries.create!(
+      user: user,
+      entry_type: 'membership_payment',
+      amount: amount_paid,
+      payment_method: 'direct_debit'
+    )
+  end
+end
+
+# app/models/session.rb
+class Session < ApplicationRecord
+  belongs_to :instructor, class_name: 'User'
+  has_many :attendances
+  has_many :attendees, through: :attendances, source: :user
+
+  validates :start_time, :end_time, :capacity, presence: true
+  validate :end_time_after_start_time
+  validate :instructor_availability
+  
+  # Scopes
+  scope :upcoming, -> { where('start_time > ?', Time.current) }
+  scope :with_available_spots, -> { 
+    left_joins(:attendances)
+      .group(:id)
+      .having('COUNT(attendances.id) < sessions.capacity')
+  }
+
+  def available_spots
+    capacity - attendances.count
+  end
+
+  private
+  
+  def instructor_availability
+    conflicting_sessions = instructor.instructed_sessions
+      .where('start_time < ? AND end_time > ?', end_time, start_time)
+    errors.add(:instructor, "n'est pas disponible sur ce créneau") if conflicting_sessions.exists?
+  end
+end
+```
+
+### Requêtes Complexes avec Active Record
+```ruby
+# Exemple de requêtes complexes
+
+# Trouver tous les utilisateurs avec leurs adhésions actives et leurs présences
+users_with_details = User.includes(:memberships, :attendances)
+                        .where('memberships.end_date >= ?', Date.current)
+                        .references(:memberships)
+
+# Statistiques de présence par mois
+monthly_stats = Attendance.select(
+  "DATE_TRUNC('month', check_in_time) as month",
+  'COUNT(DISTINCT user_id) as unique_users',
+  'COUNT(*) as total_visits'
+).group("DATE_TRUNC('month', check_in_time)")
+
+# Revenus par type d'entrée comptable
+revenue_by_type = AccountingEntry.select(
+  'entry_type',
+  'SUM(amount) as total_amount',
+  "DATE_TRUNC('month', created_at) as month"
+).group(:entry_type, "DATE_TRUNC('month', created_at)")
+```
+
+### Conseils pour les Relations Complexes
+
+1. **Utilisation des Index**
+```ruby
+# Dans les migrations
+add_index :attendances, [:user_id, :session_id]
+add_index :accounting_entries, [:entry_type, :created_at]
+add_index :memberships, [:user_id, :end_date]
+```
+
+2. **Optimisation des Requêtes**
+```ruby
+# Utiliser includes pour éviter les problèmes N+1
+@active_users = User.includes(:memberships, :subscriptions)
+                   .where(memberships: { status: 'active' })
+
+# Utiliser distinct pour éviter les doublons
+@instructors = User.joins(:instructed_sessions)
+                  .distinct
+                  .select('users.*, COUNT(sessions.id) as sessions_count')
+                  .group('users.id')
+```
+
+3. **Validation des Données**
+```ruby
+class AccountingEntry < ApplicationRecord
+  validate :valid_reference_entry
+  
+  private
+  
+  def valid_reference_entry
+    unless membership.present? ^ subscription.present? # XOR operator
+      errors.add(:base, "Doit être lié soit à une adhésion soit à un abonnement, pas les deux")
+    end
   end
 end
 ```
@@ -254,593 +873,6 @@ class Product < ApplicationRecord
 end
 ```
 
-## 3. Les Contrôleurs (Controllers)
-
-### Structure de Base
-```ruby
-class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  
-  def index
-    @articles = Article.includes(:author, :categories)
-                      .published
-                      .order(created_at: :desc)
-                      .page(params[:page])
-    
-    respond_to do |format|
-      format.html
-      format.turbo_stream
-      format.json { render json: @articles }
-    end
-  end
-  
-  def show
-    @comments = @article.comments.includes(:user)
-    
-    # Rails 8 Turbo Streams
-    respond_to do |format|
-      format.html
-      format.turbo_stream { render turbo_stream: turbo_stream.update("article", partial: "articles/article") }
-    end
-  end
-  
-  private
-  
-  def set_article
-    @article = Article.find(params[:id])
-  end
-  
-  def article_params
-    params.require(:article)
-          .permit(:title, :content, :published, category_ids: [])
-  end
-end
-```
-
-## 4. Les Vues et Hotwire
-
-### Structure des Vues avec Hotwire
-```erb
-<!-- app/views/articles/index.html.erb -->
-<%= turbo_frame_tag "articles_list" do %>
-  <div class="articles-grid">
-    <% @articles.each do |article| %>
-      <%= turbo_frame_tag dom_id(article) do %>
-        <%= render "article", article: article %>
-      <% end %>
-    <% end %>
-  </div>
-  
-  <%= turbo_stream_from "articles" %>
-<% end %>
-```
-
-### Composants Stimulus
-```javascript
-// app/javascript/controllers/article_form_controller.js
-import { Controller } from "@hotwired/stimulus"
-
-export default class extends Controller {
-  static targets = ["form", "output", "submitButton"]
-  static values = { 
-    successUrl: String,
-    errorMessage: String
-  }
-
-  async submit(event) {
-    event.preventDefault()
-    this.submitButtonTarget.disabled = true
-
-    try {
-      const response = await fetch(this.formTarget.action, {
-        method: "POST",
-        body: new FormData(this.formTarget)
-      })
-
-      if (response.ok) {
-        Turbo.visit(this.successUrlValue)
-      } else {
-        this.outputTarget.textContent = this.errorMessageValue
-      }
-    } catch (error) {
-      console.error("Erreur:", error)
-    } finally {
-      this.submitButtonTarget.disabled = false
-    }
-  }
-}
-```
-
-### Turbo Streams
-```ruby
-# app/controllers/articles_controller.rb
-def create
-  @article = current_user.articles.build(article_params)
-
-  if @article.save
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: [
-          turbo_stream.append("articles_list", partial: "article", locals: { article: @article }),
-          turbo_stream.update("article_count", Article.count),
-          turbo_stream.remove("empty_state")
-        ]
-      end
-    end
-  end
-end
-```
-
-## 5. Authentification avec Rails 8
-
-### Configuration de Base
-```ruby
-# config/initializers/authentication.rb
-Rails.application.config.authentication do |config|
-  config.authentication_method = :database
-  config.allow_guest_access = false
-  config.session_timeout = 30.minutes
-end
-```
-
-### Modèle User avec Authentification
-```ruby
-class User < ApplicationRecord
-  has_secure_password
-  
-  # Nouvelles fonctionnalités d'authentification Rails 8
-  authenticates_with_password do |password|
-    BCrypt::Password.new(password_digest).is_password?(password)
-  end
-  
-  # Gestion des sessions
-  has_many :sessions, dependent: :destroy
-  
-  # Validations
-  validates :email, presence: true, 
-                   uniqueness: true,
-                   format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, length: { minimum: 8 },
-                     if: -> { password.present? }
-                     
-  # Callbacks
-  before_save :ensure_authentication_token
-  
-  private
-  
-  def ensure_authentication_token
-    self.authentication_token ||= SecureRandom.hex(32)
-  end
-end
-```
-
-## 6. Gestion des Variables et Attributs
-
-### Variables d'Instance (@variable)
-Les variables d'instance sont utilisées pour passer des données du contrôleur aux vues :
-
-```ruby
-# Dans le contrôleur
-class ProfilesController < ApplicationController
-  def show
-    @user = current_user                    # Accessible dans la vue
-    @recent_posts = @user.posts.recent      # Accessible dans la vue
-    total_posts = @user.posts.count         # NON accessible dans la vue (variable locale)
-  end
-end
-```
-
-```erb
-<!-- Dans la vue -->
-<h1>Profil de <%= @user.name %></h1>
-<div class="recent-posts">
-  <%= render @recent_posts %>
-</div>
-```
-
-### Symboles et Attributs
-```ruby
-class Article < ApplicationRecord
-  # Symboles pour les relations
-  belongs_to :author, class_name: 'User'
-  has_many :comments
-  
-  # Attributs virtuels
-  attribute :full_title, :string
-  attribute :view_count, :integer, default: 0
-  
-  # Énumérations
-  enum status: {
-    draft: 0,
-    published: 1,
-    archived: 2
-  }
-  
-  # Méthodes utilisant les attributs
-  def full_title
-    [title, subtitle].compact.join(' - ')
-  end
-end
-```
-
-### Variables Locales dans les Partials
-```erb
-<!-- app/views/articles/_article.html.erb -->
-<div class="article" id="<%= dom_id(article) %>">
-  <h2><%= article.title %></h2>
-  <p>Par <%= article.author.name %></p>
-</div>
-
-<!-- Utilisation du partial -->
-<%= render "article", article: @article %>
-<%= render partial: "article", collection: @articles %>
-```
-
-## 7. Helpers et Services
-
-### Application Helper
-```ruby
-# app/helpers/application_helper.rb
-module ApplicationHelper
-  def format_date(date, format = :long)
-    return if date.nil?
-    
-    case format
-    when :short
-      l(date, format: "%d/%m/%Y")
-    when :long
-      l(date, format: "%d %B %Y à %H:%M")
-    end
-  end
-  
-  def page_title(title = nil)
-    base_title = "Mon Application"
-    title.present? ? "#{title} | #{base_title}" : base_title
-  end
-end
-```
-
-### Service Objects
-```ruby
-# app/services/article_creator_service.rb
-class ArticleCreatorService
-  def initialize(user, params)
-    @user = user
-    @params = params
-  end
-  
-  def call
-    article = @user.articles.build(@params)
-    
-    if article.save
-      notify_subscribers(article)
-      generate_social_media_preview(article)
-      { success: true, article: article }
-    else
-      { success: false, errors: article.errors }
-    end
-  end
-  
-  private
-  
-  def notify_subscribers(article)
-    article.author.followers.each do |follower|
-      NotificationMailer.new_article(follower, article).deliver_later
-    end
-  end
-  
-  def generate_social_media_preview(article)
-    SocialMediaPreviewJob.perform_later(article)
-  end
-end
-```
-
-## 8. Bonnes Pratiques et Conventions
-
-### Conventions de Nommage
-- Models: Singulier, PascalCase (`User`, `Article`)
-- Controllers: Pluriel, PascalCase (`UsersController`)
-- Tables: Pluriel, snake_case (`users`, `articles`)
-- Fichiers: snake_case (`user.rb`, `application_controller.rb`)
-
-### Organisation du Code
-```ruby
-# app/models/concerns/searchable.rb
-module Searchable
-  extend ActiveSupport::Concern
-  
-  included do
-    scope :search, ->(query) { where("title LIKE ?", "%#{query}%") }
-  end
-end
-
-# Utilisation dans les modèles
-class Article < ApplicationRecord
-  include Searchable
-  # ...
-end
-```
-
-### Sécurité
-```ruby
-# Protection CSRF
-protect_from_forgery with: :exception
-
-# Strong Parameters
-def article_params
-  params.require(:article)
-        .permit(:title, :content, allowed_categories: [])
-end
-
-# Authentification et Autorisation
-before_action :authenticate_user!
-before_action :authorize_user, only: [:edit, :update, :destroy]
-```
-
-### Performance
-```ruby
-# Eager Loading
-@articles = Article.includes(:author, :categories)
-                  .with_attached_images
-                  .recent
-                  .page(params[:page])
-
-# Caching
-<% cache ["v1", @article] do %>
-  <%= render @article %>
-<% end %>
-
-# Background Jobs
-ArticleProcessingJob.perform_later(@article)
-```
-
-## 9. Migrations Complexes et Relations Avancées
-
-### Structure de Base de Données pour un Établissement
-```ruby
-# Exemple de structure pour le Circographe
-
-# app/db/migrations/YYYYMMDDHHMMSS_create_base_structure.rb
-class CreateBaseStructure < ActiveRecord::Migration[8.0]
-  def change
-    # Table principale des utilisateurs
-    create_table :users do |t|
-      t.string :email, null: false
-      t.string :first_name
-      t.string :last_name
-      t.references :role, foreign_key: true
-      t.timestamps
-    end
-
-    # Gestion des rôles
-    create_table :roles do |t|
-      t.string :name
-      t.jsonb :permissions
-      t.timestamps
-    end
-
-    # Adhésions
-    create_table :memberships do |t|
-      t.references :user, foreign_key: true
-      t.date :start_date
-      t.date :end_date
-      t.string :status
-      t.decimal :amount_paid
-      t.jsonb :custom_fields
-      t.timestamps
-    end
-
-    # Abonnements
-    create_table :subscriptions do |t|
-      t.references :user, foreign_key: true
-      t.references :plan, foreign_key: true
-      t.date :start_date
-      t.date :end_date
-      t.string :payment_status
-      t.integer :sessions_count
-      t.timestamps
-    end
-
-    # Plans d'abonnement
-    create_table :plans do |t|
-      t.string :name
-      t.integer :duration_months
-      t.integer :sessions_allowed
-      t.decimal :price
-      t.timestamps
-    end
-
-    # Présences
-    create_table :attendances do |t|
-      t.references :user, foreign_key: true
-      t.references :session, foreign_key: true
-      t.datetime :check_in_time
-      t.datetime :check_out_time
-      t.string :status
-      t.timestamps
-    end
-
-    # Sessions/Cours
-    create_table :sessions do |t|
-      t.string :name
-      t.datetime :start_time
-      t.datetime :end_time
-      t.integer :capacity
-      t.references :instructor, foreign_key: { to_table: :users }
-      t.timestamps
-    end
-
-    # Transactions comptables
-    create_table :accounting_entries do |t|
-      t.references :user, foreign_key: true
-      t.string :entry_type
-      t.decimal :amount
-      t.string :payment_method
-      t.references :membership, foreign_key: true, null: true
-      t.references :subscription, foreign_key: true, null: true
-      t.jsonb :metadata
-      t.timestamps
-    end
-  end
-end
-```
-
-### Modèles avec Relations Complexes
-```ruby
-# app/models/user.rb
-class User < ApplicationRecord
-  belongs_to :role
-  
-  has_many :memberships
-  has_many :subscriptions
-  has_many :plans, through: :subscriptions
-  has_many :attendances
-  has_many :attended_sessions, through: :attendances, source: :session
-  has_many :instructed_sessions, class_name: 'Session', foreign_key: 'instructor_id'
-  has_many :accounting_entries
-
-  # Validations
-  validates :email, presence: true, uniqueness: true
-  
-  # Scopes
-  scope :active_members, -> { joins(:memberships).where('memberships.end_date >= ?', Date.current) }
-  scope :with_active_subscription, -> { joins(:subscriptions).where('subscriptions.end_date >= ?', Date.current) }
-  
-  # Méthodes métier
-  def active_membership
-    memberships.where('end_date >= ?', Date.current).first
-  end
-
-  def remaining_sessions
-    current_subscription = subscriptions.where('end_date >= ?', Date.current).first
-    return 0 unless current_subscription
-    current_subscription.sessions_count - attendances.where(subscription: current_subscription).count
-  end
-end
-
-# app/models/membership.rb
-class Membership < ApplicationRecord
-  belongs_to :user
-  has_many :accounting_entries
-
-  validates :start_date, :end_date, presence: true
-  validate :end_date_after_start_date
-  
-  # Callbacks
-  after_create :create_accounting_entry
-  
-  private
-  
-  def end_date_after_start_date
-    return if end_date.blank? || start_date.blank?
-    errors.add(:end_date, "doit être après la date de début") if end_date < start_date
-  end
-
-  def create_accounting_entry
-    accounting_entries.create!(
-      user: user,
-      entry_type: 'membership_payment',
-      amount: amount_paid,
-      payment_method: 'direct_debit'
-    )
-  end
-end
-
-# app/models/session.rb
-class Session < ApplicationRecord
-  belongs_to :instructor, class_name: 'User'
-  has_many :attendances
-  has_many :attendees, through: :attendances, source: :user
-
-  validates :start_time, :end_time, :capacity, presence: true
-  validate :end_time_after_start_time
-  validate :instructor_availability
-  
-  # Scopes
-  scope :upcoming, -> { where('start_time > ?', Time.current) }
-  scope :with_available_spots, -> { 
-    left_joins(:attendances)
-      .group(:id)
-      .having('COUNT(attendances.id) < sessions.capacity')
-  }
-
-  def available_spots
-    capacity - attendances.count
-  end
-
-  private
-  
-  def instructor_availability
-    conflicting_sessions = instructor.instructed_sessions
-      .where('start_time < ? AND end_time > ?', end_time, start_time)
-    errors.add(:instructor, "n'est pas disponible sur ce créneau") if conflicting_sessions.exists?
-  end
-end
-```
-
-### Requêtes Complexes avec Active Record
-```ruby
-# Exemple de requêtes complexes
-
-# Trouver tous les utilisateurs avec leurs adhésions actives et leurs présences
-users_with_details = User.includes(:memberships, :attendances)
-                        .where('memberships.end_date >= ?', Date.current)
-                        .references(:memberships)
-
-# Statistiques de présence par mois
-monthly_stats = Attendance.select(
-  "DATE_TRUNC('month', check_in_time) as month",
-  'COUNT(DISTINCT user_id) as unique_users',
-  'COUNT(*) as total_visits'
-).group("DATE_TRUNC('month', check_in_time)")
-
-# Revenus par type d'entrée comptable
-revenue_by_type = AccountingEntry.select(
-  'entry_type',
-  'SUM(amount) as total_amount',
-  "DATE_TRUNC('month', created_at) as month"
-).group(:entry_type, "DATE_TRUNC('month', created_at)")
-```
-
-### Conseils pour les Relations Complexes
-
-1. **Utilisation des Index**
-```ruby
-# Dans les migrations
-add_index :attendances, [:user_id, :session_id]
-add_index :accounting_entries, [:entry_type, :created_at]
-add_index :memberships, [:user_id, :end_date]
-```
-
-2. **Optimisation des Requêtes**
-```ruby
-# Utiliser includes pour éviter les problèmes N+1
-@active_users = User.includes(:memberships, :subscriptions)
-                   .where(memberships: { status: 'active' })
-
-# Utiliser distinct pour éviter les doublons
-@instructors = User.joins(:instructed_sessions)
-                  .distinct
-                  .select('users.*, COUNT(sessions.id) as sessions_count')
-                  .group('users.id')
-```
-
-3. **Validation des Données**
-```ruby
-class AccountingEntry < ApplicationRecord
-  validate :valid_reference_entry
-  
-  private
-  
-  def valid_reference_entry
-    unless membership.present? ^ subscription.present? # XOR operator
-      errors.add(:base, "Doit être lié soit à une adhésion soit à un abonnement, pas les deux")
-    end
-  end
-end
-```
-
 ## 11. Guide Approfondi des Attributs et Variables
 
 ### Comprendre les Différents Types de Variables
@@ -909,181 +941,5 @@ class User < ApplicationRecord
   def full_name
     [first_name, last_name].compact.join(' ')
   end
-end
-```
-
-### Bonnes Pratiques pour les Attributs
-
-#### 1. Validation des Attributs
-```ruby
-class User < ApplicationRecord
-  # Validations simples
-  validates :email, presence: true, uniqueness: true
-  
-  # Validation conditionnelle
-  validates :phone, presence: true, if: :requires_phone?
-  
-  # Validation personnalisée
-  validate :age_must_be_valid
-  
-  private
-  
-  def age_must_be_valid
-    if age.present? && (age < 0 || age > 150)
-      errors.add(:age, "doit être entre 0 et 150")
-    end
-  end
-end
-```
-
-#### 2. Callbacks sur Attributs
-```ruby
-class User < ApplicationRecord
-  # Avant sauvegarde
-  before_save :normalize_email
-  
-  # Après modification d'attribut spécifique
-  after_update_commit :notify_email_change, if: :saved_change_to_email?
-  
-  private
-  
-  def normalize_email
-    self.email = email.downcase.strip if email.present?
-  end
-end
-```
-
-### Astuces et Pièges à Éviter
-
-#### 1. Gestion des Attributs Nil
-```ruby
-# ❌ Risqué
-def full_name
-  first_name + ' ' + last_name  # Peut lever une erreur si nil
-end
-
-# ✅ Sécurisé
-def full_name
-  [first_name, last_name].compact.join(' ')
-end
-```
-
-#### 2. Utilisation des Getters/Setters
-```ruby
-class User < ApplicationRecord
-  # ❌ Accès direct aux attributs
-  def update_status
-    self.status = 'active'
-    save
-  end
-  
-  # ✅ Utilisation de méthodes d'accès
-  def activate
-    update(status: 'active')
-  end
-end
-```
-
-## 12. Cas Pratique : Le Circographe
-
-### Modélisation Métier Spécifique
-
-#### Gestion des Adhésions et Abonnements
-- Différence entre adhérent et abonné
-- Gestion des périodes d'essai
-- Système de cartes multi-entrées
-- Forfaits spéciaux (été, trimestre, année)
-
-#### Particularités des Cours
-- Cours réguliers vs stages
-- Gestion des niveaux
-- Limitations d'âge et prérequis
-- Matériel nécessaire
-
-#### Exemple de Structure pour un Cours
-```ruby
-class Course < ApplicationRecord
-  # Types de cours
-  enum course_type: {
-    regular: 0,      # Cours régulier
-    workshop: 1,     # Stage
-    intensive: 2,    # Stage intensif
-    private: 3       # Cours particulier
-  }
-
-  # Niveaux de difficulté
-  enum level: {
-    beginner: 0,
-    intermediate: 1,
-    advanced: 2,
-    all_levels: 3
-  }
-
-  # Relations essentielles
-  belongs_to :discipline  # Aérien, Acrobatie, etc.
-  belongs_to :instructor, class_name: 'User'
-  has_many :course_registrations
-  has_many :students, through: :course_registrations, source: :user
-
-  # Validations spécifiques
-  validates :minimum_age, presence: true, if: :requires_age_check?
-  validates :maximum_participants, presence: true
-  validate :instructor_qualification
-end
-```
-
-#### Gestion des Présences
-```ruby
-class Attendance < ApplicationRecord
-  belongs_to :user
-  belongs_to :course_session
-  belongs_to :subscription, optional: true
-  belongs_to :pass, optional: true  # Pour les cartes multi-entrées
-
-  before_create :verify_access_rights
-  after_create :update_subscription_count
-
-  private
-
-  def verify_access_rights
-    return if user.can_attend?(course_session)
-    throw(:abort)
-  end
-
-  def update_subscription_count
-    subscription&.decrement_remaining_sessions!
-  end
-end
-```
-
-#### Système de Facturation
-```ruby
-class Payment < ApplicationRecord
-  belongs_to :user
-  belongs_to :payable, polymorphic: true  # Subscription, Pass, ou Membership
-
-  # Types de paiement
-  enum payment_type: {
-    subscription: 0,
-    membership: 1,
-    pass: 2,
-    workshop: 3
-  }
-
-  # Méthodes de paiement
-  enum payment_method: {
-    card: 0,
-    cash: 1,
-    transfer: 2,
-    check: 3
-  }
-
-  # Statuts de paiement
-  enum status: {
-    pending: 0,
-    completed: 1,
-    failed: 2,
-    refunded: 3
-  }
 end
 ```
