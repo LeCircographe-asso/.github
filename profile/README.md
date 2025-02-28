@@ -39,14 +39,14 @@ Notre documentation est organisée de manière hiérarchique pour faciliter la n
 
 ### 📁 [Requirements](docs/architecture/README.md)
 
-- [📁 Métier](../../requirements/1_métier/index.md) - Règles et spécifications métier
+- [📁 Métier](../..../../requirements/1_métier/index.md) - Règles et spécifications métier
 - [📁 Spécifications Techniques](docs/architecture/README.md) - Détails d'implémentation
 - [📁 User Stories](docs/architecture/README.md) - Scénarios utilisateur par domaine
 - [📁 Implémentation](docs/architecture/README.md) - Guide d'implémentation
 
 ### 📁 [Docs](docs/glossaire.md)
 
-- [📁 Architecture](../../docs/architecture/README.md) - Documentation technique
+- [📁 Architecture](../..../../docs/architecture/README.md) - Documentation technique
 - [📁 Business](docs/architecture/README.md) - Documentation métier
 - [📁 Utilisateur](docs/architecture/README.md) - Guides pour les utilisateurs finaux
 
@@ -163,9 +163,9 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
   
   - [Guide complet](/docs/utilisateur/guides/membres.md)
   - Domaines associés:
-    - [Adhésion](../../requirements/1_métier/adhesion/index.md)
-    - [Rôles](../../requirements/1_métier/roles/index.md)
-    - [Notification](../../requirements/1_métier/notification/index.md)
+    - [Adhésion](../..../../requirements/1_métier/adhesion/index.md)
+    - [Rôles](../..../../requirements/1_métier/roles/index.md)
+    - [Notification](../..../../requirements/1_métier/notification/index.md)
 </details>
 
 ### 💰 Gestion financière
@@ -175,9 +175,9 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
   
   - [Guide complet](/docs/utilisateur/guides/finances.md)
   - Domaines associés:
-    - [Paiement](../../requirements/1_métier/paiement/index.md)
-    - [Adhésion](../../requirements/1_métier/adhesion/index.md)
-    - [Cotisation](../../requirements/1_métier/cotisation/index.md)
+    - [Paiement](../..../../requirements/1_métier/paiement/index.md)
+    - [Adhésion](../..../../requirements/1_métier/adhesion/index.md)
+    - [Cotisation](../..../../requirements/1_métier/cotisation/index.md)
 </details>
 
 ### 📊 Suivi et statistiques
@@ -187,8 +187,8 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
   
   - [Guide complet](/docs/utilisateur/guides/statistiques.md)
   - Domaines associés:
-    - [Présence](../../requirements/1_métier/presence/index.md)
-    - [Paiement](../../requirements/1_métier/paiement/index.md)
+    - [Présence](../..../../requirements/1_métier/presence/index.md)
+    - [Paiement](../..../../requirements/1_métier/paiement/index.md)
 </details>
 
 ## 📝 Contribution

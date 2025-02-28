@@ -140,4 +140,4 @@ Oui, vous pouvez ajouter un don libre à tout moment lors d'un paiement à l'acc
 
 ---
 
-> Pour les spécifications techniques détaillées, consultez la [documentation source](../../requirements/1_métier/adhesion/regles.md) 
+> Pour les spécifications techniques détaillées, consultez la [documentation source](../..../../requirements/1_métier/adhesion/regles.md) 

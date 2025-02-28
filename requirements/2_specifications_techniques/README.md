@@ -13,16 +13,16 @@ Ce dossier contient les spécifications techniques essentielles de l'application
 
 ## 🔄 Relations avec les domaines métier
 
-Les spécifications techniques sont organisées pour supporter les [domaines métier](requirements/1_métier/adhesion/index.md) de l'application:
+Les spécifications techniques sont organisées pour supporter les [domaines métier](../1_métier/index.md) de l'application:
 
 | Domaine Métier | Aspects Techniques Principaux |
 |----------------|-------------------------------|
-| [Adhésion](requirements/1_métier/adhesion/index.md) | Modèles utilisateur et adhésion, workflows d'authentification |
-| [Cotisation](requirements/1_métier/adhesion/index.md) | Gestion des paiements récurrents, validité des formules |
-| [Paiement](requirements/1_métier/adhesion/index.md) | Transactions, reçus, sécurité des données financières |
-| [Présence](requirements/1_métier/adhesion/index.md) | Check-in temps réel, génération de QR codes, statistiques |
-| [Rôles](requirements/1_métier/adhesion/index.md) | Système d'autorisation, audit d'actions, permissions |
-| [Notification](requirements/1_métier/adhesion/index.md) | Système de notifications, emails, préférences utilisateur |
+| [Adhésion](../1_métier/adhesion/index.md) | Modèles utilisateur et adhésion, workflows d'authentification |
+| [Cotisation](../1_métier/cotisation/index.md) | Gestion des paiements récurrents, validité des formules |
+| [Paiement](../1_métier/paiement/index.md) | Transactions, reçus, sécurité des données financières |
+| [Présence](../1_métier/presence/index.md) | Check-in temps réel, génération de QR codes, statistiques |
+| [Rôles](../1_métier/roles/index.md) | Système d'autorisation, audit d'actions, permissions |
+| [Notification](../1_métier/notification/index.md) | Système de notifications, emails, préférences utilisateur |
 
 
 ### Diagramme de flux
@@ -131,7 +131,7 @@ La stratégie de test complète assure la fiabilité et la qualité du code:
 
 ## 🖇️ Liens vers la documentation technique approfondie
 
-- [Architecture détaillée](../..../../docs/architecture/README.md)
+- [Architecture détaillée](../..../..../../docs/architecture/README.md)
 - [Guide d'implémentation](docs/architecture/README.md)
 - [Rails 8.0.1 Guides](https://guides.rubyonrails.org/)
 - [Flowbite Components](https://flowbite.com/docs/components/)

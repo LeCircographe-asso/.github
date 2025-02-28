@@ -98,18 +98,6 @@ Un membre ne peut pas avoir deux abonnements actifs (trimestriel ou annuel) qui 
 
 ### 4.1 États possibles
 
-### Diagramme d'états
-```mermaid
-stateDiagram-v2
-  [*] --> Règles spécifiques
-  Règles spécifiques --> Création
-  Création --> En attente
-  En attente --> Active
-  Active --> Expirée
-  Expirée --> [*]
-```
-
-
 | État                  | Description                          |
 |-----------------------|--------------------------------------|
 | En attente (pending)  | Créée mais en attente de paiement    |

@@ -51,8 +51,8 @@ Critères de validation pour garantir la conformité:
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme de flux](../..../../docs/architecture/diagrams/payment_flow.md)
-- [📝 Modèle de reçu](../..../../docs/architecture/templates/payment_receipt.md)
+- [📝 Diagramme de flux](docs/architecture/diagrams/payment_flow.md)
+- [📝 Modèle de reçu](docs/architecture/templates/payment_receipt.md)
 
 ### Documentation utilisateur
 - [📘 Guide des Paiements](docs/business/regles/paiement.md) - Explication pour les administrateurs

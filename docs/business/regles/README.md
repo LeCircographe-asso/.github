@@ -46,7 +46,7 @@ Ces documents visent à:
 2. Fournir des références officielles pour les membres et bénévoles
 3. Standardiser les processus et garantir leur cohérence
 
-Pour les documents techniques détaillés, consultez le dossier [requirements/1_métier](../../requirements/1_métier/).
+Pour les documents techniques détaillés, consultez le dossier [requirements/1_métier](../..../../requirements/1_métier/).
 
 ---
 

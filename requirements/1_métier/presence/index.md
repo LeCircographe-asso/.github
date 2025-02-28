@@ -51,8 +51,8 @@ Critères de validation pour garantir la conformité:
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme de flux](../..../../docs/architecture/diagrams/check_in_flow.md)
-- [📝 Formats des rapports](../../docs/architecture/reports/attendance_reports.md)
+- [📝 Diagramme de flux](docs/architecture/diagrams/check_in_flow.md)
+- [📝 Formats des rapports](../..../../docs/architecture/reports/attendance_reports.md)
 
 ### Documentation utilisateur
 - [📘 Guide de Pointage](/docs/business/regles/pointage.md) - Procédures pour les administrateurs

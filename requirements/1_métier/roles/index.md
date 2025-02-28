@@ -51,8 +51,8 @@ Critères de validation pour garantir la conformité:
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme de permissions](../..../../docs/architecture/diagrams/roles_permissions.md)
-- [📝 Matrice d'autorisation](../../docs/architecture/matrices/authorization_matrix.md)
+- [📝 Diagramme de permissions](docs/architecture/diagrams/roles_permissions.md)
+- [📝 Matrice d'autorisation](../..../../docs/architecture/matrices/authorization_matrix.md)
 
 ### Documentation utilisateur
 - [📘 Guide des Rôles](/docs/business/regles/roles_systeme.md) - Explication pour les administrateurs

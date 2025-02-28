@@ -35,12 +35,14 @@ class BatchMermaidEnricher
       puts "\n📄 Traitement du fichier: #{file}"
       
       begin
-        enricher = MermaidEnricher.new(file, @diagram_type)
+        full_path = File.join(DOCS_ROOT, file)
+        enricher = MermaidEnricher.new(full_path, @diagram_type)
         if enricher.enrich
           @enriched_files << file
         end
       rescue => e
         puts "❌ Erreur lors de l'enrichissement du fichier #{file}: #{e.message}"
+        puts e.backtrace.join("\n")
       end
     end
     

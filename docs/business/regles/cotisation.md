@@ -154,4 +154,4 @@ Vous ne pourrez plus utiliser vos cotisations jusqu'au renouvellement de votre a
 
 ---
 
-> Pour les spécifications techniques détaillées, consultez la [documentation source](../../requirements/1_métier/cotisation/regles.md) 
+> Pour les spécifications techniques détaillées, consultez la [documentation source](../..../../requirements/1_métier/cotisation/regles.md) 

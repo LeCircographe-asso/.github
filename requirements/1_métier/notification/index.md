@@ -51,8 +51,8 @@ Critères de validation pour garantir la conformité:
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme de flux](../..../../docs/architecture/diagrams/notification_flow.md)
-- [📝 Modèles de messages](../..../../docs/architecture/templates/notification_templates.md)
+- [📝 Diagramme de flux](docs/architecture/diagrams/notification_flow.md)
+- [📝 Modèles de messages](docs/architecture/templates/notification_templates.md)
 
 ### Documentation utilisateur
 - [📘 Guide des Notifications](/docs/business/regles/notifications.md) - Configuration pour les administrateurs

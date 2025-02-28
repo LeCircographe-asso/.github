@@ -51,7 +51,7 @@ Critères de validation pour garantir la conformité:
 ## Documents liés
 
 ### Documentation technique
-- [📝 Diagramme d'états](../..../../docs/architecture/diagrams/membership_states.md)
+- [📝 Diagramme d'états](docs/architecture/diagrams/membership_states.md)
 - [📝 Spécifications API](requirements/2_specifications_techniques/api/membership_api.md)
 
 ### Documentation utilisateur

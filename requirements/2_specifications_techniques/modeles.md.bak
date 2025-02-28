@@ -535,36 +535,6 @@ end
 
 ## 🔄 Relations entre domaines
 
-### Diagramme de classes
-```mermaid
-classDiagram
-  class Adhesion {
-    +attribut
-    +méthode()
-  }
-  class AdhesionType {
-    +attribut
-    +méthode()
-  }
-  class Formule {
-    +attribut
-    +méthode()
-  }
-  class Souscription {
-    +attribut
-    +méthode()
-  }
-  class Paiement {
-    +attribut
-    +méthode()
-  }
-  Adhesion --> AdhesionType
-  AdhesionType --> Formule
-  Formule --> Souscription
-  Souscription --> Paiement
-```
-
-
 Le diagramme ci-dessous illustre les relations entre les principaux modèles des différents domaines :
 
 ```

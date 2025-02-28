@@ -65,18 +65,6 @@ Pour accéder aux entraînements réguliers, un membre doit disposer de :
 
 ## 4. Processus d'enregistrement des présences
 
-### Diagramme de flux
-```mermaid
-flowchart TD
-  A[Début] --> B[Création automatique chaque jour d'ouverture]
-  A --> B[Enregistrement obligatoire de tous les membres présents]
-  B --> C[Vérification systématique des droits d'accès]
-  C --> D[Clôture automatique à la fermeture du lieu]
-  D --> E[Création manuelle par un administrateur]
-  E --> F[Fin]
-```
-
-
 ### 4.1 Enregistrement standard
 
 1. Accueil du membre
