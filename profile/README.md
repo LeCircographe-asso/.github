@@ -22,21 +22,45 @@ Le Circographe est une application de gestion complète pour une association de 
 - [Sécurité](/docs/architecture/technical/security/README.md) - Gestion des accès
 - [Performance](/docs/architecture/technical/performance/README.md) - Optimisations
 
-### 💼 Documentation Métier
-#### États et Workflows
-- [États Utilisateur](/docs/business/states/user.md)
-- [États Adhésion](/docs/business/states/membership.md)
-- [États Paiement](/docs/business/states/payment.md)
-- [États Présence](/docs/business/states/attendance_list.md)
-- [États Rôles](/docs/business/states/roles.md)
-- [États Reçus](/docs/business/states/receipt.md)
-- [États Notifications](/docs/business/states/notification.md)
-- [États Abonnements](/docs/business/states/subscription.md)
-- [États Permanences](/docs/business/states/volunteer_shift.md)
+### 🔄 Domaines Métier Restructurés
+Notre application est organisée autour de six domaines métier clairement définis, chacun avec ses propres responsabilités :
 
+1. **[Adhésion](/docs/business/domains/adhesion/README.md)** - Gestion des adhésions Basic et Cirque
+   - Création et renouvellement d'adhésions
+   - Upgrade d'adhésion Basic vers Cirque
+   - Gestion du cycle de vie des adhésions
+
+2. **[Cotisation](/docs/business/domains/cotisation/README.md)** - Formules d'accès aux entraînements
+   - Séances uniques, cartes 10 séances
+   - Abonnements mensuels et annuels
+   - Tarifications normale et réduite
+
+3. **[Paiement](/docs/business/domains/paiement/README.md)** - Transactions financières
+   - Gestion des paiements et des reçus
+   - Traitement des dons et reçus fiscaux
+   - Rapports financiers et export comptable
+
+4. **[Présence](/docs/business/domains/presence/README.md)** - Suivi des entraînements
+   - Pointage et contrôle d'accès
+   - Statistiques de fréquentation
+   - Gestion de la capacité des créneaux
+
+5. **[Rôles](/docs/business/domains/roles/README.md)** - Gestion des accès
+   - Rôles système (permissions techniques)
+   - Rôles associatifs (fonctions au sein de l'association)
+   - Audit des actions par rôle
+
+6. **[Notification](/docs/business/domains/notification/README.md)** - Communication automatisée
+   - Rappels d'échéance et confirmations
+   - Alertes système et communications
+   - Préférences de notification personnalisées
+
+### 💼 Documentation Métier
 #### Processus Clés
 - [Check-in](/docs/business/processes/check_in.md)
 - [Paiement](/docs/business/processes/payment.md)
+- [Adhésion](/docs/business/processes/membership.md)
+- [Gestion des cotisations](/docs/business/processes/subscription.md)
 
 #### Règles et Concepts
 - [Règles Métier](/docs/business/rules/business_rules.md)
@@ -44,7 +68,7 @@ Le Circographe est une application de gestion complète pour une association de 
 - [Mapping Concepts](/docs/business/rules/concept_mapping.md)
 
 ### ✅ Validation et Tests
-- [User Stories](/docs/validation/user_stories/user_stories.md)
+- [User Stories](/docs/validation/user_stories/README.md)
 - [Traçabilité](/docs/validation/traceability/README.md)
 - [Plan de Tests](/docs/validation/test_plan.md)
 
@@ -52,21 +76,21 @@ Le Circographe est une application de gestion complète pour une association de 
 
 ### 👥 Gestion des Membres
 - [Guide Complet](/docs/business/guides/member_management.md)
-- [États Utilisateur](/docs/business/states/user.md)
-- [États Adhésion](/docs/business/states/membership.md)
-- [États Rôles](/docs/business/states/roles.md)
+- [Adhésion](/docs/business/domains/adhesion/README.md)
+- [Rôles Utilisateurs](/docs/business/domains/roles/user_roles.md)
+- [Notifications Membres](/docs/business/domains/notification/member_notifications.md)
 
 ### 💰 Gestion Financière
 - [Guide Complet](/docs/business/guides/financial_management.md)
-- [États Paiement](/docs/business/states/payment.md)
-- [États Reçus](/docs/business/states/receipt.md)
-- [Processus Paiement](/docs/business/processes/payment.md)
+- [Paiements](/docs/business/domains/paiement/payments.md)
+- [Reçus](/docs/business/domains/paiement/receipts.md)
+- [Dons](/docs/business/domains/paiement/donations.md)
 
 ### 📊 Suivi & Statistiques
 - [Guide Complet](/docs/business/guides/tracking_stats.md)
-- [États Présence](/docs/business/states/attendance_list.md)
+- [Présence](/docs/business/domains/presence/attendance.md)
 - [Check-in](/docs/business/processes/check_in.md)
-- [États Permanences](/docs/business/states/volunteer_shift.md)
+- [Rapports](/docs/business/reports/README.md)
 
 ## 🔄 Gestion des Documents
 
