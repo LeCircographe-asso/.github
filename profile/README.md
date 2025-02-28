@@ -18,12 +18,12 @@ Le Circographe est une application de gestion complète pour une association de 
 
 ## 🧭 Navigation
 
-- [📘 Guide de démarrage rapide](#guide-de-démarrage-rapide)
-- [🏛️ Structure de la documentation](#structure-de-la-documentation)
-- [🔄 Domaines métier](#domaines-métier)
-- [📋 Guides par cas d'usage](#guides-par-cas-dusage)
-- [📝 Contribution](#contribution)
-- [📞 Support](#support-et-contact)
+- [📘 Guide de démarrage rapide](#-guide-de-démarrage-rapide)
+- [🏛️ Structure de la documentation](#-structure-de-la-documentation)
+- [🔄 Domaines métier](#-domaines-métier)
+- [📋 Guides par cas d'usage](#-guides-par-cas-dusage)
+- [📝 Contribution](#-contribution)
+- [📞 Support](#-support-et-contact)
 
 ## 📘 Guide de démarrage rapide
 
