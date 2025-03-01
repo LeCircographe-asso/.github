@@ -6,21 +6,21 @@ Le domaine de notification définit les règles, les spécifications techniques 
 
 ## Contenu du dossier
 
-### [📜 Règles Métier](./regles.md)
+### [📜 Règles Métier](regles.md)
 Source de vérité définissant les règles fondamentales des notifications:
 - Types de notifications
 - Déclencheurs et conditions d'envoi
 - Contenu et formatage
 - Canaux de communication
 
-### [⚙️ Spécifications Techniques](./specs.md)
+### [⚙️ Spécifications Techniques](specs.md)
 Documentation technique pour l'implémentation:
 - Modèles de données
 - Services d'envoi
 - Templates et personnalisation
 - Gestion des files d'attente
 
-### [✅ Validation](./validation.md)
+### [✅ Validation](validation.md)
 Critères de validation pour garantir la conformité:
 - Scénarios de test par type de notification
 - Vérification de la livraison
@@ -43,10 +43,10 @@ Critères de validation pour garantir la conformité:
 
 ## Navigation
 
-- [⬅️ Retour aux domaines métier](../index.md)
-- [📜 Règles des Notifications](./regles.md)
-- [⚙️ Spécifications Techniques](./specs.md)
-- [✅ Validation](./validation.md)
+- [⬅️ Retour aux domaines métier](..)
+- [📜 Règles des Notifications](regles.md)
+- [⚙️ Spécifications Techniques](specs.md)
+- [✅ Validation](validation.md)
 
 ## Documents liés
 

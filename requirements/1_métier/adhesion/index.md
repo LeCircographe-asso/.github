@@ -62,23 +62,23 @@ Critères de validation pour garantir la conformité:
 
 Le domaine d'adhésion interagit directement avec les domaines suivants:
 
-### [Domaine Paiement](index.md)
+### [Domaine Paiement](../paiement/index.md)
 - Validation des paiements pour activer les adhésions
 - Différents tarifs selon le type d'adhésion (Basic, Cirque, tarif réduit)
 
-### [Domaine Cotisation](index.md)
+### [Domaine Cotisation](../cotisation/index.md)
 - Une adhésion Cirque valide est requise pour souscrire à une cotisation
 - L'expiration d'une adhésion peut suspendre les cotisations associées
 
-### [Domaine Présence](index.md)
+### [Domaine Présence](../presence/index.md)
 - Vérification de l'adhésion pour autoriser l'accès aux activités
 - Type d'adhésion déterminant l'accès à différents types d'événements
 
-### [Domaine Rôles](index.md)
+### [Domaine Rôles](../roles/index.md)
 - Certains rôles nécessitent un type d'adhésion spécifique
 - Gestion des droits d'accès basée sur le statut d'adhésion
 
-### [Domaine Notification](index.md)
+### [Domaine Notification](../notification/index.md)
 - Envoi de bienvenue aux nouveaux adhérents
 - Rappels avant expiration d'adhésion
 - Notifications de validation après paiement 

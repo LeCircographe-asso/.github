@@ -6,21 +6,21 @@ Le domaine de présence définit les règles, les spécifications techniques et 
 
 ## Contenu du dossier
 
-### [📜 Règles Métier](../adhesion/regles.md)
+### [📜 Règles Métier](regles.md)
 Source de vérité définissant les règles fondamentales des présences:
 - Processus de pointage (check-in/check-out)
 - Gestion des listes quotidiennes
 - Contrôle des accès
 - Calcul des statistiques
 
-### [⚙️ Spécifications Techniques](../adhesion/specs.md)
+### [⚙️ Spécifications Techniques](specs.md)
 Documentation technique pour l'implémentation:
 - Modèles de données
 - Algorithmes de validation d'accès
 - Génération des rapports
 - Système de pointage
 
-### [✅ Validation](../adhesion/validation.md)
+### [✅ Validation](validation.md)
 Critères de validation pour garantir la conformité:
 - Scénarios de test des présences
 - Cas d'utilisation spécifiques
@@ -44,19 +44,19 @@ Critères de validation pour garantir la conformité:
 ## Navigation
 
 - [⬅️ Retour aux domaines métier](..)
-- [📜 Règles de Présence](../adhesion/regles.md)
-- [⚙️ Spécifications Techniques](../adhesion/specs.md)
-- [✅ Validation](../adhesion/validation.md)
+- [📜 Règles de Présence](regles.md)
+- [⚙️ Spécifications Techniques](specs.md)
+- [✅ Validation](validation.md)
 
 ## Documents liés
 
 ### Documentation technique
 - [📝 Diagramme de flux](../../../docs/architecture/diagrams/check_in_flow.md)
-- [📝 Formats des rapports](../..../../docs/architecture/reports/attendance_reports.md)
+- [📝 Formats des rapports](../../../docs/architecture/reports/attendance_reports.md)
 
 ### Documentation utilisateur
-- [📘 Guide de Pointage](docs/business/regles/pointage.md) - Procédures pour les administrateurs
-- [📗 Guide d'Accès](docs/utilisateur/guides/acces_entrainement.md) - Guide pour les membres
+- [📘 Guide de Pointage](../../../docs/business/regles/pointage.md) - Procédures pour les administrateurs
+- [📗 Guide d'Accès](../../../docs/utilisateur/guides/acces_entrainement.md) - Guide pour les membres
 
 ## Relations avec les autres domaines
 
@@ -66,20 +66,20 @@ Le domaine de présence interagit directement avec les domaines suivants:
 - Vérification de la validité des adhésions lors de l'enregistrement des présences
 - Lien entre les membres et leurs enregistrements de présence
 
-### [Domaine Cotisation](../adhesion/index.md)
+### [Domaine Cotisation](../cotisation/index.md)
 - Utilisation des cotisations lors de l'enregistrement des présences
 - Décompte des entrées pour les carnets de séances
 - Vérification de la validité des abonnements
 
-### [Domaine Paiement](../adhesion/index.md)
+### [Domaine Paiement](../paiement/index.md)
 - Vérification des paiements pour accéder aux entraînements
 - Possibilité de paiement à l'entrée (Pass Journée)
 
-### [Domaine Rôles](../adhesion/index.md)
+### [Domaine Rôles](../roles/index.md)
 - Différents niveaux d'accès aux fonctionnalités de gestion des présences selon les rôles
 - Certains rôles peuvent valider ou modifier les listes de présence
 
-### [Domaine Notification](../adhesion/index.md)
+### [Domaine Notification](../notification/index.md)
 - Notifications de confirmation de présence aux adhérents
 - Alertes aux administrateurs en cas de problème d'accès
 - Rappels automatiques basés sur les habitudes de fréquentation 

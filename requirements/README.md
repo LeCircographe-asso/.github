@@ -136,7 +136,7 @@ end
   - [📁 Architecture](../docs/architecture/) - Schémas et diagrammes
   - [📁 Guides Métier](../docs/business/) - Documentation pour les parties prenantes
   - [📁 Guides Utilisateur](../docs/utilisateur/) - Documentation pour utilisateurs finaux
-  - [📄 Glossaire](../docs/glossaire.md) - Termes et définitions
+  - [📄 Glossaire](../docs/glossaire/glossaire.md) - Termes et définitions
 
 ---
 
