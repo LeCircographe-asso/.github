@@ -1,143 +1,125 @@
-# Le Circographe - Guide de Référence
+# Le Circographe - Spécifications et Exigences
 
-## Règles pour l'Assistant
-1. **Avant Chaque Réponse**
-   - Toujours consulter les requirements avant de suggérer une solution
-   - Vérifier la cohérence avec la documentation existante
-   - Ne jamais proposer de gems non listées
-   - Ne jamais suggérer Devise ou autres alternatives
+## Vue d'ensemble
 
-2. **Ordre de Consultation**
-   - 1️⃣ requirements/1_métier/
-   - 2️⃣ requirements/2_specifications_techniques/
-   - 3️⃣ requirements/3_user_stories/
-   - 4️⃣ requirements/4_implementation/
+Ce dossier contient l'ensemble des spécifications et exigences pour l'application Le Circographe, un système de gestion complet pour association de cirque. Ces documents définissent les règles métier, les spécifications techniques et les critères de validation qui guident le développement de l'application.
 
-> **Note Importante**: Le dossier `1_logique_metier` est deprecated. Toute la logique métier a été migrée vers `1_métier`.
+## Structure de la documentation
 
-3. **Validation Systématique**
-   - Vérifier la conformité avec l'architecture imposée
-   - Respecter l'ordre d'implémentation
-   - Assurer la cohérence des nommages
-   - Garantir la couverture de tests
+La documentation des exigences est organisée de manière hiérarchique pour faciliter la navigation et la compréhension:
 
-## Organisation de la Documentation
+### 1. [Domaines Métier](./1_métier/)
 
-La documentation du projet a été réorganisée pour plus de clarté et de cohérence :
-
-1. **Documentation Active**
-   - Les domaines métier sont organisés dans `requirements/1_métier/`
-   - La documentation utilisateur se trouve dans `docs/utilisateur/guides/`
-   - La documentation technique détaillée est dans `docs/architecture/technical/`
-
-2. **Documentation Obsolète**
-   - Des dossiers `deprecated/` ont été créés dans chaque section
-   - Ces dossiers contiennent des documents historiques qui ne sont plus à jour
-   - Ils sont conservés pour référence mais ne doivent pas être utilisés pour le développement actuel
-
-## Domaines Métier
-
-Tous les domaines métier sont désormais organisés dans `requirements/1_métier/` avec la structure suivante:
+Cette section contient les règles métier organisées par domaine fonctionnel:
 
 | Domaine | Description |
 |---------|-------------|
-| [Adhésion](./1_métier/adhesion/index.md) | Règles et processus liés aux adhésions Basic et Cirque |
-| [Cotisation](./1_métier/cotisation/index.md) | Règles pour les formules de cotisations d'accès aux entraînements |
-| [Paiement](./1_métier/paiement/index.md) | Règles pour les transactions financières et reçus |
-| [Présence](./1_métier/presence/index.md) | Gestion des présences et statistiques |
-| [Rôles](./1_métier/roles/index.md) | Gestion des rôles système et utilisateurs |
-| [Notification](./1_métier/notification/index.md) | Communication avec les membres |
+| [Adhésion](./1_métier/adhesion/index.md) | Gestion des adhésions Basic (1€/an) et Cirque (10€/an ou 7€ tarif réduit) |
+| [Cotisation](./1_métier/cotisation/index.md) | Formules d'accès aux entraînements (séances uniques, cartes, abonnements) |
+| [Paiement](./1_métier/paiement/index.md) | Gestion des transactions financières, reçus et dons |
+| [Présence](./1_métier/presence/index.md) | Pointage, contrôle d'accès et statistiques de fréquentation |
+| [Rôles](./1_métier/roles/index.md) | Gestion des permissions système et des fonctions associatives |
+| [Notification](./1_métier/notification/index.md) | Communications automatisées avec les membres |
 
-## Stack Technique Imposée
-1. **Core**
-   - Ruby 3.2.0+
-   - Rails 8.0.1
-   - SQLite3 (dev et prod)
-   - Authentification native Rails 8 (pas de Devise!)
-   - Active Storage pour fichiers
-   - Action Text pour contenus riches
+Chaque domaine est documenté selon une structure standard:
+- **regles.md** - Définition des règles fondamentales du domaine
+- **specs.md** - Spécifications techniques d'implémentation
+- **validation.md** - Critères d'acceptation et scénarios de test
 
-2. **Frontend**
-   - Tailwind CSS
-   - Flowbite Components
-   - Hotwire (Turbo + Stimulus)
-   - Importmaps (pas de Webpacker)
+### 2. [Spécifications Techniques](./2_specifications_techniques/)
 
-## Structure Projet
+Documentation détaillée sur l'implémentation technique:
+- Architecture système
+- Modèles de données
+- API et interfaces
+- Sécurité et performance
+
+### 3. [User Stories](./3_user_stories/)
+
+Scénarios utilisateur organisés par domaine et par profil:
+- Parcours membres
+- Parcours administrateurs
+- Parcours bénévoles
+
+### 4. [Implémentation](./4_implementation/)
+
+Guides d'implémentation pour les développeurs:
+- Bonnes pratiques
+- Patterns recommandés
+- Exemples de code
+
+## Architecture Technique
+
+Le Circographe est développé avec les technologies suivantes:
+
+### Core
+- Ruby 3.2.0+
+- Rails 8.0.1
+- SQLite3 (développement et production)
+- Authentification native Rails 8
+- Active Storage pour la gestion des fichiers
+- Action Text pour les contenus riches
+
+### Frontend
+- Tailwind CSS pour les styles
+- Flowbite Components pour l'interface utilisateur
+- Hotwire (Turbo + Stimulus) pour les interactions dynamiques
+- Importmaps pour la gestion des assets JavaScript
+
+### Structure du projet
+
 ```
 app/
-├── models/
-│   ├── concerns/
-│   │   └── authorizable.rb       # Gestion des rôles
-│   ├── user.rb                   # Auth native Rails 8
-│   ├── membership.rb             # STI pour basic/circus
-│   └── subscription.rb           # STI pour abonnements
-├── controllers/
-│   ├── concerns/
-│   │   └── authenticatable.rb    # Méthodes auth
+├── models/               # Modèles de données
+│   ├── concerns/         # Comportements partagés
+│   ├── user.rb           # Authentification native
+│   ├── membership.rb     # Adhésions (STI)
+│   └── subscription.rb   # Cotisations (STI)
+├── controllers/          # Contrôleurs
+│   ├── concerns/         # Comportements partagés
 │   └── application_controller.rb
-└── views/
-    ├── layouts/
-    │   └── application.html.erb  # Layout Flowbite
-    └── shared/
-        └── _navigation.html.erb  # Nav Flowbite
+└── views/                # Vues
+    ├── layouts/          # Templates principaux
+    └── shared/           # Composants partagés
 ```
 
-## Gems Autorisées
-```ruby
-source "https://rubygems.org"
-ruby "3.2.0"
+## Standards de développement
 
-gem "rails", "~> 8.0.1"
-gem "sqlite3", "~> 1.4"
-gem "puma", "~> 6.0"
-gem "redis", "~> 4.0"
-gem "sidekiq"
-gem "turbo-rails"
-gem "stimulus-rails"
-gem "tailwindcss-rails"
-gem "flowbite-rails"
-gem "image_processing" # Pour Active Storage et Pour prod storage
+Pour garantir la qualité et la maintenabilité du code:
 
-group :development, :test do
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "faker"
-end
-```
-
-## Standards à Suivre
 1. **Code**
-   - Ruby Style Guide
+   - Respect du Ruby Style Guide
    - Tests RSpec obligatoires
    - Commits conventionnels
 
 2. **Architecture**
    - MVC strict
-   - Service Objects pour logique complexe
-   - Concerns pour code partagé
-   - Pas de gems non listées
+   - Service Objects pour la logique métier complexe
+   - Concerns pour le code partagé
 
 3. **Sécurité**
-   - Auth native uniquement
-   - CSRF protection
+   - Authentification native Rails
+   - Protection CSRF
    - Strong Parameters
-   - Sanitization des inputs
+   - Sanitization des entrées utilisateur
 
-## Navigation de la Documentation
+## Navigation
 
-- [📁 Requirements](.) - Ce dossier
-  - [📁 Domaines Métier](./1_métier/) - Règles métier par domaine
-  - [📁 Spécifications Techniques](./2_specifications_techniques/) - Détails d'implémentation
-  - [📁 User Stories](./3_user_stories/) - Scénarios utilisateurs
-  - [📁 Implémentation](./4_implementation/) - Guide d'implémentation
-  - [📁 Processus](../docs/business/) - Documentation des processus métier
-- [📁 Documentation](../docs/)
-  - [📁 Architecture](../docs/architecture/) - Schémas et diagrammes
-  - [📁 Guides Métier](../docs/business/) - Documentation pour les parties prenantes
-  - [📁 Guides Utilisateur](../docs/utilisateur/) - Documentation pour utilisateurs finaux
-  - [📄 Glossaire](../docs/glossaire/glossaire.md) - Termes et définitions
+- [📁 Domaines Métier](./1_métier/) - Règles métier par domaine
+- [📁 Spécifications Techniques](./2_specifications_techniques/) - Détails d'implémentation
+- [📁 User Stories](./3_user_stories/) - Scénarios utilisateurs
+- [📁 Implémentation](./4_implementation/) - Guide d'implémentation
+- [📁 Documentation Utilisateur](../docs/utilisateur/) - Guides pour les utilisateurs finaux
+- [📁 Documentation Métier](../docs/business/) - Documentation pour les parties prenantes
+- [📁 Documentation Technique](../docs/architecture/) - Schémas et diagrammes
 
 ---
 
-*Dernière mise à jour : Février 2023* 
+<div align="center">
+  <p>
+    <a href="../profile/README.md">⬅️ Retour à l'accueil</a> | 
+    <a href="#le-circographe---spécifications-et-exigences">⬆️ Haut de page</a>
+  </p>
+</div>
+
+*Dernière mise à jour : Mars 2023* 

@@ -1,42 +1,68 @@
-# Le Circographe - Documentation
+# Le Circographe - Documentation Complète
 
 ## Vue d'ensemble
 
-Bienvenue dans la documentation du Circographe. Cette section contient toute la documentation technique, métier et utilisateur pour l'application.
+Bienvenue dans la documentation officielle du Circographe, l'application de gestion complète pour votre association de cirque. Cette documentation est organisée en plusieurs sections pour répondre aux besoins de différents publics : utilisateurs finaux, administrateurs, et équipe technique.
+
+Le Circographe vous permet de gérer efficacement tous les aspects de votre association :
+- Adhésions et cotisations des membres
+- Contrôle d'accès aux entraînements
+- Gestion financière et comptabilité
+- Communication avec les membres
+- Administration des rôles et permissions
 
 ## Structure de la documentation
 
-La documentation est organisée en plusieurs sections pour faciliter la navigation:
+Notre documentation est organisée en sections thématiques pour faciliter la navigation :
 
 ### 📁 [Architecture](./architecture/README.md)
-Documentation technique détaillée sur l'architecture du système:
-- Diagrammes et schémas
-- Décisions d'architecture
+Documentation technique détaillée pour les développeurs et administrateurs système :
+- Diagrammes et schémas d'architecture
+- Décisions techniques et leur justification
 - Guides d'installation et de déploiement
+- Procédures de maintenance
 
 ### 📁 [Business](./business/README.md)
-Documentation métier pour les parties prenantes:
-- Processus métier
-- Règles et politiques
-- Guides pour les administrateurs
+Documentation métier pour les administrateurs et responsables de l'association :
+- Processus métier détaillés
+- Règles et politiques de l'association
+- Guides pour la gestion quotidienne
+- Rapports et analyses disponibles
 
 ### 📁 [Utilisateur](./utilisateur/README.md)
-Documentation pour les utilisateurs finaux:
-- Guides d'utilisation
-- Tutoriels
-- FAQ
+Documentation pour les utilisateurs finaux de l'application :
+- Guides d'utilisation par fonctionnalité
+- Tutoriels pas à pas avec captures d'écran
+- Questions fréquemment posées
+- Résolution des problèmes courants
 
 ### 📁 [Glossaire](./glossaire/README.md)
-Définitions des termes et concepts utilisés dans l'application:
-- Terminologie métier
-- Acronymes
-- Concepts techniques
+Référence complète des termes et concepts utilisés dans l'application :
+- Terminologie métier spécifique au cirque
+- Acronymes et abréviations
+- Concepts techniques expliqués simplement
 
 ### 📁 [Images](./images/)
-Ressources visuelles utilisées dans la documentation:
-- Logos et icônes
-- Captures d'écran
-- Diagrammes
+Ressources visuelles utilisées dans la documentation :
+- Captures d'écran de l'interface
+- Diagrammes explicatifs
+- Logos et éléments graphiques
+
+## Comment utiliser cette documentation
+
+1. **Nouveaux utilisateurs** : Commencez par la [documentation utilisateur](./utilisateur/README.md) pour apprendre les bases de l'application.
+
+2. **Administrateurs** : Consultez la [documentation business](./business/README.md) pour comprendre les processus métier et les règles de gestion.
+
+3. **Équipe technique** : Référez-vous à la [documentation d'architecture](./architecture/README.md) pour les aspects techniques de l'application.
+
+4. **Recherche de termes** : Utilisez le [glossaire](./glossaire/README.md) pour comprendre la terminologie spécifique.
+
+## Dernières mises à jour
+
+- **Mars 2023** : Refonte complète de la documentation utilisateur
+- **Février 2023** : Ajout des guides d'administration des paiements
+- **Janvier 2023** : Mise à jour des diagrammes d'architecture
 
 ## Navigation
 
@@ -47,21 +73,15 @@ Ressources visuelles utilisées dans la documentation:
 - [📁 Utilisateur](./utilisateur/README.md) - Guides utilisateur
 - [📁 Glossaire](./glossaire/README.md) - Termes et définitions
 
-## Contribution à la documentation
-
-Pour contribuer à la documentation:
-1. Suivez les standards de documentation définis
-2. Utilisez le Markdown pour tous les documents
-3. Maintenez les liens entre les documents
-4. Mettez à jour le glossaire si nécessaire
-
 ---
 
 <div align="center">
   <p>
     <a href="/profile/README.md">⬅️ Retour à l'accueil</a> | 
-    <a href="#le-circographe---documentation">⬆️ Haut de page</a>
+    <a href="#le-circographe---documentation-complète">⬆️ Haut de page</a>
   </p>
   
   <p>Ce projet est sous licence MIT - voir le fichier <a href="/LICENSE.md">LICENSE.md</a> pour plus de détails.</p>
 </div>
+
+

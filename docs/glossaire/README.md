@@ -2,31 +2,52 @@
 
 ## Vue d'ensemble
 
-Ce dossier contient le glossaire des termes et concepts utilisés dans l'application Le Circographe. Le glossaire est un outil essentiel pour assurer une compréhension commune des termes métier et techniques entre tous les intervenants du projet.
+Le glossaire du Circographe est une référence complète de tous les termes, concepts et acronymes utilisés dans l'application. Il est conçu pour aider tous les utilisateurs à comprendre la terminologie spécifique à la gestion d'une association de cirque et aux fonctionnalités de l'application.
 
-## Contenu du dossier
+## Pourquoi utiliser ce glossaire?
+
+- **Clarté** : Comprenez exactement ce que signifient les termes utilisés dans l'interface et la documentation
+- **Cohérence** : Assurez-vous que tous les membres de l'association utilisent le même vocabulaire
+- **Formation** : Facilitez l'intégration des nouveaux membres et administrateurs
+- **Référence rapide** : Trouvez rapidement la définition d'un terme que vous ne comprenez pas
+
+## Contenu du glossaire
 
 ### 📄 [Glossaire Complet](./glossaire.md)
-Liste complète des termes et définitions utilisés dans l'application:
-- Terminologie métier
-- Acronymes
-- Concepts techniques
 
-## Utilisation du glossaire
+Notre glossaire complet contient plus de 100 définitions organisées par catégories:
 
-Le glossaire est organisé par ordre alphabétique et contient:
-- Le terme ou concept
-- Sa définition
-- Des références croisées vers d'autres termes liés
-- Des exemples d'utilisation lorsque pertinent
+- **Termes d'adhésion** : Basic, Cirque, renouvellement, etc.
+- **Termes de cotisation** : Séance unique, carte 10 séances, abonnement, etc.
+- **Termes financiers** : Paiement, reçu, don, reçu fiscal, etc.
+- **Termes de présence** : Pointage, créneau, capacité maximale, etc.
+- **Termes de rôles** : Membre, bénévole, administrateur, trésorier, etc.
+- **Termes techniques** : Interface, tableau de bord, notification, etc.
 
-## Contribution au glossaire
+## Comment utiliser le glossaire
 
-Pour ajouter ou modifier un terme dans le glossaire:
-1. Assurez-vous que le terme n'existe pas déjà
-2. Suivez le format établi
-3. Fournissez une définition claire et concise
-4. Ajoutez des références croisées si nécessaire
+Le glossaire est organisé de manière alphabétique pour faciliter la recherche. Chaque entrée comprend:
+
+- **Le terme** : Mot ou expression à définir
+- **La définition** : Explication claire et concise
+- **Exemples d'utilisation** : Contexte d'utilisation dans l'application
+- **Termes associés** : Références croisées vers d'autres termes liés
+
+Vous pouvez utiliser la fonction de recherche de votre navigateur (Ctrl+F ou Cmd+F) pour trouver rapidement un terme spécifique.
+
+## Exemples de termes clés
+
+| Terme | Définition simplifiée |
+|-------|------------------------|
+| Adhésion Basic | Adhésion à 1€/an donnant accès aux événements mais pas aux entraînements |
+| Adhésion Cirque | Adhésion à 10€/an (ou 7€ tarif réduit) permettant l'accès aux entraînements |
+| Cotisation | Formule d'accès aux entraînements (séance unique, carte, abonnement) |
+| Pointage | Action d'enregistrer sa présence dans le lieu |
+| Rôle système | Ensemble de permissions techniques dans l'application |
+
+## Mises à jour du glossaire
+
+Le glossaire est régulièrement mis à jour pour refléter les évolutions de l'application et les nouveaux termes utilisés. La date de dernière mise à jour est indiquée en bas du document.
 
 ## Navigation
 
@@ -43,4 +64,6 @@ Pour ajouter ou modifier un terme dans le glossaire:
     <a href="/profile/README.md">⬅️ Retour à l'accueil</a> | 
     <a href="#glossaire-du-circographe">⬆️ Haut de page</a>
   </p>
+  
+  <p>Dernière mise à jour : Mars 2023</p>
 </div> 
