@@ -1,25 +1,134 @@
-# Domaine: Cotisation
+# Domaine Cotisation
 
 ## Vue d'ensemble
-Le domaine de cotisation gère l'ensemble des processus liés aux cotisations des membres de l'association. Il définit les types de cotisations, les règles de tarification, les états et transitions, ainsi que les processus formels de création, utilisation et expiration des cotisations.
 
-## Documents de référence
-- [Règles métier](rules.md) - Définition des règles de cotisation, types, tarifs et processus
-- [Spécifications techniques](specs.md) - Implémentation technique des règles de cotisation
-- [Validation](validation.md) - Critères d'acceptation et tests pour le domaine de cotisation
+Le domaine Cotisation gère l'ensemble des contributions financières permettant aux membres de l'association d'accéder aux entraînements et activités du Circographe. Il constitue un élément central du système, assurant la gestion des différents types de cotisations, leur cycle de vie, et leur utilisation.
+
+## Fonctionnalités principales
+
+- Gestion des différents types de cotisations (Pass Journée, Carnet 10 Séances, Abonnements)
+- Suivi des entrées et de leur utilisation
+- Gestion des paiements et des paiements échelonnés
+- Contrôle des accès aux entraînements
+- Notifications automatiques (expiration, entrées restantes)
+- Génération de rapports statistiques
 
 ## Types de cotisations
-- **Pass Journée** (4€) - Accès pour une journée, une seule entrée
-- **Carnet 10 Séances** (30€) - Carnet de 10 entrées sans date d'expiration
-- **Abonnement Trimestriel** (65€) - Entrées illimitées pendant 3 mois
-- **Abonnement Annuel** (150€) - Entrées illimitées pendant 12 mois
 
-## Points clés
-1. Une adhésion Cirque valide est requise pour toute cotisation
-2. Un membre ne peut pas avoir deux abonnements actifs simultanément
-3. Les carnets n'ont pas de date d'expiration mais nécessitent une adhésion Cirque valide
-4. Les abonnements ont une priorité d'utilisation sur les carnets
-5. Des paiements échelonnés sont possibles pour les abonnements
+### Pass Journée
+- Prix : 4€
+- Validité : Jour d'achat uniquement
+- 1 entrée unique
+- Pour les pratiquants occasionnels
+
+### Carnet 10 Séances
+- Prix : 30€
+- Validité : Illimitée
+- 10 entrées
+- Pour les pratiquants réguliers
+- Cumulable avec d'autres carnets
+
+### Abonnement Trimestriel
+- Prix : 65€
+- Validité : 3 mois
+- Entrées illimitées
+- Pour les pratiquants assidus
+- Paiement échelonné possible
+
+### Abonnement Annuel
+- Prix : 150€
+- Validité : 12 mois
+- Entrées illimitées
+- Pour les pratiquants intensifs
+- Paiement échelonné possible
+
+## Documentation technique
+
+- [Règles métier](rules.md)
+- [Spécifications techniques](specs.md)
+- [Critères de validation](validation.md)
+
+## Intégrations
+
+Le domaine Cotisation interagit avec :
+
+- **Adhésion** : Vérification des prérequis d'adhésion
+- **Présence** : Gestion des entrées aux entraînements
+- **Paiement** : Traitement des paiements et remboursements
+- **Notification** : Alertes d'expiration et de renouvellement
+
+## Points d'attention
+
+### 1. Sécurité
+- Validation stricte des prérequis d'adhésion
+- Contrôle des accès selon les rôles
+- Traçabilité des opérations financières
+- Protection contre la double utilisation
+
+### 2. Performance
+- Cache des vérifications fréquentes
+- Optimisation des requêtes de validation
+- Indexation appropriée des données
+
+### 3. Fiabilité
+- Transactions atomiques pour les opérations critiques
+- Validation des états de cotisation
+- Gestion robuste des cas limites
+
+## Modèles de données principaux
+
+- `Contribution` : Gestion des cotisations
+- `Entry` : Enregistrement des entrées
+- `Payment` : Suivi des paiements
+
+## Workflows principaux
+
+### 1. Création d'une cotisation
+```mermaid
+graph TD
+    A[Demande de cotisation] --> B{Vérification adhésion}
+    B -->|Valide| C[Création cotisation]
+    C --> D[Traitement paiement]
+    D -->|Succès| E[Activation]
+    D -->|Échec| F[Annulation]
+    B -->|Invalide| G[Refus]
+```
+
+### 2. Utilisation d'une cotisation
+```mermaid
+graph TD
+    A[Demande d'entrée] --> B{Vérification cotisation}
+    B -->|Valide| C[Enregistrement entrée]
+    C --> D{Type de cotisation}
+    D -->|Carnet| E[Décrément entrées]
+    D -->|Abonnement| F[Validation simple]
+    E --> G[Mise à jour statut]
+    B -->|Invalide| H[Refus d'accès]
+```
+
+## Maintenance
+
+- Vérification quotidienne des expirations
+- Nettoyage des cotisations anciennes
+- Monitoring des anomalies d'utilisation
+- Sauvegarde des données sensibles
+
+## Bonnes pratiques
+
+1. **Création de cotisation**
+   - Vérifier l'adhésion Cirque valide
+   - Valider la compatibilité des abonnements
+   - Documenter les cas particuliers
+
+2. **Gestion des entrées**
+   - Vérifier les conditions d'accès
+   - Appliquer l'ordre de priorité correct
+   - Tracer toutes les utilisations
+
+3. **Paiements**
+   - Valider les montants exacts
+   - Sécuriser les paiements échelonnés
+   - Documenter les remboursements
 
 ## Diagramme d'états
 

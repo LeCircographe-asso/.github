@@ -1,10 +1,11 @@
 # Validation - Cotisation
 
 ## Identification du Document
-- **Domaine**: Cotisation
-- **Version**: 1.0.0
-- **Référence**: [Règles de Cotisation](./regles.md)
-- **Dernière révision**: [DATE]
+| Domaine           | Cotisation                           |
+|-------------------|--------------------------------------|
+| Version           | 1.1                                  |
+| Référence         | VALID-COT-2024-01                    |
+| Dernière révision | Mars 2024                           |
 
 ## Critères d'Acceptation
 

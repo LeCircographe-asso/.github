@@ -4,17 +4,17 @@
 
 | Domaine           | Cotisation                           |
 |-------------------|--------------------------------------|
-| Version           | 1.0                                  |
-| Référence         | SPEC-COT-2023-01                     |
-| Dernière révision | [DATE]                               |
+| Version           | 1.1                                  |
+| Référence         | SPEC-COT-2024-01                     |
+| Dernière révision | Mars 2024                           |
 
 ## Vue d'ensemble
 
 Ce document définit les spécifications techniques pour le domaine "Cotisation" du système Circographe. Il décrit le modèle de données, les validations, les API, et les détails d'implémentation nécessaires au développement des fonctionnalités de gestion des cotisations.
 
-## Modèle de données
+## 1. Modèle de données
 
-### Entité principale : `Contribution`
+### 1.1 Entité principale : `Contribution`
 
 #### Attributs
 
@@ -46,7 +46,7 @@ Ce document définit les spécifications techniques pour le domaine "Cotisation"
 | `payments`           | has_many           | Paiements liés à cette cotisation                 |
 | `cancelled_by`       | belongs_to         | Utilisateur ayant annulé la cotisation            |
 
-### Entité secondaire : `Entry`
+### 1.2 Entité secondaire : `Entry`
 
 #### Attributs
 
@@ -73,7 +73,7 @@ Ce document définit les spécifications techniques pour le domaine "Cotisation"
 | `recorded_by`        | belongs_to         | Utilisateur ayant enregistré l'entrée             |
 | `cancelled_by`       | belongs_to         | Utilisateur ayant annulé l'entrée                 |
 
-### Entité tertiaire : `Payment`
+### 1.3 Entité tertiaire : `Payment`
 
 #### Attributs
 
@@ -97,9 +97,9 @@ Ce document définit les spécifications techniques pour le domaine "Cotisation"
 | `contribution`       | belongs_to         | Cotisation associée à ce paiement                 |
 | `recorded_by`        | belongs_to         | Utilisateur ayant enregistré le paiement          |
 
-## Validations
+## 2. Implémentation
 
-### Validations du modèle `Contribution`
+### 2.1 Modèle `Contribution`
 
 ```ruby
 class Contribution < ApplicationRecord
@@ -148,9 +148,16 @@ class Contribution < ApplicationRecord
   validates :entries_left, presence: true, if: :entry_pack?
   validates :end_date, presence: true, if: :subscription?
   
-  # Validations personnalisées
-  validate :user_has_valid_cirque_membership
-  validate :no_overlapping_subscriptions, if: :subscription?
+  # Callbacks
+  before_validation :set_initial_values, on: :create
+  after_create :create_payment_record
+  after_save :check_expiration_status
+  
+  # Scopes
+  scope :active, -> { where(status: :active) }
+  scope :pending_payment, -> { where(payment_status: :pending) }
+  scope :subscriptions, -> { where(contribution_type: [:subscription_quarterly, :subscription_annual]) }
+  scope :entry_packs, -> { where(contribution_type: :entry_pack) }
   
   # Méthodes d'instance
   def subscription?
@@ -161,31 +168,90 @@ class Contribution < ApplicationRecord
     subscription? && active?
   end
   
-  # Validation personnalisée : vérifie que l'utilisateur a une adhésion Cirque valide
-  def user_has_valid_cirque_membership
-    unless user&.has_valid_cirque_membership?
-      errors.add(:user, "must have a valid Cirque membership")
+  def can_be_used?
+    active? && user.has_valid_cirque_membership? && 
+    (subscription? || (entry_pack? && entries_left.to_i > 0))
+  end
+  
+  def record_entry!(recorded_by:)
+    return false unless can_be_used?
+    
+    Entry.transaction do
+      entries.create!(
+        user: user,
+        recorded_by: recorded_by,
+        entry_date: Time.current
+      )
+      
+      if entry_pack?
+        decrement!(:entries_left)
+        update_status_if_needed
+      end
     end
   end
   
-  # Validation personnalisée : vérifie qu'il n'y a pas d'abonnement qui se chevauche
-  def no_overlapping_subscriptions
-    return unless start_date && end_date && user_id
+  def cancel!(reason:, cancelled_by:)
+    return false if cancelled?
     
-    overlapping_subscriptions = user.contributions
-                                   .where(status: :active)
-                                   .where(contribution_type: [2, 3]) # Abonnements
-                                   .where.not(id: id) # Exclure cette contribution si déjà sauvegardée
-                                   .where("start_date <= ? AND end_date >= ?", end_date, start_date)
-    
-    if overlapping_subscriptions.exists?
-      errors.add(:base, "User already has an active subscription during this period")
+    transaction do
+      update!(
+        status: :cancelled,
+        cancelled_at: Time.current,
+        cancelled_reason: reason,
+        cancelled_by: cancelled_by
+      )
+      
+      # Notify user
+      ContributionMailer.cancellation_notification(self).deliver_later
     end
+  end
+  
+  private
+  
+  def set_initial_values
+    self.status ||= :pending
+    self.payment_status ||= :pending
+    
+    if entry_pack?
+      self.entries_left = entries_count
+      self.end_date = nil
+    elsif subscription?
+      self.entries_count = nil
+      self.entries_left = nil
+      self.end_date = calculate_end_date
+    end
+  end
+  
+  def calculate_end_date
+    return unless start_date
+    case contribution_type
+    when 'subscription_quarterly'
+      start_date + 3.months
+    when 'subscription_annual'
+      start_date + 1.year
+    end
+  end
+  
+  def update_status_if_needed
+    if entry_pack? && entries_left.to_i <= 0
+      update!(status: :expired)
+    elsif subscription? && end_date <= Date.current
+      update!(status: :expired)
+    end
+  end
+  
+  def create_payment_record
+    payments.create!(
+      amount: amount,
+      payment_method: payment_method,
+      payment_date: payment_method == 'installment' ? nil : Date.current,
+      status: :pending
+    )
   end
 end
 ```
 
-### Validations du modèle `Entry`
+### 2.2 Modèle `Entry`
 
 ```ruby
 class Entry < ApplicationRecord
@@ -202,43 +268,51 @@ class Entry < ApplicationRecord
   validates :cancelled_by_id, presence: true, if: :cancelled
   validates :cancelled_at, presence: true, if: :cancelled
   
-  # Validations personnalisées
-  validate :contribution_active_at_entry_date
-  validate :user_matches_contribution_user
+  # Scopes
+  scope :active, -> { where(cancelled: false) }
+  scope :today, -> { where(entry_date: Date.current.all_day) }
+  scope :this_week, -> { where(entry_date: Date.current.beginning_of_week..Date.current.end_of_week) }
   
-  # Validation personnalisée : vérifie que la cotisation était active à la date d'entrée
-  def contribution_active_at_entry_date
-    return unless contribution && entry_date
+  # Callbacks
+  after_create :notify_low_entries_if_needed
+  after_create :update_contribution_status
+  
+  def cancel!(reason:, cancelled_by:)
+    return false if cancelled?
     
-    contrib = contribution
-    
-    # Vérifie le statut et les dates de validité
-    valid_contrib = contrib.active? &&
-                   contrib.start_date <= entry_date.to_date &&
-                   (contrib.end_date.nil? || contrib.end_date >= entry_date.to_date)
-    
-    unless valid_contrib
-      errors.add(:contribution, "was not active at entry date")
-    end
-    
-    # Pour les carnets, vérifier qu'il reste des entrées
-    if contrib.entry_pack? && (contrib.entries_left.nil? || contrib.entries_left <= 0)
-      errors.add(:contribution, "has no entries left")
+    transaction do
+      update!(
+        cancelled: true,
+        cancelled_at: Time.current,
+        cancelled_reason: reason,
+        cancelled_by: cancelled_by
+      )
+      
+      # Si c'est un carnet, on réincrémente le nombre d'entrées
+      if contribution.entry_pack?
+        contribution.increment!(:entries_left)
+      end
     end
   end
   
-  # Validation personnalisée : vérifie que l'utilisateur correspond à celui de la cotisation
-  def user_matches_contribution_user
-    return unless contribution && user
+  private
+  
+  def notify_low_entries_if_needed
+    return unless contribution.entry_pack?
     
-    unless user_id == contribution.user_id
-      errors.add(:user, "does not match the contribution user")
+    case contribution.entries_left
+    when 3, 2, 1
+      ContributionMailer.low_entries_notification(contribution).deliver_later
     end
+  end
+  
+  def update_contribution_status
+    contribution.send(:update_status_if_needed)
   end
 end
 ```
 
-### Validations du modèle `Payment`
+### 2.3 Modèle `Payment`
 
 ```ruby
 class Payment < ApplicationRecord
@@ -262,465 +336,374 @@ class Payment < ApplicationRecord
   # Validations
   validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :payment_method, presence: true
-  validates :payment_date, presence: true
+  validates :payment_date, presence: true, unless: :installment?
   validates :status, presence: true
   
   # Callbacks
-  after_save :update_contribution_payment_status
+  after_save :update_contribution_payment_status, if: :saved_change_to_status?
+  
+  # Scopes
+  scope :pending, -> { where(status: :pending) }
+  scope :completed, -> { where(status: :completed) }
+  scope :for_date, ->(date) { where(payment_date: date) }
+  
+  def mark_as_completed!(recorded_by:)
+    return false unless pending?
+    
+    transaction do
+      update!(
+        status: :completed,
+        recorded_by: recorded_by,
+        payment_date: Date.current
+      )
+      
+      # Mettre à jour le statut de la cotisation si tous les paiements sont complétés
+      contribution.update!(payment_status: :completed) if all_payments_completed?
+    end
+  end
   
   private
   
-  # Met à jour le statut de paiement de la cotisation
+  def all_payments_completed?
+    contribution.payments.all?(&:completed?)
+  end
+  
   def update_contribution_payment_status
-    contrib = contribution
-    
-    # Calcule le total payé
-    total_paid = contrib.payments.where(status: :completed).sum(:amount)
-    
-    # Détermine le statut de paiement de la cotisation
-    if total_paid >= contrib.amount
-      contrib.update(payment_status: :completed)
-    elsif contrib.payments.where(status: :failed).exists?
-      contrib.update(payment_status: :failed)
-    else
-      contrib.update(payment_status: :pending)
+    if completed?
+      contribution.update!(payment_status: :completed) if all_payments_completed?
+    elsif failed?
+      contribution.update!(payment_status: :failed)
     end
   end
 end
 ```
 
-## APIs et Services
+## 3. Services
 
-### Service de création de cotisation
+### 3.1 `ContributionService`
 
 ```ruby
-class ContributionCreationService
-  attr_reader :errors
-  
-  def initialize(user, params)
-    @user = user
-    @params = params
-    @errors = []
-  end
-  
-  def create
-    return false unless validate_prerequisites
+class ContributionService
+  def self.create_contribution(user:, type:, payment_method:, amount:, start_date: Date.current)
+    return Result.error("User must have valid Cirque membership") unless user.has_valid_cirque_membership?
     
-    ActiveRecord::Base.transaction do
-      create_contribution
-      create_payments if @contribution.persisted?
-      activate_if_payment_complete
-      
-      raise ActiveRecord::Rollback if @errors.any?
-    end
+    contribution = Contribution.new(
+      user: user,
+      contribution_type: type,
+      payment_method: payment_method,
+      amount: amount,
+      start_date: start_date
+    )
     
-    @errors.empty?
-  end
-  
-  private
-  
-  def validate_prerequisites
-    unless @user.has_valid_cirque_membership?
-      @errors << "User must have a valid Cirque membership"
-      return false
-    end
-    
-    if subscription? && has_overlapping_subscription?
-      @errors << "User already has an active subscription during this period"
-      return false
-    end
-    
-    true
-  end
-  
-  def create_contribution
-    @contribution = Contribution.new(contribution_params)
-    @contribution.user = @user
-    @contribution.start_date = Date.today
-    
-    # Configure selon le type
-    case @params[:contribution_type]
-    when 'pass_day'
-      @contribution.amount = 4
-      @contribution.end_date = Date.today
-    when 'entry_pack'
-      @contribution.amount = 30
-      @contribution.entries_count = 10
-      @contribution.entries_left = 10
-    when 'subscription_quarterly'
-      @contribution.amount = 65
-      @contribution.end_date = 3.months.from_now.to_date
-    when 'subscription_annual'
-      @contribution.amount = 150
-      @contribution.end_date = 1.year.from_now.to_date
-    end
-    
-    # Statut initial
-    @contribution.status = :pending
-    @contribution.payment_status = :pending
-    
-    unless @contribution.save
-      @errors += @contribution.errors.full_messages
-    end
-  end
-  
-  def create_payments
-    if @params[:payment_method] == 'installment'
-      create_installment_payments
+    if contribution.save
+      Result.success(contribution)
     else
-      payment = Payment.new(
-        contribution: @contribution,
-        amount: @contribution.amount,
-        payment_method: @params[:payment_method],
-        payment_date: Date.today,
-        status: @params[:payment_completed] ? :completed : :pending,
-        recorded_by_id: @params[:admin_id]
-      )
-      
-      unless payment.save
-        @errors += payment.errors.full_messages
-      end
+      Result.error(contribution.errors.full_messages.join(", "))
     end
   end
   
-  def create_installment_payments
-    return unless @contribution.amount >= 50
+  def self.record_entry(contribution:, recorded_by:)
+    return Result.error("Invalid contribution") unless contribution.can_be_used?
     
-    installments_count = @params[:installments_count] || 3
-    amount_per_installment = (@contribution.amount / installments_count).round(2)
-    
-    # Ajustement pour éviter les problèmes d'arrondi
-    last_installment_amount = @contribution.amount - (amount_per_installment * (installments_count - 1))
-    
-    (0...installments_count).each do |i|
-      payment_date = i.months.from_now.to_date
-      
-      amount = (i == installments_count - 1) ? last_installment_amount : amount_per_installment
-      
-      payment = Payment.new(
-        contribution: @contribution,
-        amount: amount,
-        payment_method: :check,
-        payment_date: payment_date,
-        status: i == 0 ? :completed : :pending,
-        reference: "Installment #{i+1}/#{installments_count}",
-        recorded_by_id: @params[:admin_id]
-      )
-      
-      unless payment.save
-        @errors += payment.errors.full_messages
-      end
+    if contribution.record_entry!(recorded_by: recorded_by)
+      Result.success(contribution.entries.last)
+    else
+      Result.error("Failed to record entry")
     end
   end
   
-  def activate_if_payment_complete
-    if @contribution.payment_status == 'completed'
-      @contribution.update(status: :active)
+  def self.cancel_contribution(contribution:, reason:, cancelled_by:)
+    if contribution.cancel!(reason: reason, cancelled_by: cancelled_by)
+      Result.success(contribution)
+    else
+      Result.error("Failed to cancel contribution")
     end
-  end
-  
-  def contribution_params
-    {
-      contribution_type: @params[:contribution_type],
-      payment_method: @params[:payment_method]
-    }
-  end
-  
-  def subscription?
-    ['subscription_quarterly', 'subscription_annual'].include?(@params[:contribution_type])
-  end
-  
-  def has_overlapping_subscription?
-    return false unless subscription?
-    
-    end_date = case @params[:contribution_type]
-               when 'subscription_quarterly'
-                 3.months.from_now.to_date
-               when 'subscription_annual'
-                 1.year.from_now.to_date
-               end
-    
-    @user.contributions
-         .where(status: :active)
-         .where(contribution_type: [2, 3]) # Abonnements
-         .where("start_date <= ? AND end_date >= ?", end_date, Date.today)
-         .exists?
   end
 end
 ```
 
-### Service d'enregistrement d'entrée
+### 3.2 `PaymentService`
 
 ```ruby
-class EntryRecordService
-  attr_reader :errors, :entry
-  
-  def initialize(user, admin)
-    @user = user
-    @admin = admin
-    @errors = []
-    @entry = nil
+class PaymentService
+  def self.process_payment(payment:, recorded_by:)
+    return Result.error("Payment already processed") if payment.completed?
+    
+    if payment.mark_as_completed!(recorded_by: recorded_by)
+      Result.success(payment)
+    else
+      Result.error("Failed to process payment")
+    end
   end
   
-  def record_entry
-    return false unless validate_user
+  def self.setup_installment_plan(contribution:, installments:)
+    return Result.error("Invalid number of installments") unless [2, 3].include?(installments.size)
     
-    contribution = find_best_contribution
-    
-    return false unless contribution
-    
-    ActiveRecord::Base.transaction do
-      @entry = Entry.new(
-        contribution: contribution,
-        user: @user,
-        recorded_by: @admin,
-        entry_date: DateTime.now,
-        cancelled: false
-      )
-      
-      unless @entry.save
-        @errors += @entry.errors.full_messages
-        raise ActiveRecord::Rollback
+    Payment.transaction do
+      installments.each do |installment|
+        contribution.payments.create!(
+          amount: installment[:amount],
+          payment_method: :check,
+          payment_date: installment[:date],
+          status: :pending
+        )
       end
-      
-      # Si c'est un carnet, décrémenter les entrées
-      if contribution.entry_pack?
-        contribution.entries_left -= 1
+    end
+    
+    Result.success(contribution)
+  rescue ActiveRecord::RecordInvalid => e
+    Result.error(e.message)
+  end
+end
+```
+
+## 4. Jobs
+
+### 4.1 `ContributionExpirationJob`
+
+```ruby
+class ContributionExpirationJob < ApplicationJob
+  queue_as :default
+  
+  def perform
+    # Expire les abonnements dépassés
+    Contribution.active.subscriptions.where("end_date < ?", Date.current).find_each do |contribution|
+      contribution.update!(status: :expired)
+      ContributionMailer.expiration_notification(contribution).deliver_later
+    end
+    
+    # Notifie les abonnements qui vont expirer dans un mois
+    expiring_soon = Contribution.active.subscriptions
+                              .where(end_date: Date.current..(Date.current + 1.month))
+    
+    expiring_soon.find_each do |contribution|
+      ContributionMailer.expiration_warning(contribution).deliver_later
+    end
+  end
+end
+```
+
+### 4.2 `InstallmentReminderJob`
+
+```ruby
+class InstallmentReminderJob < ApplicationJob
+  queue_as :default
+  
+  def perform
+    upcoming_payments = Payment.pending
+                             .where(payment_date: Date.tomorrow)
+    
+    upcoming_payments.find_each do |payment|
+      PaymentMailer.installment_reminder(payment).deliver_later
+    end
+  end
+end
+```
+
+## 5. Politiques d'accès
+
+### 5.1 `ContributionPolicy`
+
+```ruby
+class ContributionPolicy < ApplicationPolicy
+  def index?
+    user.admin? || user.volunteer?
+  end
+  
+  def show?
+    user.admin? || user.volunteer? || record.user_id == user.id
+  end
+  
+  def create?
+    user.admin? || user.volunteer?
+  end
+  
+  def cancel?
+    user.admin?
+  end
+  
+  def extend_validity?
+    user.admin?
+  end
+  
+  class Scope < Scope
+    def resolve
+      if user.admin? || user.volunteer?
+        scope.all
+      else
+        scope.where(user_id: user.id)
+      end
+    end
+  end
+end
+```
+
+### 5.2 `EntryPolicy`
+
+```ruby
+class EntryPolicy < ApplicationPolicy
+  def create?
+    user.admin? || user.volunteer?
+  end
+  
+  def cancel?
+    user.admin?
+  end
+  
+  def index?
+    user.admin? || user.volunteer?
+  end
+  
+  class Scope < Scope
+    def resolve
+      if user.admin? || user.volunteer?
+        scope.all
+      else
+        scope.where(user_id: user.id)
+      end
+    end
+  end
+end
+```
+
+## 6. Configuration
+
+### 6.1 Paramètres système
+
+```ruby
+# config/initializers/contribution_settings.rb
+
+Rails.application.config.contribution_settings = {
+  prices: {
+    pass_day: 4,
+    entry_pack: 30,
+    subscription_quarterly: 65,
+    subscription_annual: 150
+  },
+  
+  entry_pack_size: 10,
+  
+  subscription_durations: {
+    quarterly: 3.months,
+    annual: 1.year
+  },
+  
+  installment_thresholds: {
+    minimum_amount: 50,
+    maximum_installments: 3
+  },
+  
+  notifications: {
+    expiration_warning: 1.month,
+    low_entries_threshold: 3
+  }
+}
+```
+
+## 7. Intégration
+
+### 7.1 Webhooks
+
+```ruby
+# app/controllers/api/webhooks/payment_controller.rb
+
+module Api
+  module Webhooks
+    class PaymentController < ApplicationController
+      def sumup
+        payment = Payment.find_by!(reference: params[:payment_id])
         
-        unless contribution.save
-          @errors += contribution.errors.full_messages
-          raise ActiveRecord::Rollback
+        if params[:status] == "PAID"
+          PaymentService.process_payment(
+            payment: payment,
+            recorded_by: SystemUser.instance
+          )
+        else
+          payment.update!(status: :failed)
         end
         
-        # Si plus d'entrées, marquer comme expiré
-        if contribution.entries_left <= 0
-          contribution.update(status: :expired)
-        end
+        head :ok
       end
     end
-    
-    @errors.empty?
-  end
-  
-  private
-  
-  def validate_user
-    unless @user.has_valid_cirque_membership?
-      @errors << "User does not have a valid Cirque membership"
-      return false
-    end
-    
-    true
-  end
-  
-  def find_best_contribution
-    # Logique de priorité:
-    # 1. Abonnements actifs
-    # 2. Carnets avec entrées
-    # 3. Pass journée non utilisé aujourd'hui
-    
-    # Chercher un abonnement actif
-    active_subscription = @user.contributions
-                             .where(status: :active)
-                             .where("contribution_type IN (2, 3)") # Abonnements trimestriel ou annuel
-                             .where("start_date <= ?", Date.today)
-                             .where("end_date >= ?", Date.today)
-                             .first
-    
-    return active_subscription if active_subscription
-    
-    # Chercher un carnet avec entrées
-    active_pack = @user.contributions
-                      .where(status: :active)
-                      .where(contribution_type: 1) # Carnet
-                      .where("entries_left > 0")
-                      .first
-    
-    return active_pack if active_pack
-    
-    # Chercher un pass journée valide aujourd'hui
-    today_pass = @user.contributions
-                     .where(status: :active)
-                     .where(contribution_type: 0) # Pass journée
-                     .where(start_date: Date.today)
-                     .where(end_date: Date.today)
-                     .first
-    
-    return today_pass if today_pass
-    
-    # Aucune cotisation valide trouvée
-    @errors << "No valid contribution found for this user"
-    nil
   end
 end
 ```
 
-## Implémentation et contraintes techniques
+## 8. Performance
 
-### Migration pour la table `contributions`
-
-```ruby
-class CreateContributions < ActiveRecord::Migration[6.1]
-  def change
-    create_table :contributions do |t|
-      t.references :user, null: false, foreign_key: true
-      t.integer :contribution_type, null: false
-      t.integer :entries_count
-      t.integer :entries_left
-      t.date :start_date, null: false
-      t.date :end_date
-      t.integer :status, null: false, default: 0
-      t.decimal :amount, precision: 8, scale: 2, null: false
-      t.integer :payment_status, null: false, default: 0
-      t.integer :payment_method, null: false
-      t.datetime :cancelled_at
-      t.string :cancelled_reason
-      t.references :cancelled_by, foreign_key: { to_table: :users }
-
-      t.timestamps
-    end
-    
-    add_index :contributions, [:user_id, :contribution_type, :status]
-    add_index :contributions, [:start_date, :end_date]
-  end
-end
-```
-
-### Migration pour la table `entries`
+### 8.1 Indexation
 
 ```ruby
-class CreateEntries < ActiveRecord::Migration[6.1]
-  def change
-    create_table :entries do |t|
-      t.references :contribution, null: false, foreign_key: true
-      t.references :user, null: false, foreign_key: true
-      t.references :recorded_by, null: false, foreign_key: { to_table: :users }
-      t.datetime :entry_date, null: false
-      t.boolean :cancelled, null: false, default: false
-      t.datetime :cancelled_at
-      t.string :cancelled_reason
-      t.references :cancelled_by, foreign_key: { to_table: :users }
+# db/migrate/YYYYMMDDHHMMSS_add_indices_to_contributions.rb
 
-      t.timestamps
-    end
-    
-    add_index :entries, :entry_date
+class AddIndicesToContributions < ActiveRecord::Migration[7.0]
+  def change
+    add_index :contributions, [:user_id, :status]
+    add_index :contributions, [:contribution_type, :status]
+    add_index :contributions, :payment_status
+    add_index :entries, [:contribution_id, :cancelled]
     add_index :entries, [:user_id, :entry_date]
-  end
-end
-```
-
-### Migration pour la table `payments`
-
-```ruby
-class CreatePayments < ActiveRecord::Migration[6.1]
-  def change
-    create_table :payments do |t|
-      t.references :contribution, null: false, foreign_key: true
-      t.decimal :amount, precision: 8, scale: 2, null: false
-      t.integer :payment_method, null: false
-      t.date :payment_date, null: false
-      t.integer :status, null: false, default: 0
-      t.string :reference
-      t.references :recorded_by, null: false, foreign_key: { to_table: :users }
-
-      t.timestamps
-    end
-    
     add_index :payments, [:contribution_id, :status]
-    add_index :payments, :payment_date
   end
 end
 ```
 
-### Performances et considérations techniques
-
-1. **Indexation** : Des index ont été définis pour optimiser les requêtes les plus fréquentes :
-   - `user_id`, `contribution_type` et `status` pour filtrer rapidement les cotisations actives d'un utilisateur
-   - `start_date` et `end_date` pour vérifier les chevauchements d'abonnements
-   - `entry_date` pour filtrer les entrées par date
-   - `contribution_id` et `status` pour vérifier les paiements d'une cotisation
-
-2. **Transactions** : Utilisation systématique de transactions pour garantir l'intégrité des données lors des opérations complexes comme la création de cotisations avec paiements échelonnés.
-
-3. **Service objects** : Implémentation de la logique métier dans des services pour :
-   - Simplifier les contrôleurs
-   - Faciliter les tests unitaires
-   - Isoler les règles métier complexes
-   - Permettre la réutilisation du code
-
-4. **Callbacks** : Utilisation limitée des callbacks aux cas où ils sont réellement nécessaires, comme la mise à jour du statut de paiement d'une cotisation.
-
-5. **Énumérations** : Utilisation des `enum` de Rails pour les statuts et types, offrant une API plus expressive et des méthodes utilitaires.
-
-6. **Validations conditionnelles** : Application des validations uniquement lorsqu'elles sont pertinentes, par exemple `entries_count` n'est requis que pour les carnets.
-
-## Intégration
-
-### Routes API
+### 8.2 Cache
 
 ```ruby
-Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      resources :contributions, only: [:index, :show, :create] do
-        member do
-          post :cancel
-        end
-        collection do
-          get :active
-        end
-      end
-      
-      resources :entries, only: [:index, :create, :show] do
-        member do
-          post :cancel
-        end
-        collection do
-          get :today
-        end
-      end
-      
-      resources :payments, only: [:index, :create, :show, :update]
+# app/models/contribution.rb
+
+class Contribution < ApplicationRecord
+  # ...
+  
+  def entries_count_cache_key
+    "contribution/#{id}/entries_count"
+  end
+  
+  def total_entries_count
+    Rails.cache.fetch(entries_count_cache_key, expires_in: 1.hour) do
+      entries.active.count
     end
   end
+  
+  # Invalidation du cache
+  after_touch do
+    Rails.cache.delete(entries_count_cache_key)
+  end
 end
 ```
 
-### Webhook pour les notifications
+## 9. Monitoring
 
-Définition d'un endpoint pour recevoir des notifications de paiement externe :
+### 9.1 Métriques
 
 ```ruby
-post '/api/v1/payment_callback', to: 'api/v1/payments#webhook'
+# config/initializers/metrics.rb
+
+CONTRIBUTION_METRICS = [
+  {
+    name: 'contributions.created',
+    type: 'counter',
+    description: 'Number of contributions created'
+  },
+  {
+    name: 'entries.recorded',
+    type: 'counter',
+    description: 'Number of entries recorded'
+  },
+  {
+    name: 'payments.processed',
+    type: 'counter',
+    description: 'Number of payments processed'
+  }
+]
+
+# Utilisation dans les modèles
+after_create_commit do
+  METRICS.increment('contributions.created', tags: { type: contribution_type })
+end
 ```
 
-Le contrôleur implémentera la logique de vérification de la signature, de l'authentification et de la mise à jour du statut de paiement.
+## 10. Tests
 
-## Sécurité
-
-1. **Autorisations** : Utilisation de Pundit pour définir des politiques d'accès :
-   - Seuls les administrateurs peuvent créer des cotisations
-   - Seuls les administrateurs peuvent annuler une cotisation
-   - Les utilisateurs peuvent voir uniquement leurs propres cotisations
-   - Seuls les administrateurs peuvent accéder aux paiements
-
-2. **Journalisation** : Toutes les opérations administratives (création, annulation, modification) sont journalisées avec les informations de l'utilisateur qui a effectué l'action.
-
-3. **Validation des données** : Toutes les entrées utilisateur sont validées avant d'être traitées.
-
-4. **Protection CSRF** : Application des protections CSRF standard de Rails.
-
-## Aspects visuels et UI
-
-La mise en œuvre des interfaces utilisateur doit suivre les wireframes approuvés par l'équipe (non inclus dans ce document). Les vues principales à créer sont :
-
-1. Liste des cotisations actives d'un membre
-2. Formulaire de création de cotisation 
-3. Interface d'enregistrement d'entrée
-4. Tableau de bord administratif des cotisations
-5. Rapports statistiques
-
----
-
-*Document créé le [DATE] - Version 1.0* 
+Les tests unitaires et d'intégration sont essentiels. Voir le fichier de validation pour les scénarios de test détaillés. 
