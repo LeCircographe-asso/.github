@@ -24,6 +24,7 @@ Le Circographe est une application de gestion complète pour une association de 
 - [📋 Guides par cas d'usage](#-guides-par-cas-dusage)
 - [📝 Contribution](#-contribution)
 - [📞 Support](#-support-et-contact)
+- [🛠️ Guide de développement](../CONTRIBUTING.md)
 
 ## 📘 Guide de démarrage rapide
 
@@ -186,6 +187,15 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 </details>
 
 ## 📝 Contribution
+
+<div align="center">
+  <h3>🚀 Contribuer au projet</h3>
+  <p>Nous accueillons avec plaisir les contributions de la communauté !</p>
+  
+  <a href="../CONTRIBUTING.md"><strong>📖 Consulter le guide de contribution complet »</strong></a>
+</div>
+
+<br>
 
 <details>
   <summary><strong>Guide de contribution</strong></summary>
