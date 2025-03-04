@@ -1,7 +1,7 @@
 # Le Circographe - Documentation Officielle 📚
 
 <div align="center">
-  <img src="../new_docs/assets/screenshots/logo.png" alt="Logo Le Circographe" width="200"/>
+  <img src="../documentations/assets/screenshots/logo.png" alt="Logo Le Circographe" width="200"/>
   <p><i>Une application de gestion complète pour association de cirque</i></p>
   
   ![Version](https://img.shields.io/badge/version-1.3.0-blue)
@@ -29,20 +29,20 @@ Le Circographe est une application de gestion complète pour une association de 
 
 | Documentation | Description |
 |---------------|-------------|
-| [🔧 Installation](../new_docs/technical/setup.md) | Comment installer l'application |
-| [🚀 Premier pas](../new_docs/guide/README.md) | Guide de prise en main rapide |
-| [❓ FAQ](../new_docs/guide/README.md) | Questions fréquemment posées |
+| [🔧 Installation](../documentations/technical/setup.md) | Comment installer l'application |
+| [🚀 Premier pas](../documentations/guide/README.md) | Guide de prise en main rapide |
+| [❓ FAQ](../documentations/guide/README.md) | Questions fréquemment posées |
 
 ## 🏛️ Structure de la documentation
 
 Notre documentation est organisée de manière hiérarchique pour faciliter la navigation:
 
-### 📁 [Documentation Principale](../new_docs/README.md)
+### 📁 [Documentation Principale](../documentations/README.md)
 
-- [📁 Domaines Métier](../new_docs/domains/README.md) - Règles et spécifications métier par domaine
-- [📁 Documentation Technique](../new_docs/technical/README.md) - Architecture et implémentation
-- [📁 Documentation Admin](../new_docs/admin/README.md) - Guides pour administrateurs
-- [📁 Guides Utilisateur](../new_docs/guide/README.md) - Guides pour les utilisateurs finaux
+- [📁 Domaines Métier](../documentations/domains/README.md) - Règles et spécifications métier par domaine
+- [📁 Documentation Technique](../documentations/technical/README.md) - Architecture et implémentation
+- [📁 Documentation Admin](../documentations/admin/README.md) - Guides pour administrateurs
+- [📁 Guides Utilisateur](../documentations/guide/README.md) - Guides pour les utilisateurs finaux
 
 ## 🔄 Domaines métier
 
@@ -65,8 +65,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../new_docs/domains/adhesion/README.md">Spécifications</a><br>
-      <a href="../new_docs/domains/adhesion/rules.md">Règles métier</a>
+      <a href="../documentations/domains/adhesion/README.md">Spécifications</a><br>
+      <a href="../documentations/domains/adhesion/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -80,8 +80,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../new_docs/domains/cotisation/README.md">Spécifications</a><br>
-      <a href="../new_docs/domains/cotisation/rules.md">Règles métier</a>
+      <a href="../documentations/domains/cotisation/README.md">Spécifications</a><br>
+      <a href="../documentations/domains/cotisation/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -95,8 +95,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../new_docs/domains/paiement/README.md">Spécifications</a><br>
-      <a href="../new_docs/domains/paiement/rules.md">Règles métier</a>
+      <a href="../documentations/domains/paiement/README.md">Spécifications</a><br>
+      <a href="../documentations/domains/paiement/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -110,8 +110,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../new_docs/domains/presence/README.md">Spécifications</a><br>
-      <a href="../new_docs/domains/presence/rules.md">Règles métier</a>
+      <a href="../documentations/domains/presence/README.md">Spécifications</a><br>
+      <a href="../documentations/domains/presence/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -125,8 +125,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../new_docs/domains/roles/README.md">Spécifications</a><br>
-      <a href="../new_docs/domains/roles/rules.md">Règles métier</a>
+      <a href="../documentations/domains/roles/README.md">Spécifications</a><br>
+      <a href="../documentations/domains/roles/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -140,8 +140,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../new_docs/domains/notification/README.md">Spécifications</a><br>
-      <a href="../new_docs/domains/notification/rules.md">Règles métier</a>
+      <a href="../documentations/domains/notification/README.md">Spécifications</a><br>
+      <a href="../documentations/domains/notification/rules.md">Règles métier</a>
     </td>
   </tr>
 </table>
@@ -155,11 +155,11 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](../new_docs/guide/admin/member_management.md)
+  - [Guide complet](../documentations/guide/admin/member_management.md)
   - Domaines associés:
-    - [Adhésion](../new_docs/domains/adhesion/README.md)
-    - [Rôles](../new_docs/domains/roles/README.md)
-    - [Notification](../new_docs/domains/notification/README.md)
+    - [Adhésion](../documentations/domains/adhesion/README.md)
+    - [Rôles](../documentations/domains/roles/README.md)
+    - [Notification](../documentations/domains/notification/README.md)
 </details>
 
 ### 💰 Gestion financière
@@ -167,11 +167,11 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](../new_docs/guide/admin/financial_management.md)
+  - [Guide complet](../documentations/guide/admin/financial_management.md)
   - Domaines associés:
-    - [Paiement](../new_docs/domains/paiement/README.md)
-    - [Adhésion](../new_docs/domains/adhesion/README.md)
-    - [Cotisation](../new_docs/domains/cotisation/README.md)
+    - [Paiement](../documentations/domains/paiement/README.md)
+    - [Adhésion](../documentations/domains/adhesion/README.md)
+    - [Cotisation](../documentations/domains/cotisation/README.md)
 </details>
 
 ### 📊 Suivi et statistiques
@@ -179,10 +179,10 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](../new_docs/guide/admin/reporting.md)
+  - [Guide complet](../documentations/guide/admin/reporting.md)
   - Domaines associés:
-    - [Présence](../new_docs/domains/presence/README.md)
-    - [Paiement](../new_docs/domains/paiement/README.md)
+    - [Présence](../documentations/domains/presence/README.md)
+    - [Paiement](../documentations/domains/paiement/README.md)
 </details>
 
 ## 📝 Contribution
