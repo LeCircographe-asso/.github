@@ -19,7 +19,7 @@ Ce document détaille les spécifications techniques pour l'implémentation du s
 #### Attributs
 | Attribut         | Type      | Description                                    | Contraintes                 |
 |------------------|-----------|------------------------------------------------|----------------------------|
-| id               | Integer   | Identifiant unique                             | PK, Auto-increment         |
+| id               | Integer   | Identifiant unique                             | Géré automatiquement par Rails |
 | user_id          | Integer   | Référence à l'utilisateur                      | FK, Not Null              |
 | role_type        | Enum      | Type de rôle                                   | Not Null                  |
 | active           | Boolean   | Statut actif du rôle                           | Default: true             |
@@ -109,7 +109,7 @@ end
 #### Attributs
 | Attribut         | Type      | Description                                    | Contraintes                 |
 |------------------|-----------|------------------------------------------------|----------------------------|
-| id               | Integer   | Identifiant unique                             | PK, Auto-increment         |
+| id               | Integer   | Identifiant unique                             | Géré automatiquement par Rails |
 | user_id          | Integer   | Référence à l'utilisateur concerné             | FK, Not Null              |
 | role_id          | Integer   | Référence au rôle concerné                     | FK, Nullable              |
 | role_type        | String    | Type de rôle (copie pour historique)           | Nullable                  |

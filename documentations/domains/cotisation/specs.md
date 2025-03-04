@@ -20,22 +20,17 @@ Ce document définit les spécifications techniques pour le domaine "Cotisation"
 
 | Attribut             | Type               | Description                                       | Nullable |
 |----------------------|--------------------|---------------------------------------------------|----------|
-| `id`                 | Integer            | Identifiant unique (clé primaire)                 | Non      |
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
 | `user_id`            | Integer            | Référence à l'utilisateur (clé étrangère)         | Non      |
-| `contribution_type`  | Enum               | Type de cotisation (pass_day, entry_pack, subscription_quarterly, subscription_annual) | Non |
-| `entries_count`      | Integer            | Nombre d'entrées pour les carnets                 | Oui      |
-| `entries_left`       | Integer            | Nombre d'entrées restantes pour les carnets       | Oui      |
+| `formula`            | Enum               | Formule (single, card_10, monthly, annual)        | Non      |
+| `rate_type`          | Enum               | Type de tarif (normal, reduced)                   | Non      |
 | `start_date`         | Date               | Date de début de validité                         | Non      |
-| `end_date`           | Date               | Date de fin de validité                           | Oui      |
+| `end_date`           | Date               | Date de fin de validité                           | Non      |
 | `status`             | Enum               | Statut (pending, active, expired, cancelled)      | Non      |
-| `amount`             | Decimal            | Montant payé                                      | Non      |
-| `payment_status`     | Enum               | Statut du paiement (pending, completed, failed)   | Non      |
-| `payment_method`     | Enum               | Méthode de paiement (cash, card, check, installment) | Non   |
-| `created_at`         | DateTime           | Date et heure de création                         | Non      |
-| `updated_at`         | DateTime           | Date et heure de dernière modification            | Non      |
-| `cancelled_at`       | DateTime           | Date et heure d'annulation                        | Oui      |
-| `cancelled_reason`   | String             | Motif d'annulation                                | Oui      |
-| `cancelled_by_id`    | Integer            | ID de l'administrateur ayant annulé               | Oui      |
+| `remaining_entries`  | Integer            | Entrées restantes (pour card_10)                  | Oui      |
+| `payment_id`         | Integer            | Référence au paiement (clé étrangère)             | Oui      |
+| `created_at`         | DateTime           | Date de création                                  | Non      |
+| `updated_at`         | DateTime           | Date de dernière mise à jour                      | Non      |
 
 #### Associations
 
@@ -46,13 +41,43 @@ Ce document définit les spécifications techniques pour le domaine "Cotisation"
 | `payments`           | has_many           | Paiements liés à cette cotisation                 |
 | `cancelled_by`       | belongs_to         | Utilisateur ayant annulé la cotisation            |
 
-### 1.2 Entité secondaire : `Entry`
+### 1.2 Entité secondaire : `ContributionType`
 
 #### Attributs
 
 | Attribut             | Type               | Description                                       | Nullable |
 |----------------------|--------------------|---------------------------------------------------|----------|
-| `id`                 | Integer            | Identifiant unique (clé primaire)                 | Non      |
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
+| `name`               | String             | Nom du type de cotisation                         | Non      |
+| `code`               | String             | Code unique du type de cotisation                 | Non      |
+| `description`        | Text               | Description détaillée                             | Oui      |
+| `duration_days`      | Integer            | Durée en jours (null = illimité)                  | Oui      |
+| `entries_count`      | Integer            | Nombre d'entrées (null = illimité)                | Oui      |
+| `active`             | Boolean            | Si le type est actif                              | Non      |
+| `created_at`         | DateTime           | Date de création                                  | Non      |
+| `updated_at`         | DateTime           | Date de dernière mise à jour                      | Non      |
+
+### 1.3 Entité secondaire : `ContributionRate`
+
+#### Attributs
+
+| Attribut             | Type               | Description                                       | Nullable |
+|----------------------|--------------------|---------------------------------------------------|----------|
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
+| `contribution_type_id` | Integer          | Référence au type de cotisation (clé étrangère)   | Non      |
+| `rate_type`          | Enum               | Type de tarif (normal, reduced)                   | Non      |
+| `amount`             | Decimal            | Montant du tarif                                  | Non      |
+| `active`             | Boolean            | Si le tarif est actif                             | Non      |
+| `created_at`         | DateTime           | Date de création                                  | Non      |
+| `updated_at`         | DateTime           | Date de dernière mise à jour                      | Non      |
+
+### 1.4 Entité tertiaire : `Entry`
+
+#### Attributs
+
+| Attribut             | Type               | Description                                       | Nullable |
+|----------------------|--------------------|---------------------------------------------------|----------|
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
 | `contribution_id`    | Integer            | Référence à la cotisation (clé étrangère)         | Non      |
 | `user_id`            | Integer            | Référence à l'utilisateur (clé étrangère)         | Non      |
 | `recorded_by_id`     | Integer            | Admin/bénévole ayant enregistré l'entrée          | Non      |
@@ -73,22 +98,22 @@ Ce document définit les spécifications techniques pour le domaine "Cotisation"
 | `recorded_by`        | belongs_to         | Utilisateur ayant enregistré l'entrée             |
 | `cancelled_by`       | belongs_to         | Utilisateur ayant annulé l'entrée                 |
 
-### 1.3 Entité tertiaire : `Payment`
+### 1.5 Entité tertiaire : `Payment`
 
 #### Attributs
 
 | Attribut             | Type               | Description                                       | Nullable |
 |----------------------|--------------------|---------------------------------------------------|----------|
-| `id`                 | Integer            | Identifiant unique (clé primaire)                 | Non      |
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
 | `contribution_id`    | Integer            | Référence à la cotisation (clé étrangère)         | Non      |
 | `amount`             | Decimal            | Montant du paiement                               | Non      |
 | `payment_method`     | Enum               | Méthode de paiement                               | Non      |
-| `payment_date`       | Date               | Date du paiement ou d'encaissement                | Non      |
-| `status`             | Enum               | Statut (pending, completed, failed)               | Non      |
+| `payment_date`       | Date               | Date du paiement                                  | Non      |
+| `status`             | Enum               | Statut du paiement                                | Non      |
 | `reference`          | String             | Référence du paiement                             | Oui      |
 | `recorded_by_id`     | Integer            | Admin ayant enregistré le paiement                | Non      |
-| `created_at`         | DateTime           | Date et heure de création                         | Non      |
-| `updated_at`         | DateTime           | Date et heure de dernière modification            | Non      |
+| `created_at`         | DateTime           | Date de création                                  | Non      |
+| `updated_at`         | DateTime           | Date de dernière mise à jour                      | Non      |
 
 #### Associations
 

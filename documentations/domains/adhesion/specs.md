@@ -13,7 +13,7 @@
 #### Attributs
 | Attribut | Type | Description | Contraintes |
 |----------|------|-------------|-------------|
-| id | Integer | Identifiant unique | Primary Key, Auto-increment |
+| id | Integer | Identifiant unique | Géré automatiquement par Rails |
 | user_id | Integer | Référence à l'utilisateur | Foreign Key, Not Null |
 | membership_type | Enum | Type d'adhésion (basic, cirque) | Not Null |
 | start_date | Date | Date de début de validité | Not Null |

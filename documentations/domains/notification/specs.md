@@ -16,23 +16,22 @@ Ce document définit les spécifications techniques pour l'implémentation du sy
 
 ### 1.1 Modèle `Notification`
 
-#### Attributs principaux
-| Attribut        | Type           | Description                                                      | Contraintes                 |
-|-----------------|----------------|------------------------------------------------------------------|----------------------------|
-| id              | Integer        | Identifiant unique                                               | PK, Auto-increment         |
-| user_id         | Integer        | Destinataire de la notification                                  | FK, Not Null              |
-| title           | String         | Titre court de la notification                                   | Not Null, Max 100 chars   |
-| content         | Text           | Contenu détaillé                                                 | Not Null                  |
-| notification_type | Enum         | Type de notification (adhésion, cotisation, paiement, etc.)      | Not Null                  |
-| importance_level | Enum         | Niveau d'importance (critique, important, informatif, optionnel) | Not Null                  |
-| source_type     | Enum          | Source (système, administratif, événementiel, communautaire)     | Not Null                  |
-| reference_id    | Integer       | ID de l'objet lié (adhésion, cotisation, etc.)                  | Nullable                  |
-| reference_type  | String        | Type de l'objet lié                                             | Nullable                  |
-| action_url      | String        | URL d'action suggérée                                           | Nullable                  |
-| action_text     | String        | Texte du bouton d'action                                        | Nullable                  |
-| expiration_date | DateTime      | Date d'expiration de la notification                            | Nullable                  |
-| created_at      | DateTime      | Date de création                                                | Not Null, Default: now    |
-| updated_at      | DateTime      | Date de dernière modification                                   | Not Null, Default: now    |
+#### Attributs
+
+| Attribut         | Type           | Description                                               | Contraintes                |
+|------------------|----------------|-----------------------------------------------------------|----------------------------|
+| id              | Integer        | Identifiant unique                                        | Géré automatiquement par Rails |
+| user_id         | Integer        | Référence à l'utilisateur destinataire                    | FK, Not Null              |
+| title           | String         | Titre de la notification                                  | Not Null                  |
+| content         | Text           | Contenu de la notification                                | Not Null                  |
+| notification_type| Enum          | Type de notification (system, membership, contribution, payment, attendance) | Not Null |
+| read            | Boolean        | Si la notification a été lue                              | Not Null, Default: false  |
+| read_at         | DateTime       | Date et heure de lecture                                  | Nullable                  |
+| source_id       | Integer        | ID de l'objet source (polymorphique)                      | Nullable                  |
+| source_type     | String         | Type de l'objet source                                    | Nullable                  |
+| action_url      | String         | URL d'action associée                                     | Nullable                  |
+| created_at      | DateTime       | Date et heure de création                                 | Not Null                  |
+| updated_at      | DateTime       | Date et heure de dernière modification                    | Not Null                  |
 
 #### Implémentation
 ```ruby
@@ -90,7 +89,7 @@ end
 #### Attributs principaux
 | Attribut        | Type           | Description                                      | Contraintes                 |
 |-----------------|----------------|--------------------------------------------------|----------------------------|
-| id              | Integer        | Identifiant unique                               | PK, Auto-increment         |
+| id              | Integer        | Identifiant unique                               | Géré automatiquement par Rails |
 | notification_id | Integer        | Référence à la notification                      | FK, Not Null              |
 | channel         | Enum           | Canal utilisé (email, push)                      | Not Null                  |
 | status          | Enum           | Statut de l'envoi                                | Not Null, Default: pending |
@@ -154,20 +153,35 @@ class NotificationDelivery < ApplicationRecord
 end
 ```
 
-### 1.3 Modèle `NotificationPreference`
+### 1.3 Modèle `NotificationTemplate`
 
-#### Attributs principaux
-| Attribut            | Type           | Description                                      | Contraintes                 |
-|---------------------|----------------|--------------------------------------------------|----------------------------|
-| id                  | Integer        | Identifiant unique                               | PK, Auto-increment         |
-| user_id             | Integer        | Référence à l'utilisateur                        | FK, Not Null              |
-| notification_type   | Enum           | Type de notification                             | Not Null                  |
-| email_enabled       | Boolean        | Activation des emails                            | Not Null, Default: true   |
-| push_enabled        | Boolean        | Activation des notifications push                | Not Null, Default: true   |
-| quiet_hours_start   | Time           | Début des heures de silence                      | Nullable                  |
-| quiet_hours_end     | Time           | Fin des heures de silence                        | Nullable                  |
-| created_at          | DateTime       | Date de création                                 | Not Null, Default: now   |
-| updated_at          | DateTime       | Date de dernière modification                    | Not Null, Default: now   |
+#### Attributs
+
+| Attribut         | Type           | Description                                               | Contraintes                |
+|------------------|----------------|-----------------------------------------------------------|----------------------------|
+| id              | Integer        | Identifiant unique                               | Géré automatiquement par Rails |
+| name            | String         | Nom unique du modèle                             | Not Null, Unique           |
+| title_template  | String         | Modèle pour le titre                             | Not Null                  |
+| content_template| Text           | Modèle pour le contenu                           | Not Null                  |
+| notification_type| Enum          | Type de notification                             | Not Null                  |
+| active          | Boolean        | Si le modèle est actif                           | Not Null, Default: true   |
+| created_at      | DateTime       | Date et heure de création                        | Not Null                  |
+| updated_at      | DateTime       | Date et heure de dernière modification           | Not Null                  |
+
+### 1.4 Modèle `NotificationPreference`
+
+#### Attributs
+
+| Attribut             | Type           | Description                               | Contraintes                |
+|----------------------|----------------|-------------------------------------------|----------------------------|
+| id                  | Integer        | Identifiant unique                        | Géré automatiquement par Rails |
+| user_id             | Integer        | Référence à l'utilisateur                 | FK, Not Null              |
+| notification_type   | Enum           | Type de notification                      | Not Null                  |
+| email_enabled       | Boolean        | Notifications par email activées          | Not Null, Default: true   |
+| push_enabled        | Boolean        | Notifications push activées               | Not Null, Default: true   |
+| in_app_enabled      | Boolean        | Notifications in-app activées             | Not Null, Default: true   |
+| created_at          | DateTime       | Date et heure de création                 | Not Null                  |
+| updated_at          | DateTime       | Date et heure de dernière modification    | Not Null                  |
 
 #### Implémentation
 ```ruby

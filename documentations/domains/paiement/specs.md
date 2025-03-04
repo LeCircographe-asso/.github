@@ -20,7 +20,7 @@ Ce document définit les spécifications techniques pour le domaine "Paiement" d
 
 | Attribut             | Type               | Description                                       | Nullable |
 |----------------------|--------------------|---------------------------------------------------|----------|
-| `id`                 | Integer            | Identifiant unique (clé primaire)                 | Non      |
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
 | `user_id`            | Integer            | Référence à l'utilisateur (clé étrangère)         | Non      |
 | `payable_id`         | Integer            | ID de l'élément payé (polymorphique)              | Non      |
 | `payable_type`       | String             | Type de l'élément payé (Membership/Contribution)  | Non      |
@@ -59,7 +59,7 @@ Ce document définit les spécifications techniques pour le domaine "Paiement" d
 
 | Attribut             | Type               | Description                                       | Nullable |
 |----------------------|--------------------|---------------------------------------------------|----------|
-| `id`                 | Integer            | Identifiant unique (clé primaire)                 | Non      |
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
 | `payment_id`         | Integer            | Référence au paiement principal                   | Non      |
 | `amount`             | Decimal            | Montant du versement                              | Non      |
 | `due_date`           | Date               | Date d'échéance                                   | Non      |
@@ -77,7 +77,7 @@ Ce document définit les spécifications techniques pour le domaine "Paiement" d
 
 | Attribut             | Type               | Description                                       | Nullable |
 |----------------------|--------------------|---------------------------------------------------|----------|
-| `id`                 | Integer            | Identifiant unique (clé primaire)                 | Non      |
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
 | `payment_id`         | Integer            | Référence au paiement                             | Non      |
 | `receipt_number`     | String             | Numéro unique du reçu                             | Non      |
 | `receipt_type`       | Enum               | Type (standard, fiscal, installment_plan)         | Non      |
@@ -90,6 +90,54 @@ Ce document définit les spécifications techniques pour le domaine "Paiement" d
 | `created_by_id`      | Integer            | Administrateur ayant créé le reçu                 | Non      |
 | `created_at`         | DateTime           | Date et heure de création                         | Non      |
 | `updated_at`         | DateTime           | Date et heure de dernière modification            | Non      |
+
+### Entité secondaire : `Invoice`
+
+#### Attributs
+
+| Attribut             | Type               | Description                                       | Nullable |
+|----------------------|--------------------|---------------------------------------------------|----------|
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
+| `user_id`            | Integer            | Référence à l'utilisateur (clé étrangère)         | Non      |
+| `invoice_number`     | String             | Numéro de facture unique                          | Non      |
+| `total_amount`       | Decimal            | Montant total                                     | Non      |
+| `tax_amount`         | Decimal            | Montant des taxes                                 | Non      |
+| `status`             | Enum               | Statut (draft, sent, paid, cancelled)             | Non      |
+| `issue_date`         | Date               | Date d'émission                                   | Non      |
+| `due_date`           | Date               | Date d'échéance                                   | Non      |
+| `notes`              | Text               | Notes additionnelles                              | Oui      |
+| `created_at`         | DateTime           | Date de création                                  | Non      |
+| `updated_at`         | DateTime           | Date de dernière mise à jour                      | Non      |
+
+### Entité tertiaire : `InvoiceItem`
+
+#### Attributs
+
+| Attribut             | Type               | Description                                       | Nullable |
+|----------------------|--------------------|---------------------------------------------------|----------|
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
+| `invoice_id`         | Integer            | Référence à la facture (clé étrangère)            | Non      |
+| `description`        | String             | Description de l'élément                          | Non      |
+| `quantity`           | Integer            | Quantité                                          | Non      |
+| `unit_price`         | Decimal            | Prix unitaire                                     | Non      |
+| `tax_rate`           | Decimal            | Taux de taxe                                      | Non      |
+| `total_price`        | Decimal            | Prix total                                        | Non      |
+| `created_at`         | DateTime           | Date de création                                  | Non      |
+| `updated_at`         | DateTime           | Date de dernière mise à jour                      | Non      |
+
+### Entité tertiaire : `PaymentMethod`
+
+#### Attributs
+
+| Attribut             | Type               | Description                                       | Nullable |
+|----------------------|--------------------|---------------------------------------------------|----------|
+| `id`                 | Integer            | Identifiant unique (géré automatiquement par Rails) | Non      |
+| `name`               | String             | Nom de la méthode de paiement                     | Non      |
+| `code`               | String             | Code unique de la méthode                         | Non      |
+| `description`        | Text               | Description détaillée                             | Oui      |
+| `active`             | Boolean            | Si la méthode est active                          | Non      |
+| `created_at`         | DateTime           | Date de création                                  | Non      |
+| `updated_at`         | DateTime           | Date de dernière mise à jour                      | Non      |
 
 ## Validations
 

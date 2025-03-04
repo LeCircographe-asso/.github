@@ -27,8 +27,8 @@ Le système implémente trois niveaux de validation :
 
 ### Identifiants
 
-- **Format** : UUID v4 (pour les identifiants externes), entiers auto-incrémentés (pour les clés primaires)
-- **Unicité** : Garantie par des contraintes de base de données
+- **Format** : Gérés automatiquement par Rails (champ `id` auto-incrémenté par défaut), UUID v4 pour les identifiants externes si nécessaire
+- **Unicité** : Garantie automatiquement par ActiveRecord
 - **Immuabilité** : Les identifiants ne doivent jamais être modifiés après création
 
 ### Chaînes de caractères
