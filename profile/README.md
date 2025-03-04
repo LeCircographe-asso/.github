@@ -190,11 +190,13 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Guide de contribution</strong></summary>
   
-  1. Fork le projet
-  2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-  3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-  4. Push vers la branche (`git push origin feature/AmazingFeature`)
-  5. Ouvrir une Pull Request
+  Pour contribuer au projet, veuillez consulter notre [guide de contribution détaillé](../CONTRIBUTING.md) qui explique:
+  
+  1. Le workflow Git à suivre
+  2. Les conventions de nommage des branches
+  3. Les conventions de commit
+  4. Le processus de revue de code
+  5. Les standards de test
 </details>
 
 <details>
