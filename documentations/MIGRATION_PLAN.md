@@ -5,7 +5,7 @@ Ce document détaille le plan pour migrer le contenu existant vers la nouvelle s
 ## Vue d'ensemble de la nouvelle structure
 
 ```
-/new_docs/
+/documentations/
 ├── README.md                     # Point d'entrée principal avec navigation claire
 ├── domains/                      # Documentation des domaines métier
 │   ├── adhesion/                 # Chaque domaine a son propre dossier
@@ -44,22 +44,22 @@ Ce document détaille le plan pour migrer le contenu existant vers la nouvelle s
 
 | Contenu existant | Nouvelle destination | Priorité | Statut |
 |------------------|----------------------|----------|--------|
-| `requirements/README.md` | `new_docs/README.md` | Haute | ✅ |
-| `requirements/1_métier/index.md` | `new_docs/domains/README.md` | Haute | ❌ |
-| `requirements/1_métier/adhesion/regles.md` | `new_docs/domains/adhesion/rules.md` | Haute | ✅ |
-| `requirements/1_métier/adhesion/specs.md` | `new_docs/domains/adhesion/specs.md` | Haute | ✅ |
-| `requirements/1_métier/adhesion/validation.md` | `new_docs/domains/adhesion/validation.md` | Haute | ✅ |
-| `requirements/1_métier/cotisation/regles.md` | `new_docs/domains/cotisation/rules.md` | Haute | ✅ |
-| `requirements/1_métier/cotisation/specs.md` | `new_docs/domains/cotisation/specs.md` | Haute | ✅ |
-| `requirements/1_métier/cotisation/validation.md` | `new_docs/domains/cotisation/validation.md` | Haute | ✅ |
-| `requirements/2_specifications_techniques/*` | `new_docs/technical/*.md` | Haute | ❌ |
-| `requirements/4_implementation/*` | `new_docs/technical/*.md` | Haute | ❌ |
-| `docs/architecture/*` | `new_docs/technical/*.md` | Haute | ❌ |
-| `docs/glossaire/README.md` | `new_docs/glossary.md` | Moyenne | ✅ |
-| `docs/utilisateur/README.md` | `new_docs/guide/README.md` | Basse | ❌ |
-| `docs/utilisateur/guides/*_admin.md` | `new_docs/guide/admin/*.md` | Basse | ❌ |
-| `docs/utilisateur/guides/*_membre.md` | `new_docs/guide/member/*.md` | Basse | ❌ |
-| `docs/images/*` | `new_docs/assets/screenshots/*` | Moyenne | ❌ |
+| `requirements/README.md` | `documentations/README.md` | Haute | ✅ |
+| `requirements/1_métier/index.md` | `documentations/domains/README.md` | Haute | ❌ |
+| `requirements/1_métier/adhesion/regles.md` | `documentations/domains/adhesion/rules.md` | Haute | ✅ |
+| `requirements/1_métier/adhesion/specs.md` | `documentations/domains/adhesion/specs.md` | Haute | ✅ |
+| `requirements/1_métier/adhesion/validation.md` | `documentations/domains/adhesion/validation.md` | Haute | ✅ |
+| `requirements/1_métier/cotisation/regles.md` | `documentations/domains/cotisation/rules.md` | Haute | ✅ |
+| `requirements/1_métier/cotisation/specs.md` | `documentations/domains/cotisation/specs.md` | Haute | ✅ |
+| `requirements/1_métier/cotisation/validation.md` | `documentations/domains/cotisation/validation.md` | Haute | ✅ |
+| `requirements/2_specifications_techniques/*` | `documentations/technical/*.md` | Haute | ❌ |
+| `requirements/4_implementation/*` | `documentations/technical/*.md` | Haute | ❌ |
+| `docs/architecture/*` | `documentations/technical/*.md` | Haute | ❌ |
+| `docs/glossaire/README.md` | `documentations/glossary.md` | Moyenne | ✅ |
+| `docs/utilisateur/README.md` | `documentations/guide/README.md` | Basse | ❌ |
+| `docs/utilisateur/guides/*_admin.md` | `documentations/guide/admin/*.md` | Basse | ❌ |
+| `docs/utilisateur/guides/*_membre.md` | `documentations/guide/member/*.md` | Basse | ❌ |
+| `docs/images/*` | `documentations/assets/screenshots/*` | Moyenne | ❌ |
 
 ## Étapes de migration
 
@@ -77,19 +77,19 @@ Ce document détaille le plan pour migrer le contenu existant vers la nouvelle s
 
 1. **Migrer la documentation technique**
    ```bash
-   cp docs/architecture/* new_docs/technical/
-   cp requirements/2_specifications_techniques/* new_docs/technical/
-   cp requirements/4_implementation/* new_docs/technical/
+   cp docs/architecture/* documentations/technical/
+   cp requirements/2_specifications_techniques/* documentations/technical/
+   cp requirements/4_implementation/* documentations/technical/
    ```
 
 2. **Créer/Mettre à jour le README.md technique**
-   - Utiliser le modèle de `new_docs/technical/README.md`
+   - Utiliser le modèle de `documentations/technical/README.md`
    - Intégrer les informations techniques existantes
 
 3. **Migrer les règles métier globales**
    ```bash
    # Créer à partir des règles existantes
-   touch new_docs/admin/business_rules.md
+   touch documentations/admin/business_rules.md
    ```
 
 ### Phase 3: Migration des domaines métier (Priorité Haute)
@@ -98,33 +98,33 @@ Pour chaque domaine métier (adhésion, cotisation, paiement, présence, rôles,
 
 1. **Migrer les règles métier** ✅ (Adhésion, Cotisation)
    ```bash
-   cp requirements/1_métier/[domaine]/regles.md new_docs/domains/[domaine]/rules.md
+   cp requirements/1_métier/[domaine]/regles.md documentations/domains/[domaine]/rules.md
    ```
 
 2. **Migrer les spécifications techniques** ✅ (Adhésion, Cotisation)
    ```bash
-   cp requirements/1_métier/[domaine]/specs.md new_docs/domains/[domaine]/specs.md
+   cp requirements/1_métier/[domaine]/specs.md documentations/domains/[domaine]/specs.md
    ```
 
 3. **Migrer les critères de validation** ✅ (Adhésion, Cotisation)
    ```bash
-   cp requirements/1_métier/[domaine]/validation.md new_docs/domains/[domaine]/validation.md
+   cp requirements/1_métier/[domaine]/validation.md documentations/domains/[domaine]/validation.md
    ```
 
 4. **Créer/Mettre à jour le README.md du domaine** ✅ (Adhésion, Cotisation)
-   - Utiliser le modèle de `new_docs/domains/adhesion/README.md`
+   - Utiliser le modèle de `documentations/domains/adhesion/README.md`
    - Adapter le contenu au domaine spécifique
 
 ### Phase 4: Migration des ressources (Priorité Moyenne)
 
 1. **Migrer le glossaire**
    ```bash
-   cp docs/glossaire/README.md new_docs/glossary.md
+   cp docs/glossaire/README.md documentations/glossary.md
    ```
 
 2. **Migrer les images et diagrammes**
    ```bash
-   cp docs/images/* new_docs/assets/screenshots/
+   cp docs/images/* documentations/assets/screenshots/
    # Identifier et copier les diagrammes depuis diverses sources
    ```
 
@@ -132,13 +132,13 @@ Pour chaque domaine métier (adhésion, cotisation, paiement, présence, rôles,
 
 1. **Migrer les guides administrateur**
    ```bash
-   cp docs/utilisateur/guides/*_admin.md new_docs/guide/admin/
+   cp docs/utilisateur/guides/*_admin.md documentations/guide/admin/
    # Renommer les fichiers pour supprimer le suffixe _admin
    ```
 
 2. **Migrer les guides membre**
    ```bash
-   cp docs/utilisateur/guides/*_membre.md new_docs/guide/member/
+   cp docs/utilisateur/guides/*_membre.md documentations/guide/member/
    # Renommer les fichiers pour supprimer le suffixe _membre
    ```
 
@@ -155,7 +155,7 @@ Pour chaque domaine métier (adhésion, cotisation, paiement, présence, rôles,
    ```bash
    mv docs docs_old
    mv requirements requirements_old
-   mv new_docs docs
+   mv documentations docs
    ```
 
 ## Conseils pour la migration
