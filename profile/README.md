@@ -230,11 +230,11 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 
 ### Support technique
 - **Email** : tech@lecirco.org
-- **Slack** : #tech-support
+- **Discord** : #tech-support
 
 ### Support métier
 - **Email** : business@lecirco.org
-- **Slack** : #business-support
+- **Discord** : #business-support
 
 ---
 

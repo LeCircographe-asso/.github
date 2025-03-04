@@ -85,10 +85,10 @@ test(presence): ajouter des tests pour la validation des listes
 ### Prérequis
 - Ruby 3.2.2
 - Rails 8.0.1
-- PostgreSQL 14+
+- SQLite3
 - Node.js 18+
 - Yarn 1.22+
-- Redis 6+
+- Redis 6+ (uniquement pour le cache)
 - ImageMagick
 
 ### Installation
@@ -301,7 +301,7 @@ git push origin v1.2.3
 
 1. **Prévention**
    - Pull régulier de develop
-   - Communication avec l'équipe sur Slack
+   - Communication avec l'équipe sur Discord
    - Tickets bien définis dans le système de suivi
    - Branches de courte durée
 
@@ -388,7 +388,7 @@ Toute nouvelle fonctionnalité doit être documentée:
 
 ## 🆘 Support
 
-- **Questions techniques** : #tech-support (Slack)
+- **Questions techniques** : #tech-support (Discord)
 - **Bugs** : Issues GitHub
 - **Documentation** : Wiki du projet
 - **Urgences** : Contact direct avec le lead developer

@@ -82,7 +82,7 @@ Chaque domaine est implémenté avec ses propres modèles, contrôleurs, service
 | Base de données | SQLite3 | [Documentation SQLite](https://www.sqlite.org/docs.html) |
 | Authentification | Devise | [Documentation Devise](https://github.com/heartcombo/devise) |
 | Autorisation | Pundit | [Documentation Pundit](https://github.com/varvet/pundit) |
-| Jobs asynchrones | Sidekiq | [Documentation Sidekiq](https://github.com/mperham/sidekiq) |
+| Jobs asynchrones | ActiveJob | [Documentation ActiveJob](https://guides.rubyonrails.org/active_job_basics.html) |
 | Planification | Rufus-Scheduler | [Documentation Rufus](https://github.com/jmettraux/rufus-scheduler) |
 | Tests | RSpec, FactoryBot | [Documentation RSpec](https://rspec.info/) |
 
