@@ -1,7 +1,7 @@
 # Le Circographe - Documentation Officielle 📚
 
 <div align="center">
-  <img src="../docs/images/logo.png" alt="Logo Le Circographe" width="200"/>
+  <img src="../new_docs/assets/screenshots/logo.png" alt="Logo Le Circographe" width="200"/>
   <p><i>Une application de gestion complète pour association de cirque</i></p>
   
   ![Version](https://img.shields.io/badge/version-1.3.0-blue)
@@ -29,26 +29,20 @@ Le Circographe est une application de gestion complète pour une association de 
 
 | Documentation | Description |
 |---------------|-------------|
-| [🔧 Installation](../docs/architecture/README.md) | Comment installer l'application |
-| [🚀 Premier pas](../docs/utilisateur/guides/README.md) | Guide de prise en main rapide |
-| [❓ FAQ](../docs/utilisateur/guides/README.md) | Questions fréquemment posées |
+| [🔧 Installation](../new_docs/technical/setup.md) | Comment installer l'application |
+| [🚀 Premier pas](../new_docs/guide/README.md) | Guide de prise en main rapide |
+| [❓ FAQ](../new_docs/guide/README.md) | Questions fréquemment posées |
 
 ## 🏛️ Structure de la documentation
 
 Notre documentation est organisée de manière hiérarchique pour faciliter la navigation:
 
-### 📁 [Requirements](../requirements/README.md)
+### 📁 [Documentation Principale](../new_docs/README.md)
 
-- [📁 Métier](../requirements/1_métier/index.md) - Règles et spécifications métier
-- [📁 Spécifications Techniques](../requirements/2_specifications_techniques/README.md) - Détails d'implémentation
-- [📁 User Stories](../requirements/3_user_stories/README.md) - Scénarios utilisateur par domaine
-- [📁 Implémentation](../requirements/4_implementation/README.md) - Guide d'implémentation
-
-### 📁 [Docs](../docs/readme.md)
-
-- [📁 Architecture](../docs/architecture/README.md) - Documentation technique
-- [📁 Business](../docs/business/README.md) - Documentation métier
-- [📁 Utilisateur](../docs/utilisateur/README.md) - Guides pour les utilisateurs finaux
+- [📁 Domaines Métier](../new_docs/domains/README.md) - Règles et spécifications métier par domaine
+- [📁 Documentation Technique](../new_docs/technical/README.md) - Architecture et implémentation
+- [📁 Documentation Admin](../new_docs/admin/README.md) - Guides pour administrateurs
+- [📁 Guides Utilisateur](../new_docs/guide/README.md) - Guides pour les utilisateurs finaux
 
 ## 🔄 Domaines métier
 
@@ -71,8 +65,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../requirements/1_métier/adhesion/index.md">Règles métier</a><br>
-      <a href="../requirements/3_user_stories/adhesion.md">User stories</a>
+      <a href="../new_docs/domains/adhesion/README.md">Spécifications</a><br>
+      <a href="../new_docs/domains/adhesion/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -86,8 +80,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../requirements/1_métier/cotisation/index.md">Règles métier</a><br>
-      <a href="../requirements/3_user_stories/cotisation.md">User stories</a>
+      <a href="../new_docs/domains/cotisation/README.md">Spécifications</a><br>
+      <a href="../new_docs/domains/cotisation/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -101,8 +95,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../requirements/1_métier/paiement/index.md">Règles métier</a><br>
-      <a href="../requirements/3_user_stories/paiement.md">User stories</a>
+      <a href="../new_docs/domains/paiement/README.md">Spécifications</a><br>
+      <a href="../new_docs/domains/paiement/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -116,8 +110,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../requirements/1_métier/presence/index.md">Règles métier</a><br>
-      <a href="../requirements/3_user_stories/presence.md">User stories</a>
+      <a href="../new_docs/domains/presence/README.md">Spécifications</a><br>
+      <a href="../new_docs/domains/presence/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -131,8 +125,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../requirements/1_métier/roles/index.md">Règles métier</a><br>
-      <a href="../requirements/3_user_stories/roles.md">User stories</a>
+      <a href="../new_docs/domains/roles/README.md">Spécifications</a><br>
+      <a href="../new_docs/domains/roles/rules.md">Règles métier</a>
     </td>
   </tr>
   <tr>
@@ -146,8 +140,8 @@ Notre application est organisée autour de six domaines métier clairement défi
       </ul>
     </td>
     <td>
-      <a href="../requirements/1_métier/notification/index.md">Règles métier</a><br>
-      <a href="../requirements/3_user_stories/notification.md">User stories</a>
+      <a href="../new_docs/domains/notification/README.md">Spécifications</a><br>
+      <a href="../new_docs/domains/notification/rules.md">Règles métier</a>
     </td>
   </tr>
 </table>
@@ -161,11 +155,11 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](../docs/utilisateur/guides/README.md)
+  - [Guide complet](../new_docs/guide/admin/member_management.md)
   - Domaines associés:
-    - [Adhésion](../requirements/1_métier/adhesion/index.md)
-    - [Rôles](../requirements/1_métier/roles/index.md)
-    - [Notification](../requirements/1_métier/notification/index.md)
+    - [Adhésion](../new_docs/domains/adhesion/README.md)
+    - [Rôles](../new_docs/domains/roles/README.md)
+    - [Notification](../new_docs/domains/notification/README.md)
 </details>
 
 ### 💰 Gestion financière
@@ -173,11 +167,11 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](../docs/utilisateur/guides/README.md)
+  - [Guide complet](../new_docs/guide/admin/financial_management.md)
   - Domaines associés:
-    - [Paiement](../requirements/1_métier/paiement/index.md)
-    - [Adhésion](../requirements/1_métier/adhesion/index.md)
-    - [Cotisation](../requirements/1_métier/cotisation/index.md)
+    - [Paiement](../new_docs/domains/paiement/README.md)
+    - [Adhésion](../new_docs/domains/adhesion/README.md)
+    - [Cotisation](../new_docs/domains/cotisation/README.md)
 </details>
 
 ### 📊 Suivi et statistiques
@@ -185,10 +179,10 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 <details>
   <summary><strong>Voir les guides et références</strong></summary>
   
-  - [Guide complet](../docs/utilisateur/guides/README.md)
+  - [Guide complet](../new_docs/guide/admin/reporting.md)
   - Domaines associés:
-    - [Présence](../requirements/1_métier/presence/index.md)
-    - [Paiement](../requirements/1_métier/paiement/index.md)
+    - [Présence](../new_docs/domains/presence/README.md)
+    - [Paiement](../new_docs/domains/paiement/README.md)
 </details>
 
 ## 📝 Contribution
@@ -218,6 +212,7 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 - v1.1.0 - Ajout gestion des dons
 - v1.2.0 - Intégration comptabilité
 - v1.3.0 - Réorganisation de la documentation
+- v1.4.0 - Migration vers la nouvelle structure de documentation
 
 ## 📞 Support et contact
 

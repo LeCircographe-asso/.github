@@ -8,10 +8,10 @@ main (production)
 │   ├── develop (développement)
 │   │   ├── feature/xxx
 │   │   ├── bugfix/xxx
-│   │   └── refactor/xxx
+│   │   ├── refactor/xxx
+│   │   └── deps/xxx
 │   └── release/x.x.x
 └── hotfix/xxx
-```
 
 ### Branches Principales
 - `main` : Code en production, stable
