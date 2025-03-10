@@ -12,6 +12,8 @@
 !/profile/**
 
 # Conserver les fichiers importants à la racine
+!CONTRIBUTING.md
+!ROADMAP.md
 !.gitignore
 !README.md
 !LICENSE
