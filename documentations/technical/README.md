@@ -80,8 +80,8 @@ Chaque domaine est implémenté avec ses propres modèles, contrôleurs, service
 |-----------|------------|---------------|
 | Framework | Ruby on Rails 8.0.1 | [Documentation Rails](https://guides.rubyonrails.org/) |
 | Base de données | SQLite3 | [Documentation SQLite](https://www.sqlite.org/docs.html) |
-| Authentification | Devise | [Documentation Devise](https://github.com/heartcombo/devise) |
-| Autorisation | Pundit | [Documentation Pundit](https://github.com/varvet/pundit) |
+| Authentification | Authentification native Rails 8 | [Documentation Rails Authentication](https://guides.rubyonrails.org/security.html#user-management) |
+| Autorisation | Système d'autorisation personnalisé | [Spécifications Rôles](../domains/roles/README.md) |
 | Jobs asynchrones | ActiveJob | [Documentation ActiveJob](https://guides.rubyonrails.org/active_job_basics.html) |
 | Planification | Rufus-Scheduler | [Documentation Rufus](https://github.com/jmettraux/rufus-scheduler) |
 | Tests | RSpec, FactoryBot | [Documentation RSpec](https://rspec.info/) |
@@ -168,12 +168,12 @@ L'application expose une API RESTful pour chaque domaine métier:
 
 | Domaine | Endpoint de base | Documentation |
 |---------|-----------------|---------------|
-| Adhésion | `/api/v1/memberships` | [API Adhésion](api/memberships.md) |
-| Cotisation | `/api/v1/subscriptions` | [API Cotisation](api/subscriptions.md) |
-| Paiement | `/api/v1/payments` | [API Paiement](api/payments.md) |
-| Présence | `/api/v1/attendances` | [API Présence](api/attendances.md) |
-| Rôles | `/api/v1/roles` | [API Rôles](api/roles.md) |
-| Notification | `/api/v1/notifications` | [API Notification](api/notifications.md) |
+| Adhésion | `/api/v1/memberships` | [API Adhésion](api.md#adhésion) |
+| Cotisation | `/api/v1/subscriptions` | [API Cotisation](api.md#cotisation) |
+| Paiement | `/api/v1/payments` | [API Paiement](api.md#paiement) |
+| Présence | `/api/v1/attendances` | [API Présence](api.md#présence) |
+| Rôles | `/api/v1/roles` | [API Rôles](api.md#rôles) |
+| Notification | `/api/v1/notifications` | [API Notification](api.md#notification) |
 
 ## Workflows de développement
 
@@ -231,13 +231,15 @@ Un fichier `.rubocop.yml` est inclus dans le projet pour assurer la cohérence d
 - Utiliser `strong_parameters` dans tous les contrôleurs
 - Valider toutes les entrées utilisateur
 - Éviter les requêtes N+1 avec `includes` et `eager_load`
+- Utiliser le système d'autorisation personnalisé pour vérifier les permissions
+- Journaliser les actions sensibles pour l'audit de sécurité
 
 ## Ressources supplémentaires
 
-- [Guide de contribution](../CONTRIBUTING.md)
-- [Guide de déploiement](deployment.md)
-- [Guide de dépannage](troubleshooting.md)
-- [FAQ Développeurs](faq.md)
+- [Guide de contribution](../../CONTRIBUTING.md)
+- [Guide de déploiement](workflows.md#processus-de-déploiement)
+- [Guide de dépannage](workflows.md#revue-de-code)
+- [FAQ Développeurs](../admin/faq.md)
 
 ---
 

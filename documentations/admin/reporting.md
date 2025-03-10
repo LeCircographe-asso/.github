@@ -70,7 +70,22 @@ Certains rapports peuvent être configurés pour être générés et envoyés au
 
 ### Rapport d'état des adhésions
 
-![Exemple de rapport d'adhésions](../assets/screenshots/rapport_adhesions.png)
+### Exemple de rapport d'adhésions
+
+```
++----------------------+-------+
+| Statut d'adhésion    | Total |
++----------------------+-------+
+| Active               |   157 |
+| En attente           |    23 |
+| Expirée              |    42 |
+| En renouvellement    |    15 |
++----------------------+-------+
+| Total                |   237 |
++----------------------+-------+
+```
+
+*Note: Les captures d'écran des rapports seront ajoutées ultérieurement.*
 
 #### Éléments clés à surveiller
 
@@ -90,7 +105,23 @@ Certains rapports peuvent être configurés pour être générés et envoyés au
 
 ### Rapport financier
 
-![Exemple de rapport financier](../assets/screenshots/rapport_financier.png)
+### Exemple de rapport financier
+
+```
++------------------------+---------------+
+| Type de paiement       | Montant total |
++------------------------+---------------+
+| Adhésions              |     3,925.00€ |
+| Cotisations mensuelles |     2,175.00€ |
+| Cotisations annuelles  |     5,650.00€ |
+| Cartes 10 séances      |     1,950.00€ |
+| Dons                   |       875.00€ |
++------------------------+---------------+
+| Total                  |    14,575.00€ |
++------------------------+---------------+
+```
+
+*Note: Les captures d'écran des rapports seront ajoutées ultérieurement.*
 
 #### Éléments clés à surveiller
 
@@ -110,7 +141,22 @@ Certains rapports peuvent être configurés pour être générés et envoyés au
 
 ### Rapport de fréquentation
 
-![Exemple de rapport de fréquentation](../assets/screenshots/rapport_frequentation.png)
+### Exemple de rapport de fréquentation
+
+```
++------------------+--------+---------+---------------+
+| Activité         | Places | Présent | Taux moyen    |
++------------------+--------+---------+---------------+
+| Aérien           |     12 |      10 |          83% |
+| Acrobatie        |     15 |      13 |          87% |
+| Jonglerie        |     20 |      14 |          70% |
+| Équilibre        |     10 |       7 |          70% |
++------------------+--------+---------+---------------+
+| Moyenne          |        |         |          78% |
++------------------+--------+---------+---------------+
+```
+
+*Note: Les captures d'écran des rapports seront ajoutées ultérieurement.*
 
 #### Éléments clés à surveiller
 

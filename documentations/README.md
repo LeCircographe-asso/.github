@@ -8,12 +8,12 @@ Le Circographe est une application de gestion pour les associations de cirque, d
 
 | Je veux... | Consulter... |
 |------------|--------------|
-| **Comprendre l'architecture** | [Architecture du système](technical/README.md#architecture-de-lapplication) |
-| **Explorer les modèles de données** | [Modèles et relations](technical/README.md#modèles-de-données) |
-| **Configurer mon environnement** | [Guide d'installation](technical/README.md#installation) |
-| **Comprendre les flux de travail** | [Workflows de développement](technical/README.md#workflows-de-développement) |
+| **Comprendre l'architecture** | [Architecture du système](technical/architecture.md) |
+| **Explorer les modèles de données** | [Modèles et relations](technical/models.md) |
+| **Configurer mon environnement** | [Guide d'installation](technical/setup.md) |
+| **Comprendre les flux de travail** | [Workflows de développement](technical/workflows.md) |
 | **Implémenter une fonctionnalité** | [Guide d'implémentation](technical/README.md#bonnes-pratiques) |
-| **Explorer l'API** | [Documentation API](technical/README.md#api-restful) |
+| **Explorer l'API** | [Documentation API](api.md) |
 
 ## Spécifications métier
 
@@ -38,9 +38,12 @@ Le Circographe est une application de gestion pour les associations de cirque, d
 
 ## Ressources techniques
 
-- [Stack technique](technical/README.md#stack-technique) - Description détaillée des technologies utilisées
-- [Diagrammes techniques](technical/README.md#diagramme-de-classes) - Diagrammes d'architecture, de classes et de séquence
-- [Modèles de données](technical/README.md#modèles-de-données) - Description détaillée des modèles et relations
+- [Stack technique](technical/architecture.md#stack-technique) - Description détaillée des technologies utilisées
+- [Diagrammes techniques](domains/README.md#interactions-entre-domaines) - Diagrammes d'architecture, de classes et de séquence
+- [Modèles de données](technical/models.md) - Description détaillée des modèles et relations
+- [Architecture](technical/architecture.md) - Architecture du système
+- [Workflows de développement](technical/workflows.md) - Processus de développement
+- [API RESTful](api.md) - Documentation de l'API
 - [Guide de style](technical/README.md#style-de-code) - Conventions de codage et bonnes pratiques
 
 ## Documentation utilisateur
@@ -51,24 +54,17 @@ La documentation destinée aux utilisateurs finaux est disponible dans la sectio
 
 - [Glossaire](glossary.md) - Définitions des termes techniques et métier
 - [FAQ Développeurs](technical/README.md#ressources-supplémentaires) - Questions fréquemment posées par les développeurs
-- [FAQ Administrateurs](admin/faq.md) ⚠️ - Questions fréquemment posées par les administrateurs
+- [FAQ Administrateurs](admin/faq.md) - Questions fréquemment posées par les administrateurs
 
 ## ⚠️ Fichiers manquants à créer
 
 Les fichiers suivants sont référencés mais n'existent pas encore :
 
-1. **Dossier admin** :
-   - `admin/validation_criteria.md`
-   - `admin/workflows.md`
-   - `admin/configuration.md`
-   - `admin/reporting.md`
-   - `admin/faq.md`
+1. **Guides utilisateur** :
+   - Les guides spécifiques dans `guide/admin/` et `guide/member/` doivent être complétés
 
 2. **Dossier assets** :
-   - Le dossier `assets/diagrams/` est manquant
-
-3. **Guides utilisateur** :
-   - Les guides spécifiques dans `guide/admin/` et `guide/member/` doivent être créés
+   - Le dossier `assets/diagrams/` doit être complété avec les diagrammes
 
 ---
 

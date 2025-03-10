@@ -25,7 +25,7 @@ Le projet sera géré via GitHub Projects avec la structure suivante :
 | Tâche | Description | Priorité | Assigné à |
 |-------|-------------|----------|-----------|
 | **Mise en place du projet** | Initialisation du projet Rails avec Hotwire et Tailwind CSS | Haute | Développeur 1 |
-| **Authentification UI** | Interface de connexion, inscription et gestion de profil | Haute | Développeur 2 |
+| **Authentification UI** | Interface de connexion, inscription et gestion de profil (utilisant l'authentification native de Rails 8) | Haute | Développeur 2 |
 | **Layout principal** | Structure de base de l'application (header, footer, navigation) | Haute | Développeur 3 |
 | **Composants UI de base** | Boutons, formulaires, cartes, modales, notifications | Haute | Développeur 1 |
 | **Dashboard membre** | Vue d'ensemble pour les membres | Moyenne | Développeur 2 |
@@ -49,7 +49,7 @@ Le projet sera géré via GitHub Projects avec la structure suivante :
 | Tâche | Description | Priorité | Assigné à |
 |-------|-------------|----------|-----------|
 | **Mise en place de l'API** | Structure de base de l'API RESTful | Haute | Développeur 4 |
-| **Authentification** | Système d'authentification et autorisation | Haute | Développeur 5 |
+| **Authentification** | Système d'authentification native Rails 8 et autorisation personnalisée | Haute | Développeur 5 |
 | **Modèles de base** | Implémentation des modèles principaux et relations | Haute | Développeur 6 |
 | **Gestion des adhésions** | Logique métier pour les adhésions | Haute | Développeur 4 |
 | **Gestion des cotisations** | Logique métier pour les cotisations | Haute | Développeur 5 |
@@ -152,9 +152,9 @@ Le projet sera géré via GitHub Projects avec la structure suivante :
 #### Backend
 - Modèle `Role` avec validations
 - Service `RoleManager`
-- Logique de permissions
+- Logique de permissions personnalisée
 - Audit des modifications
-- Intégration avec l'authentification
+- Intégration avec l'authentification native de Rails 8
 
 ### 6. Domaine Notification
 
@@ -172,7 +172,7 @@ Le projet sera géré via GitHub Projects avec la structure suivante :
 
 ## Dépendances et ordre d'implémentation
 
-1. **Fondation** : Authentification, Modèles de base, Layout
+1. **Fondation** : Authentification native Rails 8, Modèles de base, Layout
 2. **Core** : Adhésion, Rôles
 3. **Fonctionnalités principales** : Cotisation, Paiement
 4. **Fonctionnalités secondaires** : Présence, Notification
@@ -180,7 +180,7 @@ Le projet sera géré via GitHub Projects avec la structure suivante :
 
 ## Critères de succès du MVP
 
-- Système d'authentification fonctionnel
+- Système d'authentification native Rails 8 fonctionnel
 - Gestion complète du cycle d'adhésion
 - Gestion des cotisations et paiements
 - Système de pointage des présences
@@ -196,6 +196,7 @@ Le projet sera géré via GitHub Projects avec la structure suivante :
 | Complexité des règles métier | Moyen | Élevée | Se concentrer sur les cas d'usage principaux |
 | Problèmes d'intégration front/back | Moyen | Moyenne | Définir clairement les contrats d'API |
 | Bugs dans les fonctionnalités critiques | Élevé | Moyenne | Prioriser les tests sur ces fonctionnalités |
+| Complexité de l'autorisation personnalisée | Moyen | Moyenne | Commencer par un système simple et l'étendre progressivement |
 
 ## Après le MVP
 
