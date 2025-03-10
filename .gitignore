@@ -1,5 +1,32 @@
+# Ignorer tout par défaut
+*
+
+# Mais conserver les dossiers spécifiques
+!/.github/
+!/.github/**
+!/documentations/
+!/documentations/**
+!/optionnal/
+!/optionnal/**
+!/profile/
+!/profile/**
+
+# Conserver les fichiers importants à la racine
+!.gitignore
+!README.md
+!LICENSE
+!LICENSE.md
+
+# Ignorer des fichiers spécifiques, même dans les dossiers conservés
+.DS_Store
+.env
+.env.*
+*.log
 .cursorrules
-DEPRECATED/
+
+# Ignorer explicitement ces dossiers
+/DEPRECATED/
+
 # Ignore documentation migration plan and status files
 documentations/MIGRATION_PLAN.md
 documentations/MIGRATION_STATUS.md
