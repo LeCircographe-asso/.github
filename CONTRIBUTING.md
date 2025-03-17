@@ -22,12 +22,12 @@ main (production)
 - `develop` : Branche principale de développement, intégration continue
 
 ### Branches de Travail
-- `feature/xxx` : Nouvelles fonctionnalités (ex: `feature/user-authentication`)
-- `bugfix/xxx` : Corrections de bugs (ex: `bugfix/login-error`)
-- `refactor/xxx` : Refactoring du code (ex: `refactor/clean-user-model`)
-- `release/x.x.x` : Préparation des releases (ex: `release/1.2.0`)
-- `hotfix/xxx` : Corrections urgentes en production (ex: `hotfix/critical-security-fix`)
-- `docs/xxx` : Modifications de documentation uniquement (ex: `docs/update-api-docs`)
+- `feature-xxx` : Nouvelles fonctionnalités (ex: `feature-user-authentication`)
+- `bugfix-xxx` : Corrections de bugs (ex: `bugfix-login-error`)
+- `refacto-xxx` : Refactoring du code (ex: `refacto-clean-user-model`)
+- `release-x.x.x` : Préparation des releases (ex: `release-1.2.0`)
+- `hotfix-xxx` : Corrections urgentes en production (ex: `hotfix-critical-security-fix`)
+- `docs-xxx` : Modifications de documentation uniquement (ex: `docs-update-api-docs`)
 
 ## 📝 Conventions de Commit
 
@@ -83,11 +83,11 @@ test(presence): ajouter des tests pour la validation des listes
 ## 🚀 Environnement de développement
 
 ### Prérequis
-- Ruby 3.2.2
+- Ruby 3.2.5
 - Rails 8.0.1
 - SQLite3
 - Node.js 18+
-- Yarn 1.22+
+- Npm 10.9.1
 - Redis 6+ (uniquement pour le cache)
 - ImageMagick
 
@@ -117,7 +117,6 @@ bin/dev
 - VSCode avec les extensions Ruby, Rails, ESLint
 - Rubocop pour le linting Ruby
 - ESLint pour le linting JavaScript
-- Foreman pour gérer les processus de développement
 
 ## 🔄 Workflow de Développement
 
@@ -153,11 +152,8 @@ bin/dev
 ## 👁️ Revue de Code
 
 ### Critères de Validation
-- Tests passent ✅
 - Pas de conflits avec develop ⚠️
-- Respecte les standards de code 📝
-- Documentation à jour 📚
-- Approuvé par au moins 1 reviewer 👥
+- Approuvé par au moins 2 reviewer 👥
 
 ### Checklist de Review
 - [ ] Le code suit les conventions
@@ -173,112 +169,6 @@ bin/dev
 3. Effectuez les modifications demandées dans de nouveaux commits
 4. Une fois approuvée, squashez vos commits si nécessaire
 5. Le reviewer effectuera le merge
-
-## 📊 Standards de Code
-
-### Ruby
-- Suivre le [Ruby Style Guide](https://github.com/rubocop/ruby-style-guide)
-- Indentation de 2 espaces
-- Limiter les lignes à 100 caractères
-- Utiliser les nouvelles syntaxes Ruby 3.x quand approprié
-
-```ruby
-# Bon
-def calculate_total(items)
-  items.sum { |item| item.price * item.quantity }
-end
-
-# Mauvais
-def calculate_total(items)
-  total = 0
-  items.each do |i|
-    total = total + i.price * i.quantity
-  end
-  return total
-end
-```
-
-### Rails
-- Suivre le [Rails Style Guide](https://github.com/rubocop/rails-style-guide)
-- Utiliser les conventions de nommage Rails
-- Préférer les scopes aux méthodes de classe
-- Utiliser les validations au niveau du modèle
-
-```ruby
-# Bon
-class Membership < ApplicationRecord
-  belongs_to :user
-  belongs_to :membership_type
-  
-  validates :start_date, presence: true
-  validates :end_date, presence: true
-  
-  scope :active, -> { where("start_date <= ? AND end_date >= ?", Date.current, Date.current) }
-end
-
-# Mauvais
-class Membership < ApplicationRecord
-  def self.find_active
-    where("start_date <= ? AND end_date >= ?", Date.current, Date.current)
-  end
-end
-```
-
-### Tests
-- Utiliser RSpec pour les tests
-- Organiser les tests par type (modèles, contrôleurs, etc.)
-- Utiliser FactoryBot pour les fixtures
-- Viser une couverture de code > 80%
-
-```ruby
-# Exemple de test RSpec
-RSpec.describe Membership, type: :model do
-  describe "validations" do
-    it { should validate_presence_of(:start_date) }
-    it { should validate_presence_of(:end_date) }
-  end
-  
-  describe "scopes" do
-    describe ".active" do
-      it "returns only active memberships" do
-        active = create(:membership, start_date: 1.month.ago, end_date: 1.month.from_now)
-        expired = create(:membership, start_date: 2.months.ago, end_date: 1.month.ago)
-        
-        expect(Membership.active).to include(active)
-        expect(Membership.active).not_to include(expired)
-      end
-    end
-  end
-end
-```
-
-## 🚢 Déploiement
-
-### Staging
-1. Merger `develop` dans `staging`
-2. Tests automatisés via CI/CD
-3. Tests manuels sur l'environnement de staging
-4. Validation QA
-
-### Production
-1. Créer une branche `release/x.x.x`
-2. Tests finaux
-3. Merger dans `main`
-4. Tag de version
-5. Déploiement automatique via CI/CD
-
-### Commandes de déploiement
-```bash
-# Déploiement en staging
-git checkout staging
-git merge develop
-git push origin staging
-
-# Déploiement en production
-git checkout main
-git merge release/1.2.3
-git tag -a v1.2.3 -m "Version 1.2.3"
-git push origin main --tags
 ```
 
 ## 🏷️ Versioning
@@ -376,23 +266,3 @@ Avant de soumettre une PR pour une fonctionnalité critique:
 2. Tester avec un jeu de données réaliste
 3. Optimiser les requêtes SQL complexes
 4. Vérifier l'utilisation de la mémoire
-
-## 📚 Documentation
-
-Toute nouvelle fonctionnalité doit être documentée:
-
-1. Documentation technique dans `/documentations/technical/`
-2. Documentation métier dans `/documentations/domains/[domaine]/`
-3. Mise à jour des guides utilisateur si nécessaire
-4. Commentaires explicatifs pour le code complexe
-
-## 🆘 Support
-
-- **Questions techniques** : #tech-support (Discord)
-- **Bugs** : Issues GitHub
-- **Documentation** : Wiki du projet
-- **Urgences** : Contact direct avec le lead developer
-
----
-
-Ce guide est évolutif. N'hésitez pas à proposer des améliorations via une PR avec le préfixe `docs:`. 
