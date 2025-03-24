@@ -7,7 +7,7 @@ Ce guide détaille les étapes nécessaires pour installer et configurer l'appli
 Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 
 - **Ruby** (version 3.2.0 ou supérieure)
-- **Rails** (version 8.0.1)
+- **Rails** (version 8.0.2)
 - **SQLite3** (pour le développement et les tests)
 - **Node.js** (version 18.x ou supérieure)
 - **Yarn** (version 1.22.x ou supérieure)
