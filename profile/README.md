@@ -5,7 +5,7 @@
   <p><i>Une application de gestion complète pour association de cirque</i></p>
   
   ![Version](https://img.shields.io/badge/version-1.3.0-blue)
-  ![Rails](https://img.shields.io/badge/Rails-8.0.1-red)
+  ![Rails](https://img.shields.io/badge/Rails-8.0.2-red)
   ![License](https://img.shields.io/badge/license-MIT-green)
 </div>
 
