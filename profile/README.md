@@ -41,8 +41,9 @@ Notre documentation est organisée de manière hiérarchique pour faciliter la n
 ### 📁 [Documentation Principale](../documentations/README.md)
 
 - [📁 Domaines Métier](../documentations/domains/README.md) - Règles et spécifications métier par domaine
-- [📁 Documentation Technique](../documentations/technical/README.md) - Architecture et implémentation
-- [📁 Documentation Admin](../documentations/admin/README.md) - Guides pour administrateurs
+- [📁 Wireframe](https://whimsical.com/wireframe-content-mapping-HYkmAuT9fc9BdZPB2vUvGc) - Wireframe
+- [📁 Schema bdd](https://whimsical.com/diagram-database-J4Z17pjJ61YmVM9LK5jPMx) - Schema BDD
+- [📁 User Stories](https://whimsical.com/user-stories-fonctionnal-mapping-GTkoaDv7mHwg8q8h3w5Mt4) - User Stories
 - [📁 Guides Utilisateur](../documentations/guide/README.md) - Guides pour les utilisateurs finaux
 
 ## 🔄 Domaines métier
@@ -220,11 +221,10 @@ Pour faciliter la navigation, nous proposons des guides par cas d'usage qui trav
 
 ## 🏷️ Versions
 
-- v1.0.0 - Version initiale
-- v1.1.0 - Ajout gestion des dons
-- v1.2.0 - Intégration comptabilité
-- v1.3.0 - Réorganisation de la documentation
-- v1.4.0 - Migration vers la nouvelle structure de documentation
+- v0.2 - Before refacto products + Users + Opening Hours 
+- v0.5.1 - Refactorisation design/UX + Features
+- v0.5.2 - Hotfix for opening hours display
+
 
 ## 📞 Support et contact
 
