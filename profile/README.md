@@ -1,249 +1,51 @@
-# Le Circographe - Documentation Officielle 📚
+# Le Circographe — Documentation
 
-<div align="center">
-  <img src="../documentations/assets/screenshots/logo.png" alt="Logo Le Circographe" width="200"/>
-  <p><i>Une application de gestion complète pour association de cirque</i></p>
-  
-  ![Version](https://img.shields.io/badge/version-0.5.9-blue)
-  ![Rails](https://img.shields.io/badge/Rails-8.0.2-red)
-  ![License](https://img.shields.io/badge/license-MIT-green)
-</div>
+Documentation d'entree pour l'organisation Le Circographe.
 
-<div align="right">
-  <a href="../README.md">⬅️ Retour au projet</a>
-</div>
+![Version](https://img.shields.io/badge/version-0.5.9.1-blue)
+![Rails](https://img.shields.io/badge/Rails-8.1.3-red)
+![Ruby](https://img.shields.io/badge/Ruby-4.0.1-red)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## 🎯 Vue d'ensemble
-Le Circographe est une application de gestion complète pour une association de cirque, développée avec Ruby on Rails 8.0.1. Cette documentation couvre l'ensemble des aspects techniques, fonctionnels et organisationnels du projet.
+> Statut: active  
+> Derniere mise a jour: 2026-04-30
 
-## 🧭 Navigation
+## Acces rapide
 
-- [📘 Guide de démarrage rapide](#-guide-de-démarrage-rapide)
-- [🏛️ Structure de la documentation](#-structure-de-la-documentation)
-- [🔄 Domaines métier](#-domaines-métier)
-- [📋 Guides par cas d'usage](#-guides-par-cas-dusage)
-- [📝 Contribution](#-contribution)
-- [📞 Support](#-support-et-contact)
-- [🛠️ Guide de développement](../CONTRIBUTING.md)
+- Projet principal (code + docs vivantes): `le_circographe`
+- Guide contribution: `CONTRIBUTING.md`
+- Roadmap: `ROADMAP.md`
 
-## 📘 Guide de démarrage rapide
+## Documentation recommandee
 
-| Documentation | Description |
-|---------------|-------------|
-| [🔧 Installation](../documentations/technical/setup.md) | Comment installer l'application |
-| [🚀 Premier pas](../documentations/guide/README.md) | Guide de prise en main rapide |
-| [❓ FAQ](../documentations/guide/README.md) | Questions fréquemment posées |
+La documentation de reference (fonctionnelle + technique) est maintenue dans le depot applicatif, pour eviter la derive entre plusieurs sources.
 
-## 🏛️ Structure de la documentation
+Sections prioritaires a consulter:
+- Glossaire metier
+- Modele de domaine
+- Guide tests (RSpec only)
+- Architecture (services / controllers / models)
+- Deploiement
 
-Notre documentation est organisée de manière hiérarchique pour faciliter la navigation:
+## Conventions actuelles (rappel)
 
-### 📁 [Documentation Principale](../documentations/README.md)
+- Tests: **RSpec uniquement**
+- Authentification: **native Rails 8** (pas Devise)
+- I18n: UI en francais actuellement, structure prete pour anglais
 
-- [📁 Domaines Métier](../documentations/domains/README.md) - Règles et spécifications métier par domaine
-- [📁 Documentation Whimsical]([../documentations/domains/README.md](https://whimsical.com/circograph-LAUT9hRLjkgEcGkLDKFPKV)) - Contient toute les documentations et graphiques
-- [📁 Wireframe](https://whimsical.com/wireframe-content-mapping-HYkmAuT9fc9BdZPB2vUvGc) - Wireframe
-- [📁 Schema bdd](https://whimsical.com/diagram-database-J4Z17pjJ61YmVM9LK5jPMx) - Schema BDD
-- [📁 User Stories](https://whimsical.com/user-stories-fonctionnal-mapping-GTkoaDv7mHwg8q8h3w5Mt4) - User Stories
-- [📁 Guides Utilisateur](../documentations/guide/README.md) - Guides pour les utilisateurs finaux
+## Archives
 
-## 🔄 Domaines métier
+Les anciennes documentations (historiques) restent consultables mais ne font plus foi.  
+En cas de conflit, la doc du repo applicatif est prioritaire.
 
-Notre application est organisée autour de six domaines métier clairement définis, chacun avec ses propres responsabilités:
+## Contribuer
 
-<table>
-  <tr>
-    <th>Domaine</th>
-    <th>Description</th>
-    <th>Documentation</th>
-  </tr>
-  <tr>
-    <td><strong>Adhésion</strong></td>
-    <td>
-      Gestion des adhésions Basic et Cirque, incluant:
-      <ul>
-        <li>Création et renouvellement</li>
-        <li>Upgrade Basic → Cirque</li>
-        <li>Cycle de vie des adhésions</li>
-      </ul>
-    </td>
-    <td>
-      <a href="../documentations/domains/adhesion/README.md">Spécifications</a><br>
-      <a href="../documentations/domains/adhesion/rules.md">Règles métier</a>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>Cotisation</strong></td>
-    <td>
-      Formules d'accès aux entraînements:
-      <ul>
-        <li>Séances uniques, cartes 10 séances</li>
-        <li>Abonnements mensuels et annuels</li>
-        <li>Tarifications normale et réduite</li>
-      </ul>
-    </td>
-    <td>
-      <a href="../documentations/domains/cotisation/README.md">Spécifications</a><br>
-      <a href="../documentations/domains/cotisation/rules.md">Règles métier</a>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>Paiement</strong></td>
-    <td>
-      Transactions financières:
-      <ul>
-        <li>Gestion des paiements et reçus</li>
-        <li>Traitement des dons et reçus fiscaux</li>
-        <li>Rapports financiers</li>
-      </ul>
-    </td>
-    <td>
-      <a href="../documentations/domains/paiement/README.md">Spécifications</a><br>
-      <a href="../documentations/domains/paiement/rules.md">Règles métier</a>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>Présence</strong></td>
-    <td>
-      Suivi des entraînements:
-      <ul>
-        <li>Pointage et contrôle d'accès</li>
-        <li>Statistiques de fréquentation</li>
-        <li>Gestion de la capacité</li>
-      </ul>
-    </td>
-    <td>
-      <a href="../documentations/domains/presence/README.md">Spécifications</a><br>
-      <a href="../documentations/domains/presence/rules.md">Règles métier</a>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>Rôles</strong></td>
-    <td>
-      Gestion des accès:
-      <ul>
-        <li>Rôles système (permissions)</li>
-        <li>Rôles associatifs (fonctions)</li>
-        <li>Audit des actions</li>
-      </ul>
-    </td>
-    <td>
-      <a href="../documentations/domains/roles/README.md">Spécifications</a><br>
-      <a href="../documentations/domains/roles/rules.md">Règles métier</a>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>Notification</strong></td>
-    <td>
-      Communication automatisée:
-      <ul>
-        <li>Rappels et confirmations</li>
-        <li>Alertes système</li>
-        <li>Préférences de notification</li>
-      </ul>
-    </td>
-    <td>
-      <a href="../documentations/domains/notification/README.md">Spécifications</a><br>
-      <a href="../documentations/domains/notification/rules.md">Règles métier</a>
-    </td>
-  </tr>
-</table>
-
-## 📋 Guides par cas d'usage
-
-Pour faciliter la navigation, nous proposons des guides par cas d'usage qui traversent les différents domaines:
-
-### 👥 Gestion des membres
-
-<details>
-  <summary><strong>Voir les guides et références</strong></summary>
-  
-  - [Guide complet](../documentations/guide/admin/member_management.md)
-  - Domaines associés:
-    - [Adhésion](../documentations/domains/adhesion/README.md)
-    - [Rôles](../documentations/domains/roles/README.md)
-    - [Notification](../documentations/domains/notification/README.md)
-</details>
-
-### 💰 Gestion financière
-
-<details>
-  <summary><strong>Voir les guides et références</strong></summary>
-  
-  - [Guide complet](../documentations/guide/admin/financial_management.md)
-  - Domaines associés:
-    - [Paiement](../documentations/domains/paiement/README.md)
-    - [Adhésion](../documentations/domains/adhesion/README.md)
-    - [Cotisation](../documentations/domains/cotisation/README.md)
-</details>
-
-### 📊 Suivi et statistiques
-
-<details>
-  <summary><strong>Voir les guides et références</strong></summary>
-  
-  - [Guide complet](../documentations/guide/admin/reporting.md)
-  - Domaines associés:
-    - [Présence](../documentations/domains/presence/README.md)
-    - [Paiement](../documentations/domains/paiement/README.md)
-</details>
-
-## 📝 Contribution
-
-<div align="center">
-  <h3>🚀 Contribuer au projet</h3>
-  <p>Nous accueillons avec plaisir les contributions de la communauté !</p>
-  
-  <a href="../CONTRIBUTING.md"><strong>📖 Consulter le guide de contribution complet »</strong></a>
-</div>
-
-<br>
-
-<details>
-  <summary><strong>Guide de contribution</strong></summary>
-  
-  Pour contribuer au projet, veuillez consulter notre [guide de contribution détaillé](../CONTRIBUTING.md) qui explique:
-  
-  1. Le workflow Git à suivre
-  2. Les conventions de nommage des branches
-  3. Les conventions de commit
-  4. Le processus de revue de code
-  5. Les standards de test
-</details>
-
-<details>
-  <summary><strong>Standards de documentation</strong></summary>
-  
-  - Utiliser le Markdown pour tous les documents
-  - Suivre les templates fournis
-  - Maintenir les liens entre documents
-  - Mettre à jour le glossaire si nécessaire
-</details>
-
-## 🏷️ Versions
-
-- v0.2 - Before refacto products + Users + Opening Hours 
-- v0.5.1 - Refactorisation design/UX + Features
-- v0.5.2 - Hotfix for opening hours display
-
-
-## 📞 Support et contact
-
-### Support technique
-- **Email** : tech@lecirco.org
-- **Discord** : #tech-support
-
-### Support métier
-- **Email** : business@lecirco.org
-- **Discord** : #business-support
+Voir `CONTRIBUTING.md` pour:
+- workflow de branches
+- conventions de commits
+- regles de revue
+- standards de qualite
 
 ---
 
-<div align="center">
-  <p>
-    <a href="../README.md">⬅️ Retour au projet</a> | 
-    <a href="#le-circographe---documentation-officielle-">⬆️ Haut de page</a>
-  </p>
-  
-  <p>Ce projet est sous licence MIT - voir le fichier <a href="../LICENSE.md">LICENSE.md</a> pour plus de détails.</p>
-</div> 
+Si un lien est casse ou ambigu, ouvrir une PR `docs-only` pour correction rapide.
